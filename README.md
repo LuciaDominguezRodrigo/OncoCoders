@@ -13,3 +13,16 @@ The goal of this project is to develop **algorithms and predictive models for va
 | Ainhoa López Carrasco  | ainhoa.lop.car@gmail.com | [@Alopeeez04](https://github.com/Alopeeez04) |
 |   |  |  |
 |   |  |  |
+
+### 🛠️ V0 prototype
+
+This section showcases the Version 0 (V0) prototype of the application, featuring the initial set of screens that outline the app’s core functionality and user interface. The prototype serves as a foundational visual representation, helping to validate the design, navigation flow, and user interactions before further development.
+
+The screens included in this version may undergo changes as feedback is gathered and improvements are made. 
+
+
+You can view all the prototype screens in the following Google Drive folder:  
+
+➡️ [Click here to access the images](https://drive.google.com/drive/folders/1r1pOR_zI03jgq-HQDjaMytkzh4zrftb1?usp=sharing)  
+
+
