@@ -1,0 +1,23 @@
+services:
+  web:
+    image: luciadominguezrodrigo/oncocoders:v2.0
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    ports:
+      - 8443:8443
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/OncoCoders?serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=916901930Aa.
+    restart: on-failure
+  db:
+    image: mysql:8.0.36
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=916901930Aa.
+      - MYSQL_DATABASE=oncococoders
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+
