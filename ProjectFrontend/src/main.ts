@@ -1,8 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routing'; // Importa las rutas directamente
+import { routes } from './app/app.routing';  // Importa las rutas
+import { provideHttpClient } from '@angular/common/http';  // Importar provideHttpClient
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)] // Configura el router correctamente
+  providers: [
+    provideRouter(routes),  // Configura el enrutador
+    provideHttpClient()  // Solo usa provideHttpClient sin interceptores
+  ]
 });

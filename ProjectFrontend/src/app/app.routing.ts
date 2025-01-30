@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component'; // Componente standalone
+import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-  { path: '', component: HomepageComponent }, // Página principal
-  { path: '**', redirectTo: '' } // Redirige cualquier otra ruta a la principal
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },  // Redirigir al login si no se especifica ruta
+  { path: '**', redirectTo: '/login' }  // Redirigir cualquier ruta no válida a login
 ];
