@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';  // Importar HttpClientModule
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';  // Importar HttpClientModule
 
 
 @Component({
@@ -9,7 +10,9 @@ import { HttpClientModule } from '@angular/common/http';  // Importar HttpClient
   template: `
     <router-outlet></router-outlet>`,
   imports: [
-    RouterOutlet, HttpClientModule
+    RouterOutlet,
+    CommonModule,
+    ReactiveFormsModule
   ]
 })
 export class AppComponent { }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { User } from '../models/user.model';
 import { CommonModule } from '@angular/common';  // Importar CommonModule
 import { ReactiveFormsModule } from '@angular/forms';  // Importar ReactiveFormsModule
@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';  // Importar ReactiveForms
   standalone: true,  // Este es un componente standalone
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [CommonModule, ReactiveFormsModule]  // Aquí se importan los módulos necesarios
+  imports: [CommonModule, ReactiveFormsModule, RouterLink]  // Aquí se importan los módulos necesarios
 })
 export class LoginComponent {
   loginForm: FormGroup;

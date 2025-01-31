@@ -33,7 +33,7 @@ public class DatabaseInitializer {
 		Blob photoBlob1 = new SerialBlob(photoBytes);
 
 		userRepository.save(new User("user", passwordEncoder.encode("pass"),"oncocodersUser@hmail.com",photoBlob1 ,"USER"));
-		userRepository.save(new User("clinicUser", passwordEncoder.encode("clinicpass"),"oncocodersclinicdUser@hmail.com",photoBlob1 ,"CLINICUSER"));
+		userRepository.save(new User("clinicUser", passwordEncoder.encode("clinicpass"),"oncocoderssanitario@hmail.com",photoBlob1 ,"CLINICUSER"));
 		userRepository.save(new User("admin", passwordEncoder.encode("adminpass"),"oncocodersAdmin@hmail.com",photoBlob1,  "ADMIN"));
 	}
 }
