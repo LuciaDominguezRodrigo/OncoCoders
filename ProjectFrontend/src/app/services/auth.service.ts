@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https:/localhost:8443/api/auth/login';  // Cambia por la URL real de tu backend
+  private apiUrl = 'https://localhost:8443/api/auth/login';  // Cambia por la URL real de tu backend
 
   constructor(private http: HttpClient) {}
 

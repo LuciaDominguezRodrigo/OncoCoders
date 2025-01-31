@@ -30,7 +30,7 @@ export class LoginComponent {
         next: (user: User) => {
           console.log('Usuario autenticado:', user);
           localStorage.setItem('user', JSON.stringify(user)); // Guarda en localStorage
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/']);
         },
         error: (error) => {
           console.error('Error en el login', error);

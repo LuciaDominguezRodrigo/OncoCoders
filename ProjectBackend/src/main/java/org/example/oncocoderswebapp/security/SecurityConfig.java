@@ -64,6 +64,7 @@ public class SecurityConfig {
 			.exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandlerJwt));
 		
 		http
+
 			.authorizeHttpRequests(authorize -> authorize
                     // PRIVATE ENDPOINTS
                     .requestMatchers(HttpMethod.POST,"/api/books/").hasRole("USER")
