@@ -1,40 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { User } from '../models/user.model';
+import { Observable } from 'rxjs';
+import {LoginResponse} from './LoginResponse';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:8443/api/auth/';  // Cambia por la URL real de tu backend
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<User> {
-    let url;
-    url = this.apiUrl + 'login';
-    return this.http.post<User>(url, { email, password }).pipe(
-      catchError(error => {
-        console.error('Error en la solicitud de login', error);
-        alert('Las credenciales no son correctas o no está autenticado. Por favor, verifique que sus datos son los ' +
-          'correctos.');
-        throw error;  // Lanza el error para que el componente pueda manejarlo si es necesario
-      })
-    );
+  private apiUrl = 'https://localhost:8443';
+
+  login(email: string, password: string): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.apiUrl + '/api/auth/login', { email, password });
   }
 
-  register(name: string, email: string, password: string, role: string): Observable<any> {
-    const url = this.apiUrl + 'register';
-    const body = { name, email, password, role };
-
-    return this.http.post<any>(url, body).pipe(
-      catchError((error) => {
-        console.error('❌ Error en la solicitud de registro:', error);
-        return throwError(() => error);
-      })
-    );
+  saveToken(token: string) {
+    localStorage.setItem('token', token);
   }
 
+  register(name: string, email: string, password: string, comunidadAutonoma: string, hospitalRef: string): Observable<any> {
+    const body = { name, email, password, comunidadAutonoma, hospitalRef };
+    return this.http.post<any>(this.apiUrl + '/api/auth/register', body);
+  }
 }

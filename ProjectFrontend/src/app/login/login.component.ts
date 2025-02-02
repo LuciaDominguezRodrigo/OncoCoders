@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import {Router, RouterLink} from '@angular/router';
-import { User } from '../models/user.model';
-import { CommonModule } from '@angular/common';  // Importar CommonModule
-import { ReactiveFormsModule } from '@angular/forms';  // Importar ReactiveFormsModule
+import {LoginResponse} from '../services/LoginResponse';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  standalone: true,  // Este es un componente standalone
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [CommonModule, ReactiveFormsModule, RouterLink]  // Aquí se importan los módulos necesarios
+  imports: [CommonModule, ReactiveFormsModule, RouterLink]
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -27,13 +25,18 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe({
-        next: (user: User) => {
-          console.log('Usuario autenticado:', user);
-          localStorage.setItem('user', JSON.stringify(user)); // Guarda en localStorage
+        next: (response: LoginResponse) => {
+          console.log('Usuario autenticado:', response);
+
+          // Aquí accedes a user y token desde la respuesta
+          localStorage.setItem('USER', JSON.stringify(response.user));
+          this.authService.saveToken(response.token);
+
           this.router.navigate(['/']);
         },
         error: (error) => {
           console.error('Error en el login', error);
+          alert(error.error?.error || 'Error en el inicio de sesión');
         }
       });
     }

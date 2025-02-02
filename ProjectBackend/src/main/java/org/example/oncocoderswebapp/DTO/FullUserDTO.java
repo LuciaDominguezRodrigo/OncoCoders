@@ -20,7 +20,6 @@ public class FullUserDTO extends CensoredUserDTO{
         this.banned = banned;
         this.roles = roles;
         this.id = id;
-        this.photo = "/api/users/img/" + id;
     }
 
     public FullUserDTO(User user) {
@@ -30,7 +29,6 @@ public class FullUserDTO extends CensoredUserDTO{
         this.banned = user.isBanned();
         this.roles = user.getRoles();
         this.id = user.getId();
-        this.photo = "/api/users/img/" + user.getId();
     }
 
     @Override
@@ -60,16 +58,6 @@ public class FullUserDTO extends CensoredUserDTO{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String getPhoto() {
-        return photo;
-    }
-
-    @Override
-    public void setPhoto(String photo) {
-        this.photo = photo;
     }
 
     public boolean isBanned() {

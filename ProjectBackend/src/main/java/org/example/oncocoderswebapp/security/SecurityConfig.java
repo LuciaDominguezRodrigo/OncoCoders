@@ -56,13 +56,13 @@ public class SecurityConfig {
 	@Bean
 	@Order(1)
 	public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
-		
+
 		http.authenticationProvider(authenticationProvider());
-		
+
 		http
 			.securityMatcher("/api/**")
 			.exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandlerJwt));
-		
+
 		http
 
 			.authorizeHttpRequests(authorize -> authorize
@@ -73,7 +73,7 @@ public class SecurityConfig {
 					// PUBLIC ENDPOINTS
 					.anyRequest().permitAll()
 			);
-		
+
         // Disable Form login Authentication
         http.formLogin(formLogin -> formLogin.disable());
 
@@ -95,9 +95,9 @@ public class SecurityConfig {
 	@Bean
     @Order(2)
 	public SecurityFilterChain webFilterChain(HttpSecurity http) throws Exception {
-		
+
 		http.authenticationProvider(authenticationProvider());
-		
+
 		http
 			.authorizeHttpRequests(authorize -> authorize
 					// PUBLIC PAGES

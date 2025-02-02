@@ -5,6 +5,8 @@ public class UserRegisterDTO {
     private String email;
     private String password;
     private String role;
+    private String comunidadAutonoma;  // Nuevo campo
+    private String hospitalReferencia; // Nuevo campo
 
     // Getters y setters
     public String getName() {
@@ -32,10 +34,27 @@ public class UserRegisterDTO {
     }
 
     public String getRole() {
-        return role;
+        return role.toUpperCase();
     }
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    // Getters y setters para los nuevos campos
+    public String getComunidadAutonoma() {
+        return comunidadAutonoma;
+    }
+
+    public void setComunidadAutonoma(String comunidadAutonoma) {
+        this.comunidadAutonoma = comunidadAutonoma;
+    }
+
+    public String getHospitalReferencia() {
+        return hospitalReferencia;
+    }
+
+    public void setHospitalReferencia(String hospitalReferencia) {
+        this.hospitalReferencia = hospitalReferencia;
     }
 }

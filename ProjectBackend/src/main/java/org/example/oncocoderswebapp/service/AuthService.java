@@ -1,5 +1,8 @@
 package org.example.oncocoderswebapp.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.example.oncocoderswebapp.DTO.FullUserDTO;
@@ -18,45 +21,73 @@ public class AuthService {
     private UserRepository userRepository;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public Optional<FullUserDTO> authenticate(UserLoginDTO loginDTO) {
+    @Autowired
+    private TokenService tokenService;
+
+    public Optional<Map<String, Object>> authenticate(UserLoginDTO loginDTO) {
         Optional<User> optionalUser = userRepository.findByEmail(loginDTO.getEmail());
 
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             if (passwordEncoder.matches(loginDTO.getPassword(), user.getEncodedPassword()) && !user.isBanned()) {
-                return Optional.of(new FullUserDTO(user));
+                String token = tokenService.generateToken(user);
+
+                Map<String, Object> response = new HashMap<>();
+                response.put("user", new FullUserDTO(user));
+                response.put("token", token);
+
+                return Optional.of(response);
             }
         }
         return Optional.empty();
     }
-
     public boolean isEmailTaken(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         return optionalUser.isPresent();
     }
 
-    // Método para registrar al usuario
-    public boolean registerUser(UserRegisterDTO registerDTO) {
+
+    public User registerUser(UserRegisterDTO registerDTO) {
         try {
             User user = new User();
             user.setName(registerDTO.getName());
             user.setEmail(registerDTO.getEmail());
-            user.setEncodedPassword(passwordEncoder.encode(registerDTO.getPassword())); // Encriptación de la contraseña
+            user.setEncodedPassword(passwordEncoder.encode(registerDTO.getPassword()));
+            user.setComunidadAutonoma(registerDTO.getComunidadAutonoma());
+            user.setHospitalReferencia(registerDTO.getHospitalReferencia());
 
-            // Verificar si el email contiene la palabra "investigador"
-            if (registerDTO.getEmail().toLowerCase().contains("sanitario")) {
-                user.setRole("CLINICUSER");
-            } else {
-                user.setRole(registerDTO.getRole());
+            // Asignar el rol según el email
+            if (registerDTO.getEmail().toLowerCase().contains("hospital")) {
+                user.setRole("MEDICUSER");  // Asignar rol MEDICUSER si "hospital" está en el email
+            }
+            else if (registerDTO.getEmail().toLowerCase().contains("investigador")) {
+                user.setRole("RESEARCHERUSER");  // Asignar rol RESEARCHERUSER si "investigador" está en el email
+            }
+            else {
+                user.setRole("USER");  // Si no, asignar rol USER
             }
 
-            userRepository.save(user);  // Guardamos el nuevo usuario en la base de datos
-            return true;
+            userRepository.save(user);
+
+            // Asignar paciente solo si el rol es MEDICUSER
+            if ("USER".equals(user.getRole())) {
+                userService.asignarPacienteAMedico(user);
+            }
+
+            return user;
         } catch (Exception e) {
-            // Manejo de error en el registro
-            return false;
+            // Manejar la excepción (puedes loguearla o devolver algún mensaje específico)
+            return null;
         }
     }
+
+
+
+
+
 }

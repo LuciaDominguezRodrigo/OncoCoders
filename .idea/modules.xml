@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/OncoCoders.iml" filepath="$PROJECT_DIR$/.idea/OncoCoders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectBackend/OncoCodersWebApp.iml" filepath="$PROJECT_DIR$/ProjectBackend/OncoCodersWebApp.iml" />
     </modules>
   </component>
 </project>

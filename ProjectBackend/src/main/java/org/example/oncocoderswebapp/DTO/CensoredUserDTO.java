@@ -15,7 +15,6 @@ public class CensoredUserDTO {
     }
 
     public void setId(Long id) {
-        this.photo = "/api/users/img/" + id;
         this.id = id;
     }
 

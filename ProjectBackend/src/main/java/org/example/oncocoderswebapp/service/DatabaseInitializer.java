@@ -7,7 +7,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 import jakarta.annotation.PostConstruct;
 import org.springframework.util.StreamUtils;
 
@@ -23,17 +22,33 @@ public class DatabaseInitializer {
 	private UserRepository userRepository;
 
 	@Autowired
+	private UserService userService;
+
+	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@PostConstruct
 	public void init() throws IOException, SQLException {
 
-		ClassPathResource imgFile = new ClassPathResource("static/img/fotoPerfil.jpg");
-		byte[] photoBytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
-		Blob photoBlob1 = new SerialBlob(photoBytes);
+		User medico = userRepository.save(new User("Pepe", passwordEncoder.encode("medicpass"),
+				"medicohospital@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", "MEDICUSER"));
 
-		userRepository.save(new User("user", passwordEncoder.encode("pass"),"oncocodersUser@hmail.com",photoBlob1 ,"USER"));
-		userRepository.save(new User("clinicUser", passwordEncoder.encode("clinicpass"),"oncocoderssanitario@hmail.com",photoBlob1 ,"CLINICUSER"));
-		userRepository.save(new User("admin", passwordEncoder.encode("adminpass"),"oncocodersAdmin@hmail.com",photoBlob1,  "ADMIN"));
+		User paciente = userRepository.save(new User("Lolo", passwordEncoder.encode("pass"),
+				"paciente@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", "USER"));
+
+		User medico2 = userRepository.save(new User("Pepa", passwordEncoder.encode("medicpass"),
+				"medico2hospital@gmail.com",  "Madrid", "Hospital 12 de Octubre", "MEDICUSER"));
+
+		User paciente2 = userRepository.save(new User("Lola", passwordEncoder.encode("pass"),
+				"paciente2@gmail.com",  "Madrid", "Hospital 12 de Octubre", "USER"));
+
+		User investigador = userRepository.save(new User("Mar", passwordEncoder.encode("researcherpass"),
+				"investigador@gmail.com",  "Barcelona", "Hospital Vall d'Hebron", "RESEARCHERUSER"));
+
+		userService.asignarPacienteAMedico(paciente, medico);
+		userService.asignarPacienteAMedico(paciente2, medico2);
+
+
+
 	}
 }

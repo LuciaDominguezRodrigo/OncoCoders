@@ -1,35 +1,47 @@
 package org.example.oncocoderswebapp.service;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
 import org.example.oncocoderswebapp.model.User;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.Base64;
+import java.util.Date;
 
+@Service
 public class TokenService {
 
-    private String token;
-    private LocalDateTime dueDate;
-    private User user;
+    @Value("${jwt.secret}")
+    private String secretKey;
 
-    public TokenService(User user) {
-        this.user = user;
-        SecureRandom secureRandom = new SecureRandom();
-        byte[] randomBytes = new byte[32];
-        secureRandom.nextBytes(randomBytes);
-        this.token = Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes);
-        dueDate = LocalDateTime.now().plusMinutes(10);
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24; // 24 horas
+
+    public String generateToken(User user) {
+        return Jwts.builder()
+                .setSubject(user.getEmail())
+                .claim("role", user.getRole())
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(SignatureAlgorithm.HS256, secretKey)
+                .compact();
     }
 
-    public User getUser() {
-        return user;
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public boolean isValid() {
-        return LocalDateTime.now().isBefore(dueDate);
+    public String getEmailFromToken(String token) {
+        Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+        return claims.getSubject();
     }
 }
