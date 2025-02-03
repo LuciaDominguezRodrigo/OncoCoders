@@ -21,6 +21,22 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  logout(): Observable<any> {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.http.post<any>(`${this.apiUrl}/api/auth/logout`, {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+    }
+    return new Observable();  // Devuelve un observable vacío si no hay token
+  }
+
   register(name: string, email: string, password: string, comunidadAutonoma: string, hospitalRef: string): Observable<any> {
     const body = { name, email, password, comunidadAutonoma, hospitalRef };
     return this.http.post<any>(this.apiUrl + '/api/auth/register', body);

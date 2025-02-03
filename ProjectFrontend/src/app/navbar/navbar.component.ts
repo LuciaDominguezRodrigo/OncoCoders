@@ -1,23 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Router } from '@angular/router';
+import {AuthService} from '../services/auth.service';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule} from '@angular/forms';  // Importa Router para redirigir
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  imports :  [CommonModule, ReactiveFormsModule]
 })
-export class NavbarComponent {
-  isAuthenticated = false;  // Estado de autenticación del usuario
-  menuOpen = false;  // Estado del menú móvil
-  username = 'Juan Pérez';  // Nombre del usuario (esto es solo un ejemplo)
+export class NavbarComponent implements OnInit {
+  isAuthenticated = false;
+  menuOpen = false;
+  username = 'Perfil';
 
-  // Método para alternar la visibilidad del menú móvil
+  constructor(private authService: AuthService, private router: Router) { }
+
+  ngOnInit(): void {
+    // Verificar si el token existe en localStorage
+    this.isAuthenticated = !!this.authService.getToken();
+  }
+
+
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
-  // Método para alternar el estado de autenticación
   toggleAuth() {
-    this.isAuthenticated = !this.isAuthenticated;
+    if (this.isAuthenticated) {
+      this.authService.logout().subscribe(() => {
+        localStorage.removeItem('token');
+        this.isAuthenticated = false;
+        this.router.navigate(['/login']);
+      }, (error) => {
+        console.error('Error en logout:', error);
+      });
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }
-
