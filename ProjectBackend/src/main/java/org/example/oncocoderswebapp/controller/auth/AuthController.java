@@ -75,6 +75,26 @@ public class AuthController {
 
         return ResponseEntity.ok(doctorDTOs);
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Map<String, String>> logout(@RequestHeader("Authorization") String token) {
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
+        }
+
+        boolean isLoggedOut = tokenService.invalidateToken(token);
+
+        if (isLoggedOut) {
+            return ResponseEntity.ok(Collections.singletonMap("message", "Logout exitoso"));
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Collections.singletonMap("error", "Token inválido o ya expirado"));
+        }
+    }
+
+
+
 }
 
 
