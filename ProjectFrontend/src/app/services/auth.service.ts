@@ -41,4 +41,13 @@ export class AuthService {
     const body = { name, email, password, comunidadAutonoma, hospitalRef };
     return this.http.post<any>(this.apiUrl + '/api/auth/register', body);
   }
+
+  getUserRole(): Observable<string> {
+    return this.http.get<string>(this.apiUrl + '/api/auth/user-role', {
+      headers: {
+        'Authorization': `Bearer ${this.getToken()}`
+      }
+    });
+  }
+
 }
