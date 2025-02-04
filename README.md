@@ -43,34 +43,30 @@ The steps to follow to use the application locally will be described.
 1. Clone the repository.
 
 ```
-git clone https://github.com/KandV008/Kala.git
-cd Kala
+git clone https://github.com/LuciaDominguezRodrigo/OncoCoders.git
+cd OncoCoders
 ```
-
-2. Configure [Google Cloud API](#cloud-configure-google-cloud-api).
-3. Create ``.env`` with the next enviromental variable ``EXPO_PUBLIC_GOOGLE_MAPS_KEY``. It have to store your Google Cloud API Key.
-4. Open your Android Emulator (You can use the one that comes with [Android Studio](https://developer.android.com/studio)).
-5. Install dependencies.
+2. [...]
+3. Install dependencies.
 ```
 npm install
 ```
-6. Start application.
+4. [...]
+5. Start application.
 
 ```
-npx expo start
+ng serve --open
 ```
 
-7. Press ``a`` to open the application with Android.
-8. Have fun!
+7. Have fun!
 
 ### :wrench: Requirements
 *************
 
 | Software Requirements |
 | :-: |
-| [Expo SDK 51](https://expo.dev/changelog/2024/05-07-sdk-51) |
 | [Node.js](https://nodejs.org/en)|
-| [Google Cloud Platform Account](https://cloud.google.com) |
+| [...]|
 
 ### :black_nib: Requirement Analysis
 *************
@@ -105,25 +101,44 @@ Here are the diferent actions that can do the different type of users:
 | :-- | :-: | :-: | :-: | :-: |
 | UH-01 Sign Up | :heavy_check_mark: | | |
 | UH-02 Log In | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-03 Log Out | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-04 Delete your Account | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-03 Log Out (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-04 Delete your Account (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UH-05 Recover password | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-06 Access to general metrics | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-07 Access to Form | | :heavy_check_mark: | |
-| UH-08 Access to their Diagnosis | | :heavy_check_mark: |  |
-| UH-09 Access to recomendations | | :heavy_check_mark: | :heavy_check_mark: |
-| UH-10 Determine Profile pic | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-11 Change Profile Pic | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-12 Determine email | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-13 Determine nickname | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-14 Change nickname | | :heavy_check_mark: |  :heavy_check_mark: |:heavy_check_mark: |
-| UH-15 See Diagnosis from a Patient | |  | :heavy_check_mark: | |
-| UH-16 See results from the IA | | | :heavy_check_mark: | |
-| UH-17 Access to recomendation using their Diagnosis | | | :heavy_check_mark: | |
-| UH-18 Access to specific metrics | | | :heavy_check_mark: | |
-| UH-19 Ban User | | | | :heavy_check_mark: |
-| UH-20 Unban User | | | | :heavy_check_mark: |
-| UH-21 Access to the IA | | | | :heavy_check_mark: |
+| UH-06 Access to Main Page | :heavy_check_mark: | 
+| UH-07 See General Metrics | :heavy_check_mark: | |
+| UH-08 See Project's Presentation |:heavy_check_mark: |  |
+| UH-XX Access to User Dashboard | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| UH-09 Show Pacient user Dashboard Page | | :heavy_check_mark: |
+| UH-10 Access to Formulary Page | | :heavy_check_mark: | 
+| UH-11 Access to Diagnosis Page | | :heavy_check_mark: | 
+| UH-12 Access to Monitoring Page | | :heavy_check_mark: | 
+| UH-13 Access to Recommendations Page | | :heavy_check_mark: |
+| UH-14 Access to Forum Page | | :heavy_check_mark: | 
+| UH-15 Access to Profile Page | | :heavy_check_mark: | |
+| UH-16 Show Specialist User Dashboard Page | | | :heavy_check_mark: | |
+| UH-17 Access to pending Patient List | | | :heavy_check_mark: | |
+| UH-18 See more information related a pending Pacient User | | | :heavy_check_mark: | |
+| UH-19 Access to processed Patient List Page | | | :heavy_check_mark: |
+| UH-20 See more information related a processed Patient User | | | :heavy_check_mark: |
+| UH-21 Access to record of all Patients | | | :heavy_check_mark: |
+| UH-22 See more information about a Patient User | | | :heavy_check_mark: |
+| UH-23 Access to recommendations using theri Diagnosis | | | :heavy_check_mark: |
+| UH-24 Access to Specialist User Metrics | | | :heavy_check_mark: |
+| UH-25 Show Admin User Dashboard Page | | | | :heavy_check_mark: |
+| UH-26 Access to all not banned Users Page | | | | :heavy_check_mark: |
+| UH-27 Ban an User | | | | :heavy_check_mark: |
+| UH-28 Access to all banned Users Page | | | | :heavy_check_mark: |
+| UH-29 Unban an User | | | | :heavy_check_mark: |
+| UH-30 Access to IA Model Configuration Page | | | | :heavy_check_mark: |
+| UH-31 See application general metrics | | | | :heavy_check_mark: |
+| UH-32 Determine Profile pic (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-33 Change Profile Pic (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-34 Determine nickname (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-35 Change nickname (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-36 Determine email (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-37 Access to Config Page | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-38 Access to Language Page | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-39 Access to Help Page | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 #### :electric_plug: Non Functional Requirements
 
@@ -138,6 +153,44 @@ Here are the diferent actions that can do the different type of users:
 | Protection & Security for Registered User Data |
 | Usability & Accesibility |
 | Main language must be Spanish |
+
+#### Use Case Diagrams
+
+<p align="center">
+  <img src="/docs/use_case_diagrams/Public_User.svg" alt="Public_User_Diagram">
+  <br>
+  <small>Use Case Diagram 1. Public User</small>
+</p>
+
+<p align="center">
+  <img src="/docs/use_case_diagrams/Pacient_User.svg" alt="Patient_User_Diagram">
+  <br>
+  <small>Use Case Diagram 2. Patient User</small>
+</p>
+
+<p align="center">
+  <img src="/docs/use_case_diagrams/Specialist_User.svg" alt="Specialist_User_Diagram">
+  <br>
+  <small>Use Case Diagram 3. Specialist User</small>
+</p>
+
+<p align="center">
+  <img src="/docs/use_case_diagrams/Admin_User.svg" alt="Admin_User_Diagram">
+  <br>
+  <small>Use Case Diagram 4. Admin User</small>
+</p>
+
+<p align="center">
+  <img src="/docs/use_case_diagrams/All_Users.svg" alt="All_Users_Diagram">
+  <br>
+  <small>Use Case Diagram 5. All Users</small>
+</p>
+
+<p align="center">
+  <img src="/docs/use_case_diagrams/User_Managment.svg" alt="User_Managment_Diagram">
+  <br>
+  <small>Use Case Diagram 6. User Managment</small>
+</p>
 
 ### :straight_ruler: Design
 *************
