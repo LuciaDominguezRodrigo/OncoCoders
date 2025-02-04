@@ -40,7 +40,6 @@ public class AuthService {
                 Map<String, Object> response = new HashMap<>();
                 response.put("user", new FullUserDTO(user));
                 response.put("token", token);
-
                 return Optional.of(response);
             }
         }

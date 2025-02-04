@@ -11,7 +11,6 @@ import jakarta.persistence.*;
 public class User {
 
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -53,7 +52,6 @@ public class User {
 		this.hospitalReferencia = hospitalReferencia;
 
 	}
-
 
 
 	public boolean addPaciente(User paciente) {

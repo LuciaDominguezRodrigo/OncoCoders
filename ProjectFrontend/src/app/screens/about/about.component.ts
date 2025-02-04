@@ -5,7 +5,6 @@ import {NavbarComponent} from '../../components/navbar/navbar.component';
 @Component({
   selector: 'app-about',
   imports: [
-    HomePageComponent,
     NavbarComponent
   ],
   templateUrl: './about.component.html',
