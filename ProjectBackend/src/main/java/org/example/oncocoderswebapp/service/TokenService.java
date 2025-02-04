@@ -28,7 +28,7 @@ public class TokenService {
     @Value("${jwt.secret}")
     private String secretKey;
 
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24; // 24 horas
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 6; // 6 horas
     private final Set<String> invalidatedTokens = ConcurrentHashMap.newKeySet();
 
 
