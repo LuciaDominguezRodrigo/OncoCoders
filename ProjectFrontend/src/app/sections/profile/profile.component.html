@@ -94,5 +94,6 @@
         Ver Estadísticas
       </button>
     </div>
+    <app-popup *ngIf="showPopup" [message]="'Ha cambiado de hospital y/o zona, su médico ha sido reasignado.'" (close)="closePopup()"></app-popup>
   </div>
 </div>
