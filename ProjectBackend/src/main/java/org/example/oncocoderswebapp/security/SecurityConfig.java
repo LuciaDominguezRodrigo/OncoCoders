@@ -65,16 +65,20 @@ public class SecurityConfig {
 
 		http
 
-			.authorizeHttpRequests(authorize -> authorize
-                    // PRIVATE ENDPOINTS
-                    .requestMatchers(HttpMethod.POST,"/api/books/").hasRole("USER")
-                    .requestMatchers(HttpMethod.PUT,"/api/books/**").hasRole("USER")
-                    .requestMatchers(HttpMethod.DELETE,"/api/books/**").hasRole("ADMIN")
-					// PUBLIC ENDPOINTS
-					.anyRequest().permitAll()
-			);
+            .authorizeHttpRequests(authorize -> authorize
+				// PUBLIC ENDPOINTS
+				.requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
 
-        // Disable Form login Authentication
+				// PRIVATE ENDPOINTS (require login)
+				.requestMatchers("/api/auth/available-doctors", "/api/user/role", "/api/user/profile", "/api/auth/logout")
+				.authenticated()
+
+				// Additional rules for other specific resources
+				.anyRequest().permitAll()
+		);
+
+
+		// Disable Form login Authentication
         http.formLogin(formLogin -> formLogin.disable());
 
         // Disable CSRF protection (it is difficult to implement in REST APIs)

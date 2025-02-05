@@ -29,22 +29,28 @@ public class AuthService {
     @Autowired
     private TokenService tokenService;
 
+
     public Optional<Map<String, Object>> authenticate(UserLoginDTO loginDTO) {
         Optional<User> optionalUser = userRepository.findByEmail(loginDTO.getEmail());
 
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
+
+            // Verificamos las credenciales del usuario y que no esté baneado
             if (passwordEncoder.matches(loginDTO.getPassword(), user.getEncodedPassword()) && !user.isBanned()) {
                 String token = tokenService.generateToken(user);
 
                 Map<String, Object> response = new HashMap<>();
                 response.put("user", new FullUserDTO(user));
-                response.put("token", token);
+                response.put("token", token); // Este token será usado para la respuesta
+
                 return Optional.of(response);
             }
         }
         return Optional.empty();
     }
+
+
     public boolean isEmailTaken(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         return optionalUser.isPresent();
@@ -80,7 +86,6 @@ public class AuthService {
 
             return user;
         } catch (Exception e) {
-            // Manejar la excepción (puedes loguearla o devolver algún mensaje específico)
             return null;
         }
     }

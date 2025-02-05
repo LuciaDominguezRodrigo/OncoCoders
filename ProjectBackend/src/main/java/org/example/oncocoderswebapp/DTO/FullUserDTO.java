@@ -1,10 +1,13 @@
 package org.example.oncocoderswebapp.DTO;
 
 import org.example.oncocoderswebapp.model.User;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class FullUserDTO extends CensoredUserDTO{
+public class FullUserDTO extends CensoredUserDTO implements UserDetails {
     private Long id;
     private String name;
     private String email;
@@ -14,7 +17,7 @@ public class FullUserDTO extends CensoredUserDTO{
     private List<String> roles;
 
     public FullUserDTO(String name, String email, boolean banned, List<String> roles, Long id) {
-        super(name,id);
+        super(name, id);
         this.name = name;
         this.email = email;
         this.banned = banned;
@@ -51,7 +54,6 @@ public class FullUserDTO extends CensoredUserDTO{
         this.name = name;
     }
 
-
     public String getEmail() {
         return email;
     }
@@ -76,4 +78,43 @@ public class FullUserDTO extends CensoredUserDTO{
         this.roles = roles;
     }
 
+    // Métodos requeridos por la interfaz UserDetails
+
+    @Override
+    public String getUsername() {
+        return this.email;  // Usamos el email como nombre de usuario
+    }
+
+    @Override
+    public String getPassword() {
+        return "";
+    }
+
+    @Override
+    public List<SimpleGrantedAuthority> getAuthorities() {
+        // Convertir los roles a una lista de autoridades
+        return roles.stream()
+                .map(role -> new SimpleGrantedAuthority(role))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;  // Aquí puedes aplicar tu lógica para determinar si la cuenta ha expirado
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return !this.banned;  // Si está baneado, la cuenta está bloqueada
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;  // Devolver true si las credenciales no han expirado
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return !this.banned;  // Si está baneado, no está habilitado
+    }
 }
