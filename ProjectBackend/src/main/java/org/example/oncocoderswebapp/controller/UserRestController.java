@@ -2,6 +2,7 @@ package org.example.oncocoderswebapp.controller;
 
 import org.example.oncocoderswebapp.model.User;
 import org.example.oncocoderswebapp.service.TokenService;
+import org.example.oncocoderswebapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/user")
 public class UserRestController {
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private TokenService tokenService;
@@ -68,6 +71,39 @@ public class UserRestController {
                     .body(Map.of("error", "Token inválido o usuario no encontrado"));
         }
     }
+
+    @PutMapping("/profile/name")
+    public ResponseEntity<Map<String, String>> updateUserName(@RequestHeader("Authorization") String token,
+                                                              @RequestBody Map<String, String> body) {
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
+        }
+
+        String jwtToken = token.replace("Bearer ", "");
+
+        Optional<User> userOptional = tokenService.getUserFromToken(jwtToken);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            String newName = body.get("newName");
+
+            if (newName == null || newName.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body(Collections.singletonMap("error", "El parámetro 'newName' es obligatorio"));
+            }
+
+            user.setName(newName);
+            userService.updateUser(user);
+
+            return ResponseEntity.ok(Collections.singletonMap("message", "Nombre actualizado correctamente"));
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
+        }
+    }
+
 
 
 }

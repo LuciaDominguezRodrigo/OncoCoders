@@ -1,39 +1,57 @@
 <app-navbar></app-navbar>
 
 <div class="container mx-auto max-w-4xl p-6">
-  <!-- Información del usuario -->
   <div class="bg-white shadow-lg rounded-lg p-6">
-    <h2 class="text-2xl font-semibold text-gray-800 text-center">Perfil del Paciente</h2>
+    <h2 class="text-2xl font-semibold text-gray-800 text-center">¡Hola {{user.name}}!</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-      <div class="p-4 border rounded-lg shadow-sm">
-        <p class="text-gray-500">👤 <span class="font-semibold">Nombre:</span></p>
-        <p class="text-gray-800">{{ user.name }}</p>
+
+      <div class="p-4 border rounded-lg shadow-sm relative">
+        <p class="text-gray-500"><span class="font-semibold">Nombre:</span></p>
+        <div class="flex items-center justify-between">
+          <p class="text-gray-800">{{ user.name }}</p>
+          <!-- Botón rosita centrado y elegante -->
+          <button (click)="editName()" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
+            Editar
+          </button>
+        </div>
+        <input *ngIf="isEditing" [(ngModel)]="newName" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nuevo nombre"/>
+        <!-- Botones de Guardar y Cancelar, solo visibles cuando está en modo de edición -->
+        <div *ngIf="isEditing" class="flex justify-start gap-2 mt-2">
+          <button (click)="saveName()" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
+            Guardar
+          </button>
+          <button (click)="cancelEdit()" class="bg-white text-pink-500 border border-pink-500 px-4 py-2 rounded-md hover:bg-pink-500 hover:text-white transition-all duration-300">
+            Cancelar
+          </button>
+        </div>
       </div>
 
-      <div class="p-4 border rounded-lg shadow-sm">
+
+      <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role !== 'MEDICUSER'">
         <p class="text-gray-500"><span class="font-semibold">Hospital de referencia:</span></p>
         <p class="text-gray-800">{{ user.hospital }}</p>
       </div>
 
-      <div class="p-4 border rounded-lg shadow-sm">
+      <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role !== 'MEDICUSER'">
         <p class="text-gray-500"> <span class="font-semibold">Zona:</span></p>
         <p class="text-gray-800">{{ user.zone }}</p>
       </div>
 
-      <div class="p-4 border rounded-lg shadow-sm">
+      <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role === 'USER'">
         <p class="text-gray-500"> <span class="font-semibold">Médico asignado:</span></p>
         <p class="text-gray-800">{{ user.doctor }}</p>
       </div>
+
     </div>
   </div>
 
   <!-- Barra separadora -->
   <div class="border-t-4 border-pink-600 my-6"></div>
 
+
   <!-- Secciones adicionales -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <!-- Formulario de Diagnóstico -->
-    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'USER'">
       <h3 class="text-xl font-semibold text-pink-600">Formulario</h3>
       <p class="text-gray-700 mt-2">Completa la información del paciente.</p>
       <button class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
@@ -41,7 +59,6 @@
       </button>
     </div>
 
-    <!-- Diagnóstico y Estadísticas -->
     <div class="bg-gray-100 p-6 rounded-lg shadow-md">
       <h3 class="text-xl font-semibold text-pink-600">Diagnóstico y Estadísticas</h3>
       <p class="text-gray-700 mt-2">Consulta los diagnósticos y tendencias de salud.</p>

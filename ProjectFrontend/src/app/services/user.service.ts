@@ -17,7 +17,7 @@ export class UserService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token') || ''; // Asegura que siempre devuelve un string
+    return localStorage.getItem('token') || '';
   }
 
   getUserRole(): Observable<string> {
@@ -26,7 +26,7 @@ export class UserService {
         'Authorization': `Bearer ${this.getToken()}`
       })
     }).pipe(
-      map(response => response.role) // `response` is now typed as `UserRoleResponse`
+      map(response => response.role)
     );
 
   }
@@ -37,5 +37,17 @@ export class UserService {
     });
     return this.http.get<any>(`${this.apiUrl}/profile`, { headers });
   }
+
+  updateUserName(newName: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.getToken()}`,
+      'Content-Type': 'application/json' // Asegura que el tipo de contenido es JSON
+    });
+
+    return this.http.put(`${this.apiUrl}/profile/name`, { newName }, { headers });
+  }
+
+
 }
+
 

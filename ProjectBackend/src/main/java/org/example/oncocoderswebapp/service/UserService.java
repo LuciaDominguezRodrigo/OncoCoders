@@ -92,4 +92,23 @@ public class UserService {
         }
         return null;
     }
+
+    public void updateUser(User user) {
+        Optional<User> existingUserOptional = userRepository.findById(user.getId());
+
+        if (existingUserOptional.isPresent()) {
+            User existingUser = existingUserOptional.get();
+
+            if (user.getName() != null && !user.getName().isEmpty()) {
+                existingUser.setName(user.getName());
+            }
+
+            userRepository.save(existingUser);
+        } else {
+            throw new IllegalArgumentException("Usuario no encontrado con ID: " + user.getId());
+        }
+    }
+
+
+
 }
