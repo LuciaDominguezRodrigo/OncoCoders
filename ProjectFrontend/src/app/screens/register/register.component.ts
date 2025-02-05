@@ -14,6 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  showPassword = false;
+  showConfirmPassword = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -64,6 +67,19 @@ export class RegisterComponent implements OnInit {
         }
       );
     }
+  }
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPassword() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
+
+  passwordsMatch(form: FormGroup) {
+    return form.get('password')?.value === form.get('confirmPassword')?.value
+      ? null
+      : { mismatch: true };
   }
 
 }

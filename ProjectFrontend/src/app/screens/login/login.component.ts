@@ -13,6 +13,8 @@ import { LoginResponse } from '../../services/LoginResponse';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  showPassword = false;
+
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -40,5 +42,10 @@ export class LoginComponent {
         }
       });
     }
+  }
+
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
   }
 }
