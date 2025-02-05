@@ -19,9 +19,10 @@
       </svg>
     </button>
     <ul id="menu" class="hidden md:flex space-x-6">
-      <li><a href="/about" class="text-white hover:text-gray-200">Acerca de nosotros</a></li>
-      <li><a href="#" class="text-white hover:text-gray-200">Ayuda</a></li>
-      <li><a href="#" class="text-white hover:text-gray-200">Perfil</a></li>
+      <a routerLink="/" class="text-white hover:text-gray-200">Inicio</a>
+      <li><a routerLink="/about" class="text-white hover:text-gray-200">Acerca de nosotros</a></li>
+      <li><a routerLink="#" class="text-white hover:text-gray-200">Ayuda</a></li>
+      <li><a routerLink="/profile" class="text-white hover:text-gray-200">Perfil</a></li>
     </ul>
     <button *ngIf="userRole && userRole.trim().toUpperCase() === 'USER'"
             (click)="openHelpPopup()"
@@ -35,11 +36,11 @@
 
   <!-- Menú móvil -->
   <div id="mobile-menu" *ngIf="menuOpen" class="md:hidden flex flex-col space-y-2 p-4">
-    <a href="/" class="text-white hover:text-gray-200">Inicio</a>
-    <a href="/about" class="text-white hover:text-gray-200">Acerca</a>
-    <a href="#" class="text-white hover:text-gray-200">Contacto</a>
-    <a href="#" class="text-white hover:text-gray-200">Ayuda</a>
-    <a href="/profile" class="text-white hover:text-gray-200">Perfil</a>
+    <a routerLink="/" class="text-white hover:text-gray-200">Inicio</a>
+    <a routerLink="/about" class="text-white hover:text-gray-200">Acerca</a>
+    <a routerLink="#" class="text-white hover:text-gray-200">Contacto</a>
+    <a routerLink="#" class="text-white hover:text-gray-200">Ayuda</a>
+    <a routerLink="/profile" class="text-white hover:text-gray-200">Perfil</a>
     <button (click)="toggleAuth()" class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200">
       {{ isAuthenticated ? 'Logout' : 'Login' }}
     </button>
