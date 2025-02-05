@@ -7,16 +7,16 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [NavbarComponent, CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [NavbarComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']  // Corregido el nombre del campo 'styleUrls'
+  styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {  // Aquí implementas la interfaz OnInit
+export class ProfileComponent implements OnInit {
   user: any = {};
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {  // Ya no debería mostrar el mensaje de que no se usa
+  ngOnInit(): void {
     this.userService.getUserProfile().subscribe(
       (data) => {
         this.user = data;
