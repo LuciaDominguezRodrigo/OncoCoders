@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';  // Importar HttpClientModule
+import {ReactiveFormsModule} from '@angular/forms';
+import {ProfileComponent} from './sections/profile/profile.component';  // Importar HttpClientModule
 
 
 @Component({

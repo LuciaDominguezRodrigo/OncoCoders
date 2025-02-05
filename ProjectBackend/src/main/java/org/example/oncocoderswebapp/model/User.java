@@ -94,7 +94,11 @@ public class User {
 	public void setHospitalReferencia(String hospitalReferencia) { this.hospitalReferencia = hospitalReferencia; }
 	public List<User> getPacientes() { return pacientes; }
 	public void setPacientes(List<User> pacientes) { this.pacientes = pacientes; }
-	public User getMedicUser() { return medicUser; }
+
+	public User getMedicUser() {
+		return medicUser != null ? medicUser : new User("Sin médico asignado", "", "", "", "");
+	}
+
 
 	public void setRole(String roleUser) {
 		if (this.roles == null){

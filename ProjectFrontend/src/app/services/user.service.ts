@@ -30,5 +30,12 @@ export class UserService {
     );
 
   }
+
+  getUserProfile(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.get<any>(`${this.apiUrl}/profile`, { headers });
+  }
 }
 

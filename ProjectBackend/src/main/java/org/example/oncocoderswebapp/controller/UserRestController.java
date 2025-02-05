@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,6 +34,31 @@ public class UserRestController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
+        }
+    }
+
+    @GetMapping("/profile")
+    public ResponseEntity<Map<String, Object>> getUserProfile(@RequestHeader("Authorization") String token) {
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("error", "Token no proporcionado"));
+        }
+
+        Optional<User> userOptional = tokenService.getUserFromToken(token.replace("Bearer ", ""));
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            Map<String, Object> userInfo = new HashMap<>();
+            userInfo.put("name", user.getName());
+            userInfo.put("hospital", user.getHospitalReferencia());
+            userInfo.put("zone", user.getComunidadAutonoma());
+            userInfo.put("doctor", user.getMedicUser() != null ? user.getMedicUser().getName() : "Sin médico asignado");
+
+            return ResponseEntity.ok(userInfo);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Token inválido o usuario no encontrado"));
         }
     }
 }
