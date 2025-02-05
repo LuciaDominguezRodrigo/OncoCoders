@@ -5,19 +5,18 @@
     <h2 class="text-2xl font-semibold text-gray-800 text-center">¡Hola {{user.name}}!</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
 
+      <!-- Sección de Nombre -->
       <div class="p-4 border rounded-lg shadow-sm relative">
         <p class="text-gray-500"><span class="font-semibold">Nombre:</span></p>
         <div class="flex items-center justify-between">
           <p class="text-gray-800">{{ user.name }}</p>
-          <!-- Botón rosita centrado y elegante -->
-          <button (click)="editName()" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
+          <button (click)="editField('name')" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
             Editar
           </button>
         </div>
-        <input *ngIf="isEditing" [(ngModel)]="newName" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nuevo nombre"/>
-        <!-- Botones de Guardar y Cancelar, solo visibles cuando está en modo de edición -->
-        <div *ngIf="isEditing" class="flex justify-start gap-2 mt-2">
-          <button (click)="saveName()" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
+        <input *ngIf="isEditingField === 'name'" [(ngModel)]="newName" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nuevo nombre"/>
+        <div *ngIf="isEditingField === 'name'" class="flex justify-start gap-2 mt-2">
+          <button (click)="saveField('name')" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
             Guardar
           </button>
           <button (click)="cancelEdit()" class="bg-white text-pink-500 border border-pink-500 px-4 py-2 rounded-md hover:bg-pink-500 hover:text-white transition-all duration-300">
@@ -26,30 +25,59 @@
         </div>
       </div>
 
-
+      <!-- Sección de Hospital -->
       <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role !== 'MEDICUSER'">
         <p class="text-gray-500"><span class="font-semibold">Hospital de referencia:</span></p>
-        <p class="text-gray-800">{{ user.hospital }}</p>
+        <div class="flex items-center justify-between">
+          <p class="text-gray-800">{{ user.hospital }}</p>
+          <button (click)="editField('hospital')" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
+            Editar
+          </button>
+        </div>
+        <input *ngIf="isEditingField === 'hospital'" [(ngModel)]="newHospital" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nuevo hospital"/>
+        <div *ngIf="isEditingField === 'hospital'" class="flex justify-start gap-2 mt-2">
+          <button (click)="saveField('hospital')" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
+            Guardar
+          </button>
+          <button (click)="cancelEdit()" class="bg-white text-pink-500 border border-pink-500 px-4 py-2 rounded-md hover:bg-pink-500 hover:text-white transition-all duration-300">
+            Cancelar
+          </button>
+        </div>
       </div>
 
+      <!-- Sección de Zona -->
       <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role !== 'MEDICUSER'">
         <p class="text-gray-500"> <span class="font-semibold">Zona:</span></p>
-        <p class="text-gray-800">{{ user.zone }}</p>
+        <div class="flex items-center justify-between">
+          <p class="text-gray-800">{{ user.zone }}</p>
+          <button (click)="editField('zone')" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
+            Editar
+          </button>
+        </div>
+        <input *ngIf="isEditingField === 'zone'" [(ngModel)]="newZone" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nueva zona"/>
+        <div *ngIf="isEditingField === 'zone'" class="flex justify-start gap-2 mt-2">
+          <button (click)="saveField('zone')" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
+            Guardar
+          </button>
+          <button (click)="cancelEdit()" class="bg-white text-pink-500 border border-pink-500 px-4 py-2 rounded-md hover:bg-pink-500 hover:text-white transition-all duration-300">
+            Cancelar
+          </button>
+        </div>
       </div>
 
+      <!-- Sección de Médico Asignado -->
+      <!-- Sección de Médico Asignado -->
       <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role === 'USER'">
         <p class="text-gray-500"> <span class="font-semibold">Médico asignado:</span></p>
-        <p class="text-gray-800">{{ user.doctor }}</p>
+        <p class="text-gray-800">{{ user?.doctor || 'No asignado' }}</p>  <!-- 👈 Evita problemas con `undefined` -->
       </div>
+
 
     </div>
   </div>
 
-  <!-- Barra separadora -->
   <div class="border-t-4 border-pink-600 my-6"></div>
 
-
-  <!-- Secciones adicionales -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'USER'">
       <h3 class="text-xl font-semibold text-pink-600">Formulario</h3>

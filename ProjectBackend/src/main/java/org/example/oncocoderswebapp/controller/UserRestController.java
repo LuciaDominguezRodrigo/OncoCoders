@@ -62,7 +62,7 @@ public class UserRestController {
             userInfo.put("hospital", user.getHospitalReferencia());
             userInfo.put("zone", user.getComunidadAutonoma());
             userInfo.put("doctor", user.getMedicUser() != null ? user.getMedicUser().getName() : "Sin médico asignado");
-
+            userInfo.put("role", user.getRole());
             // Retornar la respuesta con el perfil del usuario
             return ResponseEntity.ok(userInfo);
         } else {
@@ -103,6 +103,81 @@ public class UserRestController {
                     .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
         }
     }
+    @PutMapping("/profile/hospital")
+    public ResponseEntity<Map<String, String>> updateUserHospital(@RequestHeader("Authorization") String token,
+                                                                  @RequestBody Map<String, String> body) {
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
+        }
+
+        String jwtToken = token.replace("Bearer ", "");
+
+        Optional<User> userOptional = tokenService.getUserFromToken(jwtToken);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            String newHospital = body.get("newHospital");
+
+            if (newHospital == null || newHospital.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body(Collections.singletonMap("error", "El parámetro 'newHospital' es obligatorio"));
+            }
+
+            // Cambiar hospital
+            user.setHospitalReferencia(newHospital);
+
+            // Asignar un nuevo médico si el hospital cambió
+            userService.asignarPacienteAMedico(user);
+
+            userService.updateUser(user);
+
+            return ResponseEntity.ok(Collections.singletonMap("message", "Hospital actualizado correctamente"));
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
+        }
+    }
+
+    @PutMapping("/profile/zone")
+    public ResponseEntity<Map<String, String>> updateUserZone(@RequestHeader("Authorization") String token,
+                                                              @RequestBody Map<String, String> body) {
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
+        }
+
+        String jwtToken = token.replace("Bearer ", "");
+
+        Optional<User> userOptional = tokenService.getUserFromToken(jwtToken);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            String newZone = body.get("newZone");
+
+            if (newZone == null || newZone.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body(Collections.singletonMap("error", "El parámetro 'newZone' es obligatorio"));
+            }
+
+            // Cambiar zona
+            user.setComunidadAutonoma(newZone);
+
+            // Asignar un nuevo médico de la zona
+            userService.asignarPacienteAMedico(user);
+
+            userService.updateUser(user);
+
+            return ResponseEntity.ok(Collections.singletonMap("message", "Zona actualizada correctamente"));
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
+        }
+    }
+
+
 
 
 

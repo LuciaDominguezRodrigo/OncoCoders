@@ -12,8 +12,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
   user: any = {};
-  isEditing: boolean = false;
   newName: string = '';
+  newHospital: string = '';
+  newZone: string = '';
+  doctor: string = '';
+  isEditingField: string | null = null;
 
   constructor(private userService: UserService) {
   }
@@ -22,6 +25,11 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserProfile().subscribe(
       (data) => {
         this.user = data;
+        this.newName = data.name;
+        this.doctor = data.doctor;
+        this.newHospital = data.hospitalReferencia;
+        this.newZone = data.comunidadAutonoma;
+        console.log(data);
       },
       (error) => {
         console.error('Error al obtener perfil del usuario:', error);
@@ -29,29 +37,33 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  editName(): void {
-    this.isEditing = true;
+  editField(field: string): void {
+    this.isEditingField = field;
+    if (field === 'name') this.newName = this.user.name;
+    if (field === 'hospital') this.newHospital = this.user.hospital;
+    if (field === 'zone') this.newZone = this.user.zone;
   }
 
-
-  saveName(): void {
-    if (this.newName && this.newName !== this.user.name) {
-      this.userService.updateUserName(this.newName).subscribe(
-        (response) => {
-          this.user.name = this.newName;
-          this.isEditing = false;
-        },
-        (error) => {
-          console.error('Error al actualizar el nombre:', error);
-        }
-      );
-    } else {
-      this.isEditing = false;
+  saveField(field: string): void {
+    if (field === 'name' && this.newName !== this.user.name) {
+      this.userService.updateUserName(this.newName).subscribe(() => {
+        this.user.name = this.newName;
+        this.isEditingField = null;
+      });
+    } else if (field === 'hospital' && this.newHospital !== this.user.hospital) {
+      this.userService.updateUserHospital(this.newHospital).subscribe(() => {
+        this.user.hospital = this.newHospital;
+        this.isEditingField = null;
+      });
+    } else if (field === 'zone' && this.newZone !== this.user.zone) {
+      this.userService.updateUserZone(this.newZone).subscribe(() => {
+        this.user.zone = this.newZone;
+        this.isEditingField = null;
+      });
     }
   }
 
   cancelEdit(): void {
-    this.isEditing = false;
-    this.newName = this.user.name;
+    this.isEditingField = null;
   }
 }

@@ -31,6 +31,13 @@ export class UserService {
 
   }
 
+  private getHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+  }
+
   getUserProfile(): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -39,12 +46,15 @@ export class UserService {
   }
 
   updateUserName(newName: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}`,
-      'Content-Type': 'application/json' // Asegura que el tipo de contenido es JSON
-    });
+    return this.http.put(`${this.apiUrl}/profile/name`, { newName }, { headers: this.getHeaders() });
+  }
 
-    return this.http.put(`${this.apiUrl}/profile/name`, { newName }, { headers });
+  updateUserHospital(newHospital: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/profile/hospital`, { newHospital }, { headers: this.getHeaders() });
+  }
+
+  updateUserZone(newZone: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/profile/zone`, { newZone }, { headers: this.getHeaders() });
   }
 
 
