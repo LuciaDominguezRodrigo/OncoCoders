@@ -44,21 +44,30 @@ public class UserRestController {
                     .body(Map.of("error", "Token no proporcionado"));
         }
 
-        Optional<User> userOptional = tokenService.getUserFromToken(token.replace("Bearer ", ""));
+        // Eliminar el prefijo "Bearer " del token
+        String jwtToken = token.replace("Bearer ", "");
+
+        // Obtener el usuario a partir del token
+        Optional<User> userOptional = tokenService.getUserFromToken(jwtToken);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
 
+            // Crear el mapa con la información del usuario
             Map<String, Object> userInfo = new HashMap<>();
             userInfo.put("name", user.getName());
             userInfo.put("hospital", user.getHospitalReferencia());
             userInfo.put("zone", user.getComunidadAutonoma());
             userInfo.put("doctor", user.getMedicUser() != null ? user.getMedicUser().getName() : "Sin médico asignado");
 
+            // Retornar la respuesta con el perfil del usuario
             return ResponseEntity.ok(userInfo);
         } else {
+            // Si no se encuentra el usuario o el token es inválido
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Map.of("error", "Token inválido o usuario no encontrado"));
         }
     }
+
+
 }

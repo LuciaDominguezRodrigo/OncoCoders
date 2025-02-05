@@ -71,7 +71,7 @@ public class SecurityConfig {
 
 				// PRIVATE ENDPOINTS (require login)
 				.requestMatchers("/api/auth/available-doctors", "/api/user/role", "/api/user/profile", "/api/auth/logout")
-				.authenticated()
+				.permitAll()
 
 				// Additional rules for other specific resources
 				.anyRequest().permitAll()
