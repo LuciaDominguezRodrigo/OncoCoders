@@ -33,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/project-front-end",
               "budgets": [
                 {
                   "type": "initial",

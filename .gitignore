@@ -1,0 +1,82 @@
+# Ignore environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+
+# Ignore node_modules (if using Node.js somewhere)
+node_modules/
+npm-debug.log*
+yarn-error.log
+
+# Ignore dependency directories
+/venv/          # Python virtual environment
+/.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore compiled output
+*.class
+*.o
+*.so
+*.dll
+*.exe
+*.out
+*.log
+*.pid
+*.seed
+*.sqlite
+
+# Ignore build artifacts
+/dist/
+/build/
+/target/
+
+# Ignore IntelliJ and VSCode settings
+.idea/
+.vscode/
+*.iml
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Ignore Docker artifacts
+docker-compose.override.yml
+docker-compose.override.yaml
+.dockerignore
+/tmp/
+db_data/
+mysql_data/
+
+# Ignore local database files
+*.sqlite3
+*.db
+
+# Ignore Spring Boot specific files
+/target/
+*.war
+*.jar
+
+# Ignore JetBrains IDE files
+/.idea/
+*.iml
+/.classpath
+/.project
+/.settings/
+
+# Ignore unnecessary files
+*.swp
+*.swo
+*.swn
