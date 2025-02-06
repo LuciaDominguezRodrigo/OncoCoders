@@ -52,10 +52,11 @@
 </nav>
 
 <!-- Modal de Ayuda Psicológica -->
-<div *ngIf="showHelpPopup && userRole && userRole.trim().toUpperCase() === 'USER'" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-  <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/3">
+<div *ngIf="showHelpPopup && userRole && userRole.trim().toUpperCase() === 'USER'"
+     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" (click)="closeHelpPopup()">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/3 flex flex-col items-center" (click)="$event.stopPropagation()">
     <h2 class="text-xl font-bold mb-4">Ayuda Psicológica</h2>
-    <p>Para recibir ayuda psicológica, comunícate con nosotros:</p>
+    <p class="text-center text-gray-700">Para recibir ayuda psicológica, comunícate con nosotros:</p>
     <p class="mt-2"><strong>Teléfono:</strong> 123-456-7890</p>
     <p class="mt-2"><strong>Email:</strong> ayudaoncocoders.com</p>
     <button (click)="closeHelpPopup()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
@@ -63,6 +64,7 @@
     </button>
   </div>
 </div>
+
 
 </body>
 </html>

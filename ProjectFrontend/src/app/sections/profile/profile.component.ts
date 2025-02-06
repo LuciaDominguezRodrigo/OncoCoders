@@ -47,61 +47,102 @@ export class ProfileComponent implements OnInit {
     if (field === 'zone') this.newZone = this.user.zone;
   }
 
+
+
+  //NO QUITAR LOGS: Son debugueo, lo necesito para lo del hopsital
   saveField(field: string): void {
-    // Si se cambia el nombre
-    if (field === 'name' && this.newName !== this.user.name) {
-      this.userService.updateUserName(this.newName).subscribe(
+    if (field === 'zone' && this.newZone !== this.user.zone) {
+      // Si el campo es 'zone' y la zona es diferente, actualizamos la zona
+      this.userService.updateUserZone(this.newZone).subscribe(
         () => {
-          this.user.name = this.newName;
-          this.showPopup = true;  // Mostramos el pop-up aquí
-          this.isEditingField = null;  // Restablecemos la edición de campos
+          console.log("Zona actualizada a:", this.newZone);
+
+          this.userService.getUserProfile().subscribe(
+            (data) => {
+              console.log("Datos obtenidos tras actualizar zona:", data);
+
+              this.user = data;
+              this.doctor = data.doctor;
+
+              let hospitalCambiado = false;
+
+              if (data.doctorHospital) {
+                console.log("Hospital actualizado a:", data.doctorHospital);
+                this.user.hospital = data.doctorHospital;
+                hospitalCambiado = true;
+              } else if (data.doctor?.hospital) {
+                console.log("Hospital actualizado a:", data.doctor.hospital);
+                this.user.hospital = data.doctor.hospital;
+                hospitalCambiado = true;
+              } else {
+                console.log("⚠ No se encontró hospital en los datos del doctor.");
+              }
+
+              if (hospitalCambiado) {
+                this.userService.updateUserHospital(this.user.hospital).subscribe(
+                  () => console.log("Hospital guardado en la base de datos."),
+                  (error) => console.error("Error al guardar hospital:", error)
+                );
+              }
+
+              this.showPopup = true;
+              this.isEditingField = null;
+            },
+            (error) => {
+              console.error('Error al obtener el perfil actualizado:', error);
+            }
+          );
         },
         (error) => {
-          console.error('Error al actualizar el nombre:', error);
+          console.error('Error al actualizar la zona:', error);
         }
       );
-    }
-
-    // Si se cambia el hospital
-    else if (field === 'hospital' && this.newHospital !== this.user.hospital) {
+    } else if (field === 'hospital' && this.newHospital !== this.user.hospital) {
+      // Si el campo es 'hospital' y el hospital es diferente, actualizamos el hospital
       this.userService.updateUserHospital(this.newHospital).subscribe(
         () => {
-          this.user.hospital = this.newHospital;
+          console.log("Hospital actualizado a:", this.newHospital);
 
-          // Si no se ha cambiado la zona, asignamos la zona del médico
-          if (this.newZone === this.user.zone && this.user.doctor && this.user.doctor.comunidadAutonoma) {
-            this.user.zone = this.user.doctor.comunidadAutonoma;
-          }
+          this.userService.getUserProfile().subscribe(
+            (data) => {
+              console.log("Datos obtenidos tras actualizar hospital:", data);
 
-          this.showPopup = true;  // Mostramos el pop-up aquí
-          this.isEditingField = null;  // Restablecemos la edición de campos
+              this.user = data;
+              this.doctor = data.doctor;
+
+              let zoneCambiada = false;
+
+              if (data.zone) {
+                console.log("Zona actualizada a:", data.zone);
+                this.user.zone = data.zone;
+                zoneCambiada = true;
+              } else {
+                console.log("⚠ No se encontró zona en los datos del usuario.");
+              }
+
+              if (zoneCambiada) {
+                this.userService.updateUserZone(this.user.zone).subscribe(
+                  () => console.log("Zona guardada en la base de datos."),
+                  (error) => console.error("Error al guardar zona:", error)
+                );
+              }
+
+              this.showPopup = true;
+              this.isEditingField = null;
+            },
+            (error) => {
+              console.error('Error al obtener el perfil actualizado:', error);
+            }
+          );
         },
         (error) => {
           console.error('Error al actualizar el hospital:', error);
         }
       );
     }
-
-    // Si se cambia la zona
-    else if (field === 'zone' && this.newZone !== this.user.zone) {
-      this.userService.updateUserZone(this.newZone).subscribe(
-        () => {
-          this.user.zone = this.newZone;
-
-          // Si no se ha cambiado el hospital, asignamos el hospital del médico
-          if (this.newHospital === this.user.hospital && this.user.doctor && this.user.doctor.hospitalReferencia) {
-            this.user.hospital = this.user.doctor.hospitalReferencia;
-          }
-
-          this.showPopup = true;  // Mostramos el pop-up aquí
-          this.isEditingField = null;  // Restablecemos la edición de campos
-        },
-        (error) => {
-          console.error('Error al actualizar la zona:', error);
-        }
-      );
-    }
   }
+
+
 
 
   cancelEdit(): void {

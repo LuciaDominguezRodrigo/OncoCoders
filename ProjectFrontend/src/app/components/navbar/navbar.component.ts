@@ -42,6 +42,11 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleAuth() {
+    if (this.showHelpPopup) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
     if (this.isAuthenticated) {
       this.authService.logout().subscribe(() => {
         localStorage.removeItem('token');

@@ -62,6 +62,9 @@ public class UserRestController {
             userInfo.put("hospital", user.getHospitalReferencia());
             userInfo.put("zone", user.getComunidadAutonoma());
             userInfo.put("doctor", user.getMedicUser() != null ? user.getMedicUser().getName() : "Sin médico asignado");
+            userInfo.put("doctorHospital", user.getMedicUser() != null ? user.getMedicUser().getHospitalReferencia() : "Sin médico asignado");
+            userInfo.put("doctorZone", user.getMedicUser() != null ? user.getMedicUser().getComunidadAutonoma() : "Sin médico asignado");
+
             userInfo.put("role", user.getRole());
             // Retornar la respuesta con el perfil del usuario
             return ResponseEntity.ok(userInfo);
@@ -104,7 +107,7 @@ public class UserRestController {
         }
     }
     @PutMapping("/profile/hospital")
-    public ResponseEntity<Map<String, String>> updateUserHospital(@RequestHeader("Authorization") String token,
+    public ResponseEntity<Map<String, Object>> updateUserHospital(@RequestHeader("Authorization") String token,
                                                                   @RequestBody Map<String, String> body) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -131,14 +134,19 @@ public class UserRestController {
             // Asignar un nuevo médico si el hospital cambió
             userService.asignarPacienteAMedico(user);
 
+            // Actualizar el usuario con el nuevo hospital
             userService.updateUser(user);
 
-            return ResponseEntity.ok(Collections.singletonMap("message", "Hospital actualizado correctamente"));
+            // Recuperar el usuario actualizado
+            Optional<User> updatedUser = userService.findById(user.getId());
+
+            return ResponseEntity.ok(Collections.singletonMap("user", updatedUser));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
         }
     }
+
 
     @PutMapping("/profile/zone")
     public ResponseEntity<Map<String, String>> updateUserZone(@RequestHeader("Authorization") String token,

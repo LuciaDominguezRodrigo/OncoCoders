@@ -62,19 +62,16 @@ public class UserService {
     }
 
     public void asignarPacienteAMedico(User paciente) {
-        // Si cambió de hospital, buscar médicos en el nuevo hospital
         List<User> medicosHospital = userRepository.findAvailableDoctorsByHospital(
                 paciente.getComunidadAutonoma(), paciente.getHospitalReferencia());
 
         User medicoAsignado = encontrarMedicoDisponible(medicosHospital);
 
-        // Si no hay médicos en el hospital, buscar médicos en la zona
         if (medicoAsignado == null) {
             List<User> medicosComunidad = userRepository.findAvailableDoctorsByCommunity(paciente.getComunidadAutonoma());
             medicoAsignado = encontrarMedicoDisponible(medicosComunidad);
         }
 
-        // Asignar médico al paciente
         if (medicoAsignado != null) {
             medicoAsignado.addPaciente(paciente);
             paciente.setMedicUser(medicoAsignado);
