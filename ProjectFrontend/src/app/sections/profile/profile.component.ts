@@ -139,6 +139,29 @@ export class ProfileComponent implements OnInit {
           console.error('Error al actualizar el hospital:', error);
         }
       );
+    }else if (field === 'name' && this.newName !== this.user.name) {
+      // Si el campo es 'name' y el nombre es diferente, actualizamos el nombre
+      this.userService.updateUserName(this.newName).subscribe(
+        () => {
+          console.log("Nombre actualizado a:", this.newName);
+
+          this.userService.getUserProfile().subscribe(
+            (data) => {
+              console.log("Datos obtenidos tras actualizar nombre:", data);
+
+              this.user = data;
+              this.doctor = data.doctor;
+              this.isEditingField = null;
+            },
+            (error) => {
+              console.error('Error al obtener el perfil actualizado tras cambiar el nombre:', error);
+            }
+          );
+        },
+        (error) => {
+          console.error('Error al actualizar el nombre:', error);
+        }
+      );
     }
   }
 
