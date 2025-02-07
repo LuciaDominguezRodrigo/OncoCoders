@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { UserService } from '../../services/user.service'; // Asegúrate de que el servicio esté importado correctamente
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
   imports: [CommonModule, ReactiveFormsModule, RouterLink]
 })
 export class NavbarComponent implements OnInit {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router, RouterLink} from '@angular/router';
+import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { LoginResponse } from '../../services/LoginResponse';
@@ -8,7 +8,6 @@ import { LoginResponse } from '../../services/LoginResponse';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
   imports: [CommonModule, ReactiveFormsModule]
 })
 export class LoginComponent {

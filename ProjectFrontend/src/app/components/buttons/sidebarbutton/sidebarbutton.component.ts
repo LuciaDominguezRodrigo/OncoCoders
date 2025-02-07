@@ -1,13 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebarbutton',
-  imports: [],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   templateUrl: './sidebarbutton.component.html',
-  styleUrl: './sidebarbutton.component.css'
 })
 export class SidebarbuttonComponent {
   @Input() label!: string;
+  @Input() router!: string;
 
   ngOnInit() {
     if (!this.label) {

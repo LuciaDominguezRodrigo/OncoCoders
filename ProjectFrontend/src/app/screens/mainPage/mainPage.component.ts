@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
-import {NavbarComponent} from '../../components/navbar/navbar.component';
-import { SidebarComponent } from "../../components/common/sidebar/sidebar.component";
-import { HomePageComponent } from "../home-page/home-page.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-homepage',
+  selector: 'app-main-page',
   standalone: true,
   templateUrl: './mainPage.component.html',
-  imports: [
-    NavbarComponent,
-    HomePageComponent
-],
-  styleUrls: ['./mainPage.component.css']
+  imports: [CommonModule],
 })
-export class MainPageComponent { }
+export class MainPageComponent {}

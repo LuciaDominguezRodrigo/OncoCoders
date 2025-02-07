@@ -1,20 +1,24 @@
 import { Component } from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {RouterModule, RouterOutlet} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';  // Importar MatDialog
+import { SidebarComponent } from './components/common/sidebar/sidebar.component';
+import { NavbarComponent } from './components/common/navbar/navbar.component';
 
 
 @Component({
   selector: 'app-root',
+  templateUrl: './app.component.html',
   standalone: true,
-  template: `
-    <router-outlet></router-outlet>`,
   imports: [
     RouterOutlet,
+    RouterModule,
     CommonModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    NavbarComponent,
+    SidebarComponent
   ]
 })
 export class AppComponent { }

@@ -1,11 +1,12 @@
-<aside class="h-full max-w-72 bg-pink-300">
-  <div class="flex flex-col items-start gap-6 l2xl:items-stretch px-5 py-3">
-
-    <app-sidebarbutton label="Diagnóstico"></app-sidebarbutton>
-    <app-sidebarbutton label="Seguimiento"></app-sidebarbutton>
-    <app-sidebarbutton label="Recomendación"></app-sidebarbutton>
-    <app-sidebarbutton label="Foro"></app-sidebarbutton>
-    <app-sidebarbutton label="Perfil"></app-sidebarbutton>
-
+<aside class="h-full w-96 bg-pink-400" *ngIf="isLogged">
+  <div class="flex flex-col items-start gap-5 l2xl:items-stretch px-10 py-3">
+    <h1 class="w-full font-bold text-center text-2xl text-white"> Secciones del Usuario {{ userRole }} </h1>
+    <div class="border-b-2 w-full border-white "></div>
+    <app-sidebarbutton
+      *ngFor="let option of sideBarOptions"
+      [label]="option.label"
+      [router]="option.router">
+    </app-sidebarbutton>
   </div>
 </aside>
+

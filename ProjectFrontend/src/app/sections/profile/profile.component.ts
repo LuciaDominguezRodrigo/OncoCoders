@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';  // Asegúrate de importar OnInit
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -7,7 +6,8 @@ import {PopupComponent} from '../../components/popup/popup.component';
 
 @Component({
   selector: 'app-profile',
-  imports: [NavbarComponent, CommonModule, ReactiveFormsModule, FormsModule, PopupComponent],
+  imports: [
+    CommonModule, ReactiveFormsModule, FormsModule, PopupComponent],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
