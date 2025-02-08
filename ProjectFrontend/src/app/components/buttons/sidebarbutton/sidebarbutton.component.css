@@ -1,0 +1,38 @@
+.w-full.flex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+app-sidebarbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+
+app-sidebarbutton div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  min-width: 200px;
+}
+
+aside {
+  width: 250px;
+  background: linear-gradient(to bottom, #FF77A9, #D1A7E0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+.side-bar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

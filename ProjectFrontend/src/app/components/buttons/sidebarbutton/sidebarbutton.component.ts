@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   templateUrl: './sidebarbutton.component.html',
+  styleUrl: './sidebarbutton.component.css'
 })
 export class SidebarbuttonComponent {
   @Input() label!: string;
