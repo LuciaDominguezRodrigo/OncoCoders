@@ -2,6 +2,8 @@ package org.example.oncocoderswebapp.controller;
 
 import org.example.oncocoderswebapp.DTO.FormDTO;
 import org.example.oncocoderswebapp.model.User;
+import org.example.oncocoderswebapp.model.UserFormResponse;
+import org.example.oncocoderswebapp.repository.UserFormRepository;
 import org.example.oncocoderswebapp.service.TokenService;
 import org.example.oncocoderswebapp.service.UserFormService;
 import org.example.oncocoderswebapp.service.UserService;
@@ -13,15 +15,15 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/form")
 public class UserFormController {
-
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private UserFormService userFormService;
@@ -33,7 +35,8 @@ public class UserFormController {
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/formResponse")
-    public ResponseEntity<String> enviarFormulario(@RequestBody FormDTO formularioDTO, @RequestHeader("Authorization") String token) {
+
+    public ResponseEntity<String> enviarFormulario(@RequestBody Map<String, String> respuestasFormulario, @RequestHeader("Authorization") String token) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(Collections.singletonMap("error", "Token no proporcionado").toString());
@@ -47,9 +50,9 @@ public class UserFormController {
             user = userOptional.get();
         }
 
-        userFormService.save(user, formularioDTO.getPregunta1(), formularioDTO.getPregunta2(), formularioDTO.getPregunta3());
-        return ResponseEntity.ok("Formulario creado satisfactoriame!");
+        userFormService.save(user, respuestasFormulario);
+        return ResponseEntity.ok("Formulario creado satisfactoriamente!");
     }
-    }
+}
 
 
