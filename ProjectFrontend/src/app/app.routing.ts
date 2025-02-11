@@ -16,6 +16,7 @@ import { BannedUsersComponent } from './sections/admin-user/banned-users/banned-
 import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/not-banned-users.component';
 import { IAModelConfigurationComponent } from './sections/admin-user/ia-model-configuration/ia-model-configuration.component';
 import { MainPageComponent } from './screens/mainPage/mainPage.component';
+import {UserformComponent} from './screens/userform/userform.component';
 
 export const routes: Routes = [
     {
@@ -44,6 +45,11 @@ export const routes: Routes = [
     component: ProfileComponent,
     title: "Perfil"
    },
+  {
+    path: 'userform',
+    component: UserformComponent,
+    title: "Userform"
+  },
   {
     path: DIAGNOSIS_SCREEN,
     component: DiagnosisComponent,

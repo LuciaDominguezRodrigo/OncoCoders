@@ -43,25 +43,19 @@ public class ExportController {
         String filePath = folderPath + "/" + filename + ".xlsx";
         File file = new File(filePath);
 
-        // Crear o agregar al archivo existente
-        Workbook workbook;
+        // **Eliminar el archivo si ya existe**
         if (file.exists()) {
-            FileInputStream fis = new FileInputStream(file);
-            workbook = new XSSFWorkbook(fis);
-            fis.close();
-        } else {
-            workbook = new XSSFWorkbook();
+            file.delete();
         }
 
-        Sheet sheet = workbook.getSheet("Respuestas");
-        if (sheet == null) {
-            sheet = workbook.createSheet("Respuestas");
-        }
+        // **Crear un nuevo archivo desde cero**
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Respuestas");
 
         // Crear la primera fila para los encabezados
         Row headerRow = sheet.createRow(0);
 
-        // Definir los encabezados (identificadores proporcionados)
+        // Definir los encabezados
         String[] headers = {
                 "edad", "sexo", "bulto", "dolor_senos_axilas", "cambios_hinchazon_piel_senos", "pezones_rectacion_secrecion",
                 "ganglios_inflamados_dolor", "perdida_peso_inexplicada", "fatiga_persistente_cansancio_inexplicado",
@@ -79,7 +73,7 @@ public class ExportController {
         }
 
         // Comenzar a agregar los datos a partir de la segunda fila
-        int rowNum = 1; // Empieza después de la fila de encabezados
+        int rowNum = 1;
 
         for (UserFormResponse respuesta : respuestas) {
             Row dataRow = sheet.createRow(rowNum++);
@@ -120,7 +114,7 @@ public class ExportController {
             dataRow.createCell(33).setCellValue(respuesta.getRadioterapia_pecho());
         }
 
-        // Guardar el archivo
+        // Guardar el nuevo archivo
         FileOutputStream fos = new FileOutputStream(file);
         workbook.write(fos);
         fos.close();
@@ -135,6 +129,7 @@ public class ExportController {
                 .contentLength(file.length())
                 .body(resource);
     }
+
 
 
 }

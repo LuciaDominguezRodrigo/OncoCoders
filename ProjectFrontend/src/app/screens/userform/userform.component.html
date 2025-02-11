@@ -1,0 +1,69 @@
+<div class="h-dvh overflow-y-auto">
+  <div class="container mx-auto p-6 max-w-4xl">
+    <h1 class="text-4xl font-bold text-pink-600 text-center">Formulario de Datos Clínicos</h1>
+  </div>
+
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Datos Personales</h2>
+
+    <!-- Edad -->
+    <label class="block text-gray-700 font-semibold mt-4">Edad:</label>
+    <select class="w-full p-2 border rounded-lg">
+      <option value="0">Menos de 20 años</option>
+      <option value="1">21-30 años</option>
+      <option value="2">31-40 años</option>
+      <option value="3">41-50 años</option>
+      <option value="4">51-60 años</option>
+      <option value="5">61-70 años</option>
+      <option value="6">Más de 70 años</option>
+    </select>
+
+    <!-- Sexo -->
+    <label class="block text-gray-700 font-semibold mt-4">Sexo:</label>
+    <div class="flex gap-4">
+      <label><input type="radio" name="sexo" value="1" class="mr-2">Femenino</label>
+      <label><input type="radio" name="sexo" value="0" class="mr-2">Masculino</label>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Síntomas</h2>
+
+    <!-- Bulto -->
+    <label class="block text-gray-700 font-semibold mt-4">¿Ha notado un bulto en los senos?</label>
+    <div class="flex gap-4">
+      <label><input type="radio" name="bulto" value="1" class="mr-2">Sí</label>
+      <label><input type="radio" name="bulto" value="0" class="mr-2">No</label>
+    </div>
+
+    <!-- Dolor en senos o axilas -->
+    <label class="block text-gray-700 font-semibold mt-4">¿Siente dolor en senos o axilas?</label>
+    <div class="flex gap-4">
+      <label><input type="radio" name="dolor_senos_axilas" value="1" class="mr-2">Sí</label>
+      <label><input type="radio" name="dolor_senos_axilas" value="0" class="mr-2">No</label>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Hábitos y Estilo de Vida</h2>
+
+    <!-- Frecuencia de actividad física -->
+    <label class="block text-gray-700 font-semibold mt-4">Frecuencia de actividad física:</label>
+    <select class="w-full p-2 border rounded-lg">
+      <option value="0">1 vez a la semana</option>
+      <option value="1">2-3 veces a la semana</option>
+      <option value="2">4 o más</option>
+    </select>
+
+    <!-- Consumo de alcohol -->
+    <label class="block text-gray-700 font-semibold mt-4">Frecuencia de consumo de alcohol:</label>
+    <select class="w-full p-2 border rounded-lg">
+      <option value="0">Ocasional</option>
+      <option value="1">Semanal</option>
+      <option value="2">Diario</option>
+      <option value="3">No aplica</option>
+    </select>
+  </div>
+
+  <div class="h-16"></div> <!-- Espacio final -->
+</div>
