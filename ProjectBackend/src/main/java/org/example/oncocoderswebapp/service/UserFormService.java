@@ -38,7 +38,7 @@ public class UserFormService {
         respuestaFormulario.setSudoracion_nocturna_excesiva(convertirANumero(respuestas.get("sudoracion_nocturna_excesiva"), "sudoracion_nocturna_excesiva"));
         respuestaFormulario.setDiagnostico_previo(convertirANumero(respuestas.get("diagnostico_previo"), "diagnostico_previo"));
         respuestaFormulario.setFamiliares_diagnosticados(convertirANumero(respuestas.get("familiares_diagnosticados"), "familiares_diagnosticados"));
-        respuestaFormulario.setNum_familiares_diagnosticados(convertirANumero(respuestas.get("num_familiares_diagnosticados"), "num_familiares_diagnosticados"));
+        respuestaFormulario.setNum_familiares_diagnosticados(Integer.valueOf(respuestas.get("num_familiares_diagnosticados")));
         respuestaFormulario.setTratamiento_actualmente(convertirANumero(respuestas.get("tratamiento_actualmente"), "tratamiento_actualmente"));
         respuestaFormulario.setTipos_tratamiento(convertirANumero(respuestas.get("tipos_tratamiento"), "tipos_tratamiento"));
         respuestaFormulario.setPrimera_menstruacion(convertirANumero(respuestas.get("primera_menstruacion"), "primera_menstruacion"));
@@ -109,7 +109,7 @@ public class UserFormService {
         } else if (categoria.equals("edad_menopausia")) {
             conversion.put("No aplica - edad_menopausia", 2);  // Para edad de menopausia
         } else if (categoria.equals("hijos_lactancia")) {
-            conversion.put("No aplica - hijos_lactancia", 2);  // Para hijos lactancia
+            conversion.put("No aplica", 2);  // Para hijos lactancia
         }
 
         // Mapeo de actividad física

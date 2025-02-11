@@ -49,6 +49,10 @@ public class UserFormController {
         if (userOptional.isPresent()) {
             user = userOptional.get();
         }
+        else {
+            return ResponseEntity.status(401).body(Collections.singletonMap("error", "Usuario no autentificado").toString());
+
+        }
 
         userFormService.save(user, respuestasFormulario);
         return ResponseEntity.ok("Formulario creado satisfactoriamente!");
