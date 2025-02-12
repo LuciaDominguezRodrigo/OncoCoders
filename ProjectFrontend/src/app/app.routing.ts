@@ -48,7 +48,7 @@ export const routes: Routes = [
   {
     path: 'userform',
     component: UserformComponent,
-    title: "Userform"
+    title: "User form"
   },
   {
     path: DIAGNOSIS_SCREEN,

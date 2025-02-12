@@ -3,11 +3,12 @@ import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PopupComponent} from '../../components/popup/popup.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   imports: [
-    CommonModule, ReactiveFormsModule, FormsModule, PopupComponent],
+    CommonModule, ReactiveFormsModule, FormsModule, PopupComponent, RouterLink],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })

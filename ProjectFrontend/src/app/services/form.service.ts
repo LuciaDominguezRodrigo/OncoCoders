@@ -6,16 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FormService {
-  private apiUrl = 'http://localhost:8443/api/form/formResponse'; // URL del backend
+
+  private apiUrl = 'https://localhost:8443/api/form/formResponse';
 
   constructor(private http: HttpClient) {}
 
   sendForm(data: any, token: string | null): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`
     });
 
-    return this.http.post(this.apiUrl, data, { headers });
+    return this.http.post(this.apiUrl, data, { headers});
   }
+
 }

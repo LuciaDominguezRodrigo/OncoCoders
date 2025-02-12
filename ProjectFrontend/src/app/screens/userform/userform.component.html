@@ -1,7 +1,5 @@
-<div class="h-dvh">
-  <div class="container mx-auto p-6 max-w-4xl">
-    <h1 class="text-4xl font-bold text-pink-600 text-center">Formulario de Datos Clínicos</h1>
-  </div>
+<form #userForm="ngForm" (ngSubmit)="enviarFormulario()" class="h-dvh container mx-auto p-6 max-w-4xl">
+  <h1 class="text-4xl font-bold text-pink-600 text-center">Formulario de Datos Clínicos</h1>
 
   <!-- Sección 1: Demográficas y Geográficas -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
@@ -10,59 +8,57 @@
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Tienes o has tenido cáncer de mama?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="cancer_mama" class="mr-2">Sí</label>
-        <label><input type="radio" name="cancer_mama" class="mr-2">No</label>
+        <label><input type="radio" name="cancer_mama" [(ngModel)]="formData.cancer_mama" value="Sí">Sí</label>
+        <label><input type="radio" name="cancer_mama" [(ngModel)]="formData.cancer_mama" value="No">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Cuántos años tienes?</label>
-      <select class="w-full p-2 border rounded-lg">
-        <option>Menos de 20 años</option>
-        <option>21-30 años</option>
-        <option>31-40 años</option>
-        <option>41-50 años</option>
-        <option>51-60 años</option>
-        <option>61-70 años</option>
-        <option>Más de 70 años</option>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edad" name="edad">
+        <option value="Menos de 20 años">Menos de 20 años</option>
+        <option value="21-30 años">21-30 años</option>
+        <option value="31 - 40 años">31 - 40 años</option>
+        <option value="41 - 50 años">41 - 50 años</option>
+        <option value="51 - 60 años">51 - 60 años</option>
+        <option value="61-70 años">61-70 años</option>
+        <option value="Más de 70 años">Más de 70 años</option>
       </select>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Cuál es tu sexo biológico?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="sexo_biologico" class="mr-2">Masculino</label>
-        <label><input type="radio" name="sexo_biologico" class="mr-2">Femenino</label>
+        <label><input type="radio" name="sexo" [(ngModel)]="formData.sexo" value="Masculino">Masculino</label>
+        <label><input type="radio" name="sexo" [(ngModel)]="formData.sexo" value="Femenino">Femenino</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Vives en zona rural, urbana o semiurbana?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="cancer_mama" class="mr-2">Rural</label>
-        <label><input type="radio" name="cancer_mama" class="mr-2">Urbana</label>
-        <label><input type="radio" name="cancer_mama" class="mr-2">Semiurbana</label>
+        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Rural">Rural</label>
+        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Urbana">Urbana</label>
+        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Semiurbana">Semiurbana</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Tienes acceso a un hospital o centro de salud especializado?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="sexo_biologico" class="mr-2">Sí</label>
-        <label><input type="radio" name="sexo_biologico" class="mr-2">No</label>
+        <label><input type="radio" name="hospital" [(ngModel)]="formData.hospital" value="Sí">Sí</label>
+        <label><input type="radio" name="hospital" [(ngModel)]="formData.hospital" value="No">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Si tienes acceso, ¿a qué distnacia se encuentra?</label>
+      <label class="block text-gray-700 font-semibold">Si tienes acceso, ¿a qué distancia se encuentra?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="sexo_biologico" class="mr-2">Menos de 5km</label>
-        <label><input type="radio" name="sexo_biologico" class="mr-2">5-15km</label>
-        <label><input type="radio" name="sexo_biologico" class="mr-2">5-15km</label>
-
+        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="Menos de 5km">Menos de 5km</label>
+        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="5-15km">5-15km</label>
+        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="Más de 15km">Más de 15km</label>
       </div>
     </div>
-
   </div>
 
   <!-- Sección 2: Síntomas y Signos Físicos -->
@@ -72,54 +68,52 @@
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Has notado un bulto o masa inusual en uno o ambos senos?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="bulto" [(ngModel)]="formData.bulto" value="Sí">Sí</label>
+        <label><input type="radio" name="bulto" [(ngModel)]="formData.bulto" value="No">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Sientes dolor persistente en los senos o las axilas?
-      </label>
+      <label class="block text-gray-700 font-semibold">¿Sientes dolor persistente en los senos o las axilas?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="dolor_senos_axilas" [(ngModel)]="formData.dolor_senos_axilas" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="dolor_senos_axilas" [(ngModel)]="formData.dolor_senos_axilas" value="No" class="mr-2">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Si experimentas dolor, ¿cómo lo clasificarías ?
-      </label>
+      <label class="block text-gray-700 font-semibold">Si experimentas dolor, ¿cómo lo clasificarías?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="nivel_dolor" [(ngModel)]="formData.nivel_dolor" value="Leve">Leve</label>
+        <label><input type="radio" name="nivel_dolor" [(ngModel)]="formData.nivel_dolor" value="Moderado">Moderado</label>
+        <label><input type="radio" name="nivel_dolor" [(ngModel)]="formData.nivel_dolor" value="Severo">Severo</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Has observado cambios en la piel de tus senos, como enrojecimiento, hinchazón o textura de piel de naranja?
-      </label>
+      <label class="block text-gray-700 font-semibold">¿Has observado cambios en la piel de tus senos, como enrojecimiento, hinchazón o textura de piel de naranja?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="cambios_hinchazon_piel_senos" [(ngModel)]="formData.cambios_hinchazon_piel_senos" value="Sí">Sí</label>
+        <label><input type="radio" name="cambios_hinchazon_piel_senos" [(ngModel)]="formData.cambios_hinchazon_piel_senos" value="No">No</label>
+      </div>
+    </div>
+
+
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tus pezones han cambiado (retracción, secreción anormal)?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="pezones_rectacion_secrecion" [(ngModel)]="formData.pezones_rectacion_secrecion" value="Sí">Sí</label>
+        <label><input type="radio" name="pezones_rectacion_secrecion" [(ngModel)]="formData.pezones_rectacion_secrecion" value="No">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Tus pezones han cambiado (retracción, secreción anormal)?
-      </label>
+      <label class="block text-gray-700 font-semibold">Si has notado secreción, ¿qué tipo es?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
-      </div>
-    </div>
-
-    <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Si has notado secreción, ¿qué tipo es?
-      </label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Lechosa</label>
-        <label><input type="radio" name="bulto" class="mr-2">Sanguinolienta</label>
-        <label><input type="radio" name="bulto" class="mr-2">Transparente</label>
+        <label><input type="radio" name="tipo_secrecion" [(ngModel)]="formData.tipo_secrecion" value="Leve">Leve</label>
+        <label><input type="radio" name="tipo_secrecion" [(ngModel)]="formData.tipo_secrecion" value="Moderado">Moderado</label>
+        <label><input type="radio" name="tipo_secrecion" [(ngModel)]="formData.tipo_secrecion" value="Severo">Severo</label>
       </div>
     </div>
 
@@ -127,8 +121,8 @@
       <label class="block text-gray-700 font-semibold">¿Tienes ganglios inflamados o dolorosos en las axilas?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="ganglios_inflamados_dolor" [(ngModel)]="formData.ganglios_inflamados_dolor" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="ganglios_inflamados_dolor" [(ngModel)]="formData.ganglios_inflamados_dolor" value="false" class="mr-2">No</label>
       </div>
     </div>
 
@@ -136,8 +130,8 @@
       <label class="block text-gray-700 font-semibold">¿Has notado una pérdida de peso inexplicada en los últimos días?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="perdida_peso_inexplicada" [(ngModel)]="formData.perdida_peso_inexplicada" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="perdida_peso_inexplicada" [(ngModel)]="formData.perdida_peso_inexplicada" value="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -146,18 +140,8 @@
         razón aparente, especialmente en los últimos 7 días?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
-      </div>
-    </div>
-
-    <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Has experimentado fatiga persistente o cansancio extremo sin una
-        razón aparente, especialmente en los últimos 7 días?
-      </label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="fatiga_persistente_cansancio_inexplicado" [(ngModel)]="formData.fatiga_persistente_cansancio_inexplicado" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="fatiga_persistente_cansancio_inexplicado" [(ngModel)]="formData.fatiga_persistente_cansancio_inexplicado" value="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -165,8 +149,8 @@
       <label class="block text-gray-700 font-semibold">¿Has tenido fiebre inexplicada?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="fiebre_inexplicada" [(ngModel)]="formData.fiebre_inexplicada" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="fiebre_inexplicada" [(ngModel)]="formData.fiebre_inexplicada" value="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -174,8 +158,8 @@
       <label class="block text-gray-700 font-semibold">¿Tienes o has tenido hinchazón en los brazos o manos?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="hinchazon_brazos_manos" [(ngModel)]="formData.hinchazon_brazos_manos" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="hinchazon_brazos_manos" [(ngModel)]="formData.hinchazon_brazos_manos" value ="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -184,8 +168,8 @@
         en las últimas semanas?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="cambio_apetito" [(ngModel)]="formData.cambio_apetito" value ="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="cambio_apetito" [(ngModel)]="formData.cambio_apetito" value="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -193,8 +177,8 @@
       <label class="block text-gray-700 font-semibold">Si has notado cambios en tu apetito, ¿es un aumento o pérdida?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="cambio_apetito_tipo" [(ngModel)]="formData.cambio_apetito_tipo" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="cambio_apetito_tipo" [(ngModel)]="formData.cambio_apetito_tipo" value="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -203,8 +187,8 @@
         causa aparente en los días previos al diagnóstico?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="dolor_huesos_articulaciones_inexplicado" [(ngModel)]="formData.dolor_huesos_articulaciones_inexplicado" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="dolor_huesos_articulaciones_inexplicado" [(ngModel)]="formData.dolor_huesos_articulaciones_inexplicado" value="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -212,9 +196,9 @@
       <label class="block text-gray-700 font-semibold"> Si experimentas dolor en los huesos o articulaciones, ¿cómo lo calificarías?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Leve</label>
-        <label><input type="radio" name="bulto" class="mr-2">Moderado</label>
-        <label><input type="radio" name="bulto" class="mr-2">Severo</label>
+        <label><input type="radio" name="dolor_huesos_tipo" [(ngModel)]="formData.dolor_huesos_tipo" value="Lece" class="mr-2">Leve</label>
+        <label><input type="radio" name="dolor_huesos_tipo" [(ngModel)]="formData.dolor_huesos_tipo" value="Moderado" class="mr-2">Moderado</label>
+        <label><input type="radio" name="dolor_huesos_tipo" [(ngModel)]="formData.dolor_huesos_tipo" value="Severo" class="mr-2">Severo</label>
       </div>
     </div>
 
@@ -222,8 +206,8 @@
       <label class="block text-gray-700 font-semibold">¿Experimentas sudoración nocturna excesiva?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
-        <label><input type="radio" name="bulto" class="mr-2">No</label>
+        <label><input type="radio" name="sudoracion_nocturna_excesiva" [(ngModel)]="formData.sudoracion_nocturna_excesiva" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="sudoracion_nocturna_excesiva" [(ngModel)]="formData.sudoracion_nocturna_excesiva" value="No" class="mr-2">No</label>
       </div>
     </div>
   </div>
@@ -235,41 +219,39 @@
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Has sido diagnosticado/a con cáncer de mama anteriormente?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="diagnostico_previo" [(ngModel)]="formData.diagnostico_previo" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" [(ngModel)]="formData.diagnostico_previo" value="No" class="mr-2">No</label>
       </div>
     </div>
 
-    <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Si fuiste diagnistido, ¿cuando ocurrió?</label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Cambiar</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Csmbiar</label>
-      </div>
-    </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Tienes familiares directos (madre, padre, hermanas, hermanos,
         abuelas, abuelos) que hayan sido diagnosticados con cáncer de mama?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="familiares_diagnosticados" [(ngModel)]="formData.familiares_diagnosticados" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="familiares_diagnosticados" [(ngModel)]="formData.familiares_diagnosticados" value="No" class="mr-2">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Si tienes familiares diagnosticados, ¿cuántos son?</label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Cambiar</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Csmbiar</label>
-      </div>
+      <label class="block text-gray-700 font-semibold">
+        Si tienes familiares diagnosticados, ¿cuántos son?
+      </label>
+      <input
+        type="number"
+        class="mt-2 p-2 border rounded w-full"
+        [(ngModel)]="formData.num_familiares_diagnosticados"
+        name="num_familiares_diagnosticados"
+        min="0"
+      />
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Te encuentras en tratamiento contra el cancer de mama?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="tratamiento_actualmente" [(ngModel)]="formData.tratamiento_actualmente" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="tratamiento_actualmente" [(ngModel)]="formData.tratamiento_actualmente"  value ="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -277,11 +259,11 @@
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">Si recibes tratamiento, ¿qué tipo de tratamiento estás recibiendo?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Quimioterapia</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Radioterapia</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Cirugía</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Terapia Hormonal</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Otros</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Quimioterapia" class="mr-2">Quimioterapia</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Radioterapia" class="mr-2">Radioterapia</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value ="Cirugía" class="mr-2">Cirugía</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Terapia Hormonal" class="mr-2">Terapia Hormonal</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Otros" class="mr-2">Otros</label>
       </div>
     </div>
 
@@ -289,8 +271,8 @@
       <label class="block text-gray-700 font-semibold">¿Has tenido alguna recaída o recurrencia del cáncer de mama desde
         tu diagnóstico inicial?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="recaida" [(ngModel)]="formData.recaidas" value= "Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="recaida" [(ngModel)]="formData.recaidas" value= "No" class="mr-2">No</label>
       </div>
     </div>
   </div>
@@ -301,50 +283,50 @@
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿A qué edad aproximada tuviste tu primera menstruación?</label>
-      <select class="w-full p-2 border rounded-lg">
-        <option>Antes de los 12 años</option>
-        <option>Entre los 12-14 años</option>
-        <option>Después de los 14 años</option>
-      </select>
+      <div class="flex gap-4">
+        <label><input type="radio" name="primera_menstruacion" [(ngModel)]="formData.primera_menstruacion" value="Antes de los 12 años">Antes de los 12 años</label>
+        <label><input type="radio" name="primera_menstruacion" [(ngModel)]="formData.primera_menstruacion" value="Entre los 12-14 años">Entre los 12-14 años</label>
+        <label><input type="radio" name="primera_menstruacion" [(ngModel)]="formData.primera_menstruacion" value="Después de los 14 años">Después de los 14 años</label>
+      </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿A qué edad aproximada tuviste tu primera menstruación?</label>
-      <select class="w-full p-2 border rounded-lg">
-        <option>Antes de los 45 años</option>
-        <option>Después de los 45 años</option>
-        <option>Enre los 45 y los 55 años</option>
-      </select>
+      <label class="block text-gray-700 font-semibold">¿A qué edad llegaste a la menopausia (si aplica)?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="Antes de los 45 años">Antes de los 45 años</label>
+        <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="Después de los 45 años">Después de los 45 años</label>
+        <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="Entre los 45 y los 55 años">Entre los 45 y los 55 años</label>
+      </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold"> ¿Has tenido hijos?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="hijos" [(ngModel)]="formData.hijos" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="hijos" [(ngModel)]="formData.hijos" value="No" class="mr-2">No</label>
       </div>
     </div>
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold"> ¿Has lactado a tus hijos?</label>
+      <label class="block text-gray-700 font-semibold"> ¿Has lactado a tus hijos? (si aplica)</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="hijos_lactancia" [(ngModel)]="formData.hijos_lactancia" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="hijos_lactancia" [(ngModel)]="formData.hijos_lactancia" value="No" class="mr-2">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold"> ¿Usas o has usado anticonceptivos hormonales por más de 5 años?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="anticonceptivos_hormonales_5" [(ngModel)]="formData.anticonceptivos_hormonales_5" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="anticonceptivos_hormonales_5" [(ngModel)]="formData.anticonceptivos_hormonales_5" value="No" class="mr-2">No</label>
       </div>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold"> ¿Has recibido terapia de reemplazo hormonal después de la menopausia?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="terapia_remplazo_hormonal_postmenopausia" [(ngModel)]="formData.terapia_remplazo_hormonal_postmenopausia" value ="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="terapia_remplazo_hormonal_postmenopausia" [(ngModel)]="formData.terapia_remplazo_hormonal_postmenopausia" value ="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -357,8 +339,8 @@
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Realizas actividad física regularmente?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="act_fisica" [(ngModel)] = "formData.act_fisica" value ="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="act_fisica" [(ngModel)] = "formData.act_fisica" value = "No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -366,9 +348,9 @@
       <label class="block text-gray-700 font-semibold">Si la respuesta es afirmativa, ¿con qué frecuencia?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">1 vez a la semana</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">2-4 veces a la semana</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">4 o más</label>
+        <label><input type="radio" name="frequencia_act_fisica" [(ngModel)] = "formData.frequencia_act_fisica" value ="1 vez a la semana" class="mr-2">1 vez a la semana</label>
+        <label><input type="radio" name="frequencia_act_fisica" [(ngModel)] = "formData.frequencia_act_fisica" value ="2-4 veces a la semana" class="mr-2">2-4 veces a la semana</label>
+        <label><input type="radio" name="frequencia_act_fisica" [(ngModel)] = "formData.frequencia_act_fisica" value ="4 o más" class="mr-2">4 o más</label>
       </div>
     </div>
 
@@ -376,8 +358,8 @@
       <label class="block text-gray-700 font-semibold">¿Consumes alcohol?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="consumo_alcohol" [(ngModel)] = "formData.consumo_alcohol" value ="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="consumo_alcohol" [(ngModel)] = "formData.consumo_alcohol" value ="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -385,17 +367,20 @@
       <label class="block text-gray-700 font-semibold">Si consumes alcohol, ¿con qué frecuencia lo haces?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Ocasionalmente</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Semanal</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diariamente</label>
+        <label><input type="radio" name="frecuencia_alcohol"  [(ngModel)] ="formData.frecuencia_alcohol" value ="Ocasionalmente" class="mr-2">Ocasionalmente</label>
+        <label><input type="radio" name="frecuencia_alcohol"  [(ngModel)] ="formData.frecuencia_alcohol" value ="Semanal" class="mr-2">Semanal</label>
+        <label><input type="radio" name="frecuencia_alcohol"  [(ngModel)] ="formData.frecuencia_alcohol" value ="Diariamente" class="mr-2">Diariamente</label>
       </div>
     </div>
+
+
+
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿Fumas actualmente o has fumado en el pasado?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="fumar" [(ngModel)] ="formData.fumar" value ="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="fumar" [(ngModel)] ="formData.fumar" value ="No" class="mr-2">No</label>
       </div>
     </div>
 
@@ -403,11 +388,13 @@
       <label class="block text-gray-700 font-semibold">¿Tienes sobrepeso u obesidad?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="sobrepeso_obesidad" [(ngModel)] ="formData.sobrepeso_obesidad" value ="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="sobrepeso_obesidad" [(ngModel)] ="formData.sobrepeso_obesidad" value ="No" class="mr-2">No</label>
       </div>
     </div>
+
   </div>
+
 
   <!-- Sección 5:estilo de vida -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
@@ -418,10 +405,10 @@
         frituras, productos procesados)
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diario</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Varias veces a la semana</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Rara vez</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Nunca</label>
+        <label><input type="radio" name="grasas_saturadas" [(ngModel)]="formData.grasas_saturadas" value ="Diario" class="mr-2">Diario</label>
+        <label><input type="radio" name="grasas_saturadas" [(ngModel)]="formData.grasas_saturadas" value ="Varias veces a la semana" class="mr-2">Varias veces a la semana</label>
+        <label><input type="radio" name="grasas_saturadas" [(ngModel)]="formData.grasas_saturadas" value ="Rara vez" class="mr-2">Rara vez</label>
+        <label><input type="radio" name="grasas_saturadas" [(ngModel)]="formData.grasas_saturadas" value ="Nunca" class="mr-2">Nunca</label>
       </div>
     </div>
 
@@ -430,10 +417,10 @@
         frutos secos, aceite de oliva, pescado graso)
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diario</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Varias veces a la semana</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Rara vez</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Nunca</label>
+        <label><input type="radio" name="grasas_saludables" [(ngModel)] ="formData.grasas_saludables" value="Diario" class="mr-2">Diario</label>
+        <label><input type="radio" name="grasas_saludables" [(ngModel)] ="formData.grasas_saludables" value="Varias veces a la semana" class="mr-2">Varias veces a la semana</label>
+        <label><input type="radio" name="grasas_saludables" [(ngModel)] ="formData.grasas_saludables" value ="Rara vez" class="mr-2">Rara vez</label>
+        <label><input type="radio" name="grasas_saludables" [(ngModel)] ="formData.grasas_saludables" value ="Nunca" class="mr-2">Nunca</label>
       </div>
     </div>
 
@@ -441,8 +428,8 @@
       <label class="block text-gray-700 font-semibold">¿Tienes una dieta rica en frutas y verduras frescas?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="fruta_verdura" [(ngModel)]= "formData.fruta_verdura" value ="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="fruta_verdura" [(ngModel)]= "formData.fruta_verdura" value ="No" class="mr-2">No</label>
       </div>
     </div>
     <div class="bg-white p-4 rounded-lg shadow mt-4">
@@ -450,10 +437,10 @@
         frecuentemente? (como galletas, snacks, refrescos)
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diario</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Varias veces a la semana</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Rara vez</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Nunca</label>
+        <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value="Diario" class="mr-2">Diario</label>
+        <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value="Varias veces a la semana" class="mr-2">Varias veces a la semana</label>
+        <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value ="Rara vez" class="mr-2">Rara vez</label>
+        <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value ="Nunca" class="mr-2">Nunca</label>
       </div>
     </div>
 
@@ -462,8 +449,8 @@
         verduras) en tu dieta diaria?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="incorporacion_fibra" [(ngModel)]= "formData.incorporacion_fibra" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="incorporacion_fibra" [(ngModel)]= "formData.incorporacion_fibra" value="No" class="mr-2">No</label>
       </div>
     </div>
   </div>
@@ -472,47 +459,53 @@
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
     <h2 class="text-2xl font-semibold text-pink-600">Variables médicas</h2>
 
+      <div class="bg-white p-4 rounded-lg shadow mt-4">
+        <label class="block text-gray-700 font-semibold"> ¿Tienes alguna enfermedad crónica, como hipertensión o diabetes?
+        </label>
+        <div class="flex gap-4">
+          <label><input type="radio" name="hipertension_diabetes" [(ngModel)]= "formData.hipertension_diabetes" value="Sí" class="mr-2">Sí</label>
+          <label><input type="radio" name="hipertension_diabetes" [(ngModel)]= "formData.hipertension_diabetes" value="No" class="mr-2">No</label>
+        </div>
+      </div>
+
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold"> ¿Te realizas <strong>mamografías</strong> regularmente?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="mamografia" [(ngModel)] = "formData.mamografia" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="mamografia" [(ngModel)] = "formData.mamografia" value="No" class="mr-2">No</label>
       </div>
     </div>
+
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">Si te realizas mamografías, ¿con qué frecuencia lo haces?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">6 meses</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">1 año</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Otro</label>
+        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipo_tratamiento" value ="6 meses" class="mr-2">6 meses</label>
+        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipo_tratamiento" value="1 año" class="mr-2">1 año</label>
+        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipo_tratamiento" value ="Otro" class="mr-2">Otro</label>
       </div>
     </div>
 
-    <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold"> ¿Tienes alguna enfermedad crónica, como hipertensión o diabetes?
-      </label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
-      </div>
-    </div>
+
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold"> ¿Has recibido radioterapia en la zona del pecho por alguna razón médica previa?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
-        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+        <label><input type="radio" name="radioterapia_pecho" [(ngModel)] = "formData.radioterapia_pecho" value="Sí" class="mr-2">Sí</label>
+        <label><input type="radio" name="radioterapia_pecho" [(ngModel)] = "formData.radioterapia_pecho" value="No" class="mr-2">No</label>
       </div>
     </div>
   </div>
 
+
+
+
   <div class="flex justify-center mt-6 mb-6 pb-6">
-    <button class="bg-pink-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-700 transition">Enviar</button>
+    <button type="submit" class="bg-pink-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-700 transition">
+      Enviar
+    </button>
   </div>
-</div>
-
-
+</form>

@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {UserformComponent} from '../../screens/userform/userform.component';
 
 @Component({
   selector: 'app-popup',
