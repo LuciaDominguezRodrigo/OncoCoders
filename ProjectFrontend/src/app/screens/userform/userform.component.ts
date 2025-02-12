@@ -11,7 +11,7 @@ import {UserService} from '../../services/user.service';
 })
 export class UserformComponent {
   userForm!: FormGroup;
-  token: string | null = ''; // Debes obtenerlo dinámicamente
+  token: string | null = '';
 
   constructor(private fb: FormBuilder, private formService: FormService, private userService : UserService) {}
 
