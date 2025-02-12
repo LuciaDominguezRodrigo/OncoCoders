@@ -7,7 +7,6 @@ import {UserService} from '../../services/user.service';
   selector: 'app-userform',
   imports: [],
   templateUrl: './userform.component.html',
-  styleUrl: './userform.component.css'
 })
 export class UserformComponent {
   userForm!: FormGroup;

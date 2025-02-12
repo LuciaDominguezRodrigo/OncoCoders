@@ -3,67 +3,516 @@
     <h1 class="text-4xl font-bold text-pink-600 text-center">Formulario de Datos Clínicos</h1>
   </div>
 
+  <!-- Sección 1: Demográficas y Geográficas -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Datos Personales</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Demográficas y Geográficas</h2>
 
-    <!-- Edad -->
-    <label class="block text-gray-700 font-semibold mt-4">Edad:</label>
-    <select class="w-full p-2 border rounded-lg">
-      <option value="0">Menos de 20 años</option>
-      <option value="1">21-30 años</option>
-      <option value="2">31-40 años</option>
-      <option value="3">41-50 años</option>
-      <option value="4">51-60 años</option>
-      <option value="5">61-70 años</option>
-      <option value="6">Más de 70 años</option>
-    </select>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes o has tenido cáncer de mama?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="cancer_mama" class="mr-2">Sí</label>
+        <label><input type="radio" name="cancer_mama" class="mr-2">No</label>
+      </div>
+    </div>
 
-    <!-- Sexo -->
-    <label class="block text-gray-700 font-semibold mt-4">Sexo:</label>
-    <div class="flex gap-4">
-      <label><input type="radio" name="sexo" value="1" class="mr-2">Femenino</label>
-      <label><input type="radio" name="sexo" value="0" class="mr-2">Masculino</label>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Cuántos años tienes?</label>
+      <select class="w-full p-2 border rounded-lg">
+        <option>Menos de 20 años</option>
+        <option>21-30 años</option>
+        <option>31-40 años</option>
+        <option>41-50 años</option>
+        <option>51-60 años</option>
+        <option>61-70 años</option>
+        <option>Más de 70 años</option>
+      </select>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Cuál es tu sexo biológico?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="sexo_biologico" class="mr-2">Masculino</label>
+        <label><input type="radio" name="sexo_biologico" class="mr-2">Femenino</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Vives en zona rural, urbana o semiurbana?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="cancer_mama" class="mr-2">Rural</label>
+        <label><input type="radio" name="cancer_mama" class="mr-2">Urbana</label>
+        <label><input type="radio" name="cancer_mama" class="mr-2">Semiurbana</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes acceso a un hospital o centro de salud especializado?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="sexo_biologico" class="mr-2">Sí</label>
+        <label><input type="radio" name="sexo_biologico" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si tienes acceso, ¿a qué distnacia se encuentra?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="sexo_biologico" class="mr-2">Menos de 5km</label>
+        <label><input type="radio" name="sexo_biologico" class="mr-2">5-15km</label>
+        <label><input type="radio" name="sexo_biologico" class="mr-2">5-15km</label>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sección 2: Síntomas y Signos Físicos -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Síntomas y Signos Físicos</h2>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has notado un bulto o masa inusual en uno o ambos senos?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Sientes dolor persistente en los senos o las axilas?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si experimentas dolor, ¿cómo lo clasificarías ?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has observado cambios en la piel de tus senos, como enrojecimiento, hinchazón o textura de piel de naranja?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tus pezones han cambiado (retracción, secreción anormal)?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si has notado secreción, ¿qué tipo es?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Lechosa</label>
+        <label><input type="radio" name="bulto" class="mr-2">Sanguinolienta</label>
+        <label><input type="radio" name="bulto" class="mr-2">Transparente</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes ganglios inflamados o dolorosos en las axilas?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has notado una pérdida de peso inexplicada en los últimos días?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has experimentado fatiga persistente o cansancio extremo sin una
+        razón aparente, especialmente en los últimos 7 días?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has experimentado fatiga persistente o cansancio extremo sin una
+        razón aparente, especialmente en los últimos 7 días?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has tenido fiebre inexplicada?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes o has tenido hinchazón en los brazos o manos?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has notado cambios en tu apetito
+        en las últimas semanas?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si has notado cambios en tu apetito, ¿es un aumento o pérdida?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has experimentado dolor en los huesos o articulaciones sin una
+        causa aparente en los días previos al diagnóstico?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> Si experimentas dolor en los huesos o articulaciones, ¿cómo lo calificarías?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Leve</label>
+        <label><input type="radio" name="bulto" class="mr-2">Moderado</label>
+        <label><input type="radio" name="bulto" class="mr-2">Severo</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Experimentas sudoración nocturna excesiva?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="bulto" class="mr-2">Sí</label>
+        <label><input type="radio" name="bulto" class="mr-2">No</label>
+      </div>
     </div>
   </div>
 
+  <!-- Sección 3: Diagnóstico y Antecedentes de Cáncer de Mama -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Síntomas</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Diagnóstico y Antecedentes</h2>
 
-    <!-- Bulto -->
-    <label class="block text-gray-700 font-semibold mt-4">¿Ha notado un bulto en los senos?</label>
-    <div class="flex gap-4">
-      <label><input type="radio" name="bulto" value="1" class="mr-2">Sí</label>
-      <label><input type="radio" name="bulto" value="0" class="mr-2">No</label>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has sido diagnosticado/a con cáncer de mama anteriormente?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
     </div>
 
-    <!-- Dolor en senos o axilas -->
-    <label class="block text-gray-700 font-semibold mt-4">¿Siente dolor en senos o axilas?</label>
-    <div class="flex gap-4">
-      <label><input type="radio" name="dolor_senos_axilas" value="1" class="mr-2">Sí</label>
-      <label><input type="radio" name="dolor_senos_axilas" value="0" class="mr-2">No</label>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si fuiste diagnistido, ¿cuando ocurrió?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Cambiar</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Csmbiar</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes familiares directos (madre, padre, hermanas, hermanos,
+        abuelas, abuelos) que hayan sido diagnosticados con cáncer de mama?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si tienes familiares diagnosticados, ¿cuántos son?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Cambiar</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Csmbiar</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Te encuentras en tratamiento contra el cancer de mama?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si recibes tratamiento, ¿qué tipo de tratamiento estás recibiendo?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Quimioterapia</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Radioterapia</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Cirugía</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Terapia Hormonal</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Otros</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Has tenido alguna recaída o recurrencia del cáncer de mama desde
+        tu diagnóstico inicial?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
     </div>
   </div>
 
+  <!-- Sección 4: Factores Hormonales y Reproductivos -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Hábitos y Estilo de Vida</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Factores Hormonales y Reproductivos</h2>
 
-    <!-- Frecuencia de actividad física -->
-    <label class="block text-gray-700 font-semibold mt-4">Frecuencia de actividad física:</label>
-    <select class="w-full p-2 border rounded-lg">
-      <option value="0">1 vez a la semana</option>
-      <option value="1">2-3 veces a la semana</option>
-      <option value="2">4 o más</option>
-    </select>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿A qué edad aproximada tuviste tu primera menstruación?</label>
+      <select class="w-full p-2 border rounded-lg">
+        <option>Antes de los 12 años</option>
+        <option>Entre los 12-14 años</option>
+        <option>Después de los 14 años</option>
+      </select>
+    </div>
 
-    <!-- Consumo de alcohol -->
-    <label class="block text-gray-700 font-semibold mt-4">Frecuencia de consumo de alcohol:</label>
-    <select class="w-full p-2 border rounded-lg">
-      <option value="0">Ocasional</option>
-      <option value="1">Semanal</option>
-      <option value="2">Diario</option>
-      <option value="3">No aplica</option>
-    </select>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿A qué edad aproximada tuviste tu primera menstruación?</label>
+      <select class="w-full p-2 border rounded-lg">
+        <option>Antes de los 45 años</option>
+        <option>Después de los 45 años</option>
+        <option>Enre los 45 y los 55 años</option>
+      </select>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> ¿Has tenido hijos?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> ¿Has lactado a tus hijos?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> ¿Usas o has usado anticonceptivos hormonales por más de 5 años?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> ¿Has recibido terapia de reemplazo hormonal después de la menopausia?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
   </div>
 
-  <div class="h-16"></div> <!-- Espacio final -->
+  <!-- Sección 5:estilo de vida -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Estilo de Vida y Actividad Física</h2>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Realizas actividad física regularmente?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si la respuesta es afirmativa, ¿con qué frecuencia?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">1 vez a la semana</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">2-4 veces a la semana</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">4 o más</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Consumes alcohol?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si consumes alcohol, ¿con qué frecuencia lo haces?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Ocasionalmente</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Semanal</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diariamente</label>
+      </div>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Fumas actualmente o has fumado en el pasado?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes sobrepeso u obesidad?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección 5:estilo de vida -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Alimentación y Riesgo de Cáncer de Mama</h2>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Consumes alimentos ricos en grasas saturadas? (como carnes rojas,
+        frituras, productos procesados)
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diario</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Varias veces a la semana</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Rara vez</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Nunca</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Consumes alimentos ricos en grasas saludables? (como aguacates,
+        frutos secos, aceite de oliva, pescado graso)
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diario</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Varias veces a la semana</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Rara vez</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Nunca</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes una dieta rica en frutas y verduras frescas?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Consumes alimentos ultraprocesados o de bajo valor nutricional
+        frecuentemente? (como galletas, snacks, refrescos)
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Diario</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Varias veces a la semana</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Rara vez</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Nunca</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Incorporas fibra (de cereales integrales, legumbres, frutas y
+        verduras) en tu dieta diaria?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección 5:estilo de vida -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Variables médicas</h2>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> ¿Te realizas <strong>mamografías</strong> regularmente?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si te realizas mamografías, ¿con qué frecuencia lo haces?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">6 meses</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">1 año</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Otro</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> ¿Tienes alguna enfermedad crónica, como hipertensión o diabetes?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold"> ¿Has recibido radioterapia en la zona del pecho por alguna razón médica previa?
+      </label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">Sí</label>
+        <label><input type="radio" name="diagnostico_previo" class="mr-2">No</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-6 mb-6 pb-6">
+    <button class="bg-pink-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-700 transition">Enviar</button>
+  </div>
 </div>
+
+
