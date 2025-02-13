@@ -12,9 +12,9 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: './userform.component.html',
 })
 export class UserformComponent {
-  formData  = {
-    cancer_mama:" ",
-    edad:" ",
+  formData = {
+    cancer_mama: " ",
+    edad: " ",
     sexo: "",
     zona_vivienda: "",
     hospital: " ",
@@ -47,7 +47,7 @@ export class UserformComponent {
     hijos_lactancia: " ",
     anticonceptivos_hormonales_5: " ",
     terapia_remplazo_hormonal_postmenopausia: " ",
-    act_fisica:" ",
+    act_fisica: " ",
     frequencia_act_fisica: " ",
     consumo_alcohol: " ",
     frecuencia_alcohol: " ",
@@ -66,7 +66,8 @@ export class UserformComponent {
 
   puedeEnviar: boolean = true;
 
-  constructor(private http: HttpClient, private formService: FormService) {}
+  constructor(private http: HttpClient, private formService: FormService) {
+  }
 
   transformarDatos(data: any): any {
     return {
@@ -107,23 +108,23 @@ export class UserformComponent {
     };
   }
 
-/*
-  ngOnInit() {
-    this.verificarUltimoEnvio();
-  }
-
-  verificarUltimoEnvio() {
-    const ultimoEnvio = localStorage.getItem('ultimoEnvioFormulario');
-    if (ultimoEnvio) {
-      const fechaUltimoEnvio = new Date(ultimoEnvio);
-      const fechaActual = new Date();
-      const diferenciaDias = (fechaActual.getTime() - fechaUltimoEnvio.getTime()) / (1000 * 60 * 60 * 24);
-
-      if (diferenciaDias < 7) {
-        this.puedeEnviar = false;
-      }
+  /*
+    ngOnInit() {
+      this.verificarUltimoEnvio();
     }
-  }*/
+
+    verificarUltimoEnvio() {
+      const ultimoEnvio = localStorage.getItem('ultimoEnvioFormulario');
+      if (ultimoEnvio) {
+        const fechaUltimoEnvio = new Date(ultimoEnvio);
+        const fechaActual = new Date();
+        const diferenciaDias = (fechaActual.getTime() - fechaUltimoEnvio.getTime()) / (1000 * 60 * 60 * 24);
+
+        if (diferenciaDias < 7) {
+          this.puedeEnviar = false;
+        }
+      }
+    }*/
   enviarFormulario() {
     if (!this.puedeEnviar) {
       alert('Debes esperar 7 días antes de enviar nuevamente el formulario.');
@@ -141,15 +142,18 @@ export class UserformComponent {
 
     this.formService.sendForm(formDataTransformada, token).subscribe(
       response => {
+        console.log('Respuesta del servidor:', response);
         alert('Formulario enviado correctamente');
         localStorage.setItem('ultimoEnvioFormulario', new Date().toISOString());
         this.puedeEnviar = true;
       },
       error => {
-        localStorage.setItem('ultimoEnvioFormulario', new Date().toISOString());
-        this.puedeEnviar = true;
+        console.error('Error en el envío:', error);
+        console.log('Respuesta del servidor:', error);
+        alert('Hubo un error en el envío. Revisa la consola para más detalles.');
       }
     );
-  }
 
+
+  }
 }

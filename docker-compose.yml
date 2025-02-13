@@ -18,8 +18,13 @@ services:
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - SERVER_SSL_KEY_STORE=/etc/keystore/keystore.jks
+      - SERVER_SSL_KEY_STORE_PASSWORD=${SSL_PASSWORD}
+      - SERVER_SSL_KEY_ALIAS=${SSL_NAME}
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./keystore.jks:/etc/keystore/keystore.jks
+
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s

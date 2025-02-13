@@ -54,7 +54,8 @@ public class UserFormController {
         }
 
         userFormService.save(user, respuestasFormulario);
-        return ResponseEntity.ok("Formulario creado satisfactoriamente!");
+        return ResponseEntity.ok("form enviado correctamente");
+
     }
 }
 

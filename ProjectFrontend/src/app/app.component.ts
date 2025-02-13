@@ -21,6 +21,7 @@ import { NavbarComponent } from './components/common/navbar/navbar.component';
     SidebarComponent
   ]
 })
+
 export class AppComponent {
 
   constructor(private router: Router) {}
