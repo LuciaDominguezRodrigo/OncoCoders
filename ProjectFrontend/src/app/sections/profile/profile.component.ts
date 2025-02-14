@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PopupComponent} from '../../components/popup/popup.component';
 import {RouterLink} from '@angular/router';
+import {FormService} from '../../services/form.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +23,7 @@ export class ProfileComponent implements OnInit {
   showPopup: boolean = false;
 
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private formService: FormService) {
   }
 
   ngOnInit(): void {
@@ -175,6 +176,10 @@ export class ProfileComponent implements OnInit {
 
   closePopup(): void {
     this.showPopup = false;
+  }
+
+  downloadExcel() {
+    this.formService.downloadExcel();
   }
 
 }

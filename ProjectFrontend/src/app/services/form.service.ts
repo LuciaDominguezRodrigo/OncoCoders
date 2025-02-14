@@ -20,4 +20,18 @@ export class FormService {
     return this.http.post(this.apiUrl, data, { headers});
   }
 
+  downloadExcel() {
+    const url = '/api/excels/download-excel/Modelo2_autopredicción_paciente';
+    this.http.get(url, { responseType: 'blob' as 'json', withCredentials: true }).subscribe((response: any) => {
+      const blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const downloadURL = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = downloadURL;
+      link.download = 'Modelo2_autopredicción_paciente.xlsx';
+      link.click();
+    });
+  }
+
 }
+
+

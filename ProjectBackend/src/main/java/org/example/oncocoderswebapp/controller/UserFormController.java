@@ -49,7 +49,7 @@ public class UserFormController {
             user = userOptional.get();
         }
         else {
-            return ResponseEntity.status(401).body(Collections.singletonMap("error", "Usuario no autentificado").toString());
+            return ResponseEntity.status(401).body("error :Usuario no autentificado");
 
         }
 

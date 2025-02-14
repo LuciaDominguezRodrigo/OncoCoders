@@ -49,8 +49,9 @@ public class UserFormResponse {
     private Integer incorporacion_fibra;
     private Integer hipertension_diabtetes;
     private Integer radioterapia_pecho;
+    private Integer cancer_mama;
 
-    public UserFormResponse(Long id, User usuario, LocalDateTime fechaRespuesta, Integer edad, Integer sexo, Integer bulto, Integer dolor_senos_axilas, Integer pezones_rectacion_secrecion, Integer cambios_hinchazon_piel_senos, Integer ganglios_inflamados_dolor, Integer perdida_peso_inexplicada, Integer fatiga_persistente_cansancio_inexplicado, Integer fiebre_inexplicada, Integer dolor_huesos_articulaciones_inexplicado, Integer hinchazon_brazos_manos, Integer sudoracion_nocturna_excesiva, Integer diagnostico_previo, Integer familiares_diagnosticados, Integer num_familiares_diagnosticados, Integer tratamiento_actualmente, Integer tipos_tratamiento, Integer primera_menstruacion, Integer edad_menopausia, Integer hijos, Integer hijos_lactancia, Integer anticonceptivos_hormonales_5, Integer terapia_remplazo_hormonal_postmenopausia, Integer frequencia_act_fisica, Integer radioterapia_pecho, Integer hipertension_diabtetes, Integer incorporacion_fibra, Integer fruta_verdura, Integer grasas_saludables, Integer grasas_saturadas, Integer sobrepeso_obesidad, Integer fumar, Integer frecuencia_alcohol) {
+    public UserFormResponse(Long id, User usuario, LocalDateTime fechaRespuesta, Integer edad, Integer sexo, Integer bulto, Integer dolor_senos_axilas, Integer pezones_rectacion_secrecion, Integer cambios_hinchazon_piel_senos, Integer ganglios_inflamados_dolor, Integer perdida_peso_inexplicada, Integer fatiga_persistente_cansancio_inexplicado, Integer fiebre_inexplicada, Integer dolor_huesos_articulaciones_inexplicado, Integer hinchazon_brazos_manos, Integer sudoracion_nocturna_excesiva, Integer diagnostico_previo, Integer familiares_diagnosticados, Integer num_familiares_diagnosticados, Integer tratamiento_actualmente, Integer tipos_tratamiento, Integer primera_menstruacion, Integer edad_menopausia, Integer hijos, Integer hijos_lactancia, Integer anticonceptivos_hormonales_5, Integer terapia_remplazo_hormonal_postmenopausia, Integer frequencia_act_fisica, Integer radioterapia_pecho, Integer hipertension_diabtetes, Integer incorporacion_fibra, Integer fruta_verdura, Integer grasas_saludables, Integer grasas_saturadas, Integer sobrepeso_obesidad, Integer fumar, Integer frecuencia_alcohol,Integer cancer_mama) {
         this.id = id;
         this.usuario = usuario;
         this.fechaRespuesta = fechaRespuesta;
@@ -88,6 +89,7 @@ public class UserFormResponse {
         this.sobrepeso_obesidad = sobrepeso_obesidad;
         this.fumar = fumar;
         this.frecuencia_alcohol = frecuencia_alcohol;
+        this.cancer_mama = cancer_mama;
     }
 
     public UserFormResponse() {
@@ -390,4 +392,15 @@ public class UserFormResponse {
     }
 
 
+    public double getUsuario_id() {
+        return this.usuario.getId();
+    }
+
+    public void setCancerMama(Integer cm) {
+        this.cancer_mama=cm;
+    }
+
+    public double getCancer_mama() {
+        return this.cancer_mama;
+    }
 }

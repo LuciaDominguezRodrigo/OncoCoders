@@ -57,6 +57,7 @@ public class UserFormService {
         respuestaFormulario.setIncorporacion_fibra(convertirANumero(respuestas.get("incorporacion_fibra"), "incorporacion_fibra"));
         respuestaFormulario.setHipertension_diabtetes(convertirANumero(respuestas.get("hipertension_diabetes"), "hipertension_diabetes"));
         respuestaFormulario.setRadioterapia_pecho(convertirANumero(respuestas.get("radioterapia_pecho"), "radioterapia_pecho"));
+        respuestaFormulario.setCancerMama(convertirANumero(respuestas.get("cancer_mama"), "cancer_mama"));
 
         // Guardar la respuesta del formulario en el repositorio
         userFormRepository.save(respuestaFormulario);
