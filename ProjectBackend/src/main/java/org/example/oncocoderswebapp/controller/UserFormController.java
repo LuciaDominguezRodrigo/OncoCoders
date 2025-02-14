@@ -49,12 +49,12 @@ public class UserFormController {
             user = userOptional.get();
         }
         else {
-            return ResponseEntity.status(401).body("error :Usuario no autentificado");
+            return ResponseEntity.status(401).build();
 
         }
 
         userFormService.save(user, respuestasFormulario);
-        return ResponseEntity.ok("form enviado correctamente");
+        return ResponseEntity.ok().build();
 
     }
 }

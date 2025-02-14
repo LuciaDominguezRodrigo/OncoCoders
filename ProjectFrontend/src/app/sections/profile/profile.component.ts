@@ -3,7 +3,7 @@ import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PopupComponent} from '../../components/popup/popup.component';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {FormService} from '../../services/form.service';
 
 @Component({
@@ -21,9 +21,14 @@ export class ProfileComponent implements OnInit {
   doctor: string = '';
   isEditingField: string | null = null;
   showPopup: boolean = false;
+  showPopupForm:boolean=false;
+  formDisabled: boolean = false;
+  daysRemaining: number = 0;
 
 
-  constructor(private userService: UserService, private formService: FormService) {
+
+
+  constructor(private userService: UserService, private formService: FormService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -180,6 +185,33 @@ export class ProfileComponent implements OnInit {
 
   downloadExcel() {
     this.formService.downloadExcel();
+  }
+
+  checkFormAccess() {
+    const lastSubmission = localStorage.getItem('ultimoEnvioFormulario');
+    if (lastSubmission) {
+      const lastDate = new Date(lastSubmission);
+      const currentDate = new Date();
+      const diffTime = Math.abs(currentDate.getTime() - lastDate.getTime());
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convertir milisegundos a días
+
+      if (diffDays < 7) { // Restringir por 7 días
+        this.daysRemaining = 7 - diffDays;
+        this.showPopupForm = true;
+        this.formDisabled = true; // Bloquear botón del formulario
+      } else {
+        this.formDisabled = false; // Permitir acceso al formulario
+      }
+    }
+  }
+
+  openForm() {
+    this.checkFormAccess();
+    if (!this.formDisabled) {
+      // Redirigir al formulario si está permitido
+      this.router.navigate(['/userform']);
+
+    }
   }
 
 }

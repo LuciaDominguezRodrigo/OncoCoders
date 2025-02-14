@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, FormsModule, Validators} from '@angular/forms';
 import { FormService } from '../../services/form.service';
 import {UserService} from '../../services/user.service';
 import {HttpClient} from '@angular/common/http';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-userform',
@@ -64,9 +65,9 @@ export class UserformComponent {
     radioterapia_pecho: " "
   };
 
-  puedeEnviar: boolean = true;
+  puedeEnviar: boolean = false;
 
-  constructor(private http: HttpClient, private formService: FormService) {
+  constructor(private router: Router, private formService: FormService) {
   }
 
   transformarDatos(data: any): any {
@@ -108,19 +109,19 @@ export class UserformComponent {
     };
   }
 
-  /*
+/*
     ngOnInit() {
       this.verificarUltimoEnvio();
     }
 
-    verificarUltimoEnvio() {
+   verificarUltimoEnvio() {
       const ultimoEnvio = localStorage.getItem('ultimoEnvioFormulario');
       if (ultimoEnvio) {
         const fechaUltimoEnvio = new Date(ultimoEnvio);
         const fechaActual = new Date();
         const diferenciaDias = (fechaActual.getTime() - fechaUltimoEnvio.getTime()) / (1000 * 60 * 60 * 24);
 
-        if (diferenciaDias < 7) {
+        if (diferenciaDias <0.000005 ) {
           this.puedeEnviar = false;
         }
       }
@@ -143,9 +144,10 @@ export class UserformComponent {
     this.formService.sendForm(formDataTransformada, token).subscribe(
       response => {
         console.log('Respuesta del servidor:', response);
-        alert('Formulario enviado correctamente');
+        alert('Formulario enviado correctamente. Recuerde que no podrá vovler a hacer el formulario hasta dentro de 7 días');
         localStorage.setItem('ultimoEnvioFormulario', new Date().toISOString());
         this.puedeEnviar = true;
+        this.router.navigate(['/profile']);
       },
       error => {
         console.error('Error en el envío:', error);

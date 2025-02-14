@@ -80,7 +80,7 @@
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'USER'">
       <h3 class="text-xl font-semibold text-pink-600">Formulario</h3>
       <p class="text-gray-700 mt-2">Completa la información del paciente.</p>
-      <button routerLink="/userform" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+      <button (click)="openForm()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
         Ir al Formulario
       </button>
     </div>
@@ -101,7 +101,11 @@
         Ver Estadísticas
       </button>
     </div>
+
     <app-popup *ngIf="showPopup" [message]="'Ha cambiado de hospital y/o zona, su médico ha sido reasignado.'" (close)="closePopup()"></app-popup>
+    <app-popup *ngIf="showPopupForm" [message]="'Debe esperar ' + daysRemaining + ' días para volver a enviar el formulario.'" (close)="showPopup = false"></app-popup>
+
   </div>
+
   <div class="h-16"></div> <!--espacio del final-->
 </div>
