@@ -30,6 +30,7 @@ public class User {
 
 	private String comunidadAutonoma;
 	private String hospitalReferencia;
+	private boolean consentFirm;
 
 	@OneToMany(mappedBy = "medicUser", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<User> pacientes = new ArrayList<>();
@@ -42,7 +43,7 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String encodedPassword, String email, String comunidadAutonoma, String hospitalReferencia, String... roles) {
+	public User(String name, String encodedPassword, String email, String comunidadAutonoma, String hospitalReferencia, boolean cf, String... roles) {
 		this.name = name;
 		this.encodedPassword = encodedPassword;
 		this.email = email;
@@ -50,6 +51,7 @@ public class User {
 		this.roles = List.of(roles);
 		this.comunidadAutonoma = comunidadAutonoma;
 		this.hospitalReferencia = hospitalReferencia;
+		this.consentFirm = cf;
 
 	}
 
@@ -76,33 +78,86 @@ public class User {
 		}
 	}
 
-	public Long getId() { return id; }
-	public void setId(Long id) { this.id = id; }
-	public String getEmail() { return email; }
-	public void setEmail(String email) { this.email = email; }
-	public boolean isBanned() { return banned; }
-	public void setBanned(boolean banned) { this.banned = banned; }
-	public List<String> getRoles() { return roles; }
-	public void setRoles(List<String> roles) { this.roles = roles; }
-	public String getEncodedPassword() { return encodedPassword; }
-	public void setEncodedPassword(String encodedPassword) { this.encodedPassword = encodedPassword; }
-	public String getName() { return name; }
-	public void setName(String name) { this.name = name; }
-	public String getComunidadAutonoma() { return comunidadAutonoma; }
-	public void setComunidadAutonoma(String comunidadAutonoma) { this.comunidadAutonoma = comunidadAutonoma; }
-	public String getHospitalReferencia() { return hospitalReferencia; }
-	public void setHospitalReferencia(String hospitalReferencia) { this.hospitalReferencia = hospitalReferencia; }
-	public List<User> getPacientes() { return pacientes; }
-	public void setPacientes(List<User> pacientes) { this.pacientes = pacientes; }
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isBanned() {
+		return banned;
+	}
+
+	public void setBanned(boolean banned) {
+		this.banned = banned;
+	}
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
+	public String getEncodedPassword() {
+		return encodedPassword;
+	}
+
+	public void setEncodedPassword(String encodedPassword) {
+		this.encodedPassword = encodedPassword;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getComunidadAutonoma() {
+		return comunidadAutonoma;
+	}
+
+	public void setComunidadAutonoma(String comunidadAutonoma) {
+		this.comunidadAutonoma = comunidadAutonoma;
+	}
+
+	public String getHospitalReferencia() {
+		return hospitalReferencia;
+	}
+
+	public void setHospitalReferencia(String hospitalReferencia) {
+		this.hospitalReferencia = hospitalReferencia;
+	}
+
+	public List<User> getPacientes() {
+		return pacientes;
+	}
+
+	public void setPacientes(List<User> pacientes) {
+		this.pacientes = pacientes;
+	}
 
 	public User getMedicUser() {
-		return medicUser != null ? medicUser : new User("Sin médico asignado", "", "", "", "");
+		return medicUser != null ? medicUser : new User("Sin médico asignado", "", "", "", "", false);
 	}
 
 
 	public void setRole(String roleUser) {
-		if (this.roles == null){
-			this.roles =  new ArrayList<>();
+		if (this.roles == null) {
+			this.roles = new ArrayList<>();
 		}
 		this.roles.add(roleUser);
 	}
@@ -112,7 +167,7 @@ public class User {
 	}
 
 	public void clearRoles() {
-		if (this.roles !=null) {
+		if (this.roles != null) {
 			this.roles.clear();
 		} else {
 			this.roles = new ArrayList<>();
@@ -121,5 +176,14 @@ public class User {
 
 	public String getRole() {
 		return this.roles.getFirst();
+	}
+
+	public boolean isConsentFirm() {
+		return consentFirm;
+	}
+
+	public void setConsentFirm(boolean consentFirm) {
+		this.consentFirm = consentFirm;
+
 	}
 }

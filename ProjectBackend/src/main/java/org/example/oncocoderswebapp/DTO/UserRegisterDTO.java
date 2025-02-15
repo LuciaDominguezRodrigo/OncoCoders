@@ -6,7 +6,8 @@ public class UserRegisterDTO {
     private String password;
     private String role;
     private String comunidadAutonoma;  // Nuevo campo
-    private String hospitalReferencia; // Nuevo campo
+    private String hospitalReferencia;
+    private Boolean consentFirm;// Nuevo campo
 
     // Getters y setters
     public String getName() {
@@ -56,5 +57,14 @@ public class UserRegisterDTO {
 
     public void setHospitalReferencia(String hospitalReferencia) {
         this.hospitalReferencia = hospitalReferencia;
+    }
+
+    public boolean isConsentFirm() {
+        return consentFirm;
+    }
+
+    public void setConsentFirm(boolean consentFirm) {
+        this.consentFirm = consentFirm;
+
     }
 }

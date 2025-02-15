@@ -73,6 +73,11 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> registerUser(@RequestBody UserRegisterDTO registerDTO) {
+        if (!registerDTO.isConsentFirm()) { // Verificamos si se firmó el consentimiento
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("error", "Debe firmar el consentimiento para registrarse"));
+        }
+
         if (authService.isEmailTaken(registerDTO.getEmail())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(Collections.singletonMap("error", "El correo ya está en uso"));

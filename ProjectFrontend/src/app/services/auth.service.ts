@@ -37,8 +37,8 @@ export class AuthService {
     return new Observable();  // Devuelve un observable vacío si no hay token
   }
 
-  register(name: string, email: string, password: string, comunidadAutonoma: string, hospitalRef: string): Observable<any> {
-    const body = { name, email, password, comunidadAutonoma, hospitalRef };
+  register(name: string, email: string, password: string, comunidadAutonoma: string, hospitalRef: string, consentFirm: boolean): Observable<any> {
+    const body = { name, email, password, comunidadAutonoma, hospitalRef, consentFirm };
     return this.http.post<any>(this.apiUrl + '/api/auth/register', body);
   }
 

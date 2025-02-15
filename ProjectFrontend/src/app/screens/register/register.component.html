@@ -69,6 +69,38 @@
         Hospital de referencia requerido.
       </div>
     </div>
+
+    <div class="mb-4 flex items-center">
+      <!-- Checkbox para aceptar el consentimiento -->
+      <input
+        type="checkbox"
+        formControlName="consentFirm"
+        id="consentFirm"
+        class="mr-2"
+      />
+
+      <!-- Etiqueta con el enlace al consentimiento -->
+      <label for="consentFirm" class="text-sm text-gray-700">
+        He leído y acepto el
+        <a
+          href="https://drive.google.com/file/d/1wrlcBiTMvdLPbx7dklSwQQxUyxwb40va/view?usp=sharing"
+          target="_blank"
+          class="text-pink-700 hover:underline"
+        >
+          consentimiento informado
+        </a>
+      </label>
+    </div>
+
+    <!-- Mensaje de error si no se ha marcado el checkbox -->
+    <div *ngIf="registerForm.get('consentFirm')?.invalid && registerForm.get('consentFirm')?.touched || !registerForm.get('consentFirm')?.value"
+         class="mt-3 p-4 mb-4 bg-pink-50 border-l-4 border-pink-500 text-pink-700 rounded-md shadow-sm">
+      <p class="font-medium">¡Es obligatorio!</p>
+      <p>Debe aceptar el consentimiento informado para poder continuar con el registro. Si no lo hace, no podrá registrarse.</p>
+    </div>
+
+
+
     <button type="submit" [disabled]="!registerForm.valid"
             class="w-full bg-pink-300 text-white py-2 rounded-md hover:bg-pink-200 transition">
       Registrar
