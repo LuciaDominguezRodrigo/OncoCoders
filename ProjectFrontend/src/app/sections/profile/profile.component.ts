@@ -246,6 +246,9 @@ export class ProfileComponent implements OnInit {
 
   openRecomendations() {
     this.router.navigate(["/recomendations"]);
+  }
 
+  openResults() {
+    this.router.navigate(["/patient/diagnosis"]);
   }
 }
