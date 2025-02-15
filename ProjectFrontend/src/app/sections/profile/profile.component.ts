@@ -183,9 +183,39 @@ export class ProfileComponent implements OnInit {
     this.showPopup = false;
   }
 
-  downloadExcel() {
-    this.formService.downloadExcel();
+  downloadExcel(name:string) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.formService.downloadExcel(token).subscribe(
+        (response: Blob) => {
+          // Crear un enlace para descargar el archivo
+          const link = document.createElement('a');
+          const url = window.URL.createObjectURL(response); // Crea una URL para el Blob
+
+          // Asegúrate de que el archivo tenga el nombre correcto
+          link.href = url;
+          link.download = name + '.xlsx';  // Nombre del archivo a descargar
+
+          // Agregar el enlace al DOM y simular un clic
+          document.body.appendChild(link);
+          link.click();
+
+          // Eliminar el enlace del DOM después de la descarga
+          document.body.removeChild(link);
+
+          // Liberar el objeto URL para evitar pérdidas de memoria
+          window.URL.revokeObjectURL(url);
+        },
+        (error) => {
+          console.error('Error descargando el archivo Excel:', error);
+        }
+      );
+    } else {
+      console.error('Token no disponible');
+    }
   }
+
+
 
   checkFormAccess() {
     const lastSubmission = localStorage.getItem('ultimoEnvioFormulario');

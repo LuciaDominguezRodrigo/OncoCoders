@@ -87,9 +87,9 @@
 
     <!-- Si el usuario es RESEARCHERUSER, mostrar el botón de descarga -->
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
-      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos</h3>
-      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel.</p>
-      <button (click)="downloadExcel()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 2</h3>
+      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 2.</p>
+      <button (click)="downloadExcel('Modelo2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
         Descargar Excel
       </button>
     </div>
