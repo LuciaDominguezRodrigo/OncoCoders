@@ -6,7 +6,7 @@ import { ProfileComponent } from './sections/profile/profile.component';
 import { DASHBOARD_SPECIALIST_SCREEN, DIAGNOSIS_SCREEN, FORUM_SCREEN, MONITORING_SCREEN, PENDING_PACIENTS_SCREEN, PROCESSED_PACIENTS_SCREEN, PROFILE_PATIENT_SCREEN, RECOMMENDATION_SCREEN, RECORDS_SCREEN as HISTORIAL_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from './routes';
 import { DiagnosisComponent } from './sections/pacient-user/diagnosis/diagnosis.component';
 import { MonitoringComponent } from './sections/pacient-user/monitoring/monitoring.component';
-import { RecommendationsComponent as RecommendationsPatientComponent } from './sections/pacient-user/recommendations/recommendations.component';
+
 import { ForumComponent } from './sections/pacient-user/forum/forum.component';
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
 import { PendingPacientsComponent } from './sections/specialist-user/pending-pacients/pending-pacients.component';
@@ -17,6 +17,7 @@ import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/
 import { IAModelConfigurationComponent } from './sections/admin-user/ia-model-configuration/ia-model-configuration.component';
 import { MainPageComponent } from './screens/mainPage/mainPage.component';
 import {UserformComponent} from './screens/userform/userform.component';
+import {RecomendationsComponent} from './screens/recomendations/recomendations.component';
 
 export const routes: Routes = [
     {
@@ -46,6 +47,11 @@ export const routes: Routes = [
     title: "Perfil"
    },
   {
+    path: 'recomendations',
+    component: RecomendationsComponent,
+    title: "Perfil"
+  },
+  {
     path: 'userform',
     component: UserformComponent,
     title: "User form"
@@ -59,11 +65,6 @@ export const routes: Routes = [
     path: MONITORING_SCREEN,
     component: MonitoringComponent,
     title: "Seguimiento - Paciente"
-  },
-  {
-    path: RECOMMENDATION_SCREEN,
-    component: RecommendationsPatientComponent,
-    title: "Recomendaciones - Paciente"
   },
   {
     path: FORUM_SCREEN,

@@ -1,7 +1,7 @@
-<div class="container max-w-4xl p-6 relative z-10">
+<div class="container p-20 relative z-10 max-w-full mt-20 overflow-y-hidden">
   <div class="bg-white shadow-lg rounded-lg p-6">
     <h2 class="text-2xl font-semibold text-gray-800 text-center">¡Hola {{user.name}}!</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
 
       <!-- Sección de Nombre -->
       <div class="p-4 border rounded-lg shadow-sm relative">
@@ -64,19 +64,17 @@
       </div>
 
       <!-- Sección de Médico Asignado -->
-      <!-- Sección de Médico Asignado -->
       <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role === 'USER'">
         <p class="text-gray-500"> <span class="font-semibold">Médico asignado:</span></p>
         <p class="text-gray-800">{{ user?.doctor || 'No asignado' }}</p>  <!-- 👈 Evita problemas con `undefined` -->
       </div>
-
 
     </div>
   </div>
 
   <div class="border-t-4 border-pink-600 my-6"></div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'USER'">
       <h3 class="text-xl font-semibold text-pink-600">Formulario</h3>
       <p class="text-gray-700 mt-2">Completa la información del paciente.</p>
@@ -102,6 +100,13 @@
       </button>
     </div>
 
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'USER'">
+      <h3 class="text-xl font-semibold text-pink-600">Recomendaciones</h3>
+      <p class="text-gray-700 mt-2">Nuestros profesionales quieren aconsejarte para tu bienestar</p>
+      <button (click)="openRecomendations()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+        Consultar recomendaciones
+      </button>
+    </div>
 
     <app-popup *ngIf="showPopup" [message]="'Ha cambiado de hospital y/o zona, su médico ha sido reasignado.'" (close)="closePopup()"></app-popup>
     <app-popup *ngIf="showPopupForm" [message]="'Debe esperar ' + daysRemaining + ' días para volver a enviar el formulario.'" (close)="showPopup = false"></app-popup>
@@ -109,20 +114,18 @@
   </div>
 
   <div class="p-6 border-t-4 border-pink-600 max-w-4xl mx-auto mt-6 text-center">
-  <div class="p-6 border-t-4 border-pink-600 max-w-4xl mx-auto mt-6 bg-white rounded-lg shadow-lg text-center">
-    <h2 class="text-2xl font-semibold text-pink-600">¡Tus datos son importantes para nosotros!</h2>
-    <div class="mt-4 text-gray-700">
-      <p class="text-lg mb-4">Te recordamos que puedes consultar nuestra
-        <a href="https://drive.google.com/file/d/1a9-2lwXUpJY8N8sQ9cq8gcxHadSpw9rU/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Política de Privacidad</a>
-        y el
-        <a href="https://drive.google.com/file/d/1wrlcBiTMvdLPbx7dklSwQQxUyxwb40va/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Consentimiento Informado</a>.
-      </p>
-
-      <p class="mt-4">Si tienes alguna duda, no dudes en contactarnos.</p>
+    <div class="p-6 border-t-4 border-pink-600 max-w-4xl mx-auto mt-6 bg-white rounded-lg shadow-lg text-center">
+      <h2 class="text-2xl font-semibold text-pink-600">¡Tus datos son importantes para nosotros!</h2>
+      <div class="mt-4 text-gray-700">
+        <p class="text-lg mb-4">Te recordamos que puedes consultar nuestra
+          <a href="https://drive.google.com/file/d/1a9-2lwXUpJY8N8sQ9cq8gcxHadSpw9rU/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Política de Privacidad</a>
+          y el
+          <a href="https://drive.google.com/file/d/1wrlcBiTMvdLPbx7dklSwQQxUyxwb40va/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Consentimiento Informado</a>
+        </p>
+        <p class="mt-4">Si tienes alguna duda, no dudes en contactarnos.</p>
+      </div>
     </div>
   </div>
-  </div>
-
 
   <div class="h-16"></div> <!--espacio del final-->
 </div>
