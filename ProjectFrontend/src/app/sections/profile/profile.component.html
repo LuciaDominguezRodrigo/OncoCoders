@@ -102,10 +102,27 @@
       </button>
     </div>
 
+
     <app-popup *ngIf="showPopup" [message]="'Ha cambiado de hospital y/o zona, su médico ha sido reasignado.'" (close)="closePopup()"></app-popup>
     <app-popup *ngIf="showPopupForm" [message]="'Debe esperar ' + daysRemaining + ' días para volver a enviar el formulario.'" (close)="showPopup = false"></app-popup>
 
   </div>
+
+  <div class="p-6 border-t-4 border-pink-600 max-w-4xl mx-auto mt-6 text-center">
+  <div class="p-6 border-t-4 border-pink-600 max-w-4xl mx-auto mt-6 bg-white rounded-lg shadow-lg text-center">
+    <h2 class="text-2xl font-semibold text-pink-600">¡Tus datos son importantes para nosotros!</h2>
+    <div class="mt-4 text-gray-700">
+      <p class="text-lg mb-4">Te recordamos que puedes consultar nuestra
+        <a href="https://drive.google.com/file/d/1a9-2lwXUpJY8N8sQ9cq8gcxHadSpw9rU/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Política de Privacidad</a>
+        y el
+        <a href="https://drive.google.com/file/d/1wrlcBiTMvdLPbx7dklSwQQxUyxwb40va/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Consentimiento Informado</a>.
+      </p>
+
+      <p class="mt-4">Si tienes alguna duda, no dudes en contactarnos.</p>
+    </div>
+  </div>
+  </div>
+
 
   <div class="h-16"></div> <!--espacio del final-->
 </div>
