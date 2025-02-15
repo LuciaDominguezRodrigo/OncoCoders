@@ -5,6 +5,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';  // Importar MatDialog
 import { SidebarComponent } from './components/common/sidebar/sidebar.component';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 @Component({
@@ -18,7 +19,8 @@ import { NavbarComponent } from './components/common/navbar/navbar.component';
     ReactiveFormsModule,
     MatDialogModule,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    NgxChartsModule,
   ]
 })
 
