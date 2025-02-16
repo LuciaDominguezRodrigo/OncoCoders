@@ -15,11 +15,11 @@ import { HistorialComponent } from './sections/specialist-user/historial/histori
 import { BannedUsersComponent } from './sections/admin-user/banned-users/banned-users.component';
 import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/not-banned-users.component';
 import { IAModelConfigurationComponent } from './sections/admin-user/ia-model-configuration/ia-model-configuration.component';
-import { ClinicformComponent } from './screens/clinicform/clinicform.component';
 import { MainComponent } from './screens/main/main.component';
 import { UserformComponent } from './screens/userform/userform.component';
 import { RecomendationsComponent } from './screens/recomendations/recomendations.component';
 import { HomeComponent } from './screens/home/home.component';
+import { ClinicformComponent } from './screens/clinicform/clinicform.component';
 
 export const routes: Routes = [
   {
