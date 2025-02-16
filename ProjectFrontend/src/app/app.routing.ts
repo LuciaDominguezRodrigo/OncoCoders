@@ -18,6 +18,7 @@ import { IAModelConfigurationComponent } from './sections/admin-user/ia-model-co
 import { MainPageComponent } from './screens/mainPage/mainPage.component';
 import {UserformComponent} from './screens/userform/userform.component';
 import {RecomendationsComponent} from './screens/recomendations/recomendations.component';
+import {ClinicformComponent} from './screens/clinicform/clinicform.component';
 
 export const routes: Routes = [
     {
@@ -55,6 +56,11 @@ export const routes: Routes = [
     path: 'userform',
     component: UserformComponent,
     title: "User form"
+  },
+  {
+    path: 'clinicform',
+    component: ClinicformComponent,
+    title: "Clinic form"
   },
   {
     path: DIAGNOSIS_SCREEN,

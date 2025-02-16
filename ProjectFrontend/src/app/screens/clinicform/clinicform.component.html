@@ -1,0 +1,69 @@
+<form #userForm="ngForm" (ngSubmit)="enviarFormulario()" class="h-dvh container mx-auto p-6 max-w-4xl">
+  <h1 class="text-4xl font-bold text-pink-600 text-center">Formulario de Datos Clínicos</h1>
+
+  <!-- Sección 1: Demográficas y Geográficas -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Demográficas y Geográficas</h2>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes o has tenido cáncer de mama?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="cancer_mama" [(ngModel)]="formData.cancer_mama" value="Sí">Sí</label>
+        <label><input type="radio" name="cancer_mama" [(ngModel)]="formData.cancer_mama" value="No">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Cuántos años tienes?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edad" name="edad">
+        <option value="Menos de 20 años">Menos de 20 años</option>
+        <option value="21-30 años">21-30 años</option>
+        <option value="31 - 40 años">31 - 40 años</option>
+        <option value="41 - 50 años">41 - 50 años</option>
+        <option value="51 - 60 años">51 - 60 años</option>
+        <option value="61-70 años">61-70 años</option>
+        <option value="Más de 70 años">Más de 70 años</option>
+      </select>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Cuál es tu sexo biológico?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="sexo" [(ngModel)]="formData.sexo" value="Masculino">Masculino</label>
+        <label><input type="radio" name="sexo" [(ngModel)]="formData.sexo" value="Femenino">Femenino</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Vives en zona rural, urbana o semiurbana?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Rural">Rural</label>
+        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Urbana">Urbana</label>
+        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Semiurbana">Semiurbana</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Tienes acceso a un hospital o centro de salud especializado?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="hospital" [(ngModel)]="formData.hospital" value="Sí">Sí</label>
+        <label><input type="radio" name="hospital" [(ngModel)]="formData.hospital" value="No">No</label>
+      </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si tienes acceso, ¿a qué distancia se encuentra?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="Menos de 5km">Menos de 5km</label>
+        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="5-15km">5-15km</label>
+        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="Más de 15km">Más de 15km</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-6 mb-6 pb-6">
+    <button type="submit" class="bg-pink-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-700 transition">
+      Enviar
+    </button>
+  </div>
+</form>
