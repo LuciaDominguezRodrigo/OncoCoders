@@ -12,9 +12,13 @@ export class ClinicFormService {
   constructor(private http: HttpClient) { }
 
   // Función para enviar la respuesta del formulario
-  sendForm(formData: any): Observable<any> {
+  sendForm(token: string | null, formData: any): Observable<any> {
 
-    return this.http.post<any>(this.apiUrl, formData);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.post<any>(this.apiUrl, formData, {headers});
   }
 
 }

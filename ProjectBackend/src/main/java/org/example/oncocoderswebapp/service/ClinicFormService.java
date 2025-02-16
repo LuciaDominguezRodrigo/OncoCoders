@@ -136,7 +136,7 @@ public class ClinicFormService {
         conversion.put("triple_negativo", 0);
 
 
-        conversion.put("poca diferencia", 0);
+        conversion.put("poca_diferencia", 0);
         conversion.put("diferencia_moderada", 1);
         conversion.put("gran_diferencia", 0);
 

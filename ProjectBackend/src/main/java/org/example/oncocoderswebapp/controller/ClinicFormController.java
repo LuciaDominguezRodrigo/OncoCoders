@@ -9,11 +9,10 @@ import org.example.oncocoderswebapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @RestController
@@ -26,8 +25,13 @@ public class ClinicFormController {
         @Autowired
         private UserService userService; // Para buscar el usuario por email
 
+        @PreAuthorize("hasRole('MEDICUSER')")
         @PostMapping("/saveResponse1")
-        public ResponseEntity<ClinicFormResponse> saveClinicFormResponse1(@RequestBody ClinicFormRequestDTO request) {
+        public ResponseEntity<ClinicFormResponse> saveClinicFormResponse1(@RequestBody ClinicFormRequestDTO request, @RequestHeader("Authorization") String token) {
+            if (token == null || token.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body(null);
+            }
             // Buscar el paciente por email
             Optional<User> patientUser = userService.findByEmail(request.getPatientEmail());
             if (patientUser.isEmpty()) {

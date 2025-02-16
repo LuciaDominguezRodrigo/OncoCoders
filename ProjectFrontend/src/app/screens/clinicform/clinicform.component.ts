@@ -11,7 +11,7 @@ import {ClinicFormService} from '../../services/clinicForm.service';
         ReactiveFormsModule
     ],
   templateUrl: './clinicform.component.html',
-  styleUrl: './clinicform.component.css'
+
 })
 export class ClinicformComponent {
 
@@ -57,7 +57,7 @@ export class ClinicformComponent {
         estructuraGeneral: this.formData.estructuraGeneral || '',
         mutacionBRCA1: this.formData.mutacionBRCA1 || '',
         mutacionBRCA2: this.formData.mutacionBRCA2 || '',
-        familiaresDiagnosticados: String(this.formData.familiaresDiagnosticados), 
+        familiaresDiagnosticados: String(this.formData.familiaresDiagnosticados),
         radioterapiaAnterior: this.formData.radioterapiaAnterior || '',
         cancerMama: this.formData.cancerMama || '',
       };
@@ -66,8 +66,14 @@ export class ClinicformComponent {
       console.log('Datos JSON enviados:', JSON.stringify(this.formData, null, 2));
       console.log('Formulario Enviado:', this.formData);
 
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('No tienes token de autenticación');
+        return;
+      }
+
       // Usar FormService para enviar los datos al backend
-      this.formService.sendForm(this.formData).subscribe(
+      this.formService.sendForm(token, this.formData).subscribe(
         response => {
           console.log('Respuesta del servidor:', response);
           alert('Formulario enviado correctamente');
