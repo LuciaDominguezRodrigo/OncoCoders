@@ -5,7 +5,6 @@ import { BAN_SCREEN, DASHBOARD_ADMIN_SCREEN, DASHBOARD_SPECIALIST_SCREEN, DIAGNO
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
-import { tap } from 'rxjs';
 import { convertToUserRole, UserRole } from '../../../models/userRole.enum';
 
 @Component({
@@ -64,17 +63,12 @@ export class SidebarComponent {
     this.userService.getUserRole().subscribe(
       role => {
         this.userRole = convertToUserRole(role);
+        this.sideBarOptions = this.roleSideBarOptions[this.userRole]
       },
       error => {
         console.error('Error retrieving user role', error);
       }
     );
-
-    if (!this.userRole){
-      return
-    }
-
-    this.sideBarOptions = this.roleSideBarOptions[this.userRole]
   }
 
 
