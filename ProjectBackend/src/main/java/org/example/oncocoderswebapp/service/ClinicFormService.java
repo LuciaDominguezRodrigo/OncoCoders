@@ -81,6 +81,7 @@ public class ClinicFormService {
         conversion.put("Antes de los 45 años", 0);
         conversion.put("Después de los 55 años", 1);
 
+
         // "No aplica" para ciertos valores: Se distingue por categorías
         if (categoria.equals("tipo_tratamiento")) {
             conversion.put("No aplica - tipo_tratamiento", 5);  // Para tipos de tratamiento
@@ -133,7 +134,7 @@ public class ClinicFormService {
         conversion.put("Luminal-like", 0);
         conversion.put("ER_PR_HER2", 1);
         conversion.put("ER_positivo", 2);
-        conversion.put("triple_negastivo", 0);
+        conversion.put("triple_negativo", 0);
 
 
         conversion.put("poca diferencia", 0);

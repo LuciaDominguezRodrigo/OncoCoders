@@ -1,20 +1,21 @@
 <form #userForm="ngForm" (ngSubmit)="enviarFormulario()" class="h-dvh container mx-auto p-6 max-w-4xl">
   <h1 class="text-4xl font-bold text-pink-600 text-center">Formulario de Datos Clínicos</h1>
 
-  <!-- Sección 1: Demográficas y Geográficas -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Demográficas y Geográficas</h2>
-
+    <h2 class="text-2xl font-semibold text-pink-600">Datos del paciente</h2>
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Tienes o has tenido cáncer de mama?</label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="cancer_mama" [(ngModel)]="formData.cancer_mama" value="Sí">Sí</label>
-        <label><input type="radio" name="cancer_mama" [(ngModel)]="formData.cancer_mama" value="No">No</label>
-      </div>
+      <label class="block text-gray-700 font-semibold">Indique el email del paciente</label>
+      <input type="email" name="patientEmail" [(ngModel)]="formData.patientEmail" class="w-full p-2 border rounded-lg">
     </div>
+  </div>
 
+  <!-- Sección 1: Datos Demográficos -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Datos Demográficos</h2>
+
+    <!-- Edad -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Cuántos años tienes?</label>
+      <label class="block text-gray-700 font-semibold">¿Cuántos años tiene el paciente?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edad" name="edad">
         <option value="Menos de 20 años">Menos de 20 años</option>
         <option value="21-30 años">21-30 años</option>
@@ -26,44 +27,130 @@
       </select>
     </div>
 
+    <!-- Etnia -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Cuál es tu sexo biológico?</label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="sexo" [(ngModel)]="formData.sexo" value="Masculino">Masculino</label>
-        <label><input type="radio" name="sexo" [(ngModel)]="formData.sexo" value="Femenino">Femenino</label>
-      </div>
+      <label class="block text-gray-700 font-semibold">¿Cuál es la etnia del paciente?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.etnia" name="etnia">
+        <option value="Hispanico">Hispánico</option>
+        <option value="Blanco">Blanco</option>
+        <option value="Negro">Afrodescendiente</option>
+        <option value="Asiatico">Asiático</option>
+        <option value="Nativo">Nativo</option>
+        <option value="Multi-hetnico">Multi-hétnico</option>
+        <option value="Hawaiano">Hawaiano</option>
+        <option value="Indio-Americano">Indio-Americano</option>
+      </select>
     </div>
 
+    <!-- Edad Menstruación -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Vives en zona rural, urbana o semiurbana?</label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Rural">Rural</label>
-        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Urbana">Urbana</label>
-        <label><input type="radio" name="zona_vivienda" [(ngModel)]="formData.zona_vivienda" value="Semiurbana">Semiurbana</label>
-      </div>
+      <label class="block text-gray-700 font-semibold">¿A qué edad tuvo su primera menstruación?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edadMenstruacion" name="edadMenstruacion">
+        <option value="Antes de los 12 años">Antes de los 12 años</option>
+        <option value="12-14 años">12-14 años</option>
+        <option value="15 o más años">15 o más años</option>
+      </select>
     </div>
 
+    <!-- Edad Menopausia -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Tienes acceso a un hospital o centro de salud especializado?</label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="hospital" [(ngModel)]="formData.hospital" value="Sí">Sí</label>
-        <label><input type="radio" name="hospital" [(ngModel)]="formData.hospital" value="No">No</label>
-      </div>
-    </div>
-
-    <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Si tienes acceso, ¿a qué distancia se encuentra?</label>
-      <div class="flex gap-4">
-        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="Menos de 5km">Menos de 5km</label>
-        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="5-15km">5-15km</label>
-        <label><input type="radio" name="dis_hospital" [(ngModel)]="formData.dis_hospital" value="Más de 15km">Más de 15km</label>
-      </div>
+      <label class="block text-gray-700 font-semibold">¿A qué edad comenzó el paciente la menopausia?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edadMenopausia" name="edadMenopausia">
+        <option value="Antes de los 45 años">Antes de los 45 años</option>
+        <option value="Después de los 55 años">Después de los 55 años</option>
+        <option value="No aplica">No aplica</option>
+      </select>
     </div>
   </div>
 
-  <div class="flex justify-center mt-6 mb-6 pb-6">
-    <button type="submit" class="bg-pink-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-700 transition">
-      Enviar
-    </button>
+  <!-- Sección 2: Estado Hormonal -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Estado Hormonal</h2>
+
+    <!-- Hormona ER -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Es positiva la hormona ER?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="hormonaER" [(ngModel)]="formData.hormonaER" value="Positivo">Positivo</label>
+        <label><input type="radio" name="hormonaER" [(ngModel)]="formData.hormonaER" value="Negativo">Negativo</label>
+      </div>
+    </div>
+
+    <!-- Hormona PR -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Es positiva la hormona PR?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="hormonaPR" [(ngModel)]="formData.hormonaPR" value="Positivo">Positivo</label>
+        <label><input type="radio" name="hormonaPR" [(ngModel)]="formData.hormonaPR" value="Negativo">Negativo</label>
+      </div>
+    </div>
+
+    <!-- Hormona HER2 -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Es positiva la hormona HER2?</label>
+      <div class="flex gap-4">
+        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Positivo">Positivo</label>
+        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Negativo">Negativo</label>
+        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Frontera">Frontera</label>
+      </div>
+    </div>
+
+    <!-- Subtipo Molecular -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Subtipo molecular del cáncer</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.subtipoMolecular" name="subtipoMolecular">
+        <option value="ER_PR_HER2">ER_PR_HER2</option>
+        <option value="HER2">HER2</option>
+        <option value="Luminal-like">Luminal like/option>
+        <option value="Triple Negativo">Triple Negativo</option>
+      </select>
+    </div>
   </div>
+
+  <!-- Sección 3: Tumor y Diagnóstico -->
+  <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+    <h2 class="text-2xl font-semibold text-pink-600">Tumor y Diagnóstico</h2>
+
+    <!-- Tamaño del Tumor -->
+    <!-- Capacidad Estado Miotico -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Tamaño del tumor</label>
+      <input type="number" name="estadoMitotico" [(ngModel)]="formData.tamannioTumor" class="w-full p-2 border rounded-lg">
+    </div>
+
+    <!-- Estructura Tubular -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Estructura tubular</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.estructuraTubular" name="estructuraTubular">
+        <option value="diferencia_moderada">Diferencia moderada</option>
+        <option value="poca_diferencia">Diferencia pequeña</option>
+        <option value="gran_diferencia">Gran diferencia</option>
+      </select>
+    </div>
+
+    <!-- Estructura Tubular -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Estado miótico</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.estadoMitotico" name="estructuraTubular">
+        <option value="diferencia_moderada">Diferencia moderada</option>
+        <option value="poca_diferencia">Diferencia pequeña</option>
+        <option value="gran_diferencia">Gran diferencia</option>
+      </select>
+    </div>
+    <!-- Estructura Tubular -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Estructura general</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.estructuraGeneral" name="estructuraTubular">
+        <option value="diferencia_moderada">Diferencia moderada</option>
+        <option value="poca_diferencia">Diferencia pequeña</option>
+        <option value="gran_diferencia">Gran diferencia</option>
+      </select>
+    </div>
+
+  </div>
+
+  <!-- Botón de Enviar -->
+  <button type="submit" class="bg-pink-600 text-white p-4 rounded-lg w-full mt-6">Enviar Formulario</button>
+  <div class ="h-16"></div>
 </form>
+
