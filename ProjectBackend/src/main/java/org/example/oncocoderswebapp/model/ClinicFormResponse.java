@@ -14,10 +14,6 @@ public class ClinicFormResponse {
     private Long id;
 
     @ManyToOne
-    @JoinColumn (name = "clinic_user_id")
-    private User medicUser;
-
-    @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)  // Nuevo campo para el paciente
     private User patientUser;
 
@@ -48,12 +44,12 @@ public class ClinicFormResponse {
     }
 
 
-    public ClinicFormResponse(User medicUser, Long id, User patientUser, LocalDateTime fechaRespuesta, Integer edad,
+    public ClinicFormResponse( Long id, User patientUser, LocalDateTime fechaRespuesta, Integer edad,
                               Integer etnia, Integer edad_mesntruacion, Integer edad_menopausia, Integer hormona_ER,
                               Integer hormona_PR, Integer hormona_HER2, Integer subtipo_molecular, Integer tamannio_tumor,
                               Integer estructura_tubular, Integer capaciadd_estado_miotico, Integer estructura_general,
                               Integer mutacion_BRCA1, Integer mutacion_BRCA2, Integer familiares_diagnosticados, Integer radioterapia_anterior, Integer cancer_mama) {
-        this.medicUser = medicUser;
+
         this.id = id;
         this.patientUser = patientUser;
         this.fechaRespuesta = fechaRespuesta;
@@ -81,9 +77,6 @@ public class ClinicFormResponse {
         this.id = id;
     }
 
-    public void setMedicUser(User medicUser) {
-        this.medicUser = medicUser;
-    }
 
     public void setPatientUser(User patientUser) {
         this.patientUser = patientUser;
@@ -165,9 +158,6 @@ public class ClinicFormResponse {
         return id;
     }
 
-    public User getMedicUser() {
-        return medicUser;
-    }
 
     public User getPatientUser() {
         return patientUser;

@@ -14,14 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/clinicForm")
 public class ClinicFormController {
-
-
 
         @Autowired
         private ClinicFormService clinicFormService;
@@ -41,17 +38,12 @@ public class ClinicFormController {
             puser = patientUser.get();
 
             // Crear la respuesta del formulario
-            ClinicFormResponse response = new ClinicFormResponse();
+            ClinicFormResponse response;
+            response = new ClinicFormResponse();
             response.setPatientUser(puser);
 
-            Optional<User> medic = this.userService.findById(request.getMedicUserId());
-            if (medic.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-            }
 
-
-            // Guardar en la base de datos
-            ClinicFormResponse savedResponse = clinicFormService.saveClinicFormResponse1(request,puser, medic.get());
+            ClinicFormResponse savedResponse = clinicFormService.saveClinicFormResponse1(request,puser);
             return ResponseEntity.ok(savedResponse);
         }
     }

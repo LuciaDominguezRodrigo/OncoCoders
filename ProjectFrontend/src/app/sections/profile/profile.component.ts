@@ -250,7 +250,7 @@ export class ProfileComponent implements OnInit {
   }
 
   openRecomendations() {
-    this.router.navigate(["/recomendations"]);
+    this.router.navigate(["patient/recommendations"]);
   }
 
   openResults() {

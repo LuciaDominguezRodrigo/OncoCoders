@@ -61,7 +61,33 @@
         <option value="No aplica">No aplica</option>
       </select>
     </div>
+
+
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Si aplica, ¿Cuántos familiares diagnosticados con cáncer de mama tiene el paciente?</label>
+      <input type="number" name="estadoMitotico" [(ngModel)]="formData.familiaresDiagnosticados" class="w-full p-2 border rounded-lg">
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿El paciente ha recibido radioterapia en la zona del pecho por otros motivos médicos previos?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.radioterapiaAnterior" name="estructuraTubular">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Actualmente, ¿El paciente padece de cáncer de mama?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.cancerMama" name="estructuraTubular">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </div>
   </div>
+
+
+
 
   <!-- Sección 2: Estado Hormonal -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
@@ -101,7 +127,7 @@
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.subtipoMolecular" name="subtipoMolecular">
         <option value="ER_PR_HER2">ER_PR_HER2</option>
         <option value="HER2">HER2</option>
-        <option value="Luminal-like">Luminal like/option>
+        <option value="Luminal-like">Luminal like</option>
         <option value="Triple Negativo">Triple Negativo</option>
       </select>
     </div>
@@ -131,12 +157,13 @@
     <!-- Estructura Tubular -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">Estado miótico</label>
-      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.estadoMitotico" name="estructuraTubular">
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.capacidadEstadoMiotico" name="estructuraTubular">
         <option value="diferencia_moderada">Diferencia moderada</option>
         <option value="poca_diferencia">Diferencia pequeña</option>
         <option value="gran_diferencia">Gran diferencia</option>
       </select>
     </div>
+
     <!-- Estructura Tubular -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">Estructura general</label>
@@ -146,6 +173,26 @@
         <option value="gran_diferencia">Gran diferencia</option>
       </select>
     </div>
+
+    <!-- Estructura Tubular -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Presenta alguna alteración/mutación en el gen BRCA1?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.mutacionBRCA1" name="estructuraTubular">
+        <option value="Positivo">Positivo</option>
+        <option value="Negativo">Negativo</option>
+      </select>
+    </div>
+
+    <!-- Estructura Tubular -->
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">¿Presenta alguna alteración/mutación en el gen BRCA2?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.mutacionBRCA2" name="estructuraTubular">
+        <option value="Positivo">Positivo</option>
+        <option value="Negativo">Negativo</option>
+      </select>
+    </div>
+
+
 
   </div>
 

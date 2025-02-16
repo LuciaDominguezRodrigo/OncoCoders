@@ -1,10 +1,7 @@
 package org.example.oncocoderswebapp.DTO;
 
-import org.example.oncocoderswebapp.model.User;
-
 public class ClinicFormRequestDTO {
     private String patientEmail;
-    private Long medicUserId;
     private String edad;
     private String etnia;
     private String edadMenstruacion;
@@ -19,7 +16,7 @@ public class ClinicFormRequestDTO {
     private String estructuraGeneral;
     private String mutacionBRCA1;
     private String mutacionBRCA2;
-    private String familiaresDiagnosticados;
+    private Integer familiaresDiagnosticados;
     private String radioterapiaAnterior;
     private String cancerMama;
 
@@ -31,13 +28,6 @@ public class ClinicFormRequestDTO {
         this.patientEmail = patientEmail;
     }
 
-    public Long getMedicUserId() {
-        return medicUserId;
-    }
-
-    public void setMedicUserId(Long medicUserId) {
-        this.medicUserId = medicUserId;
-    }
 
     public String getEdad() {
         return edad;
@@ -151,11 +141,11 @@ public class ClinicFormRequestDTO {
         this.mutacionBRCA2 = mutacionBRCA2;
     }
 
-    public String getFamiliaresDiagnosticados() {
+    public Integer getFamiliaresDiagnosticados() {
         return familiaresDiagnosticados;
     }
 
-    public void setFamiliaresDiagnosticados(String familiaresDiagnosticados) {
+    public void setFamiliaresDiagnosticados(Integer familiaresDiagnosticados) {
         this.familiaresDiagnosticados = familiaresDiagnosticados;
     }
 

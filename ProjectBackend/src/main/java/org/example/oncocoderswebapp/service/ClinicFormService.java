@@ -17,10 +17,9 @@ public class ClinicFormService {
     @Autowired
     private ClinicFormRepository1 clinicFormRepository1;
 
-        public ClinicFormResponse saveClinicFormResponse1(ClinicFormRequestDTO request, User patientUser, User medicUser) {
+        public ClinicFormResponse saveClinicFormResponse1(ClinicFormRequestDTO request, User patientUser) {
             ClinicFormResponse response = new ClinicFormResponse();
             response.setPatientUser(patientUser);
-            response.setMedicUser(medicUser);
             response.setEdad(convertirANumero(request.getEdad(), "edad"));
             response.setEtnia(convertirANumero(request.getEtnia(), "etnia"));
             response.setEdad_mesntruacion(convertirANumero(request.getEdadMenstruacion(), "edad_menstruacion"));
@@ -35,7 +34,7 @@ public class ClinicFormService {
             response.setEstructura_general(convertirANumero(request.getEstructuraGeneral(), "tumor_general"));
             response.setMutacion_BRCA1(convertirANumero(request.getMutacionBRCA1(), "mutacion_BRCA1"));
             response.setMutacion_BRCA2(convertirANumero(request.getMutacionBRCA2(), "mutacion_BRCA2"));
-            response.setFamiliares_diagnosticados(convertirANumero(request.getFamiliaresDiagnosticados(), "familiares_diagnosticados"));
+            response.setFamiliares_diagnosticados(request.getFamiliaresDiagnosticados());
             response.setRadioterapia_anterior(convertirANumero(request.getRadioterapiaAnterior(), "radioterapia_anterior"));
             response.setCancer_mama(convertirANumero(request.getCancerMama(), "cancer_mama"));
             response.setFechaRespuesta(LocalDateTime.now());
