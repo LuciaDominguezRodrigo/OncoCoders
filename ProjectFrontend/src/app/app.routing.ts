@@ -17,7 +17,7 @@ import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/
 import { IAModelConfigurationComponent } from './sections/admin-user/ia-model-configuration/ia-model-configuration.component';
 import { MainComponent } from './screens/main/main.component';
 import { UserformComponent } from './screens/userform/userform.component';
-import { RecomendationsComponent } from './screens/recomendations/recomendations.component';
+import { RecomendationsComponent } from './sections/pacient-user/recomendations/recomendations.component';
 import { HomeComponent } from './screens/home/home.component';
 import { ClinicformComponent } from './screens/clinicform/clinicform.component';
 
@@ -53,11 +53,6 @@ export const routes: Routes = [
     component: ProfileComponent,
     title: "Perfil"
   },
-  { // TODO Check this route
-    path: 'recomendations',
-    component: RecomendationsComponent,
-    title: "Perfil"
-  },
   {
     path: USER_FORM_SCREEN,
     component: UserformComponent,
@@ -77,6 +72,11 @@ export const routes: Routes = [
     path: MONITORING_SCREEN,
     component: MonitoringComponent,
     title: "Seguimiento - Paciente"
+  },
+  {
+    path: RECOMMENDATION_SCREEN,
+    component: RecomendationsComponent,
+    title: "Recomendacion - Paciente"
   },
   {
     path: FORUM_SCREEN,
