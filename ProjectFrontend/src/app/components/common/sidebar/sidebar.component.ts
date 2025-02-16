@@ -2,29 +2,34 @@ import { Component } from '@angular/core';
 import { SidebarbuttonComponent } from "../../buttons/sidebarbutton/sidebarbutton.component";
 import { CommonModule } from '@angular/common';
 import { BAN_SCREEN, DASHBOARD_ADMIN_SCREEN, DASHBOARD_SPECIALIST_SCREEN, DIAGNOSIS_SCREEN, FORUM_SCREEN, IA_CONFIGURATION_SCREEN, MONITORING_SCREEN, PENDING_PACIENTS_SCREEN, PROCESSED_PACIENTS_SCREEN, PROFILE_ADMIN_SCREEN, PROFILE_PATIENT_SCREEN, PROFILE_SPECIALIST_SCREEN, RECOMMENDATION_SCREEN, RECORDS_SCREEN, UNBAN_SCREEN } from '../../../routes';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+import { UserService } from '../../../services/user.service';
+import { tap } from 'rxjs';
+import { convertToUserRole, UserRole } from '../../../models/userRole.enum';
 
 @Component({
   selector: 'app-sidebar',
   imports: [CommonModule, SidebarbuttonComponent],
-  templateUrl: './sidebar.component.html'})
+  templateUrl: './sidebar.component.html'
+})
 
 export class SidebarComponent {
 
   public isLogged!: boolean
-  public userRole!: "PATIENT" | "SPECIALIST" | "ADMIN"
+  public userRole!: UserRole
   public sideBarOptions!: any[]
 
 
   private roleSideBarOptions = {
-    "PATIENT": [
+    "USER": [
       { label: "Diagnóstico", router: DIAGNOSIS_SCREEN },
       { label: "Seguimiento", router: MONITORING_SCREEN },
-      { label: "Recomendaciones", router: RECOMMENDATION_SCREEN},
+      { label: "Recomendaciones", router: RECOMMENDATION_SCREEN },
       { label: "Foro", router: FORUM_SCREEN },
       { label: "Perfil", router: PROFILE_PATIENT_SCREEN },
     ],
-    "SPECIALIST": [
+    "MEDICUSER": [
       { label: "Dashboard", router: DASHBOARD_SPECIALIST_SCREEN },
       { label: "Pacientes Pendientes", router: PENDING_PACIENTS_SCREEN },
       { label: "Pacientes Procesados", router: PROCESSED_PACIENTS_SCREEN },
@@ -37,16 +42,41 @@ export class SidebarComponent {
       { label: "Desbanear", router: UNBAN_SCREEN },
       { label: "Configuración IA", router: IA_CONFIGURATION_SCREEN },
       { label: "Perfil", router: PROFILE_ADMIN_SCREEN }
-    ]
+    ],
+    "RESEARCHERUSER": [],
+    "PUBLIC": []
   }
 
 
-  constructor(private routerService:Router){}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private routerService: Router,
+  ) { }
 
-  ngOnInit() {
-    this.isLogged = true //TODO Check ngOnInit
-    this.userRole = "PATIENT" //TODO Check ngOnInit
+  async ngOnInit() {
+    this.isLogged = !!this.authService.getToken();
+
+    if (!this.isLogged){
+      return
+    }
+
+    this.userService.getUserRole().subscribe(
+      role => {
+        this.userRole = convertToUserRole(role);
+      },
+      error => {
+        console.error('Error retrieving user role', error);
+      }
+    );
+
+    if (!this.userRole){
+      return
+    }
+
     this.sideBarOptions = this.roleSideBarOptions[this.userRole]
   }
+
+
 
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router, RouterLink} from '@angular/router';
-import {CommonModule} from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { LoginResponse } from '../../services/LoginResponse';
 
@@ -33,7 +33,7 @@ export class LoginComponent {
           localStorage.setItem('USER', JSON.stringify(response.user));
           this.authService.saveToken(response.token);
 
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
         },
         error: (error) => {
           console.error('Error en el login', error);

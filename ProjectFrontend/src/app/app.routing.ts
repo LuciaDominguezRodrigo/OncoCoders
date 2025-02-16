@@ -3,7 +3,7 @@ import { RegisterComponent } from './screens/register/register.component';
 import { LoginComponent } from './screens/login/login.component';
 import { AboutComponent } from './screens/about/about.component';
 import { ProfileComponent } from './sections/profile/profile.component';
-import { DASHBOARD_SPECIALIST_SCREEN, DIAGNOSIS_SCREEN, FORUM_SCREEN, MONITORING_SCREEN, PENDING_PACIENTS_SCREEN, PROCESSED_PACIENTS_SCREEN, PROFILE_PATIENT_SCREEN, RECOMMENDATION_SCREEN, RECORDS_SCREEN as HISTORIAL_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from './routes';
+import { DASHBOARD_SPECIALIST_SCREEN, DIAGNOSIS_SCREEN, FORUM_SCREEN, MONITORING_SCREEN, PENDING_PACIENTS_SCREEN, PROCESSED_PACIENTS_SCREEN, PROFILE_PATIENT_SCREEN, RECOMMENDATION_SCREEN, RECORDS_SCREEN as HISTORIAL_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN, USER_FORM_SCREEN, ABOUT_SCREEN, REGISTER_SCREEN, LOGIN_SCREEN, HOME_SCREEN, MAIN_SCREEN } from './routes';
 import { DiagnosisComponent } from './sections/pacient-user/diagnosis/diagnosis.component';
 import { MonitoringComponent } from './sections/pacient-user/monitoring/monitoring.component';
 
@@ -15,45 +15,51 @@ import { HistorialComponent } from './sections/specialist-user/historial/histori
 import { BannedUsersComponent } from './sections/admin-user/banned-users/banned-users.component';
 import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/not-banned-users.component';
 import { IAModelConfigurationComponent } from './sections/admin-user/ia-model-configuration/ia-model-configuration.component';
-import { MainPageComponent } from './screens/mainPage/mainPage.component';
-import {UserformComponent} from './screens/userform/userform.component';
-import {RecomendationsComponent} from './screens/recomendations/recomendations.component';
-import {ClinicformComponent} from './screens/clinicform/clinicform.component';
+import { ClinicformComponent } from './screens/clinicform/clinicform.component';
+import { MainComponent } from './screens/main/main.component';
+import { UserformComponent } from './screens/userform/userform.component';
+import { RecomendationsComponent } from './screens/recomendations/recomendations.component';
+import { HomeComponent } from './screens/home/home.component';
 
 export const routes: Routes = [
-    {
-    path: '',
-    component: MainPageComponent,
-    title: "OncoCoders",
-    pathMatch: 'full' ,
-  },  // Redirige al índice
   {
-    path: 'login',
+    path: MAIN_SCREEN,
+    component: MainComponent,
+    title: "OncoCoders",
+    pathMatch: 'full',
+  },
+  {
+    path: HOME_SCREEN,
+    component: HomeComponent,
+    title: "OncoCoders",
+  },
+  {
+    path: LOGIN_SCREEN,
     component: LoginComponent,
     title: "Iniciar Sesión",
   },
   {
-    path: 'register',
+    path: REGISTER_SCREEN,
     component: RegisterComponent,
     title: "Registrarse",
   },
   {
-    path: 'about',
+    path: ABOUT_SCREEN,
     component: AboutComponent,
     title: "Sobre Nosotros",
   },
-  {
+  { // TODO Check this route
     path: 'profile',
     component: ProfileComponent,
     title: "Perfil"
-   },
-  {
+  },
+  { // TODO Check this route
     path: 'recomendations',
     component: RecomendationsComponent,
     title: "Perfil"
   },
   {
-    path: 'userform',
+    path: USER_FORM_SCREEN,
     component: UserformComponent,
     title: "User form"
   },
@@ -132,7 +138,6 @@ export const routes: Routes = [
     component: ProfileComponent,
     title: "Perfil - Admin"
   },
-
   {
     path: '**',
     redirectTo: 'login'

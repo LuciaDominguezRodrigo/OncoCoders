@@ -1,12 +1,12 @@
 <div class="flex flex-col h-full overflow-y-visible">
   <!-- Navigation Bar -->
   <app-navbar *ngIf="!isLoginOrRegister()"></app-navbar>
-  <div class="flex flex-row h-full">
+  <div class="flex flex-row h-full ">
     <!-- Side Bar -->
     <app-sidebar *ngIf="!isHidden()"></app-sidebar>
 
     <!-- Section -->
-     <section class="flex flex-col size-full items-center justify-center overflow-y-auto">
+     <section class="flex flex-col  size-full overflow-y-auto">
       <router-outlet></router-outlet>
      </section>
   </div>
