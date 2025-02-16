@@ -9,7 +9,7 @@ import {FormService} from '../../services/form.service';
 @Component({
   selector: 'app-profile',
   imports: [
-    CommonModule, ReactiveFormsModule, FormsModule, PopupComponent, RouterLink],
+    CommonModule, ReactiveFormsModule, FormsModule, PopupComponent],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
@@ -183,16 +183,21 @@ export class ProfileComponent implements OnInit {
     this.showPopup = false;
   }
 
-  downloadExcel(name:string) {
+  downloadExcel(name:string, url: string) {
     const token = localStorage.getItem('token');
     if (token) {
-      this.formService.downloadExcel(token).subscribe(
-        (response: Blob) => {
-          // Crear un enlace para descargar el archivo
+      this.formService.downloadExcel(token, url).subscribe(
+        (response: Blob | null) => {
+
+          if (!response) {
+            alert ("¡No tenemos contenido todavía!. En cuanto lo tengamos, podrás descargar el documento");
+            return;
+          }
+
           const link = document.createElement('a');
           const url = window.URL.createObjectURL(response); // Crea una URL para el Blob
 
-          // Asegúrate de que el archivo tenga el nombre correcto
+
           link.href = url;
           link.download = name + '.xlsx';  // Nombre del archivo a descargar
 

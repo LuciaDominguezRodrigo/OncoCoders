@@ -20,8 +20,8 @@ export class FormService {
     return this.http.post(this.apiUrl, data, { headers});
   }
 
-  downloadExcel(token: string | null) {
-    const url = 'https://localhost:8443/api/excels/export-answers2';
+  downloadExcel(token: string | null, urlt:string) {
+    const url = 'https://localhost:8443/api/excels/' + urlt;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`

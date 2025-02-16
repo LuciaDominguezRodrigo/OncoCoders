@@ -1,4 +1,4 @@
-<div class="container p-20 relative z-10 max-w-full mt-20 overflow-y-hidden">
+<div class="container p-20 relative z-10 max-w-full mt-60 overflow-y-hidden">
   <div class="bg-white shadow-lg rounded-lg p-6">
     <h2 class="text-2xl font-semibold text-gray-800 text-center">¡Hola {{user.name}}!</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
@@ -83,11 +83,37 @@
       </button>
     </div>
 
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
+      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 1</h3>
+      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 1.</p>
+      <button (click)="downloadExcel('Modelo2', 'export-answers2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+        Descargar Excel
+      </button>
+    </div>
+
     <!-- Si el usuario es RESEARCHERUSER, mostrar el botón de descarga -->
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
       <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 2</h3>
       <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 2.</p>
-      <button (click)="downloadExcel('Modelo2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+      <button (click)="downloadExcel('Modelo2', 'export-answers2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+        Descargar Excel
+      </button>
+    </div>
+
+
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
+      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 3</h3>
+      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 3.</p>
+      <button (click)="downloadExcel('Modelo2', 'export-answers2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
+        Descargar Excel
+      </button>
+    </div>
+
+
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
+      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 4</h3>
+      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 4.</p>
+      <button (click)="downloadExcel('Modelo4', 'export-answers4')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
         Descargar Excel
       </button>
     </div>
