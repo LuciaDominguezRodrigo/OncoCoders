@@ -19,6 +19,7 @@ import { UserformComponent } from './screens/userform/userform.component';
 import { RecomendationsComponent } from './sections/pacient-user/recomendations/recomendations.component';
 import { HomeComponent } from './screens/home/home.component';
 import { ClinicformComponent } from './screens/clinicform/clinicform.component';
+import {Clinicform2Component} from './screens/clinicform2/clinicform2.component';
 
 export const routes: Routes = [
   {
@@ -63,24 +64,29 @@ export const routes: Routes = [
     title: "Clinic form"
   },
   {
+    path: 'clinicformrelapse',
+    component: Clinicform2Component,
+    title: "Clinic form relapse"
+  },
+  {
     path: DIAGNOSIS_SCREEN,
     component: DiagnosisComponent,
-    title: "Diagnóstico - Paciente"
+    title: "Diagnosis- Patient"
   },
   {
     path: MONITORING_SCREEN,
     component: MonitoringComponent,
-    title: "Seguimiento - Paciente"
+    title: "Follow up - Paciente"
   },
   {
     path: RECOMMENDATION_SCREEN,
     component: RecomendationsComponent,
-    title: "Recomendacion - Paciente"
+    title: "Recommendations - Patient"
   },
   {
     path: PROFILE_PATIENT_SCREEN,
     component: ProfileComponent,
-    title: "Perfil - Paciente"
+    title: "Profile - Patient"
   },
   {
     path: DASHBOARD_SPECIALIST_SCREEN,

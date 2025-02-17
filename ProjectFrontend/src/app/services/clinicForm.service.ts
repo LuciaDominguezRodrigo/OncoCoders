@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class ClinicFormService {
 
-  private apiUrl = 'https://localhost:8443/api/clinicForm/saveResponse1';
+  private apiUrl = 'https://localhost:8443/api/clinicForm/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,16 @@ export class ClinicFormService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     });
-    return this.http.post<any>(this.apiUrl, formData, {headers});
+    return this.http.post<any>(this.apiUrl + 'saveResponse1', formData, {headers});
+  }
+
+  sendForm2(token: string | null, formData: any): Observable<any> {
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.post<any>(this.apiUrl + '/saveResponse2' , formData, {headers});
   }
 
 }

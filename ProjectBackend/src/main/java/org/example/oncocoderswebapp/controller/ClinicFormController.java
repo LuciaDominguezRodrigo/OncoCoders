@@ -50,6 +50,31 @@ public class ClinicFormController {
             ClinicFormResponse savedResponse = clinicFormService.saveClinicFormResponse1(request,puser);
             return ResponseEntity.ok(savedResponse);
         }
+
+    @PostMapping("/saveResponse2")
+    public ResponseEntity<ClinicFormResponse> saveClinicFormResponse2(@RequestBody ClinicFormRequestDTO request, @RequestHeader("Authorization") String token) {
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(null);
+        }
+        // Buscar el paciente por email
+        Optional<User> patientUser = userService.findByEmail(request.getPatientEmail());
+        if (patientUser.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+        User puser = new User();
+        puser = patientUser.get();
+
+        // Crear la respuesta del formulario
+        ClinicFormResponse response;
+        response = new ClinicFormResponse();
+        response.setPatientUser(puser);
+
+
+        ClinicFormResponse savedResponse = clinicFormService.saveClinicFormResponse1(request,puser);
+        return ResponseEntity.ok(savedResponse);
+    }
     }
 
 

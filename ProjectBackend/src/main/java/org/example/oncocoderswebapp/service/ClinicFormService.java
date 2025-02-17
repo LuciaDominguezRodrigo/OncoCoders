@@ -2,8 +2,10 @@ package org.example.oncocoderswebapp.service;
 
 import org.example.oncocoderswebapp.DTO.ClinicFormRequestDTO;
 import org.example.oncocoderswebapp.model.ClinicFormResponse;
+import org.example.oncocoderswebapp.model.ClinicFormResponse2;
 import org.example.oncocoderswebapp.model.User;
 import org.example.oncocoderswebapp.repository.ClinicFormRepository1;
+import org.example.oncocoderswebapp.repository.ClinicFormRepository2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class ClinicFormService {
 
     @Autowired
     private ClinicFormRepository1 clinicFormRepository1;
+
+    @Autowired
+    private ClinicFormRepository2 clinicFormRepository2;
 
         public ClinicFormResponse saveClinicFormResponse1(ClinicFormRequestDTO request, User patientUser) {
             ClinicFormResponse response = new ClinicFormResponse();
@@ -39,6 +44,31 @@ public class ClinicFormService {
             response.setCancer_mama(convertirANumero(request.getCancerMama(), "cancer_mama"));
             response.setFechaRespuesta(LocalDateTime.now());
             return clinicFormRepository1.save(response);
+    }
+
+
+    public ClinicFormResponse2 saveClinicFormResponse2(ClinicFormRequestDTO request, User patientUser) {
+        ClinicFormResponse2 response = new ClinicFormResponse2();
+        response.setPatientUser(patientUser);
+        response.setEdad(convertirANumero(request.getEdad(), "edad"));
+        response.setEtnia(convertirANumero(request.getEtnia(), "etnia"));
+        response.setEdad_mesntruacion(convertirANumero(request.getEdadMenstruacion(), "edad_menstruacion"));
+        response.setEdad_menopausia(convertirANumero(request.getEdadMenopausia(), "edad_menopausia"));
+        response.setHormona_ER(convertirANumero(request.getHormonaER(), "hormona_ER"));
+        response.setHormona_PR(convertirANumero(request.getHormonaPR(), "hormona_PR"));
+        response.setHormona_HER2(convertirANumero(request.getHormonaHER2(), "hormona_HER2"));
+        response.setSubtipo_molecular(convertirANumero(request.getSubtipoMolecular(), "subtipo_molecular"));
+        response.setTamannio_tumor(request.getTamannioTumor());
+        response.setEstructura_tubular(convertirANumero(request.getEstructuraTubular(),"tumor_tubular"));
+        response.setCapaciadd_estado_miotico(convertirANumero(request.getCapacidadEstadoMiotico(),"capacidad_estado_miotico"));
+        response.setEstructura_general(convertirANumero(request.getEstructuraGeneral(), "tumor_general"));
+        response.setMutacion_BRCA1(convertirANumero(request.getMutacionBRCA1(), "mutacion_BRCA1"));
+        response.setMutacion_BRCA2(convertirANumero(request.getMutacionBRCA2(), "mutacion_BRCA2"));
+        response.setFamiliares_diagnosticados(request.getFamiliaresDiagnosticados());
+        response.setRadioterapia_anterior(convertirANumero(request.getRadioterapiaAnterior(), "radioterapia_anterior"));
+        response.setCancer_mama(convertirANumero(request.getCancerMama(), "cancer_mama"));
+        response.setFechaRespuesta(LocalDateTime.now());
+        return clinicFormRepository2.save(response);
     }
 
     private Integer convertirANumero(String valor, String categoria) {
@@ -140,6 +170,9 @@ public class ClinicFormService {
         conversion.put("poca_diferencia", 0);
         conversion.put("diferencia_moderada", 1);
         conversion.put("gran_diferencia", 0);
+
+        conversion.put("BCS", 0);
+        conversion.put("masectomia", 1);
 
         // Retorna el valor correspondiente
         return conversion.getOrDefault(valor, -1); // Si no encuentra el valor, devuelve -1

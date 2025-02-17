@@ -145,7 +145,7 @@ export class UserformComponent {
     this.formService.sendForm(formDataTransformada, token).subscribe(
       response => {
         console.log('Server response: ', response);
-        alert('Form submitted successfully. Remember that you will not be able to complete the form again for 7 days.');
+        alert('Form submitted successfully.');
         localStorage.setItem('ultimoEnvioFormulario', new Date().toISOString());
         this.puedeEnviar = true;
         this.router.navigate(['/profile']);

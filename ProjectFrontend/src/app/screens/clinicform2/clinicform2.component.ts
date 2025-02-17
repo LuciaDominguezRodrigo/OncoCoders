@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
-import {FormService} from '../../services/form.service';
 import {ClinicFormService} from '../../services/clinicForm.service';
 
 @Component({
-  selector: 'app-clinicform',
-    imports: [
-        FormsModule,
-        ReactiveFormsModule
-    ],
-  templateUrl: './clinicform.component.html',
-
+  selector: 'app-clinicform2',
+  imports: [
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  templateUrl: './clinicform2.component.html'
 })
-export class ClinicformComponent {
+export class Clinicform2Component {
 
   constructor(private router: Router, private formService: ClinicFormService) { }
+
 
   formData = {
     patientEmail: '',
@@ -35,7 +34,12 @@ export class ClinicformComponent {
     mutacionBRCA2: '',
     familiaresDiagnosticados: '',
     radioterapiaAnterior: '',
-    cancerMama: ''
+    operacion: '',
+    operacion_tipo: '',
+    tratamientoActualmente: '',
+    tipos_tratamineto: '',
+    sobrepeso_obesidad: '',
+    tratamientoPrevio: ''
 
   };
 
@@ -60,8 +64,12 @@ export class ClinicformComponent {
         mutacionBRCA2: this.formData.mutacionBRCA2 || '',
         familiaresDiagnosticados: String(this.formData.familiaresDiagnosticados),
         radioterapiaAnterior: this.formData.radioterapiaAnterior || '',
-        cancerMama: this.formData.cancerMama || '',
-
+        operacion: this.formData.operacion || '',
+        operacion_tipo: this.formData.operacion_tipo || '',
+        tratamientoActualmente: this.formData.tratamientoActualmente || '',
+        tipos_tratamineto: this.formData.tipos_tratamineto || '',
+        sobrepeso_obesidad: this.formData.sobrepeso_obesidad || '',
+        tratamientoPrevio: this.formData.tratamientoPrevio || ''
       };
 
       // 🔹 Verificar JSON antes de enviar
@@ -75,7 +83,7 @@ export class ClinicformComponent {
       }
 
       // Usar FormService para enviar los datos al backend
-      this.formService.sendForm(token, this.formData).subscribe(
+      this.formService.sendForm2(token, this.formData).subscribe(
         response => {
           console.log('Server response:', response);
           alert('Form submitted correctly ');
@@ -101,8 +109,7 @@ export class ClinicformComponent {
       this.formData.hormonaER && this.formData.hormonaPR && this.formData.hormonaHER2 &&
       this.formData.subtipoMolecular && this.formData.tamannioTumor &&
       this.formData.estructuraTubular && this.formData.capacidadEstadoMiotico &&
-      this.formData.estructuraGeneral && this.formData.cancerMama && this.formData.familiaresDiagnosticados
+      this.formData.estructuraGeneral && this.formData.familiaresDiagnosticados
       && this.formData.mutacionBRCA2 && this.formData.mutacionBRCA1;
   }
-
 }
