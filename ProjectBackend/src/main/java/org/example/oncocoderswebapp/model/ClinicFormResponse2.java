@@ -12,10 +12,6 @@ public class ClinicFormResponse2 {
     private Long id;
 
     @ManyToOne
-    @JoinColumn (name = "clinic_user_id")
-    private User medicUser;
-
-    @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)  // Nuevo campo para el paciente
     private User patientUser;
 
@@ -37,49 +33,69 @@ public class ClinicFormResponse2 {
     private Integer mutacion_BRCA2;
     private Integer familiares_diagnosticados;
     private Integer radioterapia_anterior;
-    private Integer cancer_mama;
     private Integer cancer_mama_antes;
     private Integer tratamiento_actual;
     private Integer operacion;
     private Integer operacion_tipo;
+    private Integer tipos_tratamiento;
+    private Integer sobrepeso_obesidad;
+    private Integer tratamientoPrevio;
 
     public ClinicFormResponse2() {
     }
 
-    public ClinicFormResponse2(Long id, User medicUser, User patientUser, LocalDateTime fechaRespuesta, Integer edad,
-                               Integer etnia, Integer edad_mesntruacion, Integer edad_menopausia, Integer hormona_ER,
-                               Integer hormona_PR, Integer hormona_HER2, Integer subtipo_molecular, Integer tamannio_tumor,
-                               Integer capaciadd_estado_miotico, Integer estructura_tubular, Integer estructura_general,
-                               Integer mutacion_BRCA1, Integer mutacion_BRCA2, Integer familiares_diagnosticados,
-                               Integer radioterapia_anterior, Integer cancer_mama, Integer cancer_mama_antes, Integer tratamiento_actual,
-                               Integer operacion, Integer operacion_tipo) {
+    public ClinicFormResponse2(Long id, User patientUser, LocalDateTime fechaRespuesta, Integer edad, Integer edad_mesntruacion, Integer etnia, Integer edad_menopausia, Integer hormona_ER, Integer hormona_PR, Integer hormona_HER2, Integer subtipo_molecular, Integer tamannio_tumor, Integer estructura_tubular, Integer capaciadd_estado_miotico, Integer estructura_general, Integer mutacion_BRCA1, Integer mutacion_BRCA2, Integer familiares_diagnosticados, Integer radioterapia_anterior, Integer cancer_mama_antes, Integer tratamiento_actual, Integer operacion, Integer operacion_tipo, Integer tipos_tratamiento, Integer sobrepeso_obesidad, Integer tratamientoPrevio) {
         this.id = id;
-        this.medicUser = medicUser;
         this.patientUser = patientUser;
         this.fechaRespuesta = fechaRespuesta;
         this.edad = edad;
-        this.etnia = etnia;
         this.edad_mesntruacion = edad_mesntruacion;
+        this.etnia = etnia;
         this.edad_menopausia = edad_menopausia;
         this.hormona_ER = hormona_ER;
         this.hormona_PR = hormona_PR;
         this.hormona_HER2 = hormona_HER2;
         this.subtipo_molecular = subtipo_molecular;
         this.tamannio_tumor = tamannio_tumor;
-        this.capaciadd_estado_miotico = capaciadd_estado_miotico;
         this.estructura_tubular = estructura_tubular;
+        this.capaciadd_estado_miotico = capaciadd_estado_miotico;
         this.estructura_general = estructura_general;
         this.mutacion_BRCA1 = mutacion_BRCA1;
         this.mutacion_BRCA2 = mutacion_BRCA2;
         this.familiares_diagnosticados = familiares_diagnosticados;
         this.radioterapia_anterior = radioterapia_anterior;
-        this.cancer_mama = cancer_mama;
         this.cancer_mama_antes = cancer_mama_antes;
         this.tratamiento_actual = tratamiento_actual;
         this.operacion = operacion;
         this.operacion_tipo = operacion_tipo;
+        this.tipos_tratamiento = tipos_tratamiento;
+        this.sobrepeso_obesidad = sobrepeso_obesidad;
+        this.tratamientoPrevio = tratamientoPrevio;
     }
 
+    public void setTipos_tratamiento(Integer tipos_tratamiento) {
+        this.tipos_tratamiento = tipos_tratamiento;
+    }
+
+    public void setSobrepeso_obesidad(Integer sobrepeso_obesidad) {
+        this.sobrepeso_obesidad = sobrepeso_obesidad;
+    }
+
+    public void setTratamientoPrevio(Integer tratamientoPrevio) {
+        this.tratamientoPrevio = tratamientoPrevio;
+    }
+
+    public Integer getTipos_tratamiento() {
+        return tipos_tratamiento;
+    }
+
+    public Integer getTratamientoPrevio() {
+        return tratamientoPrevio;
+    }
+
+    public Integer getSobrepeso_obesidad() {
+        return sobrepeso_obesidad;
+    }
 
     public Long getId() {
         return id;
@@ -89,13 +105,6 @@ public class ClinicFormResponse2 {
         this.id = id;
     }
 
-    public User getMedicUser() {
-        return medicUser;
-    }
-
-    public void setMedicUser(User medicUser) {
-        this.medicUser = medicUser;
-    }
 
     public User getPatientUser() {
         return patientUser;
@@ -241,13 +250,7 @@ public class ClinicFormResponse2 {
         this.radioterapia_anterior = radioterapia_anterior;
     }
 
-    public Integer getCancer_mama() {
-        return cancer_mama;
-    }
 
-    public void setCancer_mama(Integer cancer_mama) {
-        this.cancer_mama = cancer_mama;
-    }
 
     public Integer getOperacion_tipo() {
         return operacion_tipo;

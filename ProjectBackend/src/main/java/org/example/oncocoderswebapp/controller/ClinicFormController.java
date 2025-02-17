@@ -1,8 +1,10 @@
 package org.example.oncocoderswebapp.controller;
 
 
+import org.example.oncocoderswebapp.DTO.ClinicFormRequest2DTO;
 import org.example.oncocoderswebapp.DTO.ClinicFormRequestDTO;
 import org.example.oncocoderswebapp.model.ClinicFormResponse;
+import org.example.oncocoderswebapp.model.ClinicFormResponse2;
 import org.example.oncocoderswebapp.model.User;
 import org.example.oncocoderswebapp.service.ClinicFormService;
 import org.example.oncocoderswebapp.service.UserService;
@@ -52,7 +54,7 @@ public class ClinicFormController {
         }
 
     @PostMapping("/saveResponse2")
-    public ResponseEntity<ClinicFormResponse> saveClinicFormResponse2(@RequestBody ClinicFormRequestDTO request, @RequestHeader("Authorization") String token) {
+    public ResponseEntity<ClinicFormResponse2> saveClinicFormResponse2(@RequestBody ClinicFormRequest2DTO request, @RequestHeader("Authorization") String token) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(null);
@@ -72,7 +74,7 @@ public class ClinicFormController {
         response.setPatientUser(puser);
 
 
-        ClinicFormResponse savedResponse = clinicFormService.saveClinicFormResponse1(request,puser);
+        ClinicFormResponse2 savedResponse = clinicFormService.saveClinicFormResponse2(request,puser);
         return ResponseEntity.ok(savedResponse);
     }
     }

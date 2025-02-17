@@ -1,5 +1,6 @@
 package org.example.oncocoderswebapp.service;
 
+import org.example.oncocoderswebapp.DTO.ClinicFormRequest2DTO;
 import org.example.oncocoderswebapp.DTO.ClinicFormRequestDTO;
 import org.example.oncocoderswebapp.model.ClinicFormResponse;
 import org.example.oncocoderswebapp.model.ClinicFormResponse2;
@@ -47,7 +48,7 @@ public class ClinicFormService {
     }
 
 
-    public ClinicFormResponse2 saveClinicFormResponse2(ClinicFormRequestDTO request, User patientUser) {
+    public ClinicFormResponse2 saveClinicFormResponse2(ClinicFormRequest2DTO request, User patientUser) {
         ClinicFormResponse2 response = new ClinicFormResponse2();
         response.setPatientUser(patientUser);
         response.setEdad(convertirANumero(request.getEdad(), "edad"));
@@ -66,7 +67,13 @@ public class ClinicFormService {
         response.setMutacion_BRCA2(convertirANumero(request.getMutacionBRCA2(), "mutacion_BRCA2"));
         response.setFamiliares_diagnosticados(request.getFamiliaresDiagnosticados());
         response.setRadioterapia_anterior(convertirANumero(request.getRadioterapiaAnterior(), "radioterapia_anterior"));
-        response.setCancer_mama(convertirANumero(request.getCancerMama(), "cancer_mama"));
+        response.setOperacion(convertirANumero(request.getOperacion(), "operacion"));
+        response.setOperacion_tipo(convertirANumero(request.getOperacion_tipo(), "operacion_tipo"));
+        response.setTratamiento_actual(convertirANumero(request.getTratamientoActualmente(), "tratamientoActualmente"));
+        response.setTipos_tratamiento(convertirANumero(request.getTipo_tratamiento(), "tipos_tratamiento"));
+        response.setSobrepeso_obesidad(convertirANumero(request.getSobrepeso_obesidad(), "sobrepeso_obesidad"));
+        response.setTratamientoPrevio(convertirANumero(request.getTratamientoPrevio(), "tratamientoPrevio"));
+        response.setCancer_mama_antes(convertirANumero(request.getCancer_mama_antes(), "cancer_mama_antes"));
         response.setFechaRespuesta(LocalDateTime.now());
         return clinicFormRepository2.save(response);
     }
@@ -172,7 +179,15 @@ public class ClinicFormService {
         conversion.put("gran_diferencia", 0);
 
         conversion.put("BCS", 0);
-        conversion.put("masectomia", 1);
+        conversion.put("mastectomia", 1);
+
+
+        // Mapeo de tipos de tratamiento
+        conversion.put("Quimioterapia", 0);
+        conversion.put("Radioterapia", 1);
+        conversion.put("Cirugía", 2);
+        conversion.put("Terapia hormonal", 3);
+        conversion.put("Otros", 4);
 
         // Retorna el valor correspondiente
         return conversion.getOrDefault(valor, -1); // Si no encuentra el valor, devuelve -1
