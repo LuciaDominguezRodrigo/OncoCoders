@@ -3,6 +3,7 @@ package org.example.oncocoderswebapp.controller;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.example.oncocoderswebapp.model.ClinicFormResponse;
+import org.example.oncocoderswebapp.model.ClinicFormResponse2;
 import org.example.oncocoderswebapp.model.UserFormResponse;
 import org.example.oncocoderswebapp.service.ClinicFormService;
 import org.example.oncocoderswebapp.service.UserFormService;
@@ -188,8 +189,68 @@ public class ExportController {
                 dataRow.createCell(12).setCellValue(respuesta.getMutacion_BRCA2());
                 dataRow.createCell(13).setCellValue(respuesta.getFamiliares_diagnosticados());
                 dataRow.createCell(14).setCellValue(respuesta.getRadioterapia_anterior());
-                dataRow.createCell(14).setCellValue(respuesta.getEdad_mesntruacion());
-                dataRow.createCell(14).setCellValue(respuesta.getCancer_mama());
+                dataRow.createCell(15).setCellValue(respuesta.getEdad_mesntruacion());
+                dataRow.createCell(16).setCellValue(respuesta.getCancer_mama());
+            }
+
+            // Escribir el archivo a memoria en lugar de guardarlo en disco
+            workbook.write(bos);
+            ByteArrayResource resource = new ByteArrayResource(bos.toByteArray());
+
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=Modelo4.xlsx")
+                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                    .contentLength(bos.size())
+                    .body(resource);
+        }
+    }
+
+    @GetMapping("/export-answers3")
+    public ResponseEntity<ByteArrayResource> exportarExcel3() throws IOException {
+        // Obtener datos
+        List<ClinicFormResponse2> respuestas = clinicFormService.getResponses2();
+        if (respuestas == null || respuestas.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT)
+                    .body(new ByteArrayResource(new byte[0])); // Devolver un archivo vacío en caso de que no haya datos
+        }
+
+        try (Workbook workbook = new XSSFWorkbook(); ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+            Sheet sheet = workbook.createSheet("Respuestas");
+            Row headerRow = sheet.createRow(0);
+            String[] headers = { "id_paciente", "edad", "edad_menopausia", "raza", "ER", "PR", "HER2", "Mol_subtipo",
+                    "tamaño_tumor","grado_tumor_tubular", "grado_tumor_nuclear", "grado_tumor_mitotico", "BRCA1", "BRCA2", "numrero_familiares_diagnosticados",
+                    "operación", "tipo_operación", "tratamiento_actualmente","tipo_tratamiento", "radioterapia_pecho", "enfermedad_cronicas", "recurrencia"};
+
+            for (int i = 0; i < headers.length; i++) {
+                headerRow.createCell(i).setCellValue(headers[i]);
+            }
+
+            int rowNum = 1;
+            for (ClinicFormResponse2 respuesta : respuestas) {
+                Row dataRow = sheet.createRow(rowNum++);
+
+                dataRow.createCell(0).setCellValue(respuesta.getPatientUser().getId());
+                dataRow.createCell(1).setCellValue(respuesta.getEdad());
+                dataRow.createCell(2).setCellValue(respuesta.getEdad_menopausia());
+                dataRow.createCell(3).setCellValue(respuesta.getEtnia());
+                dataRow.createCell(4).setCellValue(respuesta.getHormona_ER());
+                dataRow.createCell(5).setCellValue(respuesta.getHormona_PR());
+                dataRow.createCell(6).setCellValue(respuesta.getHormona_HER2());
+                dataRow.createCell(7).setCellValue(respuesta.getSubtipo_molecular());
+                dataRow.createCell(8).setCellValue(respuesta.getTamannio_tumor());
+                dataRow.createCell(9).setCellValue(respuesta.getEstructura_tubular());
+                dataRow.createCell(10).setCellValue(respuesta.getEstructura_general());
+                dataRow.createCell(11).setCellValue(respuesta.getCapaciadd_estado_miotico());
+                dataRow.createCell(12).setCellValue(respuesta.getMutacion_BRCA1());
+                dataRow.createCell(13).setCellValue(respuesta.getMutacion_BRCA2());
+                dataRow.createCell(14).setCellValue(respuesta.getFamiliares_diagnosticados());
+                dataRow.createCell(15).setCellValue(respuesta.getOperacion());
+                dataRow.createCell(16).setCellValue(respuesta.getOperacion_tipo());
+                dataRow.createCell(17).setCellValue(respuesta.getTratamiento_actual());
+                dataRow.createCell(18).setCellValue(respuesta.getTipos_tratamiento());
+                dataRow.createCell(19).setCellValue(respuesta.getRadioterapia_anterior());
+                dataRow.createCell(20).setCellValue(respuesta.getSobrepeso_obesidad());
+                dataRow.createCell(21).setCellValue(respuesta.getCancer_mama_antes());
             }
 
             // Escribir el archivo a memoria en lugar de guardarlo en disco

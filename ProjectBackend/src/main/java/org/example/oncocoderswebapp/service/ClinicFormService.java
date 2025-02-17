@@ -198,4 +198,8 @@ public class ClinicFormService {
     public List<ClinicFormResponse> getResponses1() {
             return this.clinicFormRepository1.findAll();
     }
+
+    public List<ClinicFormResponse2> getResponses2() {
+        return this.clinicFormRepository2.findAll();
+    }
 }
