@@ -289,8 +289,8 @@
       <label class="block text-gray-700 font-semibold">At what age did you reach menopause (if applicable)?</label>
       <div class="flex gap-4">
         <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="Antes de los 45 años">Before 45 </label>
-        <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="Después de los 45 años">After 45 </label>
-        <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="Entre los 45 y los 55 años">Between 45 and 55 </label>
+        <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="Después de los 55 años">After 55 </label>
+        <label><input type="radio" name="edad_menopausia" [(ngModel)]="formData.edad_menopausia" value="No aplica">Not applicable </label>
       </div>
     </div>
 
@@ -429,7 +429,7 @@
       <label class="block text-gray-700 font-semibold"> Do you frequently consume ultra-processed or low-nutritional value foods? (such as cookies, snacks, soft drinks)
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value="Diario" class="mr-2">Daoly</label>
+        <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value="Diario" class="mr-2">Daily</label>
         <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value="Varias veces a la semana" class="mr-2">Several times a week</label>
         <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value ="Rara vez" class="mr-2">Rarely</label>
         <label><input type="radio" name="ultraprocesados" [(ngModel)]= "formData.ultraprocesados" value ="Nunca" class="mr-2">Never</label>
@@ -473,9 +473,9 @@
       <label class="block text-gray-700 font-semibold"> If you have mammograms, how often do you have them?
       </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipo_tratamiento" value ="6 meses" class="mr-2">6 months</label>
-        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipo_tratamiento" value="1 año" class="mr-2">1 year</label>
-        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipo_tratamiento" value ="Otro" class="mr-2">Other</label>
+        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value ="6 meses" class="mr-2">6 months</label>
+        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="1 año" class="mr-2">1 year</label>
+        <label><input type="radio" name="tipo_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value ="Otro" class="mr-2">Other</label>
       </div>
     </div>
 

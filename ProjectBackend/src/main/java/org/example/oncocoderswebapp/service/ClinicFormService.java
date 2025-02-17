@@ -78,7 +78,8 @@ public class ClinicFormService {
 
         // Mapeo de edad de la menopausia
         conversion.put("Antes de los 45 años", 0);
-        conversion.put("Después de los 55 años", 1);
+        conversion.put("Después de los 45 años", 1);
+        conversion.put("Entre los 45 y los 55 años",2);
 
 
         // "No aplica" para ciertos valores: Se distingue por categorías
@@ -98,7 +99,7 @@ public class ClinicFormService {
 
         // Mapeo de actividad física
         conversion.put("1 vez a la semana", 0);
-        conversion.put("2-3 veces a la semana", 1);
+        conversion.put("2-4 veces a la semana", 1);
         conversion.put("4 o más", 2);
 
         // Mapeo de frecuencia de fumar

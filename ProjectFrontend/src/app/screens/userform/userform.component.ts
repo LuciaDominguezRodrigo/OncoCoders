@@ -65,7 +65,7 @@ export class UserformComponent {
     radioterapia_pecho: " "
   };
 
-  puedeEnviar: boolean = false;
+  puedeEnviar: boolean = true;
 
   constructor(private router: Router, private formService: FormService) {
   }
@@ -73,6 +73,7 @@ export class UserformComponent {
   transformarDatos(data: any): any {
     return {
       edad: data.edad,
+      cancer_mama:data.cancer_mama,
       sexo: data.sexo === "Masculino" ? "Femenino" : data.sexo,  // Cambiar sexo si es necesario
       bulto: data.bulto === "Sí" ? "Sí" : "No",
       dolor_senos_axilas: data.dolor_senos_axilas === "Sí" ? "No" : "Sí",
@@ -109,7 +110,7 @@ export class UserformComponent {
     };
   }
 
-/*
+
     ngOnInit() {
       this.verificarUltimoEnvio();
     }
@@ -121,20 +122,20 @@ export class UserformComponent {
         const fechaActual = new Date();
         const diferenciaDias = (fechaActual.getTime() - fechaUltimoEnvio.getTime()) / (1000 * 60 * 60 * 24);
 
-        if (diferenciaDias <0.000005 ) {
+        if (diferenciaDias <0 ) {
           this.puedeEnviar = false;
         }
       }
-    }*/
+    }
   enviarFormulario() {
     if (!this.puedeEnviar) {
-      alert('Debes esperar 7 días antes de enviar nuevamente el formulario.');
+      alert('You must wait 7 days before submitting the form again.');
       return;
     }
 
     const token = localStorage.getItem('token');
     if (!token) {
-      alert('No tienes token de autenticación');
+      alert('You do not have authentication token');
       return;
     }
 
@@ -143,16 +144,16 @@ export class UserformComponent {
 
     this.formService.sendForm(formDataTransformada, token).subscribe(
       response => {
-        console.log('Respuesta del servidor:', response);
-        alert('Formulario enviado correctamente. Recuerde que no podrá vovler a hacer el formulario hasta dentro de 7 días');
+        console.log('Server response: ', response);
+        alert('Form submitted successfully. Remember that you will not be able to complete the form again for 7 days.');
         localStorage.setItem('ultimoEnvioFormulario', new Date().toISOString());
         this.puedeEnviar = true;
         this.router.navigate(['/profile']);
       },
       error => {
-        console.error('Error en el envío:', error);
-        console.log('Respuesta del servidor:', error);
-        alert('Hubo un error en el envío. Revisa la consola para más detalles.');
+        console.error('Error in submitting', error);
+        console.log('Server response', error);
+        alert('There was an error in the shipment. Check the console for more details.');
       }
     );
 

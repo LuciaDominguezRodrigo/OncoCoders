@@ -190,7 +190,7 @@ export class ProfileComponent implements OnInit {
         (response: Blob | null) => {
 
           if (!response) {
-            alert ("¡No tenemos contenido todavía!. En cuanto lo tengamos, podrás descargar el documento");
+            alert ("We don't have content yet! As soon as we have it, you can download the document");
             return;
           }
 
@@ -255,5 +255,9 @@ export class ProfileComponent implements OnInit {
 
   openResults() {
     this.router.navigate(["/patient/diagnosis"]);
+  }
+
+  openMedicForm1() {
+    this.router.navigate(["/clinicform"]);
   }
 }

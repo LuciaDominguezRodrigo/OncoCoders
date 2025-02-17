@@ -40,7 +40,7 @@ public class UserFormService {
         respuestaFormulario.setFamiliares_diagnosticados(convertirANumero(respuestas.get("familiares_diagnosticados"), "familiares_diagnosticados"));
         respuestaFormulario.setNum_familiares_diagnosticados(Integer.valueOf(respuestas.get("num_familiares_diagnosticados")));
         respuestaFormulario.setTratamiento_actualmente(convertirANumero(respuestas.get("tratamiento_actualmente"), "tratamiento_actualmente"));
-        respuestaFormulario.setTipos_tratamiento(convertirANumero(respuestas.get("tipo_tratamiento"), "tipo_tratamiento"));
+        respuestaFormulario.setTipos_tratamiento(convertirANumero(respuestas.get("tipos_tratamiento"), "tipos_tratamiento"));
         respuestaFormulario.setPrimera_menstruacion(convertirANumero(respuestas.get("primera_menstruacion"), "primera_menstruacion"));
         respuestaFormulario.setEdad_menopausia(convertirANumero(respuestas.get("edad_menopausia"), "edad_menopausia"));
         respuestaFormulario.setHijos(convertirANumero(respuestas.get("hijos"), "hijos"));
@@ -102,20 +102,21 @@ public class UserFormService {
         conversion.put("Antes de los 45 años", 0);
         conversion.put("Después de los 55 años", 1);
 
+
         // "No aplica" para ciertos valores: Se distingue por categorías
         if (categoria.equals("tipo_tratamiento")) {
-            conversion.put("No aplica - tipo_tratamiento", 5);  // Para tipos de tratamiento
+            conversion.put("No aplica", 5);  // Para tipos de tratamiento
         } else if (categoria.equals("frecuencia_alcohol")) {
-            conversion.put("No aplica - frecuencia_alcohol", 3);  // Para frecuencia de alcohol
+            conversion.put("No aplica", 3);  // Para frecuencia de alcohol
         } else if (categoria.equals("edad_menopausia")) {
-            conversion.put("No aplica - edad_menopausia", 2);  // Para edad de menopausia
+            conversion.put("No aplica", 2);  // Para edad de menopausia
         } else if (categoria.equals("hijos_lactancia")) {
             conversion.put("No aplica", 2);  // Para hijos lactancia
         }
 
         // Mapeo de actividad física
         conversion.put("1 vez a la semana", 0);
-        conversion.put("2-3 veces a la semana", 1);
+        conversion.put("2-4 veces a la semana", 1);
         conversion.put("4 o más", 2);
 
         // Mapeo de frecuencia de fumar
@@ -128,6 +129,11 @@ public class UserFormService {
         conversion.put("Varias veces a la semana", 1);
         conversion.put("Rara vez", 2);
         conversion.put("Nunca", 3);
+
+        conversion.put("Ocasionalmente", 0);
+        conversion.put("Semanal", 1);
+        conversion.put("Diariamente", 2);
+
 
 
         // Retorna el valor correspondiente
