@@ -22,25 +22,25 @@ export class SidebarComponent {
 
   private roleSideBarOptions = {
     "USER": [
-      { label: "Diagnóstico", router: DIAGNOSIS_SCREEN },
-      { label: "Seguimiento", router: MONITORING_SCREEN },
-      { label: "Recomendaciones", router: RECOMMENDATION_SCREEN },
-      { label: "Encuesta", router: USER_FORM_SCREEN },
-      { label: "Perfil", router: PROFILE_PATIENT_SCREEN },
+      { label: "Diagnosis", router: DIAGNOSIS_SCREEN },
+      { label: "Follow-up", router: MONITORING_SCREEN },
+      { label: "Recomendations", router: RECOMMENDATION_SCREEN },
+      { label: "Form", router: USER_FORM_SCREEN },
+      { label: "Profile", router: PROFILE_PATIENT_SCREEN },
     ],
     "MEDICUSER": [
       { label: "Dashboard", router: DASHBOARD_SPECIALIST_SCREEN },
-      { label: "Pacientes Pendientes", router: PENDING_PACIENTS_SCREEN },
-      { label: "Pacientes Procesados", router: PROCESSED_PACIENTS_SCREEN },
-      { label: "Historial", router: RECORDS_SCREEN },
-      { label: "Perfil", router: PROFILE_SPECIALIST_SCREEN }
+      { label: "Pending pacients", router: PENDING_PACIENTS_SCREEN },
+      { label: "Processed Patients", router: PROCESSED_PACIENTS_SCREEN },
+      { label: "Record", router: RECORDS_SCREEN },
+      { label: "Profile", router: PROFILE_SPECIALIST_SCREEN }
     ],
     "ADMIN": [
       { label: "Dashboard", router: DASHBOARD_ADMIN_SCREEN },
-      { label: "Banear", router: BAN_SCREEN },
-      { label: "Desbanear", router: UNBAN_SCREEN },
-      { label: "Configuración IA", router: IA_CONFIGURATION_SCREEN },
-      { label: "Perfil", router: PROFILE_ADMIN_SCREEN }
+      { label: "Ban", router: BAN_SCREEN },
+      { label: "Unban", router: UNBAN_SCREEN },
+      { label: "Model configuration", router: IA_CONFIGURATION_SCREEN },
+      { label: "Profile", router: PROFILE_ADMIN_SCREEN }
     ],
     "RESEARCHERUSER": [],
     "PUBLIC": []

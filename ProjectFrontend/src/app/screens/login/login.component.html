@@ -1,18 +1,18 @@
 <div class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8">
-  <h2 class="text-2xl font-bold text-center mb-4">Iniciar Sesión</h2>
+  <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="mb-4">
-      <input formControlName="email" type="email" placeholder="Correo electrónico"
+      <input formControlName="email" type="email" placeholder="email"
              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
       <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-red-500 text-sm mt-1">
-        Correo electrónico inválido.
+
       </div>
     </div>
     <div class="mb-4 relative">
       <input
         [type]="showPassword ? 'text' : 'password'"
         formControlName="password"
-        placeholder="Contraseña"
+        placeholder="Password"
         class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10"
       >
       <button
@@ -24,22 +24,22 @@
       </button>
       <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
            class="text-red-500 text-sm mt-1">
-        La contraseña es requerida.
+        The password is request
       </div>
     </div>
     <button type="submit" [disabled]="!loginForm.valid"
             class="w-full bg-pink-300 text-white py-2 rounded-md hover:bg-pink-200 transition">
-      Iniciar Sesión
+      Login
     </button>
   </form>
 
   <!-- Nuevo div para centrar los enlaces debajo del formulario -->
   <div class="flex flex-col items-center mt-4 space-y-2">
     <p class="text-center">
-      ¿No tienes una cuenta?
-      <a routerLink="/register" class="text-pink-700 hover:underline">Regístrate</a>
+      Don't you have an account?
+      <a routerLink="/register" class="text-pink-700 hover:underline">Sign up</a>
     </p>
 
-    <a routerLink="/" class="text-pink-700 hover:underline">Continuar sin iniciar sesión</a>
+    <a routerLink="/" class="text-pink-700 hover:underline">Continue without logging in.</a>
   </div>
 </div>

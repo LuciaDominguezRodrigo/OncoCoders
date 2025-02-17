@@ -1,54 +1,54 @@
 <form #userForm="ngForm" (ngSubmit)="enviarFormulario()" class="h-dvh container mx-auto p-6 max-w-4xl">
-  <h1 class="text-4xl font-bold text-pink-600 text-center">Formulario de Datos Clínicos</h1>
+  <h1 class="text-4xl font-bold text-pink-600 text-center">Clinical Data Form</h1>
 
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Datos del paciente</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Patient Information</h2>
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Indique el email del paciente</label>
+      <label class="block text-gray-700 font-semibold">Please provide the patient's email</label>
       <input type="email" name="patientEmail" [(ngModel)]="formData.patientEmail" class="w-full p-2 border rounded-lg">
     </div>
   </div>
 
   <!-- Sección 1: Datos Demográficos -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Datos Demográficos</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Demographic Information</h2>
 
     <!-- Edad -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Cuántos años tiene el paciente?</label>
+      <label class="block text-gray-700 font-semibold">How old is the patient?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edad" name="edad">
-        <option value="Menos de 20 años">Menos de 20 años</option>
-        <option value="21-30 años">21-30 años</option>
-        <option value="31 - 40 años">31 - 40 años</option>
-        <option value="41 - 50 años">41 - 50 años</option>
-        <option value="51 - 60 años">51 - 60 años</option>
-        <option value="61-70 años">61-70 años</option>
-        <option value="Más de 70 años">Más de 70 años</option>
+        <option value="Menos de 20 años">Less than 20 years</option>
+        <option value="21-30 años">21-30 years</option>
+        <option value="31 - 40 años">31 - 40 years</option>
+        <option value="41 - 50 años">41 - 50 years</option>
+        <option value="51 - 60 años">51 - 60 years</option>
+        <option value="61-70 años">61-70 years</option>
+        <option value="Más de 70 años">More than 70 years</option>
       </select>
     </div>
 
     <!-- Etnia -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Cuál es la etnia del paciente?</label>
+      <label class="block text-gray-700 font-semibold">What is the patient's ethnicity?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.etnia" name="etnia">
-        <option value="Hispanico">Hispánico</option>
-        <option value="Blanco">Blanco</option>
-        <option value="Negro">Afrodescendiente</option>
-        <option value="Asiatico">Asiático</option>
-        <option value="Nativo">Nativo</option>
-        <option value="Multi-hetnico">Multi-hétnico</option>
-        <option value="Hawaiano">Hawaiano</option>
-        <option value="Indio-Americano">Indio-Americano</option>
+        <option value="Hispanico">Hispanic</option>
+        <option value="Blanco">White</option>
+        <option value="Negro">Afrodescendant</option>
+        <option value="Asiatico">Asian</option>
+        <option value="Nativo">Native</option>
+        <option value="Multi-hetnico">Multi-ethnic</option>
+        <option value="Hawaiano">Hawaiian</option>
+        <option value="Indio-Americano">American-Indian</option>
       </select>
     </div>
 
     <!-- Edad Menstruación -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿A qué edad tuvo su primera menstruación?</label>
+      <label class="block text-gray-700 font-semibold">At what age did the patient have their first menstruation?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edadMenstruacion" name="edadMenstruacion">
-        <option value="Antes de los 12 años">Antes de los 12 años</option>
-        <option value="12-14 años">12-14 años</option>
-        <option value="15 o más años">15 o más años</option>
+        <option value="Antes de los 12 años">Before 12 years</option>
+        <option value="12-14 años">12-14 years</option>
+        <option value="15 o más años">15 or more</option>
       </select>
     </div>
 
@@ -56,31 +56,31 @@
     <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold">¿A qué edad comenzó el paciente la menopausia?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.edadMenopausia" name="edadMenopausia">
-        <option value="Antes de los 45 años">Antes de los 45 años</option>
-        <option value="Después de los 55 años">Después de los 55 años</option>
-        <option value="No aplica">No aplica</option>
+        <option value="Antes de los 45 años">Before 45 years</option>
+        <option value="Después de los 55 años">After 55 years</option>
+        <option value="No aplica">Does not apply</option>
       </select>
     </div>
 
 
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Si aplica, ¿Cuántos familiares diagnosticados con cáncer de mama tiene el paciente?</label>
+      <label class="block text-gray-700 font-semibold">If applicable, how many family members has the patient diagnosed with breast cancer?</label>
       <input type="number" name="estadoMitotico" [(ngModel)]="formData.familiaresDiagnosticados" class="w-full p-2 border rounded-lg">
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿El paciente ha recibido radioterapia en la zona del pecho por otros motivos médicos previos?</label>
+      <label class="block text-gray-700 font-semibold">Has the patient received radiation therapy in the chest area for any previous medical reasons?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.radioterapiaAnterior" name="estructuraTubular">
-        <option value="Sí">Sí</option>
+        <option value="Sí">Yes</option>
         <option value="No">No</option>
       </select>
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Actualmente, ¿El paciente padece de cáncer de mama?</label>
+      <label class="block text-gray-700 font-semibold">s the patient currently suffering from breast cancer?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.cancerMama" name="estructuraTubular">
-        <option value="Sí">Sí</option>
+        <option value="Sí">Yes</option>
         <option value="No">No</option>
       </select>
     </div>
@@ -91,33 +91,33 @@
 
   <!-- Sección 2: Estado Hormonal -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Estado Hormonal</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Hormonal Status</h2>
 
     <!-- Hormona ER -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Es positiva la hormona ER?</label>
+      <label class="block text-gray-700 font-semibold">Is the ER hormone positive?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="hormonaER" [(ngModel)]="formData.hormonaER" value="Positivo">Positivo</label>
-        <label><input type="radio" name="hormonaER" [(ngModel)]="formData.hormonaER" value="Negativo">Negativo</label>
+        <label><input type="radio" name="hormonaER" [(ngModel)]="formData.hormonaER" value="Positivo">Positive</label>
+        <label><input type="radio" name="hormonaER" [(ngModel)]="formData.hormonaER" value="Negativo">Negative</label>
       </div>
     </div>
 
     <!-- Hormona PR -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Es positiva la hormona PR?</label>
+      <label class="block text-gray-700 font-semibold">Is the PR hormone positive?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="hormonaPR" [(ngModel)]="formData.hormonaPR" value="Positivo">Positivo</label>
-        <label><input type="radio" name="hormonaPR" [(ngModel)]="formData.hormonaPR" value="Negativo">Negativo</label>
+        <label><input type="radio" name="hormonaPR" [(ngModel)]="formData.hormonaPR" value="Positivo">Positive</label>
+        <label><input type="radio" name="hormonaPR" [(ngModel)]="formData.hormonaPR" value="Negativo">Negative</label>
       </div>
     </div>
 
     <!-- Hormona HER2 -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Es positiva la hormona HER2?</label>
+      <label class="block text-gray-700 font-semibold">Is positive hormone HER2?</label>
       <div class="flex gap-4">
-        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Positivo">Positivo</label>
-        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Negativo">Negativo</label>
-        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Frontera">Frontera</label>
+        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Positivo">Positive</label>
+        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Negativo">Negative</label>
+        <label><input type="radio" name="hormonaHER2" [(ngModel)]="formData.hormonaHER2" value="Frontera">Border-line</label>
       </div>
     </div>
 
@@ -128,67 +128,67 @@
         <option value="ER_PR_HER2">ER_PR_HER2</option>
         <option value="HER2">HER2</option>
         <option value="Luminal-like">Luminal like</option>
-        <option value="Triple Negativo">Triple Negativo</option>
+        <option value="Triple Negativo">Triple Negative</option>
       </select>
     </div>
   </div>
 
   <!-- Sección 3: Tumor y Diagnóstico -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Tumor y Diagnóstico</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Tumor and Diagnosis</h2>
 
     <!-- Tamaño del Tumor -->
     <!-- Capacidad Estado Miotico -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Tamaño del tumor</label>
+      <label class="block text-gray-700 font-semibold">Tumor size (milimeters)</label>
       <input type="number" name="estadoMitotico" [(ngModel)]="formData.tamannioTumor" class="w-full p-2 border rounded-lg">
     </div>
 
     <!-- Estructura Tubular -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Estructura tubular</label>
+      <label class="block text-gray-700 font-semibold">Tubular structure</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.estructuraTubular" name="estructuraTubular">
-        <option value="diferencia_moderada">Diferencia moderada</option>
-        <option value="poca_diferencia">Diferencia pequeña</option>
-        <option value="gran_diferencia">Gran diferencia</option>
+        <option value="diferencia_moderada">Moderate difference</option>
+        <option value="poca_diferencia">Small difference</option>
+        <option value="gran_diferencia">Big difference</option>
       </select>
     </div>
 
     <!-- Estructura Tubular -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Estado miótico</label>
+      <label class="block text-gray-700 font-semibold">Miotic State</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.capacidadEstadoMiotico" name="estructuraTubular">
-        <option value="diferencia_moderada">Diferencia moderada</option>
-        <option value="poca_diferencia">Diferencia pequeña</option>
-        <option value="gran_diferencia">Gran diferencia</option>
+        <option value="diferencia_moderada">Moderate difference</option>
+        <option value="poca_diferencia">Small difference</option>
+        <option value="gran_diferencia">Big difference</option>
       </select>
     </div>
 
     <!-- Estructura Tubular -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">Estructura general</label>
+      <label class="block text-gray-700 font-semibold">General structure</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.estructuraGeneral" name="estructuraTubular">
-        <option value="diferencia_moderada">Diferencia moderada</option>
-        <option value="poca_diferencia">Diferencia pequeña</option>
-        <option value="gran_diferencia">Gran diferencia</option>
+        <option value="diferencia_moderada">Moderate difference</option>
+        <option value="poca_diferencia">Small difference</option>
+        <option value="gran_diferencia">Big difference</option>
       </select>
     </div>
 
     <!-- Estructura Tubular -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Presenta alguna alteración/mutación en el gen BRCA1?</label>
+      <label class="block text-gray-700 font-semibold">Does the patient have any alteration/mutation in the BRCA1 gene?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.mutacionBRCA1" name="estructuraTubular">
-        <option value="Positivo">Positivo</option>
-        <option value="Negativo">Negativo</option>
+        <option value="Positivo">Positive</option>
+        <option value="Negativo">Negative</option>
       </select>
     </div>
 
     <!-- Estructura Tubular -->
     <div class="bg-white p-4 rounded-lg shadow mt-4">
-      <label class="block text-gray-700 font-semibold">¿Presenta alguna alteración/mutación en el gen BRCA2?</label>
+      <label class="block text-gray-700 font-semibold">Does the patient have any alteration/mutation in the BRCA2 gene?</label>
       <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.mutacionBRCA2" name="estructuraTubular">
-        <option value="Positivo">Positivo</option>
-        <option value="Negativo">Negativo</option>
+        <option value="Positivo">Positive</option>
+        <option value="Negativo">Negative</option>
       </select>
     </div>
 
@@ -197,7 +197,7 @@
   </div>
 
   <!-- Botón de Enviar -->
-  <button type="submit" class="bg-pink-600 text-white p-4 rounded-lg w-full mt-6">Enviar Formulario</button>
+  <button type="submit" class="bg-pink-600 text-white p-4 rounded-lg w-full mt-6">Send form</button>
   <div class ="h-16"></div>
 </form>
 

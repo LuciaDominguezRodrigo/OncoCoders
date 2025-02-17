@@ -1,71 +1,71 @@
-<div class="container p-20 relative z-10 max-w-full mt-60 overflow-y-hidden">
+<div class="container p-20 relative z-10 max-w-full  overflow-y-hidden">
   <div class="bg-white shadow-lg rounded-lg p-6">
-    <h2 class="text-2xl font-semibold text-gray-800 text-center">¡Hola {{user.name}}!</h2>
+    <h2 class="text-2xl font-semibold text-gray-800 text-center">¡Hello {{user.name}}!</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
 
       <!-- Sección de Nombre -->
       <div class="p-4 border rounded-lg shadow-sm relative">
-        <p class="text-gray-500"><span class="font-semibold">Nombre:</span></p>
+        <p class="text-gray-500"><span class="font-semibold">Name:</span></p>
         <div class="flex items-center justify-between">
           <p class="text-gray-800">{{ user.name }}</p>
           <button (click)="editField('name')" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
-            Editar
+            Edit
           </button>
         </div>
-        <input *ngIf="isEditingField === 'name'" [(ngModel)]="newName" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nuevo nombre"/>
+        <input *ngIf="isEditingField === 'name'" [(ngModel)]="newName" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="New name"/>
         <div *ngIf="isEditingField === 'name'" class="flex justify-start gap-2 mt-2">
           <button (click)="saveField('name')" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
-            Guardar
+            Save
           </button>
           <button (click)="cancelEdit()" class="bg-white text-pink-500 border border-pink-500 px-4 py-2 rounded-md hover:bg-pink-500 hover:text-white transition-all duration-300">
-            Cancelar
+            Cancel
           </button>
         </div>
       </div>
 
       <!-- Sección de Hospital -->
       <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role !== 'MEDICUSER'">
-        <p class="text-gray-500"><span class="font-semibold">Hospital de referencia:</span></p>
+        <p class="text-gray-500"><span class="font-semibold">Reference Hospital:</span></p>
         <div class="flex items-center justify-between">
           <p class="text-gray-800">{{ user.hospital }}</p>
           <button (click)="editField('hospital')" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
-            Editar
+            Edit
           </button>
         </div>
-        <input *ngIf="isEditingField === 'hospital'" [(ngModel)]="newHospital" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nuevo hospital"/>
+        <input *ngIf="isEditingField === 'hospital'" [(ngModel)]="newHospital" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="New Hospital"/>
         <div *ngIf="isEditingField === 'hospital'" class="flex justify-start gap-2 mt-2">
           <button (click)="saveField('hospital')" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
-            Guardar
+            Save
           </button>
           <button (click)="cancelEdit()" class="bg-white text-pink-500 border border-pink-500 px-4 py-2 rounded-md hover:bg-pink-500 hover:text-white transition-all duration-300">
-            Cancelar
+            Cancel
           </button>
         </div>
       </div>
 
       <!-- Sección de Zona -->
       <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role !== 'MEDICUSER'">
-        <p class="text-gray-500"> <span class="font-semibold">Zona:</span></p>
+        <p class="text-gray-500"> <span class="font-semibold">Zone:</span></p>
         <div class="flex items-center justify-between">
           <p class="text-gray-800">{{ user.zone }}</p>
           <button (click)="editField('zone')" class="ml-4 bg-pink-500 text-white px-3 py-2 rounded-full hover:bg-pink-600 transition-all duration-300">
-            Editar
+            Edit
           </button>
         </div>
-        <input *ngIf="isEditingField === 'zone'" [(ngModel)]="newZone" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="Nueva zona"/>
+        <input *ngIf="isEditingField === 'zone'" [(ngModel)]="newZone" class="mt-2 border p-2 rounded-md w-full" type="text" placeholder="New zone"/>
         <div *ngIf="isEditingField === 'zone'" class="flex justify-start gap-2 mt-2">
           <button (click)="saveField('zone')" class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-all duration-300">
-            Guardar
+            Save
           </button>
           <button (click)="cancelEdit()" class="bg-white text-pink-500 border border-pink-500 px-4 py-2 rounded-md hover:bg-pink-500 hover:text-white transition-all duration-300">
-            Cancelar
+            Cancel
           </button>
         </div>
       </div>
 
       <!-- Sección de Médico Asignado -->
       <div class="p-4 border rounded-lg shadow-sm" *ngIf="user.role === 'USER'">
-        <p class="text-gray-500"> <span class="font-semibold">Médico asignado:</span></p>
+        <p class="text-gray-500"> <span class="font-semibold"> Assigned Doctor: </span></p>
         <p class="text-gray-800">{{ user?.doctor || 'No asignado' }}</p>  <!-- 👈 Evita problemas con `undefined` -->
       </div>
 
@@ -76,61 +76,61 @@
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'USER'">
-      <h3 class="text-xl font-semibold text-pink-600">Formulario</h3>
-      <p class="text-gray-700 mt-2">Completa la información del paciente.</p>
+      <h3 class="text-xl font-semibold text-pink-600">Form</h3>
+      <p class="text-gray-700 mt-2">Complete your information.</p>
       <button (click)="openForm()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
-        Ir al Formulario
+        Go to form
       </button>
     </div>
 
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
-      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 1</h3>
-      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 1.</p>
+      <h3 class="text-xl font-semibold text-pink-600">Download Model 1 data</h3>
+      <p class="text-gray-700 mt-2">Download the collected data in Excel format for Model 1</p>
       <button (click)="downloadExcel('Modelo2', 'export-answers2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
-        Descargar Excel
+        Download Excel
       </button>
     </div>
 
     <!-- Si el usuario es RESEARCHERUSER, mostrar el botón de descarga -->
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
-      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 2</h3>
-      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 2.</p>
+      <h3 class="text-xl font-semibold text-pink-600">Download Model 2 data</h3>
+      <p class="text-gray-700 mt-2">Download the collected data in Excel format for Model 2</p>
       <button (click)="downloadExcel('Modelo2', 'export-answers2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
-        Descargar Excel
+        Download Excel
       </button>
     </div>
 
 
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
-      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 3</h3>
-      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 3.</p>
+      <h3 class="text-xl font-semibold text-pink-600">Download Model 3 dta</h3>
+      <p class="text-gray-700 mt-2">DDownload the collected data in Excel format for Model 3</p>
       <button (click)="downloadExcel('Modelo2', 'export-answers2')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
-        Descargar Excel
+        Download Excel
       </button>
     </div>
 
 
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'RESEARCHERUSER'">
-      <h3 class="text-xl font-semibold text-pink-600">Descargar Datos Modelo 4</h3>
-      <p class="text-gray-700 mt-2">Descarga los datos recopilados en formato Excel para el modelo 4.</p>
+      <h3 class="text-xl font-semibold text-pink-600">Download Model 4 data</h3>
+      <p class="text-gray-700 mt-2">Download the collected data in Excel format for Model 4</p>
       <button (click)="downloadExcel('Modelo4', 'export-answers4')" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
-        Descargar Excel
+        Download Excel
       </button>
     </div>
 
     <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-      <h3 class="text-xl font-semibold text-pink-600">Diagnóstico y Estadísticas</h3>
-      <p class="text-gray-700 mt-2">Consulta los diagnósticos y tendencias de salud.</p>
+      <h3 class="text-xl font-semibold text-pink-600">Diagnosis and Statistics</h3>
+      <p class="text-gray-700 mt-2">Check the diagnoses and health trends.</p>
       <button (click)="openResults()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
         Ver Estadísticas
       </button>
     </div>
 
     <div class="bg-gray-100 p-6 rounded-lg shadow-md" *ngIf="user.role === 'USER'">
-      <h3 class="text-xl font-semibold text-pink-600">Recomendaciones</h3>
-      <p class="text-gray-700 mt-2">Nuestros profesionales quieren aconsejarte para tu bienestar</p>
+      <h3 class="text-xl font-semibold text-pink-600">Recommendations</h3>
+      <p class="text-gray-700 mt-2">Our professionals want to advise you for your well-being.</p>
       <button (click)="openRecomendations()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600">
-        Consultar recomendaciones
+        Consult recommendations
       </button>
     </div>
 
@@ -141,14 +141,14 @@
 
   <div class="p-6 border-t-4 border-pink-600 max-w-4xl mx-auto mt-6 text-center">
     <div class="p-6 border-t-4 border-pink-600 max-w-4xl mx-auto mt-6 bg-white rounded-lg shadow-lg text-center">
-      <h2 class="text-2xl font-semibold text-pink-600">¡Tus datos son importantes para nosotros!</h2>
+      <h2 class="text-2xl font-semibold text-pink-600">Your data is important to us!</h2>
       <div class="mt-4 text-gray-700">
-        <p class="text-lg mb-4">Te recordamos que puedes consultar nuestra
-          <a href="https://drive.google.com/file/d/1a9-2lwXUpJY8N8sQ9cq8gcxHadSpw9rU/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Política de Privacidad</a>
-          y el
-          <a href="https://drive.google.com/file/d/1wrlcBiTMvdLPbx7dklSwQQxUyxwb40va/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Consentimiento Informado</a>
+        <p class="text-lg mb-4"> We remind you that you can consult our
+          <a href="https://drive.google.com/file/d/1a9-2lwXUpJY8N8sQ9cq8gcxHadSpw9rU/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Privacy Policy</a>
+          and the
+          <a href="https://drive.google.com/file/d/1wrlcBiTMvdLPbx7dklSwQQxUyxwb40va/view?usp=sharing" target="_blank" class="text-pink-600 font-bold hover:underline">Informed Consent</a>
         </p>
-        <p class="mt-4">Si tienes alguna duda, no dudes en contactarnos.</p>
+        <p class="mt-4">If you have any questions, feel free to contact us.</p>
       </div>
     </div>
   </div>

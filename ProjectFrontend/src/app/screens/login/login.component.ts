@@ -27,7 +27,7 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe({
         next: (response: LoginResponse) => {
-          console.log('Usuario autenticado:', response);
+          console.log('User authenticated:', response);
 
           // Aquí accedes a user y token desde la respuesta
           localStorage.setItem('USER', JSON.stringify(response.user));
@@ -37,7 +37,7 @@ export class LoginComponent {
         },
         error: (error) => {
           console.error('Error en el login', error);
-          alert(error.error?.error || 'Error en el inicio de sesión');
+          alert(error.error?.error || 'Login errorr');
         }
       });
     }
