@@ -19,7 +19,7 @@ import { UserformComponent } from './screens/userform/userform.component';
 import { RecomendationsComponent } from './sections/pacient-user/recomendations/recomendations.component';
 import { HomeComponent } from './screens/home/home.component';
 import { ClinicformComponent } from './screens/clinicform/clinicform.component';
-import {Clinicform2Component} from './screens/clinicform2/clinicform2.component';
+import { Clinicform2Component } from './screens/clinicform2/clinicform2.component';
 
 export const routes: Routes = [
   {

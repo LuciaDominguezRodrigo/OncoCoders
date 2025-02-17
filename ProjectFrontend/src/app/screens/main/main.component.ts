@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BarChartModule, Color, ScaleType } from '@swimlane/ngx-charts';
 import { RouterModule, Router } from '@angular/router';
 import { ActionbuttonComponent } from "../../components/buttons/actionbutton/actionbutton.component";
+import { LOGIN_SCREEN, REGISTER_SCREEN } from '../../routes';
 
 @Component({
   selector: 'app-main',
@@ -14,11 +15,11 @@ export class MainComponent {
   constructor(private router: Router) {}
 
   redirectToRegister() {
-    this.router.navigate(['/register']);
+    this.router.navigate([REGISTER_SCREEN]);
   }
 
   redirectToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate([LOGIN_SCREEN]);
   }
 
   // Data for the chart

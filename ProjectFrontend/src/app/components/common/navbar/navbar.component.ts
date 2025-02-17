@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
+import { ActionbuttonComponent } from "../../buttons/actionbutton/actionbutton.component";
+import { ABOUT_SCREEN, HOME_SCREEN, LOGIN_SCREEN, REGISTER_SCREEN } from '../../../routes';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink]
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, ActionbuttonComponent]
 })
 export class NavbarComponent implements OnInit {
   isAuthenticated = false;
@@ -99,5 +101,21 @@ export class NavbarComponent implements OnInit {
    */
   closeHelpPopup(): void {
     this.showHelpPopup = false;
+  }
+
+  redirectToRegister() {
+    this.router.navigate([REGISTER_SCREEN]);
+  }
+
+  redirectToLogin() {
+    this.router.navigate([LOGIN_SCREEN]);
+  }
+
+  redirectToAboutUs() {
+    this.router.navigate([ABOUT_SCREEN]);
+  }
+
+  redirectToHome() {
+    this.router.navigate([HOME_SCREEN]);
   }
 }

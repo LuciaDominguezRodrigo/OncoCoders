@@ -1,26 +1,39 @@
 <!-- Navbar -->
 <nav class="bg-pink-600 p-4 shadow-lg">
   <div class="container mx-auto flex justify-between items-center">
+    <!-- LOGO -->
     <a href="#" class="text-white text-2xl font-bold">OncoCoders</a>
     <button (click)="toggleMenu()" id="menu-toggle" class="md:hidden text-white focus:outline-none">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
-    <ul id="menu" class="hidden md:flex space-x-6">
-      <a routerLink="/" class="text-white hover:text-gray-200">Home</a>
-      <li><a routerLink="/about" class="text-white hover:text-gray-200">About us</a></li>
-      <li><a routerLink="#" class="text-white hover:text-gray-200">Help</a></li>
-      <li><a routerLink="/profile" class="text-white hover:text-gray-200">Profile</a></li>
-    </ul>
-    <button *ngIf="userRole && userRole.trim().toUpperCase() === 'USER'"
-            (click)="openHelpPopup()"
-            class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200 hidden md:block">
-      Psychological help
-    </button>
-    <button (click)="toggleAuth()" class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200 hidden md:block">
-      {{ isAuthenticated ? 'Logout' : 'Login' }}
-    </button>
+    <!-- MENU -->
+    <div class="hidden md:flex gap-6">
+      <!-- HOME -->
+      <div *ngIf="userRole">
+        <app-actionbutton label="Home" [action]="redirectToHome.bind(this)" />
+      </div>
+      <!-- ABOUT US -->
+      <app-actionbutton label="About Us" [action]="redirectToAboutUs.bind(this)" />
+      <!-- HELP -->
+      <button *ngIf="userRole && userRole.trim().toUpperCase() === 'USER'" (click)="openHelpPopup()"
+        class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200 hidden md:block">
+        Psychological help
+      </button>
+      <!-- REGISTER / LOG IN -->
+      <div class="flex flex-row gap-6" *ngIf="!userRole">
+        <app-actionbutton label="Register" [action]="redirectToRegister.bind(this)" />
+        <app-actionbutton label="Log In" [action]="redirectToLogin.bind(this)" />
+      </div>
+      <!-- LOG OUT -->
+      <div *ngIf="userRole">
+        <button (click)="toggleAuth()"
+          class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200 hidden md:block">
+          {{ isAuthenticated ? 'Logout' : 'Login' }}
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Menú móvil -->
@@ -33,8 +46,8 @@
     <button (click)="toggleAuth()" class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200">
       {{ isAuthenticated ? 'Logout' : 'Login' }}
     </button>
-    <button *ngIf="userRole && userRole.trim().toUpperCase() === 'USER'"
-            (click)="openHelpPopup()" class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200">
+    <button *ngIf="userRole && userRole.trim().toUpperCase() === 'USER'" (click)="openHelpPopup()"
+      class="bg-white text-pink-700 px-4 py-2 rounded-md shadow-md hover:bg-pink-200">
       Psychological Help
     </button>
   </div>
@@ -42,8 +55,9 @@
 
 <!-- Modal de Ayuda Psicológica -->
 <div *ngIf="showHelpPopup && userRole && userRole.trim().toUpperCase() === 'USER'"
-     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" (click)="closeHelpPopup()">
-  <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/3 flex flex-col items-center" (click)="$event.stopPropagation()">
+  class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" (click)="closeHelpPopup()">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/3 flex flex-col items-center"
+    (click)="$event.stopPropagation()">
     <h2 class="text-xl font-bold mb-4">Psychological Help</h2>
     <p class="text-center text-gray-700">To receive psychological help, contact us:</p>
     <p class="mt-2"><strong>Phone number:</strong> 123-456-7890</p>
