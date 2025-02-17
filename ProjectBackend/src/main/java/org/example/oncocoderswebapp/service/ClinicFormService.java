@@ -70,10 +70,10 @@ public class ClinicFormService {
         response.setOperacion(convertirANumero(request.getOperacion(), "operacion"));
         response.setOperacion_tipo(convertirANumero(request.getOperacion_tipo(), "operacion_tipo"));
         response.setTratamiento_actual(convertirANumero(request.getTratamientoActualmente(), "tratamientoActualmente"));
-        response.setTipos_tratamiento(convertirANumero(request.getTipo_tratamiento(), "tipos_tratamiento"));
         response.setSobrepeso_obesidad(convertirANumero(request.getSobrepeso_obesidad(), "sobrepeso_obesidad"));
         response.setTratamientoPrevio(convertirANumero(request.getTratamientoPrevio(), "tratamientoPrevio"));
         response.setCancer_mama_antes(convertirANumero(request.getCancer_mama_antes(), "cancer_mama_antes"));
+        response.setTipos_tratamiento(convertirANumero(request.getTipos_tratamiento(), "tipos_tratamiento"));
         response.setFechaRespuesta(LocalDateTime.now());
         return clinicFormRepository2.save(response);
     }

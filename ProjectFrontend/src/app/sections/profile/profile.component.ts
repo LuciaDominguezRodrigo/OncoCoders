@@ -260,4 +260,8 @@ export class ProfileComponent implements OnInit {
   openMedicForm1() {
     this.router.navigate(["/clinicform"]);
   }
+
+  openMedicForm2() {
+    this.router.navigate(["/clinicformrelapse"]);
+  }
 }

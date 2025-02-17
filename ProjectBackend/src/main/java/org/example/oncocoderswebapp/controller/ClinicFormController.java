@@ -53,6 +53,7 @@ public class ClinicFormController {
             return ResponseEntity.ok(savedResponse);
         }
 
+    @PreAuthorize("hasRole('MEDICUSER')")
     @PostMapping("/saveResponse2")
     public ResponseEntity<ClinicFormResponse2> saveClinicFormResponse2(@RequestBody ClinicFormRequest2DTO request, @RequestHeader("Authorization") String token) {
         if (token == null || token.isEmpty()) {

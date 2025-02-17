@@ -37,9 +37,10 @@ export class Clinicform2Component {
     operacion: '',
     operacion_tipo: '',
     tratamientoActualmente: '',
-    tipos_tratamineto: '',
+    tipos_tratamiento: '',
     sobrepeso_obesidad: '',
-    tratamientoPrevio: ''
+    tratamientoPrevio: '',
+    cancer_mama_antes: ''
 
   };
 
@@ -67,9 +68,10 @@ export class Clinicform2Component {
         operacion: this.formData.operacion || '',
         operacion_tipo: this.formData.operacion_tipo || '',
         tratamientoActualmente: this.formData.tratamientoActualmente || '',
-        tipos_tratamineto: this.formData.tipos_tratamineto || '',
+        tipos_tratamiento: this.formData.tipos_tratamiento || '',
         sobrepeso_obesidad: this.formData.sobrepeso_obesidad || '',
-        tratamientoPrevio: this.formData.tratamientoPrevio || ''
+        tratamientoPrevio: this.formData.tratamientoPrevio || '',
+        cancer_mama_antes: this.formData.cancer_mama_antes || ''
       };
 
       // 🔹 Verificar JSON antes de enviar

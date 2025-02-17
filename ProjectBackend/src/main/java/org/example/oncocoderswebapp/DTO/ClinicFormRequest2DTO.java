@@ -21,7 +21,7 @@ public class ClinicFormRequest2DTO {
     private String operacion;
     private String operacion_tipo;
     private String tratamientoActualmente;
-    private String tipo_tratamiento;
+    private String tipos_tratamiento;
     private String sobrepeso_obesidad;
     private String cancer_mama_antes;
     private String tratamientoPrevio;
@@ -30,8 +30,8 @@ public class ClinicFormRequest2DTO {
         return cancer_mama_antes;
     }
 
-    public String getTipo_tratamiento() {
-        return tipo_tratamiento;
+    public String getTipos_tratamiento() {
+        return tipos_tratamiento;
     }
 
     public String getTratamientoPrevio() {

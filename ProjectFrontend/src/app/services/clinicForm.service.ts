@@ -27,7 +27,7 @@ export class ClinicFormService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     });
-    return this.http.post<any>(this.apiUrl + '/saveResponse2' , formData, {headers});
+    return this.http.post<any>(this.apiUrl + 'saveResponse2' , formData, {headers});
   }
 
 }

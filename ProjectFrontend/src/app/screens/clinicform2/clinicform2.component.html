@@ -211,14 +211,22 @@
     </div>
 
     <div class="bg-white p-4 rounded-lg shadow mt-4">
+      <label class="block text-gray-700 font-semibold">Has the patient had breast cancer before?</label>
+      <select class="w-full p-2 border rounded-lg" [(ngModel)]="formData.cancer_mama_antes" name="estructuraTubular">
+        <option value="Sí">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow mt-4">
       <label class="block text-gray-700 font-semibold"> If the pacient is receiving treatment, what type of treatment is the pacient undergoing? </label>
       <div class="flex gap-4">
-        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Quimioterapia" class="mr-2">Chemotherapy</label>
-        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Radioterapia" class="mr-2">Radiotherapy</label>
-        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value ="Cirugía" class="mr-2">Surgery</label>
-        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Terapia Hormonal" class="mr-2">Hormonal therapy</label>
-        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="Otros" class="mr-2">Others</label>
-        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamineto" value="No aplica" class="mr-2">Does not apply</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamiento" value="Quimioterapia" class="mr-2">Chemotherapy</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamiento" value="Radioterapia" class="mr-2">Radiotherapy</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamiento" value ="Cirugía" class="mr-2">Surgery</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamiento" value="Terapia Hormonal" class="mr-2">Hormonal therapy</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamiento" value="Otros" class="mr-2">Others</label>
+        <label><input type="radio" name="tipos_tratamiento" [(ngModel)]="formData.tipos_tratamiento" value="No aplica" class="mr-2">Does not apply</label>
       </div>
     </div>
 
