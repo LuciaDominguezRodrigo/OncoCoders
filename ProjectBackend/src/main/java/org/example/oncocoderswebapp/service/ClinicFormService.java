@@ -73,13 +73,13 @@ public class ClinicFormService {
 
         // Mapeo de la primera menstruación
         conversion.put("Antes de los 12 años", 0);
-        conversion.put("Entre los 12-14 años", 1);
-        conversion.put("Después de los 14 años", 2);
+        conversion.put("12-14 años", 1);
+        conversion.put("15 o más años", 2);
 
         // Mapeo de edad de la menopausia
         conversion.put("Antes de los 45 años", 0);
-        conversion.put("Después de los 45 años", 1);
-        conversion.put("Entre los 45 y los 55 años",2);
+        conversion.put("Después de los 55 años", 1);
+        conversion.put("No aplica",2);
 
 
         // "No aplica" para ciertos valores: Se distingue por categorías
@@ -133,7 +133,7 @@ public class ClinicFormService {
 
         conversion.put("Luminal-like", 0);
         conversion.put("ER_PR_HER2", 1);
-        conversion.put("ER_positivo", 2);
+        conversion.put("HER2", 2);
         conversion.put("triple_negativo", 0);
 
 
