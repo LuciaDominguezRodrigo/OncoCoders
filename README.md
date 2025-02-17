@@ -8,7 +8,7 @@ The goal of this project is to develop **algorithms and predictive models for va
 
 | Name | URJC mail | Github user |
 | ------------- | ------------- | ----------- |
-| Lucía Domínguez Rodrigo | lucia.dominguez.rodrigo@mail.com | [@LuciaDominguezRodrigo](https://github.com/LuciaDominguezRodrigo) |
+| Lucía Domínguez Rodrigo | lucia.dominguez.rodrigo@gmail.com | [@LuciaDominguezRodrigo](https://github.com/LuciaDominguezRodrigo) |
 | Gemma Millán Zamora  | gemmamillan123@gmail.com | [@gemmamillan](https://github.com/gemmamillan) |
 | Ainhoa López Carrasco  | ainhoa.lop.car@gmail.com | [@Alopeeez04](https://github.com/Alopeeez04) |
 | Ikár Martínez de Liz Kosto | iv.mardeliz.software@gmail.com | [@KandV008](https://github.com/KandV008) |
