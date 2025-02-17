@@ -5,6 +5,7 @@ import org.example.oncocoderswebapp.DTO.ClinicFormRequestDTO;
 import org.example.oncocoderswebapp.model.ClinicFormResponse;
 import org.example.oncocoderswebapp.model.ClinicFormResponse2;
 import org.example.oncocoderswebapp.model.User;
+import org.example.oncocoderswebapp.model.UserFormResponse;
 import org.example.oncocoderswebapp.repository.ClinicFormRepository1;
 import org.example.oncocoderswebapp.repository.ClinicFormRepository2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -191,5 +193,9 @@ public class ClinicFormService {
 
         // Retorna el valor correspondiente
         return conversion.getOrDefault(valor, -1); // Si no encuentra el valor, devuelve -1
+    }
+
+    public List<ClinicFormResponse> getResponses1() {
+            return this.clinicFormRepository1.findAll();
     }
 }
