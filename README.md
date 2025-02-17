@@ -6,7 +6,7 @@ The goal of this project is to develop **algorithms and predictive models for va
 ### 👷 Team members
 *************
 
-| Name | URJC mail | Github user |
+| Name | mail | Github user |
 | ------------- | ------------- | ----------- |
 | Lucía Domínguez Rodrigo | lucia.dominguez.rodrigo@gmail.com | [@LuciaDominguezRodrigo](https://github.com/LuciaDominguezRodrigo) |
 | Gemma Millán Zamora  | gemmamillan123@gmail.com | [@gemmamillan](https://github.com/gemmamillan) |
