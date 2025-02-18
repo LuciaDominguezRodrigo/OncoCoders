@@ -1,1 +1,14 @@
-<p>not-banned-users works!</p>
+<app-sectiontitle label="Unbanned Users"></app-sectiontitle>
+
+<div class="patients-container bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
+  <div *ngFor="let user of users" class="flex flex-row justify-between bg-white p-8 rounded-lg shadow-lg mb-6">
+    <div class="flex flex-col">
+      <h3 class="text-xl font-semibold text-pink-600">{{ user.name }}</h3>
+      <p class="text-gray-700 text-lg">Role: {{ user.role }}</p>
+    </div>
+    <!-- ACTION -->
+    <button class="button text-white bg-pink-700 hover:bg-pink-800  px-4 py-2 rounded ml-4 place-self-center">
+      Ban
+    </button>
+  </div>
+</div>
