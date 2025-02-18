@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { SectiontitleComponent } from "../../components/tags/sectiontitle/sectiontitle.component";
+import { AdviceComponent } from "../../components/tags/advice/advice.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [SectiontitleComponent, AdviceComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
 
