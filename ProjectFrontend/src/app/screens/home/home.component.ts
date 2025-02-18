@@ -1,33 +1,79 @@
 import { Component } from '@angular/core';
-import { Color, ScaleType } from '@swimlane/ngx-charts';
+import { SectiontitleComponent } from "../../components/tags/sectiontitle/sectiontitle.component";
+import { DIAGNOSIS_SCREEN, MONITORING_SCREEN, RECOMMENDATION_SCREEN, USER_FORM_SCREEN, PROFILE_PATIENT_SCREEN, DASHBOARD_SPECIALIST_SCREEN, PACIENTS_SCREEN, RECORDS_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from '../../routes';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+import { convertToUserRole, UserRole } from '../../models/userRole.enum';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [SectiontitleComponent, CommonModule],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
+  public isLogged!: boolean
+  public username!: string
+  public userRole!: UserRole
+  public descriptions!: any[]
 
-    // Datos para la gráfica
-    single = [
-      { name: 'Pacientes', value: 150 },
-      { name: 'Investigadores', value: 50 },
-      { name: 'Médicos', value: 80 }
-    ];
+  private sectionsDescription = {
+    "USER": [
+      { section: "Diagnosis", description: "You can view your latest diagnosis made by both your physician and the AI model." },
+      { section: "Follow-up", description: "It shows your development over time. You have different metrics and observations." },
+      { section: "Recomendations", description: "It contains a series of recommendations and guidelines to take care of your health regarding breast cancer." },
+      { section: "Form", description: "Access to the form so that a specialist and the AI model can make a diagnosis." },
+      { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },
+    ],
+    "MEDICUSER": [
+      { section: "Dashboard", description: "Physician control panel. You have access to different metrics related to your profession." },
+      { section: "Pacients", description: "Access to patients associated with the physician. You can interact with patients and view relevant information." },
+      { section: "Record", description: "Access to the specialist's patient history. You can interact with patients and view relevant information." },
+      { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },
+    ],
+    "ADMIN": [
+      { section: "Dashboard", description: "Administrator control panel. You have access to different metrics related to the application." },
+      { section: "Ban", description: "Access to the list of unbanned users. You can see the user's role along with the possibility to ban the user." },
+      { section: "Unban", description: "Access to the list of banned users. You can see the user's role along with the possibility to unban the user." },
+      { section: "Model configuration", description: "You can access the configuration of the AI model used to perform part of the diagnostics." },
+      { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },
+    ],
+    "RESEARCHERUSER": [],
+    "PUBLIC": []
+  }
 
-    // Opciones de la gráfica
-    view: [number, number] = [700, 400];
+    constructor(
+      private authService: AuthService,
+      private userService: UserService,
+    ) { }
 
-    // Colores
-    colorScheme: Color = {
-      name: 'custom',
-      selectable: true,
-      group: ScaleType.Ordinal,
-      domain: ['#FF5733', '#33FF57', '#3357FF']
-    };
+    async ngOnInit() {
+      this.isLogged = !!this.authService.getToken();
 
-    // Opciones adicionales
-    showLegend = true;
-    showLabels = true;
+      if (!this.isLogged){
+        return
+      }
+
+      this.userService.getUserRole().subscribe(
+        role => {
+          this.userRole = convertToUserRole(role);
+          this.descriptions = this.sectionsDescription[this.userRole]
+        },
+        error => {
+          console.error('Error retrieving user role', error);
+        }
+      );
+
+      this.userService.getUserProfile().subscribe(
+        userProfile => {
+          this.username = userProfile.name
+        },
+        error => {
+          console.error('Error retrieving user profile', error);
+        }
+      )
+    }
 
 }
+
+

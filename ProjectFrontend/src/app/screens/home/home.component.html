@@ -1,1 +1,19 @@
-<div>Bienvenido!</div>
+<section class="flex flex-col">
+  <app-sectiontitle label="Home"></app-sectiontitle>
+  <!-- TEXT BOX -->
+  <article class="bg-pink-50 p-10 rounded-lg shadow-md max-w-4xl mx-auto mt-6 flex flex-col w-full gap-5">
+    <div class="w-full flex flex-col items-center">
+      <!-- WELCOME -->
+      <h1 class="font-bold text-4xl">Welcome, {{ username }}</h1>
+    </div>
+    <!-- ACTIONS-->
+    <div class="text-xl text-justify">
+      <p class="font-semibold">You have access to the following sections: </p>
+      <ul class="flex flex-col p-4 gap-3">
+        <li *ngFor="let section of descriptions">
+          <span class="font-bold">{{section.section}}</span> -> {{section.description}}
+        </li>
+      </ul>
+    </div>
+  </article>
+</section>
