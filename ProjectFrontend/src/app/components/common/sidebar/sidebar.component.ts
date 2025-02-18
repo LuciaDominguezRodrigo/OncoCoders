@@ -14,7 +14,7 @@ import { convertToUserRole, UserRole } from '../../../models/userRole.enum';
 })
 
 export class SidebarComponent {
-
+  public isMainScreen!: boolean
   public isLogged!: boolean
   public userRole!: UserRole
   public sideBarOptions!: any[]
@@ -54,8 +54,9 @@ export class SidebarComponent {
 
   async ngOnInit() {
     this.isLogged = !!this.authService.getToken();
+    this.isMainScreen = this.routerService.url === "/"
 
-    if (!this.isLogged){
+    if (!this.isLogged || this.isMainScreen){
       return
     }
 
