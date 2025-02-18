@@ -6,6 +6,7 @@ import org.example.oncocoderswebapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -182,6 +183,7 @@ public class UserRestController {
         }
     }
 
+    @PreAuthorize("hasRole('MEDICUSER')")
     @GetMapping("/patients")
     public ResponseEntity<List<User>> getPatients(@RequestHeader("Authorization") String token) {
         Optional<User> userOptional = tokenService.getUserFromToken(token.replace("Bearer ", ""));

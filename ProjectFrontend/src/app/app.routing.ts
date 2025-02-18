@@ -56,22 +56,22 @@ export const routes: Routes = [
   {
     path: LOGIN_SCREEN,
     component: LoginComponent,
-    title: "Iniciar Sesión",
+    title: "Log in",
   },
   {
     path: REGISTER_SCREEN,
     component: RegisterComponent,
-    title: "Registrarse",
+    title: "Register",
   },
   {
     path: ABOUT_SCREEN,
     component: AboutComponent,
-    title: "Sobre Nosotros",
+    title: "About us",
   },
   { // TODO Check this route
     path: 'profile',
     component: ProfileComponent,
-    title: "Perfil"
+    title: "Profile"
   },
   {
     path: USER_FORM_SCREEN,
@@ -111,22 +111,22 @@ export const routes: Routes = [
   {
     path: DASHBOARD_SPECIALIST_SCREEN,
     component: DashboardComponent,
-    title: "Dashboard - Especialista"
+    title: "Dashboard - Specialist"
   },
   {
     path: PACIENTS_SCREEN,
     component: PatientsComponent,
-    title: "Pacientes Pendientes - Especialista"
+    title: "Pacients List"
   },
   {
     path: HISTORIAL_SCREEN,
     component: HistorialComponent,
-    title: "Historial - Especialista"
+    title: "Record"
   },
   {
     path: PROFILE_SPECIALIST_SCREEN,
     component: ProfileComponent,
-    title: "Perfil - Especialista"
+    title: "Profile"
   },
   {
     path: DASHBOARD_ADMIN_SCREEN,
@@ -136,22 +136,22 @@ export const routes: Routes = [
   {
     path: BAN_SCREEN,
     component: NotBannedUsersComponent,
-    title: "Usuarios No Baneados - Admin"
+    title: "Not Banned users - Admin"
   },
   {
     path: UNBAN_SCREEN,
     component: BannedUsersComponent,
-    title: "Usuarios Baneados - Admin"
+    title: "Usuarios Banned - Admin"
   },
   {
     path: IA_CONFIGURATION_SCREEN,
     component: IAModelConfigurationComponent,
-    title: "Configuración IA - Admin"
+    title: "IA Configuration - Admin"
   },
   {
     path: PROFILE_ADMIN_SCREEN,
     component: ProfileComponent,
-    title: "Perfil - Admin"
+    title: "Profile - Admin"
   },
   {
     path: '**',
