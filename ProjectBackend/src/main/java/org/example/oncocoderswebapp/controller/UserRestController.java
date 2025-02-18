@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -185,6 +182,17 @@ public class UserRestController {
         }
     }
 
+    @GetMapping("/patients")
+    public ResponseEntity<List<User>> getPatients(@RequestHeader("Authorization") String token) {
+        Optional<User> userOptional = tokenService.getUserFromToken(token.replace("Bearer ", ""));
+
+        if (userOptional.isEmpty()) {
+            return ResponseEntity.ofNullable(null);
+        }
+        String email = userOptional.get().getEmail();
+        List<User> patients = userService.getPacientesByMedic(email);
+        return ResponseEntity.ok(patients);
+    }
 
 
 

@@ -3,13 +3,33 @@ import { RegisterComponent } from './screens/register/register.component';
 import { LoginComponent } from './screens/login/login.component';
 import { AboutComponent } from './screens/about/about.component';
 import { ProfileComponent } from './sections/profile/profile.component';
-import { DASHBOARD_SPECIALIST_SCREEN, DIAGNOSIS_SCREEN, MONITORING_SCREEN, PENDING_PACIENTS_SCREEN, PROCESSED_PACIENTS_SCREEN, PROFILE_PATIENT_SCREEN, RECOMMENDATION_SCREEN, RECORDS_SCREEN as HISTORIAL_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN, USER_FORM_SCREEN, ABOUT_SCREEN, REGISTER_SCREEN, LOGIN_SCREEN, HOME_SCREEN, MAIN_SCREEN } from './routes';
+import {
+  DASHBOARD_SPECIALIST_SCREEN,
+  DIAGNOSIS_SCREEN,
+  MONITORING_SCREEN,
+  PACIENTS_SCREEN,
+
+  PROFILE_PATIENT_SCREEN,
+  RECOMMENDATION_SCREEN,
+  RECORDS_SCREEN as HISTORIAL_SCREEN,
+  PROFILE_SPECIALIST_SCREEN,
+  DASHBOARD_ADMIN_SCREEN,
+  BAN_SCREEN,
+  UNBAN_SCREEN,
+  IA_CONFIGURATION_SCREEN,
+  PROFILE_ADMIN_SCREEN,
+  USER_FORM_SCREEN,
+  ABOUT_SCREEN,
+  REGISTER_SCREEN,
+  LOGIN_SCREEN,
+  HOME_SCREEN,
+  MAIN_SCREEN,
+} from './routes';
 import { DiagnosisComponent } from './sections/pacient-user/diagnosis/diagnosis.component';
 import { MonitoringComponent } from './sections/pacient-user/monitoring/monitoring.component';
 
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
-import { PendingPacientsComponent } from './sections/specialist-user/pending-pacients/pending-pacients.component';
-import { ProcessedPacientsComponent } from './sections/specialist-user/processed-pacients/processed-pacients.component';
+import { PatientsComponent } from './sections/specialist-user/patients/patients.component';
 import { HistorialComponent } from './sections/specialist-user/historial/historial.component';
 import { BannedUsersComponent } from './sections/admin-user/banned-users/banned-users.component';
 import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/not-banned-users.component';
@@ -94,14 +114,9 @@ export const routes: Routes = [
     title: "Dashboard - Especialista"
   },
   {
-    path: PENDING_PACIENTS_SCREEN,
-    component: PendingPacientsComponent,
+    path: PACIENTS_SCREEN,
+    component: PatientsComponent,
     title: "Pacientes Pendientes - Especialista"
-  },
-  {
-    path: PROCESSED_PACIENTS_SCREEN,
-    component: ProcessedPacientsComponent,
-    title: "Pacientes Procesados - Especialista"
   },
   {
     path: HISTORIAL_SCREEN,

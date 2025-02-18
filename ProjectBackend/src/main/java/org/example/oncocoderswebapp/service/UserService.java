@@ -111,5 +111,8 @@ public class UserService {
     }
 
 
+    public List<User> getPacientesByMedic(String email) {
+        return userRepository.findByMedicUserEmail(email);
 
+    }
 }

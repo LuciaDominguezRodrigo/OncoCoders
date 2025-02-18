@@ -57,6 +57,12 @@ export class UserService {
     return this.http.put(`${this.apiUrl}/profile/zone`, { newZone }, { headers: this.getHeaders() });
   }
 
+  getPatients(): Observable<any[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any[]>(this.apiUrl + '/patients', { headers });
+  }
+
 
 }
 

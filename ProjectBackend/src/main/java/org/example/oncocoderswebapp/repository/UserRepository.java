@@ -26,4 +26,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAvailableDoctorsByCommunity(@Param("comunidad") String comunidad);
 
 
+    List<User> findByMedicUserEmail(String email);
 }
