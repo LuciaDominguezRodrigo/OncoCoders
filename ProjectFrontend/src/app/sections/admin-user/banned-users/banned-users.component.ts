@@ -9,19 +9,21 @@ import { CommonModule } from '@angular/common';
   templateUrl: './banned-users.component.html',
 })
 export class BannedUsersComponent {
-  users: any[] = [{ name: "Paco Malaco", role: "MEDICUSER"}];
+  users: any[] = [];
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void { // TODO Get All Users
-    this.userService.getPatients().subscribe(
-      (data) => {
-        //this.users = data;
-        //console.log(data);
-      },
-      (error) => { console.error('Error al obtener pacientes', error); }
-    );
+    this.loadBannedUsers();
   }
 
   //TODO Unban Action
+  private loadBannedUsers() {
+    this.userService.getBannedUsers().subscribe(
+      (data) => {
+        this.users = data; // Cargar la lista de usuarios
+      },
+      (error) => { console.error('Error al obtener usuarios baneados', error); }
+    );
+  }
 }

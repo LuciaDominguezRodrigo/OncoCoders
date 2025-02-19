@@ -196,6 +196,54 @@ public class UserRestController {
         return ResponseEntity.ok(patients);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/ban/{id}")
+    public ResponseEntity<Map<String, String>> banUser(@PathVariable Long id) {
+        Optional<User> userOptional = userService.findById(id);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setBanned(true);
+            userService.updateUser(user);
+            return ResponseEntity.ok(Collections.singletonMap("message", "Usuario baneado correctamente"));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("error", "Usuario no encontrado"));
+        }
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/unban/{id}")
+    public ResponseEntity<Map<String, String>> unbanUser(@PathVariable Long id) {
+        Optional<User> userOptional = userService.findById(id);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setBanned(false);
+            userService.updateUser(user);
+            return ResponseEntity.ok(Collections.singletonMap("message", "Usuario desbaneado correctamente"));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("error", "Usuario no encontrado"));
+        }
+    }
+
+
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/banned-users")
+    public ResponseEntity<List<User>> getBannedUsers() {
+        List<User> bannedUsers = userService.getBannedUsers();
+        return ResponseEntity.ok(bannedUsers);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/unbanned-users")
+    public ResponseEntity<List<User>> getUnBannedUsers() {
+        List<User> bannedUsers = userService.getUnBannedUsers();
+        return ResponseEntity.ok(bannedUsers);
+    }
+
 
 
 

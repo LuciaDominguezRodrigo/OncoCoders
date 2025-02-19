@@ -9,19 +9,21 @@ import { UserService } from '../../../services/user.service';
   templateUrl: './not-banned-users.component.html',
 })
 export class NotBannedUsersComponent {
-  users: any[] = [{ name: "Paco Malaco", role: "MEDICUSER"}];
+  users: any[] = [];
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void { // TODO Get All Users
-    this.userService.getPatients().subscribe(
-      (data) => {
-        //this.users = data;
-        //console.log(data);
-      },
-      (error) => { console.error('Error al obtener pacientes', error); }
-    );
+    this.loadUnbannedUsers();
   }
 
   //TODO Ban Action
+  private loadUnbannedUsers() {
+    this.userService.getUnBannedUsers().subscribe(
+      (data) => {
+        this.users = data; // Cargar la lista de usuarios
+      },
+      (error) => { console.error('Error al obtener usuarios baneados', error); }
+    );
+  }
 }

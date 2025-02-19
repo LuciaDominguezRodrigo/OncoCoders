@@ -64,6 +64,13 @@ export class UserService {
   }
 
 
+  getBannedUsers() {
+    return this.http.get<any[]>(this.apiUrl + '/banned-users');
+  }
+
+  getUnBannedUsers() {
+    return this.http.get<any[]>(this.apiUrl + '/unbanned-users');
+  }
 }
 
 

@@ -65,7 +65,18 @@ public class TokenService {
 
     public Optional<User> getUserFromToken(String token) {
         String userEmail = decodeToken(token);
-        return userRepository.findByEmail(userEmail);
+        Optional<User> userOptional = userRepository.findByEmail(userEmail);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            if (user.isBanned()) {
+                return Optional.empty();
+            }
+
+            return Optional.of(user);
+        }
+        return Optional.empty();
     }
 
     private String decodeToken(String token) {

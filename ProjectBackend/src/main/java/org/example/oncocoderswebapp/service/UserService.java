@@ -115,4 +115,12 @@ public class UserService {
         return userRepository.findByMedicUserEmail(email);
 
     }
+
+    public List<User> getBannedUsers() {
+        return userRepository.findByBannedTrue();
+    }
+
+    public List<User> getUnBannedUsers() {
+        return userRepository.findByBannedFalse();
+    }
 }

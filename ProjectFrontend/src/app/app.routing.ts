@@ -135,12 +135,12 @@ export const routes: Routes = [
   },
   {
     path: BAN_SCREEN,
-    component: NotBannedUsersComponent,
+    component: BannedUsersComponent,
     title: "Not Banned users - Admin"
   },
   {
     path: UNBAN_SCREEN,
-    component: BannedUsersComponent,
+    component: NotBannedUsersComponent,
     title: "Usuarios Banned - Admin"
   },
   {

@@ -27,4 +27,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 
     List<User> findByMedicUserEmail(String email);
+
+    List<User> findByBannedTrue();
+
+    List<User> findByBannedFalse();
 }
