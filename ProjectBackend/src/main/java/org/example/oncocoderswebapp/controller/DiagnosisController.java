@@ -33,7 +33,7 @@ public class DiagnosisController {
     public ResponseEntity<String> uploadExcel(@RequestParam("file") MultipartFile file, @RequestParam("modelName") String modelName) {
         try {
             diagnosisService.processExcel(file, modelName);
-            return ResponseEntity.ok("File processed successfully for " + modelName);
+            return ResponseEntity.ok("File processed successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing file: " + e.getMessage());
         }

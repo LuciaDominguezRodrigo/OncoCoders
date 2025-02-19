@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IAModelConfigurationComponent } from './ia-model-configuration.component';
+import { ModelConfigurationComponent } from './model-configuration.component';
 
 describe('IAModelConfigurationComponent', () => {
-  let component: IAModelConfigurationComponent;
-  let fixture: ComponentFixture<IAModelConfigurationComponent>;
+  let component: ModelConfigurationComponent;
+  let fixture: ComponentFixture<ModelConfigurationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IAModelConfigurationComponent]
+      imports: [ModelConfigurationComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(IAModelConfigurationComponent);
+    fixture = TestBed.createComponent(ModelConfigurationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
