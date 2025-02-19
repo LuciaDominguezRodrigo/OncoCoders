@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { SectiontitleComponent } from "../../components/tags/sectiontitle/sectiontitle.component";
 import { DIAGNOSIS_SCREEN, MONITORING_SCREEN, RECOMMENDATION_SCREEN, USER_FORM_SCREEN, PROFILE_PATIENT_SCREEN, DASHBOARD_SPECIALIST_SCREEN, PACIENTS_SCREEN, RECORDS_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from '../../routes';
 import { AuthService } from '../../services/auth.service';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   imports: [SectiontitleComponent, CommonModule],
   templateUrl: './home.component.html',
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
   public isLogged!: boolean
   public username!: string
   public userRole!: UserRole
@@ -38,9 +38,7 @@ export class HomeComponent implements OnInit{
       { section: "Model configuration", description: "You can access the configuration of the AI model used to perform part of the diagnostics." },
       { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },
     ],
-    "RESEARCHERUSER": [{ section: "Model Configuration", description: "section to be able to upload the excels of model results" },
-      { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },
-      ],
+    "RESEARCHERUSER": [],
     "PUBLIC": []
   }
 
