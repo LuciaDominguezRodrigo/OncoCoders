@@ -71,6 +71,22 @@ export class UserService {
   getUnBannedUsers() {
     return this.http.get<any[]>(this.apiUrl + '/unbanned-users');
   }
+
+  unbanUser(email: string | undefined): Observable<{ message: string }> {
+    if (!email) {
+      throw new Error('El email es requerido para desbanear un usuario');
+    }
+
+    return this.http.put<{ message: string }>(this.apiUrl + '/unban', { email });
+  }
+
+  banUser(email: string | undefined): Observable<{ message: string }> {
+    if (!email) {
+      throw new Error('El email es requerido para desbanear un usuario');
+    }
+
+    return this.http.put<{ message: string }>(this.apiUrl + '/ban', { email });
+  }
 }
 
 

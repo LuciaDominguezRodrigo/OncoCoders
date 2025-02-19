@@ -43,7 +43,7 @@ public class DiagnosisController {
 
                 Long userId = (long) row.getCell(0).getNumericCellValue();
                 User usuario = userService.findById(userId)
-                        .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                        .orElseThrow(() -> new RuntimeException("User not found"));
 
                 String modelo1 = row.getCell(1).getStringCellValue();
                 String modelo2 = row.getCell(2).getStringCellValue();
@@ -59,9 +59,9 @@ public class DiagnosisController {
 
             workbook.close(); // Cerramos el libro de trabajo
 
-            return ResponseEntity.ok("Archivo procesado y resultados guardados exitosamente.");
+            return ResponseEntity.ok("File processed and saved successfully!");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al procesar el archivo.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error procesing file");
         }
     }
 }
