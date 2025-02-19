@@ -33,7 +33,7 @@ import { PatientsComponent } from './sections/specialist-user/patients/patients.
 import { HistorialComponent } from './sections/specialist-user/historial/historial.component';
 import { BannedUsersComponent } from './sections/admin-user/banned-users/banned-users.component';
 import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/not-banned-users.component';
-import { IAModelConfigurationComponent } from './sections/researcher-user/ia-model-configuration/ia-model-configuration.component';
+import { ModelconfigurationComponent } from './sections/researcher-user/ia-model-configuration/Modelconfiguration.component';
 import { MainComponent } from './screens/main/main.component';
 import { UserformComponent } from './screens/userform/userform.component';
 import { RecomendationsComponent } from './sections/pacient-user/recomendations/recomendations.component';
@@ -145,7 +145,7 @@ export const routes: Routes = [
   },
   {
     path: IA_CONFIGURATION_SCREEN,
-    component: IAModelConfigurationComponent,
+    component: ModelconfigurationComponent,
     title: "IA Configuration - Admin"
   },
   {

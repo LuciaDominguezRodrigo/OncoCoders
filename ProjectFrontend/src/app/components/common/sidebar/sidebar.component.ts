@@ -38,10 +38,12 @@ export class SidebarComponent {
       { label: "Dashboard", router: DASHBOARD_ADMIN_SCREEN },
       { label: "Ban", router: BAN_SCREEN },
       { label: "Unban", router: UNBAN_SCREEN },
+      { label: "Profile", router: PROFILE_ADMIN_SCREEN }
+    ],
+    "RESEARCHERUSER": [
       { label: "Model configuration", router: IA_CONFIGURATION_SCREEN },
       { label: "Profile", router: PROFILE_ADMIN_SCREEN }
     ],
-    "RESEARCHERUSER": [],
     "PUBLIC": []
   }
 
