@@ -64,7 +64,7 @@ public class AuthController {
             return ResponseEntity.ok().headers(responseHeaders).body(response);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "Credenciales inválidas"));
+                    .body(Collections.singletonMap("error", "Invalid credentials or banned user"));
         }
     }
 
@@ -75,25 +75,25 @@ public class AuthController {
     public ResponseEntity<Map<String, Object>> registerUser(@RequestBody UserRegisterDTO registerDTO) {
         if (!registerDTO.isConsentFirm()) { // Verificamos si se firmó el consentimiento
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Debe firmar el consentimiento para registrarse"));
+                    .body(Collections.singletonMap("error", "Signing the consent is mandatory"));
         }
 
         if (authService.isEmailTaken(registerDTO.getEmail())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "El correo ya está en uso"));
+                    .body(Collections.singletonMap("error", "Email in use"));
         }
 
         User newUser = authService.registerUser(registerDTO);
 
         if (newUser == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Collections.singletonMap("error", "Error al registrar usuario"));
+                    .body(Collections.singletonMap("error", "Error signing up "));
         }
 
         String token = tokenService.generateToken(newUser);
 
         Map<String, Object> response = new HashMap<>();
-        response.put("message", "Usuario registrado exitosamente");
+        response.put("message", "User signed up successfully");
         response.put("role", newUser.getRole());
         response.put("token", token);
         response.put("medicoAsignado", newUser.getMedicUser() != null ? new FullUserDTO(newUser.getMedicUser()) : null);
@@ -119,7 +119,7 @@ public class AuthController {
         // Verificar si el token está presente y no es vacío
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Token no proporcionado"));
+                    .body(Collections.singletonMap("error", "Token not provided"));
         }
 
         // Eliminar el prefijo "Bearer " del token si está presente
@@ -132,10 +132,10 @@ public class AuthController {
 
         // Responder dependiendo de si la invalidación fue exitosa
         if (isLoggedOut) {
-            return ResponseEntity.ok(Collections.singletonMap("message", "Logout exitoso"));
+            return ResponseEntity.ok(Collections.singletonMap("message", "Logout completed successfully"));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "Token inválido o ya expirado"));
+                    .body(Collections.singletonMap("error", "Not valid or expired token"));
         }
     }
 
