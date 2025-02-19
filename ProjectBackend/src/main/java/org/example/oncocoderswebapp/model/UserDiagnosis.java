@@ -55,7 +55,7 @@ public class UserDiagnosis {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public String getModelo4() {
