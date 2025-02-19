@@ -229,6 +229,52 @@ public class UserRestController {
     }
 
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/ban")
+    public ResponseEntity<Map<String, String>> banUser(@RequestBody Map<String, String> requestBody) {
+        String email = requestBody.get("email");
+
+        if (email == null || email.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("error", "Email not given"));
+        }
+
+        Optional<User> userOptional = userService.findByEmail(email);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setBanned(true);
+            userService.updateUser(user);
+            return ResponseEntity.ok(Collections.singletonMap("message", "User banned correctly"));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("error", "User not found"));
+        }
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/unban")
+    public ResponseEntity<Map<String, String>> unbanUser(@RequestBody Map<String, String> requestBody) {
+        String email = requestBody.get("email");
+
+        if (email == null || email.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.singletonMap("error", "Email not given"));
+        }
+
+        Optional<User> userOptional = userService.findByEmail(email);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setBanned(false);
+            userService.updateUser(user);
+            return ResponseEntity.ok(Collections.singletonMap("message", "User unbanned correctly"));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Collections.singletonMap("error", "User not found"));
+        }
+    }
+
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/banned-users")

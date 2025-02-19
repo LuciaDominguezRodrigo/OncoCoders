@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { SectiontitleComponent } from "../../../components/tags/sectiontitle/sectiontitle.component";
 import { UserService } from '../../../services/user.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-banned-users',
-  imports: [SectiontitleComponent, CommonModule],
+  imports: [CommonModule, SectiontitleComponent],
   templateUrl: './banned-users.component.html',
 })
-export class BannedUsersComponent {
+export class BannedUsersComponent implements OnInit {
   users: any[] = [];
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void { // TODO Get All Users
+  ngOnInit(): void {
     this.loadBannedUsers();
   }
 
-  //TODO Unban Action
+
   private loadBannedUsers() {
     this.userService.getBannedUsers().subscribe(
       (data) => {
@@ -26,4 +26,22 @@ export class BannedUsersComponent {
       (error) => { console.error('Error al obtener usuarios baneados', error); }
     );
   }
+
+  unbanUser(email: string | undefined): void {
+    if (!email) {
+      console.error('Email no válido');
+      return;
+    }
+
+    this.userService.unbanUser(email).subscribe(
+      response => {
+        alert(response.message);
+        this.loadBannedUsers(); // Recargar lista de usuarios después de desbanear
+      },
+      error => {
+        console.error('Error al desbanear usuario', error);
+      }
+    );
+  }
+
 }
