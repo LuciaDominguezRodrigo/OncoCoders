@@ -31,4 +31,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByBannedTrue();
 
     List<User> findByBannedFalse();
+
 }

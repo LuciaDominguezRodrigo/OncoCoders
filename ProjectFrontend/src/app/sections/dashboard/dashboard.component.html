@@ -1,9 +1,11 @@
 <section>
   <!-- TITLE -->
   <app-sectiontitle label="Admin Dashboard" />
+
   <!-- DESCRIPTION -->
   <app-advice title="About Admin Dashboard"
-    text="This section contains a summary of the application metrics. They show the data obtained since the last update. That is, they are not real time data." />
+              text="This section contains a summary of the application metrics. They show the data obtained since the last update. That is, they are not real time data." />
+
   <!-- GRAPHICS -->
   <div class="bg-pink-50 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6 flex flex-col w-full gap-5">
     <div>
@@ -12,18 +14,34 @@
         The application metrics are shown below.
       </p>
     </div>
-    <div class="flex flex-row justify-evenly">
-      <div class="flex flex-col gap-3 size-1/3">
-        <img src="https://via.placeholder.com/800x400?text=Gráfica+de+Biomarcadores" alt="Gráfica 1"
-          class="w-full h-48 rounded-lg shadow-lg">
-        <p class="text-center text-gray-600">Gráfica 1.</p>
-      </div>
-      <div class="flex flex-col gap-3 size-1/3">
-        <img src="https://via.placeholder.com/800x400?text=Gráfica+de+Mamografía" alt="Gráfica 2"
-          class="w-full h-48 rounded-lg shadow-lg">
-        <p class="text-center text-gray-600">Gráfica 2.</p>
-      </div>
+
+    <!-- Gráfica de Usuarios Baneados -->
+    <div>
+      <h2 class="text-2xl font-semibold text-pink-600">User banned graphic</h2>
+      <p class="mt-4 text-gray-700 text-lg leading-relaxed">
+        The graph shows the number of banned and unbanned users
+      </p>
+      <ngx-charts-pie-chart
+        [view]="view"
+        [results]="single"
+        [legend]="showLegend"
+        [labels]="showLabels"
+        [explodeSlices]="explodeSlices"
+        [doughnut]="doughnut">
+      </ngx-charts-pie-chart>
+    </div>
+
+    <!-- Espaciado entre gráficas -->
+    <div class="h-10"></div>
+
+    
+
+    <!-- Gráfica de Mamografía -->
+    <div class="flex flex-col gap-3 size-1/3">
+      <img src="https://via.placeholder.com/800x400?text=Gráfica+de+Mamografía" alt="Gráfica 2"
+           class="w-full h-48 rounded-lg shadow-lg">
+      <p class="text-center text-gray-600">Gráfica 2.</p>
     </div>
   </div>
-
+  <div class ="h-16"></div>
 </section>
