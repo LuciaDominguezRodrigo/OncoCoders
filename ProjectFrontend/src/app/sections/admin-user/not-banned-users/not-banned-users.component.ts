@@ -11,39 +11,19 @@ import { UserService } from '../../../services/user.service';
 export class NotBannedUsersComponent {
   users: any[] = [];
 
-  constructor(private userService: UserService) {
-  }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void { // TODO Get All Users
     this.loadUnbannedUsers();
   }
 
-
+  //TODO Ban Action
   private loadUnbannedUsers() {
     this.userService.getUnBannedUsers().subscribe(
       (data) => {
         this.users = data; // Cargar la lista de usuarios
       },
-      (error) => {
-        console.error('Error al obtener usuarios baneados', error);
-      }
-    );
-  }
-
-  banUser(email: string | undefined): void {
-    if (!email) {
-      console.error('Email no válido');
-      return;
-    }
-
-    this.userService.banUser(email).subscribe(
-      response => {
-        alert(response.message);
-        this.loadUnbannedUsers(); // Recargar lista de usuarios después de banear
-      },
-      error => {
-        console.error('Error al banear usuario', error);
-      }
+      (error) => { console.error('Error al obtener usuarios baneados', error); }
     );
   }
 }

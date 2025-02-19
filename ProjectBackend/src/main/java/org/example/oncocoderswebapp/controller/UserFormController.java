@@ -38,7 +38,7 @@ public class UserFormController {
     public ResponseEntity<String> enviarFormulario(@RequestBody Map<String, String> respuestasFormulario, @RequestHeader("Authorization") String token) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Token not provided").toString());
+                    .body(Collections.singletonMap("error", "Token no proporcionado").toString());
         }
 
         User user = null;

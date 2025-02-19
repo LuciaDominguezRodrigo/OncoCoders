@@ -51,7 +51,6 @@ public class AuthController {
 
             UserDetails user = (UserDetails) response.get("user");
 
-
             // Generamos los nuevos tokens
             Token newAccessToken = jwtTokenProvider.generateToken(user);
             Token newRefreshToken = jwtTokenProvider.generateRefreshToken(user);
@@ -65,7 +64,7 @@ public class AuthController {
             return ResponseEntity.ok().headers(responseHeaders).body(response);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "Invalid credentials or banned user"));
+                    .body(Collections.singletonMap("error", "Credenciales inválidas"));
         }
     }
 
@@ -76,25 +75,25 @@ public class AuthController {
     public ResponseEntity<Map<String, Object>> registerUser(@RequestBody UserRegisterDTO registerDTO) {
         if (!registerDTO.isConsentFirm()) { // Verificamos si se firmó el consentimiento
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "You must firm the consent to continue"));
+                    .body(Collections.singletonMap("error", "Debe firmar el consentimiento para registrarse"));
         }
 
         if (authService.isEmailTaken(registerDTO.getEmail())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "This email is already in use"));
+                    .body(Collections.singletonMap("error", "El correo ya está en uso"));
         }
 
         User newUser = authService.registerUser(registerDTO);
 
         if (newUser == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Collections.singletonMap("error", "Error at sign up"));
+                    .body(Collections.singletonMap("error", "Error al registrar usuario"));
         }
 
         String token = tokenService.generateToken(newUser);
 
         Map<String, Object> response = new HashMap<>();
-        response.put("message", "Usuario signed up correctly!");
+        response.put("message", "Usuario registrado exitosamente");
         response.put("role", newUser.getRole());
         response.put("token", token);
         response.put("medicoAsignado", newUser.getMedicUser() != null ? new FullUserDTO(newUser.getMedicUser()) : null);
@@ -133,10 +132,10 @@ public class AuthController {
 
         // Responder dependiendo de si la invalidación fue exitosa
         if (isLoggedOut) {
-            return ResponseEntity.ok(Collections.singletonMap("message", "successful Logout"));
+            return ResponseEntity.ok(Collections.singletonMap("message", "Logout exitoso"));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "Invalid or expired token"));
+                    .body(Collections.singletonMap("error", "Token inválido o ya expirado"));
         }
     }
 

@@ -24,7 +24,7 @@ public class UserRestController {
     public ResponseEntity<Map<String, String>> getUserRole(@RequestHeader("Authorization") String token) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Token not provided"));
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
         }
 
         Optional<User> userOptional = tokenService.getUserFromToken(token.replace("Bearer ", ""));
@@ -34,7 +34,7 @@ public class UserRestController {
             return ResponseEntity.ok(Collections.singletonMap("role", user.getRole()));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "invalid token or user not found" ));
+                    .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
         }
     }
 
@@ -42,7 +42,7 @@ public class UserRestController {
     public ResponseEntity<Map<String, Object>> getUserProfile(@RequestHeader("Authorization") String token) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Map.of("error", "Token not provided"));
+                    .body(Map.of("error", "Token no proporcionado"));
         }
 
         // Eliminar el prefijo "Bearer " del token
@@ -69,7 +69,7 @@ public class UserRestController {
         } else {
             // Si no se encuentra el usuario o el token es inválido
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Map.of("error", "Invalid token or user not found"));
+                    .body(Map.of("error", "Token inválido o usuario no encontrado"));
         }
     }
 
@@ -78,7 +78,7 @@ public class UserRestController {
                                                               @RequestBody Map<String, String> body) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Token not provided"));
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
         }
 
         String jwtToken = token.replace("Bearer ", "");
@@ -92,16 +92,16 @@ public class UserRestController {
 
             if (newName == null || newName.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body(Collections.singletonMap("error", "'newName' is mandatory"));
+                        .body(Collections.singletonMap("error", "El parámetro 'newName' es obligatorio"));
             }
 
             user.setName(newName);
             userService.updateUser(user);
 
-            return ResponseEntity.ok(Collections.singletonMap("message", "Name actualized correctly"));
+            return ResponseEntity.ok(Collections.singletonMap("message", "Nombre actualizado correctamente"));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "Invalid token or user not found"));
+                    .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
         }
     }
     @PutMapping("/profile/hospital")
@@ -109,7 +109,7 @@ public class UserRestController {
                                                                   @RequestBody Map<String, String> body) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Token not provided"));
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
         }
 
         String jwtToken = token.replace("Bearer ", "");
@@ -123,7 +123,7 @@ public class UserRestController {
 
             if (newHospital == null || newHospital.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body(Collections.singletonMap("error", "'newHospital' parameter is mandatory"));
+                        .body(Collections.singletonMap("error", "El parámetro 'newHospital' es obligatorio"));
             }
 
             // Cambiar hospital
@@ -141,7 +141,7 @@ public class UserRestController {
             return ResponseEntity.ok(Collections.singletonMap("user", updatedUser));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "invalid token or user not found"));
+                    .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
         }
     }
 
@@ -151,7 +151,7 @@ public class UserRestController {
                                                               @RequestBody Map<String, String> body) {
         if (token == null || token.isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Token is not given"));
+                    .body(Collections.singletonMap("error", "Token no proporcionado"));
         }
 
         String jwtToken = token.replace("Bearer ", "");
@@ -165,7 +165,7 @@ public class UserRestController {
 
             if (newZone == null || newZone.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                        .body(Collections.singletonMap("error", " 'newZone' paramter is mandatory"));
+                        .body(Collections.singletonMap("error", "El parámetro 'newZone' es obligatorio"));
             }
 
             // Cambiar zona
@@ -176,10 +176,10 @@ public class UserRestController {
 
             userService.updateUser(user);
 
-            return ResponseEntity.ok(Collections.singletonMap("message", "Zone actualiced correctly"));
+            return ResponseEntity.ok(Collections.singletonMap("message", "Zona actualizada correctamente"));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Collections.singletonMap("error", "invalid token or user not found"));
+                    .body(Collections.singletonMap("error", "Token inválido o usuario no encontrado"));
         }
     }
 
@@ -197,51 +197,36 @@ public class UserRestController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/ban")
-    public ResponseEntity<Map<String, String>> banUser(@RequestBody Map<String, String> requestBody) {
-        String email = requestBody.get("email");
-
-        if (email == null || email.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Email not given"));
-        }
-
-        Optional<User> userOptional = userService.findByEmail(email);
+    @PutMapping("/ban/{id}")
+    public ResponseEntity<Map<String, String>> banUser(@PathVariable Long id) {
+        Optional<User> userOptional = userService.findById(id);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             user.setBanned(true);
             userService.updateUser(user);
-            return ResponseEntity.ok(Collections.singletonMap("message", "User banned correctly"));
+            return ResponseEntity.ok(Collections.singletonMap("message", "Usuario baneado correctamente"));
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(Collections.singletonMap("error", "User not found"));
+                    .body(Collections.singletonMap("error", "Usuario no encontrado"));
         }
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/unban")
-    public ResponseEntity<Map<String, String>> unbanUser(@RequestBody Map<String, String> requestBody) {
-        String email = requestBody.get("email");
-
-        if (email == null || email.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Collections.singletonMap("error", "Email not given"));
-        }
-
-        Optional<User> userOptional = userService.findByEmail(email);
+    @PutMapping("/unban/{id}")
+    public ResponseEntity<Map<String, String>> unbanUser(@PathVariable Long id) {
+        Optional<User> userOptional = userService.findById(id);
 
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             user.setBanned(false);
             userService.updateUser(user);
-            return ResponseEntity.ok(Collections.singletonMap("message", "User unbanned correctly"));
+            return ResponseEntity.ok(Collections.singletonMap("message", "Usuario desbaneado correctamente"));
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(Collections.singletonMap("error", "User not found"));
+                    .body(Collections.singletonMap("error", "Usuario no encontrado"));
         }
     }
-
 
 
 
