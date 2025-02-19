@@ -23,19 +23,45 @@ public class DiagnosisController {
 
     @Autowired
     private UserService userService; // Repositorio de Usuario
-    @Autowired
-    private DiagnosisService diagnosisService;
 
     @Autowired
     private DiagnosisService userDiagnosisService; // Repositorio de UserDiagnosis
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadExcel(@RequestParam("file") MultipartFile file, @RequestParam("modelName") String modelName) {
+    public ResponseEntity<String> uploadResultados(@RequestParam("file") MultipartFile file) {
         try {
-            diagnosisService.processExcel(file, modelName);
-            return ResponseEntity.ok("File processed successfully for " + modelName);
+            // Cargar el archivo Excel
+            Workbook workbook = WorkbookFactory.create(file.getInputStream());
+            Sheet sheet = workbook.getSheetAt(0); // Tomamos la primera hoja
+
+            // Iteramos sobre las filas del Excel
+            for (Row row : sheet) {
+                if (row.getRowNum() == 0) {
+                    // Omite la primera fila (encabezados)
+                    continue;
+                }
+
+                Long userId = (long) row.getCell(0).getNumericCellValue();
+                User usuario = userService.findById(userId)
+                        .orElseThrow(() -> new RuntimeException("User not found"));
+
+                String modelo1 = row.getCell(1).getStringCellValue();
+                String modelo2 = row.getCell(2).getStringCellValue();
+                String modelo3 = row.getCell(3).getStringCellValue();
+                String modelo4 = row.getCell(4).getStringCellValue();
+
+                // Crear la entidad de UserDiagnosis
+                UserDiagnosis userDiagnosis = new UserDiagnosis(usuario, modelo1, modelo2, modelo3, modelo4);
+
+                // Guardar en la base de datos
+                userDiagnosisService.save(userDiagnosis);
+            }
+
+            workbook.close(); // Cerramos el libro de trabajo
+
+            return ResponseEntity.ok("File processed and saved successfully!");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing file: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error procesing file");
         }
     }
 }
