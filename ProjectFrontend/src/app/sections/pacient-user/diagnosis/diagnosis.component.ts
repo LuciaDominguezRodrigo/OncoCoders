@@ -33,11 +33,11 @@ export class DiagnosisComponent {
           this.userRole = user.roles.length > 0 ? user.roles[0] : null;
         },
         error: (err) => {
-          console.error('Error al obtener el usuario:', err);
+          console.error('Error getting user:', err);
         }
       });
     } else {
-      console.error('No se encontró un token en el localStorage.');
+      console.error('A token was not found in the localStorage.');
     }
     }
 
@@ -47,7 +47,7 @@ export class DiagnosisComponent {
     const idToUse = this.userRole === 'USER' ? this.userId : userIdToFetch ?? this.selectedUserId;
 
     if (!idToUse) {
-      this.errorMessage = "Seleccione un usuario válido.";
+      this.errorMessage = "Select a valid user.";
       return;
     }
 
@@ -58,9 +58,30 @@ export class DiagnosisComponent {
       },
       error: () => {
         this.diagnosis = undefined;
-        this.errorMessage = 'No se encontró un diagnóstico completo para este usuario.';
+        this.errorMessage = 'No complete diagnosis was found for this user.';
       }
     });
   }
+
+  getFriendlyMessage(value: string | number): string {
+    // Si el valor es una cadena con "%", lo convertimos a número
+    const numericValue = typeof value === "string" ? parseFloat(value.replace("%", "").trim()) : value;
+
+    if (isNaN(numericValue)) {
+      return "Invalid value";
+    }
+
+    if (numericValue < 30) {
+      return "Very low probability";
+    } else if (numericValue < 50) {
+      return "Low probability";
+    } else if (numericValue < 75) {
+      return "Moderate probability";
+    } else {
+      return "Consult your doctor immediately";
+    }
+  }
+
+
 
 }

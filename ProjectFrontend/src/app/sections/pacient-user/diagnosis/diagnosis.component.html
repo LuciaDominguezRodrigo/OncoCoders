@@ -1,49 +1,55 @@
 <div class="h-dvh">
-  <app-sectiontitle label="Diagnóstico: Resultados y gráficos"></app-sectiontitle>
+  <app-sectiontitle label="Diagnosis: Results and graphs"></app-sectiontitle>
 
-  <app-advice title="Resultados del diagnóstico"
-              text="Es importante tener en cuenta que estos resultados se basan en modelos estadísticos. Para una detección precisa, le recomendamos consultar con su especialista, quien podrá realizar las pruebas necesarias para confirmar el diagnóstico."></app-advice>
+  <app-advice title="Diagnostic results"
+              text="It is important to note that these results are based on statistical models. For accurate detection, we recommend consulting with your specialist, who will be able to perform the necessary tests to confirm the diagnosis."></app-advice>
+
+
+  <app-advice title="Model results"
+              text="  Results may take some time to update as they need to be processed."></app-advice>
+
 
   <!-- Sección: Consulta de diagnóstico -->
   <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Último Diagnóstico Completo</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Last Complete Diagnosis</h2>
     <p class="mt-4 text-gray-700 text-lg leading-relaxed">
-      Estos son los resultados obtenidos y deben ser evaluados por un especialista. Recuerde que estos resultados deben discutirse con su médico para obtener una mejor comprensión.
+      These are the results obtained and must be evaluated by a specialist. Remember that these results should be discussed with your doctor to gain a better understanding.
     </p>
 
+
     <!-- Si el usuario es MEDCIUSER, permite seleccionar otro usuario -->
-    <div *ngIf="userRole === 'MEDCIUSER'">
-      <label class="text-lg font-medium text-gray-700">Seleccionar Usuario ID:</label>
-      <input type="number" [(ngModel)]="selectedUserId" placeholder="Ingrese ID del paciente"
+    <div *ngIf="userRole === 'MEDICUSER'">
+      <label class="text-lg font-medium text-gray-700">Select User ID:</label>
+      <input type="number" [(ngModel)]="selectedUserId" placeholder="User ID"
              class="mt-2 p-2 border border-gray-300 rounded-md w-full" />
       <button (click)="fetchDiagnosis(selectedUserId)" class="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">
-        Buscar
+        Search
       </button>
     </div>
 
     <!-- Si es un usuario normal (USER), simplemente consulta sus propios datos -->
     <div *ngIf="userRole === 'USER'">
       <button (click)="fetchDiagnosis()" class="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">
-        Ver mi diagnóstico
+        See my diagnosis
       </button>
     </div>
   </div>
 
   <div *ngIf="diagnosis" class="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h3 class="text-xl font-semibold text-pink-600">Información del Paciente</h3>
+    <h3 class="text-xl font-semibold text-pink-600">Patient information</h3>
     <ul class="list-disc pl-6 mt-4 text-gray-700 text-lg">
-      <li><strong>Nombre:</strong> {{ diagnosis.usuario.name }}</li>
+      <li><strong>Name:</strong> {{ diagnosis.usuario.name }}</li>
       <li><strong>Email:</strong> {{ diagnosis.usuario.email }}</li>
-      <li><strong>Comunidad Autónoma:</strong> {{ diagnosis.usuario.comunidadAutonoma }}</li>
-      <li><strong>Hospital de Referencia:</strong> {{ diagnosis.usuario.hospitalReferencia }}</li>
+      <li><strong>Autonomous community:</strong> {{ diagnosis.usuario.comunidadAutonoma }}</li>
+      <li><strong>Reference hospital:</strong> {{ diagnosis.usuario.hospitalReferencia }}</li>
     </ul>
 
-    <h3 class="text-xl font-semibold text-pink-600 mt-6">Último Diagnóstico Completo</h3>
+    <h3 class="text-xl font-semibold text-pink-600 mt-6">Last Complete Diagnosis</h3>
     <ul class="list-disc pl-6 mt-4 text-gray-700 text-lg">
-      <li><strong>Modelo 1:</strong> {{ diagnosis.modelo1 }}</li>
-      <li><strong>Modelo 2:</strong> {{ diagnosis.modelo2 }}</li>
-      <li><strong>Modelo 3:</strong> {{ diagnosis.modelo3 }}</li>
-      <li><strong>Modelo 4:</strong> {{ diagnosis.modelo4 }}</li>
+      <li><strong>Model 1:</strong> {{ getFriendlyMessage(diagnosis.modelo1) }}</li>
+      <li><strong>Model 2:</strong> {{ getFriendlyMessage(diagnosis.modelo2) }}</li>
+      <li><strong>Model 3:</strong> {{ getFriendlyMessage(diagnosis.modelo3) }}</li>
+      <li><strong>Model 4:</strong> {{ getFriendlyMessage(diagnosis.modelo4) }}</li>
     </ul>
   </div>
 
@@ -53,21 +59,21 @@
 
   <!-- Sección: Gráficas -->
   <div class="bg-pink-50 p-6 rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-    <h2 class="text-2xl font-semibold text-pink-600">Gráficas</h2>
+    <h2 class="text-2xl font-semibold text-pink-600">Graphics</h2>
     <p class="mt-4 text-gray-700 text-lg leading-relaxed">
-      Aquí están los gráficos que el paciente puede revisar. Recuerde discutir estos resultados con su médico para un mejor análisis.
+      Here are the charts that the patient can review. Remember to discuss these results with your doctor for better analysis.
     </p>
 
     <!-- Ejemplo de gráfico, se puede reemplazar con gráficos interactivos o imágenes -->
     <div class="mt-6">
       <img src="https://via.placeholder.com/800x400?text=Gráfica+de+Biomarcadores" alt="Gráfica 1"
            class="w-full h-auto rounded-lg shadow-lg">
-      <p class="text-center mt-2 text-gray-600">Gráfico 1: Biomarcadores</p>
+      <p class="text-center mt-2 text-gray-600">Graph 1</p>
     </div>
     <div class="mt-6">
       <img src="https://via.placeholder.com/800x400?text=Gráfica+de+Mamografía" alt="Gráfica 2"
            class="w-full h-auto rounded-lg shadow-lg">
-      <p class="text-center mt-2 text-gray-600">Gráfico 2: Mamografía</p>
+      <p class="text-center mt-2 text-gray-600">Graph 2</p>
     </div>
   </div>
 

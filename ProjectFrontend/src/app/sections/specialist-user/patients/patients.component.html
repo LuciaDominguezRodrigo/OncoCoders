@@ -13,7 +13,7 @@
       </button>
 
       <!-- Botón de acción -->
-      <button class="button text-white bg-pink-700 hover:bg-pink-800 px-4 py-2 rounded ml-4">
+      <button (click)  = "navigateToResults()" class="button text-white bg-pink-700 hover:bg-pink-800 px-4 py-2 rounded ml-4">
         Action
       </button>
     </div>
@@ -22,6 +22,7 @@
       <h4 class="text-lg font-semibold text-pink-600">Patient Details</h4>
       <p><strong>Name:</strong> {{ patient.name }}</p>
       <p><strong>Email:</strong> {{ patient.email }}</p>
+      <p><strong>Id:</strong> {{ patient.id }}</p>
       <p><strong>Autonomous Community:</strong> {{ patient.comunidadAutonoma}}</p>
       <p><strong>Reference hospital:</strong> {{ patient.hospitalReferencia}}</p>
     </div>

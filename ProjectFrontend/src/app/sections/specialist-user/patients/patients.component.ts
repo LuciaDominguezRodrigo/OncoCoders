@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../services/user.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {SectiontitleComponent} from '../../../components/tags/sectiontitle/sectiontitle.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-pending-pacients',
@@ -18,7 +19,7 @@ export class PatientsComponent implements OnInit {
   expandedPatient: any = null;
 
 
-  constructor(private patientService: UserService) {}
+  constructor(private patientService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.patientService.getPatients().subscribe(
@@ -29,5 +30,10 @@ export class PatientsComponent implements OnInit {
 
   toggleDetails(patient: any): void {
     this.expandedPatient = this.expandedPatient === patient ? null : patient;
+  }
+
+  navigateToResults() {
+    this.router.navigate(["/patient/diagnosis"]);
+
   }
 }
