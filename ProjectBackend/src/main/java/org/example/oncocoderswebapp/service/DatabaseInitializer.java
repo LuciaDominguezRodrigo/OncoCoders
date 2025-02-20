@@ -30,11 +30,13 @@ public class DatabaseInitializer {
 	@PostConstruct
 	public void init() throws IOException, SQLException {
 
+		User paciente = userRepository.save(new User("Lolo", passwordEncoder.encode("pass"),
+				"paciente@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"USER"));
+
 		User medico = userRepository.save(new User("Pepe", passwordEncoder.encode("medicpass"),
 				"medicohospital@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"MEDICUSER"));
 
-		User paciente = userRepository.save(new User("Lolo", passwordEncoder.encode("pass"),
-				"paciente@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"USER"));
+
 
 		User medico2 = userRepository.save(new User("Pepa", passwordEncoder.encode("medicpass"),
 				"medico2hospital@gmail.com",  "Madrid", "Hospital 12 de Octubre", true, "MEDICUSER"));

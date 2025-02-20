@@ -11,11 +11,10 @@ import org.example.oncocoderswebapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/diagnosis")
@@ -37,5 +36,12 @@ public class DiagnosisController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing file: " + e.getMessage());
         }
+    }
+
+    @GetMapping("/latest-complete")
+    public ResponseEntity<UserDiagnosis> getLatestCompleteDiagnosis(@RequestParam("userId") Long userId) {
+        Optional<UserDiagnosis> latestDiagnosis = diagnosisService.findLatestCompleteDiagnosis(userId);
+        return latestDiagnosis.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 }

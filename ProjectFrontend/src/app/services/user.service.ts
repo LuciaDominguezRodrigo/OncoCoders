@@ -6,6 +6,18 @@ import {map, Observable} from 'rxjs';
 interface UserRoleResponse {
   role: string;
 }
+interface User {
+  id: number;
+  name: string;
+  roles: string[];  // Es un array de strings
+  banned: boolean;
+  email: string;
+  comunidadAutonoma: string;
+  hospitalReferencia: string;
+  consentFirm: boolean;
+  pacientes: User[]; // Puede contener otros usuarios si es un MEDICUSER
+  role: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -86,6 +98,27 @@ export class UserService {
     }
 
     return this.http.put<{ message: string }>(this.apiUrl + '/ban', { email });
+  }
+
+  getCurrentUser(token: string | null) : Observable<User>{
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+
+    return this.http.get<User>(this.apiUrl + '/current', { headers});
+  }
+
+  getLatestCompleteDiagnosis(idToUse: number): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+
+    // Hacer la solicitud HTTP GET a la API
+    return this.http.get<any>(`https://localhost:8443/api/diagnosis/latest-complete?userId=${idToUse}
+`, { headers });
   }
 }
 

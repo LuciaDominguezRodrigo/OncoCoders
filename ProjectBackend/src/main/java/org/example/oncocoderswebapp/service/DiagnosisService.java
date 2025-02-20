@@ -103,5 +103,13 @@ public class DiagnosisService {
     }
 
 
+    public Optional<UserDiagnosis> findLatestCompleteDiagnosis(Long userId) {
+        User user = userRepository.findById(userId).orElse(null);
+        List<UserDiagnosis> diagnoses = diagnosisRepository.findByUsuarioOrderByIdAsc(user);
 
+        return diagnoses.stream()
+                .filter(d -> d.getModelo1() != null && d.getModelo2() != null && d.getModelo3() != null && d.getModelo4() != null)
+                .reduce((first, second) -> second);
+
+    }
 }

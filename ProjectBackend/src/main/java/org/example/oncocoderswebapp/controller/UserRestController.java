@@ -290,6 +290,19 @@ public class UserRestController {
         return ResponseEntity.ok(bannedUsers);
     }
 
+    @GetMapping("/current")
+    public ResponseEntity<User> getCurrentUser(@RequestHeader("Authorization") String token) {
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(null);
+        }
+
+        String jwtToken = token.replace("Bearer ", "");
+
+        Optional<User> userOptional = tokenService.getUserFromToken(jwtToken);
+        return userOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
+    }
+
 
 
 

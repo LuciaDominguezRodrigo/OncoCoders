@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarbuttonComponent } from "../../buttons/sidebarbutton/sidebarbutton.component";
 import { CommonModule } from '@angular/common';
 import { BAN_SCREEN, DASHBOARD_ADMIN_SCREEN, DASHBOARD_SPECIALIST_SCREEN, DIAGNOSIS_SCREEN, IA_CONFIGURATION_SCREEN, MONITORING_SCREEN, PACIENTS_SCREEN, PROFILE_ADMIN_SCREEN, PROFILE_PATIENT_SCREEN, PROFILE_SPECIALIST_SCREEN, RECOMMENDATION_SCREEN, RECORDS_SCREEN, UNBAN_SCREEN, USER_FORM_SCREEN } from '../../../routes';
@@ -13,7 +13,7 @@ import { convertToUserRole, UserRole } from '../../../models/userRole.enum';
   templateUrl: './sidebar.component.html'
 })
 
-export class SidebarComponent {
+export class SidebarComponent  implements OnInit{
   public isMainScreen!: boolean
   public isLogged!: boolean
   public userRole!: UserRole
