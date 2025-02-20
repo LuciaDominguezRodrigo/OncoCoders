@@ -48,12 +48,10 @@ public class DatabaseInitializer {
 				"investigador@gmail.com",  "Barcelona", "Hospital Vall d'Hebron", true, "RESEARCHERUSER"));
 
 		User admin = userRepository.save(new User("Paco", passwordEncoder.encode("adminpass"),
-				"admin@gmail.com", "Andalucía", "Hospital Vall d'Hebron", true, "ADMIN"));
+				"admin@gmail.com", "Andalucía", "Hospital Vírgen del Rocío", true, "ADMIN"));
 
 		userService.asignarPacienteAMedico(paciente, medico);
 		userService.asignarPacienteAMedico(paciente2, medico2);
-
-
 
 	}
 }
