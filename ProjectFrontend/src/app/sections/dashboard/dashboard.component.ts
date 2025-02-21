@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { SectiontitleComponent } from "../../components/tags/sectiontitle/sectiontitle.component";
 import { AdviceComponent } from "../../components/tags/advice/advice.component";
 import {BarChartModule, PieChartModule} from '@swimlane/ngx-charts';
 import {UserService} from '../../services/user.service';
+import {NgIf, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [SectiontitleComponent, AdviceComponent, PieChartModule, BarChartModule],
+  imports: [SectiontitleComponent, AdviceComponent, PieChartModule, BarChartModule, NgIf, NgOptimizedImage],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
 
   bannedUsersCount = 0; // Contador de usuarios baneados
   nonBannedUsersCount = 0; // Contador de usuarios no baneados
+  role: string | null = null;
 
   // Datos para la gráfica
   single = [
@@ -29,9 +31,10 @@ export class DashboardComponent {
 
 
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    this.loadUserRole();
     this.loadUserData();
   }
 
@@ -60,6 +63,22 @@ export class DashboardComponent {
 
 
   }
+
+  isAdminUser = false;
+
+  loadUserRole(): void {
+    this.userService.getUserRole().subscribe(
+      (response) => {
+        this.role = response.trim();
+        this.isAdminUser = this.role === 'ADMIN';
+        this.cdr.detectChanges();
+      },
+      (error) => {
+        console.error("Error obteniendo el rol de usuario:", error);
+      }
+    );
+  }
+
 
   updateChart(): void {
     // Actualizar los datos de la gráfica

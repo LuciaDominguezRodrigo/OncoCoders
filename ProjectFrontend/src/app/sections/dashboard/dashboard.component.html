@@ -1,9 +1,9 @@
 <section>
   <!-- TITLE -->
-  <app-sectiontitle label="Admin Dashboard" />
+  <app-sectiontitle label="Dashboard" />
 
   <!-- DESCRIPTION -->
-  <app-advice title="About Admin Dashboard"
+  <app-advice title="About Dashboard"
               text="This section contains a summary of the application metrics. They show the data obtained since the last update. That is, they are not real time data." />
 
   <!-- GRAPHICS -->
@@ -16,10 +16,10 @@
     </div>
 
     <!-- Gráfica de Usuarios Baneados -->
-    <div>
-      <h2 class="text-2xl font-semibold text-pink-600">User banned graphic</h2>
+    <div *ngIf = "isAdminUser">
+      <h2 class="text-2xl font-semibold text-pink-600" >User banned graphic</h2>
       <p class="mt-4 text-gray-700 text-lg leading-relaxed">
-        The graph shows the number of banned and unbanned users
+      The graph shows the number of banned and unbanned users
       </p>
       <ngx-charts-pie-chart
         [view]="view"
@@ -34,14 +34,56 @@
     <!-- Espaciado entre gráficas -->
     <div class="h-10"></div>
 
-    
 
-    <!-- Gráfica de Mamografía -->
-    <div class="flex flex-col gap-3 size-1/3">
-      <img src="https://via.placeholder.com/800x400?text=Gráfica+de+Mamografía" alt="Gráfica 2"
-           class="w-full h-48 rounded-lg shadow-lg">
-      <p class="text-center text-gray-600">Gráfica 2.</p>
+
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico1.jpeg" alt="Gráfica 2"
+           class="w-full h-96 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº1.</p>
     </div>
+
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico2.jpeg" alt="Gráfica 3"
+           class="w-full h-96 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº2.</p>
+    </div>
+
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico3.jpeg" alt="Gráfica 3"
+           class="w-full h-96 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº3.</p>
+    </div>
+
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico3.jpeg" alt="Gráfica 3"
+           class="w-full h-96 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº4.</p>
+    </div>
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico4.jpeg" alt="Gráfica 3"
+           class="w-full h-96 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº5.</p>
+    </div>
+
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico5.jpeg" alt="Gráfica 3"
+           class="w-full h-100 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº6.</p>
+    </div>
+
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico6.jpeg" alt="Gráfica 3"
+           class="w-full h-100 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº7.</p>
+    </div>
+
+    <div class="flex flex-col gap-3 w-full max-w-2xl mx-auto" *ngIf="!isAdminUser">
+      <img ngSrc="/graficamedico7.jpeg" alt="Gráfica 3"
+           class="w-full h-100 rounded-lg shadow-lg object-cover" height="802" width="1600">
+      <p class="text-center text-gray-600 text-lg">Graphic Nº8.</p>
+    </div>
+
+
   </div>
   <div class ="h-16"></div>
 </section>
