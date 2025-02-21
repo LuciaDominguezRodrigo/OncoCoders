@@ -25,14 +25,14 @@ export class NotBannedUsersComponent {
         this.users = data; // Cargar la lista de usuarios
       },
       (error) => {
-        console.error('Error al obtener usuarios baneados', error);
+        console.error('Error obtaining unbanned users', error);
       }
     );
   }
 
   banUser(email: string | undefined): void {
     if (!email) {
-      console.error('Email no válido');
+      console.error('Email not valid');
       return;
     }
 
@@ -42,7 +42,7 @@ export class NotBannedUsersComponent {
         this.loadUnbannedUsers(); // Recargar lista de usuarios después de banear
       },
       error => {
-        console.error('Error al banear usuario', error);
+        console.error('Error banning user', error);
       }
     );
   }

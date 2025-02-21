@@ -23,13 +23,13 @@ export class BannedUsersComponent implements OnInit {
       (data) => {
         this.users = data; // Cargar la lista de usuarios
       },
-      (error) => { console.error('Error al obtener usuarios baneados', error); }
+      (error) => { console.error('Error obtaining banned user', error); }
     );
   }
 
   unbanUser(email: string | undefined): void {
     if (!email) {
-      console.error('Email no válido');
+      console.error('Not valid email');
       return;
     }
 
@@ -39,7 +39,7 @@ export class BannedUsersComponent implements OnInit {
         this.loadBannedUsers(); // Recargar lista de usuarios después de desbanear
       },
       error => {
-        console.error('Error al desbanear usuario', error);
+        console.error('Error unbanning user', error);
       }
     );
   }

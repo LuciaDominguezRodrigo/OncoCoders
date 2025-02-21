@@ -70,7 +70,7 @@ public class AuthService {
             if (registerDTO.getEmail().toLowerCase().contains("hospital")) {
                 user.setRole("MEDICUSER");  // Asignar rol MEDICUSER si "hospital" está en el email
             }
-            else if (registerDTO.getEmail().toLowerCase().contains("investigador")) {
+            else if (registerDTO.getEmail().toLowerCase().contains("researcher")) {
                 user.setRole("RESEARCHERUSER");  // Asignar rol RESEARCHERUSER si "investigador" está en el email
             }
             else {

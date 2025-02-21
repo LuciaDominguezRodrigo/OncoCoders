@@ -51,23 +51,23 @@ export class RegisterComponent implements OnInit {
         } = this.registerForm.value;
 
         if (password !== confirmPassword) {
-          alert('Las contraseñas no coinciden');
+          alert('Passwords do not match');
           return;
         }
 
 
         this.authService.register(name, email, password, comunidadAutonoma, hospitalReferencia, consentFirm).subscribe(
           (response) => {
-            let message = 'Usuario registrado exitosamente.';
+            let message = 'User signed up correctly! ';
 
             // Verificar el rol devuelto por el backend
             if (response.role === 'MEDICUSER' || response.role === 'RESEARCHERUSER') {
-              message += ' Bienvenido a Oncocoders.';
+              message += ' Welcome to oncocoders.';
             } else {
               if (response.medicoAsignado) {
-                message += ` Asignado al médico: ${response.medicoAsignado.name}.`;
+                message += ` Assigned to the doctor: ${response.medicoAsignado.name}.`;
               } else {
-                message += ' No se asignó ningún médico disponible.';
+                message += ' No available doctor was assigned.';
               }
             }
 
@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
             this.router.navigate(['/login']);
           },
           (error) => {
-            alert(error.error?.error || 'Error en el registro');
+            alert(error.error?.error || 'Error in register');
           }
         );
       }

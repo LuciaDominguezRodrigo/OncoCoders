@@ -31,21 +31,21 @@ public class DatabaseInitializer {
 	public void init() throws IOException, SQLException {
 
 		User paciente = userRepository.save(new User("Lolo", passwordEncoder.encode("pass"),
-				"paciente@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"USER"));
+				"patient@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"USER"));
 
 		User medico = userRepository.save(new User("Pepe", passwordEncoder.encode("medicpass"),
-				"medicohospital@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"MEDICUSER"));
+				"doctorhospital@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"MEDICUSER"));
 
 
 
 		User medico2 = userRepository.save(new User("Pepa", passwordEncoder.encode("medicpass"),
-				"medico2hospital@gmail.com",  "Madrid", "Hospital 12 de Octubre", true, "MEDICUSER"));
+				"doctor2hospital@gmail.com",  "Madrid", "Hospital 12 de Octubre", true, "MEDICUSER"));
 
 		User paciente2 = userRepository.save(new User("Lola", passwordEncoder.encode("pass"),
-				"paciente2@gmail.com",  "Madrid", "Hospital 12 de Octubre", true, "USER"));
+				"patient2@gmail.com",  "Madrid", "Hospital 12 de Octubre", true, "USER"));
 
 		User investigador = userRepository.save(new User("Mar", passwordEncoder.encode("researcherpass"),
-				"investigador@gmail.com",  "Barcelona", "Hospital Vall d'Hebron", true, "RESEARCHERUSER"));
+				"researcher@gmail.com",  "Barcelona", "Hospital Vall d'Hebron", true, "RESEARCHERUSER"));
 
 		User admin = userRepository.save(new User("Paco", passwordEncoder.encode("adminpass"),
 				"admin@gmail.com", "Andalucía", "Hospital Vírgen del Rocío", true, "ADMIN"));

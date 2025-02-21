@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit{
         this.cdr.detectChanges();
       },
       (error) => {
-        console.error("Error obteniendo el rol de usuario:", error);
+        console.error("Error obtaining user", error);
       }
     );
   }
