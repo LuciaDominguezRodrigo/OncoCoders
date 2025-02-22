@@ -123,26 +123,25 @@ The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
 
 
 ### :wrench: Requirements
-*************
 
-| Software Requirements |
-| :-: |
-| [Node.js](https://nodejs.org/en)|
-| [JDK 21](https://www.oracle.com/es/java/technologies/downloads/#java21)|
-| [MySQL](https://dev.mysql.com/downloads/installer/)|
-| [Apache Maven](https://maven.apache.org/download.cgi)|
-| [Apache Maven](https://maven.apache.org/download.cgi)|
-|[Angular Cli](https://www.npmjs.com/package/@angular/cli)|
+
+| Software Requirements | Version |
+| :-: | :-: |
+| [Node.js](https://nodejs.org/en)| `22.13.1`<= |
+| [JDK 21](https://www.oracle.com/es/java/technologies/downloads/#java21)| `Java 21`<= |
+| [MySQL](https://dev.mysql.com/downloads/installer/)| `8.0.41.0`<= |
+| [Apache Maven](https://maven.apache.org/download.cgi)|`3.9.9`<= |
+|[Angular Cli](https://www.npmjs.com/package/@angular/cli)| `19.1.5`<= |
 
 ### :black_nib: Requirement Analysis
 *************
 
 #### :black_joker: Entities
 
-Currently, there are X entities.
+Currently, there are 5 entities.
 
-| Entities |
-| :-: |
+| Entities | 
+| :-: | 
 | [User]() |
 | [UserDiagnosis]() |
 | [UserFormResponse]() |
