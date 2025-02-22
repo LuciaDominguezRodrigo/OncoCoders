@@ -105,7 +105,11 @@ The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
 | Software Requirements |
 | :-: |
 | [Node.js](https://nodejs.org/en)|
-| [...]|
+| [JDK 21](https://www.oracle.com/es/java/technologies/downloads/#java21)|
+| [MySQL](https://dev.mysql.com/downloads/installer/)|
+| [Apache Maven](https://maven.apache.org/download.cgi)|
+| [Apache Maven](https://maven.apache.org/download.cgi)|
+|[Angular Cli](https://www.npmjs.com/package/@angular/cli)|
 
 ### :black_nib: Requirement Analysis
 *************
@@ -117,13 +121,15 @@ Currently, there are X entities.
 | Entities |
 | :-: |
 | [User]() |
-| [Diagnosis]() |
-| [Analisis]() |
+| [UserDiagnosis]() |
+| [UserFormResponse]() |
+| [ClinicFormResponse]() |
+| [ClinicFormResponse2]() |
 
 
 #### :busts_in_silhouette: Type of Users
 
-In the application there are 2 different type of user:
+In the application there are 4 different type of user:
 
 | Type of User | Description |
 | :-: | :-- |
