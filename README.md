@@ -6,31 +6,46 @@ The goal of this project is to develop **algorithms and predictive models for va
 ### 👷 Team members
 *************
 
-| Name | mail | Github user |
-| ------------- | ------------- | ----------- |
-| Lucía Domínguez Rodrigo | lucia.dominguez.rodrigo@gmail.com | [@LuciaDominguezRodrigo](https://github.com/LuciaDominguezRodrigo) |
-| Gemma Millán Zamora  | gemmamillan123@gmail.com | [@gemmamillan](https://github.com/gemmamillan) |
-| Ainhoa López Carrasco  | ainhoa.lop.car@gmail.com | [@Alopeeez04](https://github.com/Alopeeez04) |
-| Ikár Martínez de Liz Kosto | iv.mardeliz.software@gmail.com | [@KandV008](https://github.com/KandV008) |
-|   |  |  |
+| Name                       | Email                             | Github user                                                        |
+| -------------------------- | --------------------------------- | ------------------------------------------------------------------ |
+| Lucía Domínguez Rodrigo    | lucia.dominguez.rodrigo@gmail.com | [@LuciaDominguezRodrigo](https://github.com/LuciaDominguezRodrigo) |
+| Gemma Millán Zamora        | gemmamillan123@gmail.com          | [@gemmamillan](https://github.com/gemmamillan)                     |
+| Ainhoa López Carrasco      | ainhoa.lop.car@gmail.com          | [@Alopeeez04](https://github.com/Alopeeez04)                       |
+| Ikár Martínez de Liz Kosto | iv.mardeliz.software@gmail.com    | [@KandV008](https://github.com/KandV008)                           |
+| Laura Llorente Vilanova    | laura.llovi@gmail.com             | [@lauraloops](https://github.com/lauraloops)                       |
 
 ## :scroll:Table of Contents
 
-1. [Usage](#hammer-usage)
-    1. [Steps](#paw_prints-steps)
-    1. [Requirements](#wrench-requirements)
-1. [Requirement Analysis](#black_nib-requirement-analysis)
-    1. [Entities](#black_joker-entities)
-    1. [Type of Users](#busts_in_silhouette-type-of-users)
-    1. [Functional Requirements](#wrench-functional-requirements)
-    1. [Non Functional Requirements](#electric_plug-non-functional-requirements)
-1. [Design](#straight_ruler-design)
-    1. [Prototype](#church-prototype)
-    1. [Navigation](#airplane-navigation)
-    1. [Branding](#performing_arts-branding)
-    1. [Architecture](#church-architecture)
-    1. [DataBase](#dvd-database)
-1. [License](#libra-license)
+- [ OncoCoders ](#-oncocoders-)
+    - [👷 Team members](#-team-members)
+  - [:scroll:Table of Contents](#scrolltable-of-contents)
+  - [:hammer: Usage](#hammer-usage)
+    - [:paw\_prints: Steps](#paw_prints-steps)
+    - [:wrench: Requirements](#wrench-requirements)
+    - [:black\_nib: Requirement Analysis](#black_nib-requirement-analysis)
+      - [:black\_joker: Entities](#black_joker-entities)
+      - [:busts\_in\_silhouette: Type of Users](#busts_in_silhouette-type-of-users)
+      - [:wrench: Functional Requirements](#wrench-functional-requirements)
+      - [:electric\_plug: Non Functional Requirements](#electric_plug-non-functional-requirements)
+      - [Use Case Diagrams](#use-case-diagrams)
+    - [:straight\_ruler: Design](#straight_ruler-design)
+    - [:church: Prototype](#church-prototype)
+      - [🛠️ V0 prototype](#️-v0-prototype)
+  - [⚔️ Sample users](#️-sample-users)
+    - [🔑 @patient](#-patient)
+    - [🔑 @patient2](#-patient2)
+    - [🔑 @patient3](#-patient3)
+    - [🛡️ @doctor](#️-doctor)
+    - [🛡️ @doctor2](#️-doctor2)
+    - [🚀 @researcher](#-researcher)
+    - [🚀 @researcher2](#-researcher2)
+    - [⚖️ @admin](#️-admin)
+  - [📓 Sample docs](#-sample-docs)
+      - [:airplane: Navigation](#airplane-navigation)
+      - [:performing\_arts: Branding](#performing_arts-branding)
+      - [:church: Architecture](#church-architecture)
+      - [:dvd: DataBase](#dvd-database)
+  - [:libra: License](#libra-license)
 
 
 ## :hammer: Usage
@@ -63,10 +78,10 @@ ng serve --open
 ### :wrench: Requirements
 *************
 
-| Software Requirements |
-| :-: |
-| [Node.js](https://nodejs.org/en)|
-| [...]|
+|      Software Requirements       |
+| :------------------------------: |
+| [Node.js](https://nodejs.org/en) |
+|              [...]               |
 
 ### :black_nib: Requirement Analysis
 *************
@@ -75,84 +90,72 @@ ng serve --open
 
 Currently, there are X entities.
 
-| Entities |
-| :-: |
-| [User]() |
+|   Entities    |
+| :-----------: |
+|   [User]()    |
 | [Diagnosis]() |
-| [Analisis]() |
+| [Analisis]()  |
 
 
 #### :busts_in_silhouette: Type of Users
 
 In the application there are 2 different type of user:
 
-| Type of User | Description |
-| :-: | :-- |
-| Public User | Access only see general data |
-| Patient User | Access to the form and its personalized diagnostics |
-| Specialist User | Access to patient data provided in the form, along with access to the use of the AI | 
-| Admin User | Access to page configuration and AI configuration |
+|  Type of User   | Description                                                                         |
+| :-------------: | :---------------------------------------------------------------------------------- |
+|   Public User   | Access only see general data                                                        |
+|  Patient User   | Access to the form and its personalized diagnostics                                 |
+| Specialist User | Access to patient data provided in the form, along with access to the use of the AI |
+|   Admin User    | Access to page configuration and AI configuration                                   |
 
 #### :wrench: Functional Requirements
 
 Here are the diferent actions that can do the different type of users:
 
-| User Histories | Public | Patient | Specialist | Admin |
-| :-- | :-: | :-: | :-: | :-: |
-| UH-01 Sign Up | :heavy_check_mark: | | |
-| UH-02 Log In | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-03 Log Out (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-04 Delete your Account (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-05 Recover password | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-06 Access to Main Page | :heavy_check_mark: | 
-| UH-07 See General Metrics | :heavy_check_mark: | |
-| UH-08 See Project's Presentation |:heavy_check_mark: |  |
-| UH-XX Access to User Dashboard | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
-| UH-09 Show Pacient user Dashboard Page | | :heavy_check_mark: |
-| UH-10 Access to Formulary Page | | :heavy_check_mark: | 
-| UH-11 Access to Diagnosis Page | | :heavy_check_mark: | 
-| UH-12 Access to Monitoring Page | | :heavy_check_mark: | 
-| UH-13 Access to Recommendations Page | | :heavy_check_mark: |
-| UH-14 Access to Forum Page | | :heavy_check_mark: | 
-| UH-15 Access to Profile Page | | :heavy_check_mark: | |
-| UH-16 Show Specialist User Dashboard Page | | | :heavy_check_mark: | |
-| UH-17 Access to pending Patient List | | | :heavy_check_mark: | |
-| UH-18 See more information related a pending Pacient User | | | :heavy_check_mark: | |
-| UH-19 Access to processed Patient List Page | | | :heavy_check_mark: |
-| UH-20 See more information related a processed Patient User | | | :heavy_check_mark: |
-| UH-21 Access to record of all Patients | | | :heavy_check_mark: |
-| UH-22 See more information about a Patient User | | | :heavy_check_mark: |
-| UH-23 Access to recommendations using theri Diagnosis | | | :heavy_check_mark: |
-| UH-24 Access to Specialist User Metrics | | | :heavy_check_mark: |
-| UH-25 Show Admin User Dashboard Page | | | | :heavy_check_mark: |
-| UH-26 Access to all not banned Users Page | | | | :heavy_check_mark: |
-| UH-27 Ban an User | | | | :heavy_check_mark: |
-| UH-28 Access to all banned Users Page | | | | :heavy_check_mark: |
-| UH-29 Unban an User | | | | :heavy_check_mark: |
-| UH-30 Access to IA Model Configuration Page | | | | :heavy_check_mark: |
-| UH-31 See application general metrics | | | | :heavy_check_mark: |
-| UH-32 Determine Profile pic (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-33 Change Profile Pic (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-34 Determine nickname (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-35 Change nickname (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-36 Determine email (!) | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-37 Access to Config Page | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-38 Access to Language Page | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UH-39 Access to Help Page | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| User Histories                                  |       Public       |      Patient       |     Specialist     |       Admin        |     Researcher     |
+| :---------------------------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
+| UH-01 Sign Up                                   | :heavy_check_mark: |                    |                    |                    |                    |
+| UH-02 Log In                                    |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |                    |
+| UH-03 Log Out                                   |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-04 Access to Main Page                       | :heavy_check_mark: |                    |                    |                    |                    |
+| UH-05 See Project's Presentation                | :heavy_check_mark: |                    |                    |                    |                    |
+| UH-06 Access to User Home Page                  |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-07 Show Patient User Home Page               |                    | :heavy_check_mark: |                    |                    |                    |
+| UH-08 Access to Formulary Page                  |                    | :heavy_check_mark: |                    |                    |                    |
+| UH-09 Access to Diagnosis Page                  |                    | :heavy_check_mark: |                    |                    |                    |
+| UH-10 Access to Recommendations Page            |                    | :heavy_check_mark: |                    |                    |                    |
+| UH-11 Show to Psychological Help pop-up         |                    | :heavy_check_mark: |                    |                    |                    |
+| UH-12 Access to Profile Page                    |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-13 Show Medic User Home Page                 |                    |                    | :heavy_check_mark: |                    |                    |
+| UH-14 Access Medic User Dashboard Page          |                    |                    | :heavy_check_mark: |                    |                    |
+| UH-15 Access to Medic User Metrics              |                    |                    | :heavy_check_mark: |                    |                    |
+| UH-16 Access to record of all Patients          |                    |                    | :heavy_check_mark: |                    |                    |
+| UH-17 See more information about a Patient User |                    |                    | :heavy_check_mark: |                    |                    |
+| UH-18 Show Admin User Home Page                 |                    |                    |                    | :heavy_check_mark: |                    |
+| UH-19 Show Admin User Dashboard Page            |                    |                    |                    | :heavy_check_mark: |                    |
+| UH-20 Access to all not banned Users Page       |                    |                    |                    | :heavy_check_mark: |                    |
+| UH-21 Ban an User                               |                    |                    |                    | :heavy_check_mark: |                    |
+| UH-22 Access to all banned Users Page           |                    |                    |                    | :heavy_check_mark: |                    |
+| UH-23 Unban an User                             |                    |                    |                    | :heavy_check_mark: |                    |
+| UH-24 See application general metrics           |                    |                    |                    | :heavy_check_mark: |                    |
+| UH-25 Show Researcher User Home Page            |                    |                    |                    |                    | :heavy_check_mark: |
+| UH-26 Access to IA Model Configuration Page     |                    |                    |                    |                    | :heavy_check_mark: |
+| UH-27 Access to About Us Page                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UH-28 Show sections explanation                 |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 #### :electric_plug: Non Functional Requirements
 
-| Non Functional Requirements |
-| :-: |
-| Oriented to Web |
-| Responsive Design |
-| The software must be implemented with Angular |
+|            Non Functional Requirements             |
+| :------------------------------------------------: |
+|                  Oriented to Web                   |
+|                 Responsive Design                  |
+|   The software must be implemented with Angular    |
 | The applicaction need to connect with SQL Database |
-| The applicaction need to connect with IA models |
-| GUI must be minimalist and user-friendly |
-| Protection & Security for Registered User Data |
-| Usability & Accesibility |
-| Main language must be Spanish |
+|  The applicaction need to connect with IA models   |
+|      GUI must be minimalist and user-friendly      |
+|   Protection & Security for Registered User Data   |
+|              Usability & Accesibility              |
+|           Main language must be Spanish            |
 
 #### Use Case Diagrams
 
@@ -163,13 +166,13 @@ Here are the diferent actions that can do the different type of users:
 </p>
 
 <p align="center">
-  <img src="/docs/use_case_diagrams/Pacient_User.svg" alt="Patient_User_Diagram">
+  <img src="/docs/use_case_diagrams/Patient_User.svg" alt="Patient_User_Diagram">
   <br>
   <small>Use Case Diagram 2. Patient User</small>
 </p>
 
 <p align="center">
-  <img src="/docs/use_case_diagrams/Specialist_User.svg" alt="Specialist_User_Diagram">
+  <img src="/docs/use_case_diagrams/Medic_User.svg" alt="Medic_User_Diagram">
   <br>
   <small>Use Case Diagram 3. Specialist User</small>
 </p>
@@ -181,15 +184,21 @@ Here are the diferent actions that can do the different type of users:
 </p>
 
 <p align="center">
-  <img src="/docs/use_case_diagrams/All_Users.svg" alt="All_Users_Diagram">
+  <img src="/docs/use_case_diagrams/Researchers_User.svg" alt="Researcher_User_Diagram">
   <br>
-  <small>Use Case Diagram 5. All Users</small>
+  <small>Use Case Diagram 5. Researcher User</small>
 </p>
 
 <p align="center">
   <img src="/docs/use_case_diagrams/User_Managment.svg" alt="User_Managment_Diagram">
   <br>
   <small>Use Case Diagram 6. User Managment</small>
+</p>
+
+<p align="center">
+  <img src="/docs/use_case_diagrams/Navigation_Bar.svg" alt="Navigation_Bar_Diagram">
+  <br>
+  <small>Use Case Diagram 7. Navigation Bar</small>
 </p>
 
 ### :straight_ruler: Design
@@ -242,8 +251,6 @@ This section shows the credentials of the test users to demo the application
 - [Download model 2](docs/SampleExcel/modelo_2.xlsx)
 - [Download model 3](docs/SampleExcel/modelo_3.xlsx)
 - [Download model 4](docs/SampleExcel/modelo_4.xlsx)
-
-
 
 
 #### :airplane: Navigation
