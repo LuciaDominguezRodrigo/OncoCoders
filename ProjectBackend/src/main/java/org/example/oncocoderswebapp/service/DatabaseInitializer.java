@@ -30,6 +30,10 @@ public class DatabaseInitializer {
 		User paciente = userRepository.save(new User("Lolo", passwordEncoder.encode("pass"),
 				"patient@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"USER"));
 
+		User paciente3 = userRepository.save(new User("Lolo", passwordEncoder.encode("pass"),
+				"patient3@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"USER"));
+
+
 		User medico = userRepository.save(new User("Pepe", passwordEncoder.encode("medicpass"),
 				"doctorhospital@gmail.com",  "Andalucía", "Hospital Virgen del Rocío", true,"MEDICUSER"));
 
@@ -44,11 +48,13 @@ public class DatabaseInitializer {
 		User investigador = userRepository.save(new User("Mar", passwordEncoder.encode("researcherpass"),
 				"researcher@gmail.com",  "Barcelona", "Hospital Vall d'Hebron", true, "RESEARCHERUSER"));
 
+		User investigador2 = userRepository.save(new User("Mar", passwordEncoder.encode("researcherpass"),
+				"researcher2@gmail.com",  "Barcelona", "Hospital Vall d'Hebron", true, "RESEARCHERUSER"));
+
 		User admin = userRepository.save(new User("Paco", passwordEncoder.encode("adminpass"),
 				"admin@gmail.com", "Andalucía", "Hospital Vírgen del Rocío", true, "ADMIN"));
 
 		userService.asignarPacienteAMedico(paciente, medico);
 		userService.asignarPacienteAMedico(paciente2, medico2);
-
 	}
 }
