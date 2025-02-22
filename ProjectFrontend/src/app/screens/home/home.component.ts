@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SectiontitleComponent } from "../../components/tags/sectiontitle/sectiontitle.component";
-import { DIAGNOSIS_SCREEN, RECOMMENDATION_SCREEN, USER_FORM_SCREEN, PROFILE_PATIENT_SCREEN, DASHBOARD_SPECIALIST_SCREEN, PACIENTS_SCREEN, RECORDS_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from '../../routes';
+import { DIAGNOSIS_SCREEN, RECOMMENDATION_SCREEN, USER_FORM_SCREEN, PROFILE_PATIENT_SCREEN, DASHBOARD_SPECIALIST_SCREEN, PACIENTS_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from '../../routes';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { convertToUserRole, UserRole } from '../../models/userRole.enum';

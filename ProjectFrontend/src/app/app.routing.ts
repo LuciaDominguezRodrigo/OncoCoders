@@ -10,7 +10,6 @@ import {
 
   PROFILE_PATIENT_SCREEN,
   RECOMMENDATION_SCREEN,
-  RECORDS_SCREEN as HISTORIAL_SCREEN,
   PROFILE_SPECIALIST_SCREEN,
   DASHBOARD_ADMIN_SCREEN,
   BAN_SCREEN,
@@ -27,7 +26,6 @@ import {
 import { DiagnosisComponent } from './sections/pacient-user/diagnosis/diagnosis.component';
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
 import { PatientsComponent } from './sections/specialist-user/patients/patients.component';
-import { HistorialComponent } from './sections/specialist-user/historial/historial.component';
 import { BannedUsersComponent } from './sections/admin-user/banned-users/banned-users.component';
 import { NotBannedUsersComponent } from './sections/admin-user/not-banned-users/not-banned-users.component';
 import { ModelconfigurationComponent } from './sections/researcher-user/ia-model-configuration/Modelconfiguration.component';
@@ -110,11 +108,7 @@ export const routes: Routes = [
     component: PatientsComponent,
     title: "Pacients List"
   },
-  {
-    path: HISTORIAL_SCREEN,
-    component: HistorialComponent,
-    title: "Record"
-  },
+
   {
     path: PROFILE_SPECIALIST_SCREEN,
     component: ProfileComponent,
