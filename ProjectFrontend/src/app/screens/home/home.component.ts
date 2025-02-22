@@ -37,7 +37,10 @@ export class HomeComponent {
       { section: "Model configuration", description: "You can access the configuration of the AI model used to perform part of the diagnostics." },
       { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },
     ],
-    "RESEARCHERUSER": [],
+    "RESEARCHERUSER": [
+      { section: "Model configuration", description: "You can access the configuration of the AI model used to perform part of the diagnostics." },
+      { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." }
+    ],
     "PUBLIC": []
   }
 
