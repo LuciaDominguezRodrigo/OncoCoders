@@ -203,6 +203,40 @@ The screens included in this version may undergo changes as feedback is gathered
 You can view all the prototype screens in the following Google Drive folder:  
 ➡️ [Click here to access the images](https://drive.google.com/drive/folders/1r1pOR_zI03jgq-HQDjaMytkzh4zrftb1?usp=sharing)  
 
+## ⚔️ Sample users
+This section shows the credentials of the test users to demo the application
+### 🔑 @patient
+- user email: patient@gmail.com
+- password: pass
+
+### 🔑 @patient2
+- user email: patient2@gmail.com
+- password: pass
+
+### 🔑 @patient3
+- user email: patient3@gmail.com
+- password: pass
+
+### 🛡️ @doctor
+- user email: doctorhospital@gmail.com
+- password: medicpass
+
+### 🛡️ @doctor2
+- user email: doctor2hospital@gmail.com
+- password: medicpass
+
+### 🚀 @researcher
+- user email: researcher@gmail.com
+- password: researcherpass
+
+### 🚀 @researcher2
+- user email: researcher2@gmail.com
+- password: researcherpass
+
+### ⚖️ @admin
+- user email: admin@gmail.com
+- password: adminpass
+
 
 #### :airplane: Navigation
 
