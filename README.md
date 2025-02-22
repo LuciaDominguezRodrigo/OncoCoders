@@ -238,10 +238,10 @@ This section shows the credentials of the test users to demo the application
 - password: adminpass
 
 ## 📓 Sample docs
-- [Descargar modelo 1](docs/SampleExcel/modelo_1.xlsx)
-- [Descargar modelo 2](docs/SampleExcel/modelo_2.xlsx)
-- [Descargar modelo 3](docs/SampleExcel/modelo_3.xlsx)
-- [Descargar modelo 4](docs/SampleExcel/modelo_4.xlsx)
+- [Download model 1](docs/SampleExcel/modelo_1.xlsx)
+- [Download model 2](docs/SampleExcel/modelo_2.xlsx)
+- [Download model 3](docs/SampleExcel/modelo_3.xlsx)
+- [Download model 4](docs/SampleExcel/modelo_4.xlsx)
 
 
 
