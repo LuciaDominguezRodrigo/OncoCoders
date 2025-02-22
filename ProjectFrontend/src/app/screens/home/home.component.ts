@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SectiontitleComponent } from "../../components/tags/sectiontitle/sectiontitle.component";
-import { DIAGNOSIS_SCREEN, MONITORING_SCREEN, RECOMMENDATION_SCREEN, USER_FORM_SCREEN, PROFILE_PATIENT_SCREEN, DASHBOARD_SPECIALIST_SCREEN, PACIENTS_SCREEN, RECORDS_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from '../../routes';
+import { DIAGNOSIS_SCREEN, RECOMMENDATION_SCREEN, USER_FORM_SCREEN, PROFILE_PATIENT_SCREEN, DASHBOARD_SPECIALIST_SCREEN, PACIENTS_SCREEN, RECORDS_SCREEN, PROFILE_SPECIALIST_SCREEN, DASHBOARD_ADMIN_SCREEN, BAN_SCREEN, UNBAN_SCREEN, IA_CONFIGURATION_SCREEN, PROFILE_ADMIN_SCREEN } from '../../routes';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { convertToUserRole, UserRole } from '../../models/userRole.enum';
@@ -20,7 +20,6 @@ export class HomeComponent {
   private sectionsDescription = {
     "USER": [
       { section: "Diagnosis", description: "You can view your latest diagnosis made by both your physician and the AI model." },
-      { section: "Follow-up", description: "It shows your development over time. You have different metrics and observations." },
       { section: "Recomendations", description: "It contains a series of recommendations and guidelines to take care of your health regarding breast cancer." },
       { section: "Form", description: "Access to the form so that a specialist and the AI model can make a diagnosis." },
       { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },

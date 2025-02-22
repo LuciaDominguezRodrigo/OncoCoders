@@ -6,7 +6,6 @@ import { ProfileComponent } from './sections/profile/profile.component';
 import {
   DASHBOARD_SPECIALIST_SCREEN,
   DIAGNOSIS_SCREEN,
-  MONITORING_SCREEN,
   PACIENTS_SCREEN,
 
   PROFILE_PATIENT_SCREEN,
@@ -26,8 +25,6 @@ import {
   MAIN_SCREEN,
 } from './routes';
 import { DiagnosisComponent } from './sections/pacient-user/diagnosis/diagnosis.component';
-import { MonitoringComponent } from './sections/pacient-user/monitoring/monitoring.component';
-
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
 import { PatientsComponent } from './sections/specialist-user/patients/patients.component';
 import { HistorialComponent } from './sections/specialist-user/historial/historial.component';
@@ -92,11 +89,6 @@ export const routes: Routes = [
     path: DIAGNOSIS_SCREEN,
     component: DiagnosisComponent,
     title: "Diagnosis- Patient"
-  },
-  {
-    path: MONITORING_SCREEN,
-    component: MonitoringComponent,
-    title: "Follow up - Paciente"
   },
   {
     path: RECOMMENDATION_SCREEN,
