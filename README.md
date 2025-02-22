@@ -38,27 +38,66 @@ The goal of this project is to develop **algorithms and predictive models for va
 The steps to follow to use the application locally will be described.
 
 ### :paw_prints: Steps
+
+## 🔣Execution instructions
+
+### 👟Steps 
+1. Download this repository
+2. Check Requirements 
+3. Configure DataBase
+4. Configure IDE
+5. Run Application in the IDE
+6. Go to https://localhost/8443/
+
+### 📋Requirements
+- Java: JDK 21 --> https://www.oracle.com/es/java/technologies/downloads/#java21
+- MySQL: v.8.0.41.0 (Explained in DataBase Configuration)
+- Maven: 3.9.9
+- Spring Boot 3.4.1
+- IDE (explained in IDE Configuration)
+
+### 💾DataBase Config
+- Download MySQL v.8.0.41.0
+- Select default port (port 3306)
+- Create a user with DB admin permissions
+- Configure MySQL Server as Windows Service
+- Grant full access to the user
+- Create a new Schema named EventCrafters in the server using MySQL Workbench
+
+### 🕹️IDE Config
+- We have used IntelliJ IDEA, bt it can be possible to use other IDE´S (like Visual Studio Code)
+- Install Maven and Spring for your IDE
 *************
+### 🛠️ Development Environment Setup
+To set up the development environment for the SPA application using Angular, follow these steps:
 
-1. Clone the repository.
+#### Prerequisites
+1. **Node.js**: Ensure that Node.js is installed on your system. You can download it from [Node.js official website](https://nodejs.org/en).
+2. **Angular CLI**: Install Angular CLI globally using npm:
+   ```bash
+   npm install -g @angular/cli
+   ```
+#### Start Angular
+1. **Clone the project**
+   ```bashhttps://github.com/LuciaDominguezRodrigo/OncoCoders.git ```
+2. **Make sure the backend is running**: Following the instructions `🔣Execution instructions` of the documentation
+3. **Redirect to the ProjectFrontend directory**
+   ```bash
+   cd OncoCoders/ProjectFrontend
+   ```
+4. **Install all the necessary modules**
+   ```bash
+   npm install
+   ```
 
-```
-git clone https://github.com/LuciaDominguezRodrigo/OncoCoders.git
-cd OncoCoders
-```
-2. [...]
-3. Install dependencies.
-```
-npm install
-```
-4. [...]
-5. Start application.
+5. **Run the SPA**
+   ```bash
+   npm start
+   ```
 
-```
-ng serve --open
-```
+The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
 
-7. Have fun!
+
 
 ### :wrench: Requirements
 *************
