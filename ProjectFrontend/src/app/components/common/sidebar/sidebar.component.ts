@@ -29,7 +29,7 @@ export class SidebarComponent  implements OnInit{
     ],
     "MEDICUSER": [
       { label: "Dashboard", router: DASHBOARD_SPECIALIST_SCREEN },
-      { label: "Pacients", router: PACIENTS_SCREEN },
+      { label: "Patients", router: PACIENTS_SCREEN },
       { label: "Profile", router: PROFILE_SPECIALIST_SCREEN }
     ],
     "ADMIN": [

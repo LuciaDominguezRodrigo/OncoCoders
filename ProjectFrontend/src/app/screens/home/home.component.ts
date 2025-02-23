@@ -26,8 +26,7 @@ export class HomeComponent {
     ],
     "MEDICUSER": [
       { section: "Dashboard", description: "Physician control panel. You have access to different metrics related to your profession." },
-      { section: "Pacients", description: "Access to patients associated with the physician. You can interact with patients and view relevant information." },
-      { section: "Record", description: "Access to the specialist's patient history. You can interact with patients and view relevant information." },
+      { section: "Patients", description: "Access to patients associated with the physician. You can interact with patients and view relevant information." },
       { section: "Profile", description: "Page where you can find information about your user, along with the possibility to edit your profile." },
     ],
     "ADMIN": [

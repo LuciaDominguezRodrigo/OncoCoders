@@ -23,7 +23,7 @@
       </button>
       <!-- REGISTER / LOG IN -->
       <div class="flex flex-row gap-6" *ngIf="!userRole">
-        <app-actionbutton label="Register" [action]="redirectToRegister.bind(this)" />
+        <app-actionbutton label="Sign up" [action]="redirectToRegister.bind(this)" />
         <app-actionbutton label="Log In" [action]="redirectToLogin.bind(this)" />
       </div>
       <!-- LOG OUT -->
