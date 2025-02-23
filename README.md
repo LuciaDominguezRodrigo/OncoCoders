@@ -305,14 +305,47 @@ This section shows the credentials of the test users to demo the application
 - [Download model 4](docs/SampleExcel/modelo_4.xlsx)
 
 
-#### :airplane: Navigation
+## 🧭 Possible actions to perform in the application
+### Login
+ To log in, access the screen that displays the corresponding form. Enter the username and password, and you will be redirected to the personalized home page (since the session has been added). For this action, having an account is required. 
 
-#### :performing_arts: Branding
+ ### Register
+Through the login screen (via the "Sign Up" link) or the registration button on the default home screen, access will be provided to a user creation form. Those users whose email contains the word "hospital" will be created with the role of doctor. Those whose email contains the word "researcher" will be created with the researcher role, and the rest, by default, with the user role. 
+Page administrators will be created by default
 
-#### :church: Architecture
+### Update profile info
+On the profile page, fields can be edited using the "Edit" button next to each one. When clicked, a form will appear, allowing the user to update their information. It is important to note that if the zone is changed, the reference hospital will automatically update to match the assigned doctor's hospital.
 
-#### :dvd: DataBase
+### Patient diagnosis
+The patient user will be able to access their most recent complete diagnosis through their profile, as well as via the corresponding button in the sidebar. The doctor will be able to access the most recent diagnoses of their assigned patient by entering the patient's ID in a form, which can be accessed by clicking the "Go to Diagnosis Results" button. The doctor will also be able to view patient diagnoses through the "Consult Statistics" button on their profile.
 
-## :libra: License
+### View patient list
+The doctor will be able to view the list of their assigned patients by navigating through the "Patients" button in the sidebar.
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+### View general correlation data statistics
+The doctor will be able to view various data correlation charts by navigating through the "Dashboard" button in the sidebar.
+
+### Access to patient first and relapse form
+The doctor will be able to access the initial diagnosis form for a first-time diagnosed patient through their profile, as well as the relapse form.
+
+### Access to general recommenadations
+Patients can view general recommendations as well as more detailed information about each recommendation group by navigating to Recommendations through their profile or the sidebar.
+
+### User form
+Patients will have access to the self-prediction form through their profile or the sidebar.
+
+### Access to  psychological support
+Patients can access 24/7 psychological support through the phone number displayed when they click on the Psychological Help option in the navbar.
+
+### Consult information about OncoCoders
+You can visit the About Us page to learn more about our team, our mission, and our vision. Discover who we are, what we stand for, and how we strive to make a difference.
+
+### Access to Informed consent and Privacy Policy
+They will be able to access our data privacy policy as well as the informed data consent through the designated section at the bottom of each user's profile.
+
+### Download excels 
+If the user has a Researcher role, they will be able to download the necessary Excel files related to model training through the designated buttons in their profile.
+
+### Upload excels
+If the user has a Researcher role, they will be able to upload Excel files with the results provided by the models through the Model Configuration button in the sidebar.
+
