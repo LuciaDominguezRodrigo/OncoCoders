@@ -4,7 +4,6 @@
 The goal of this project is to develop **algorithms and predictive models for variables associated with breast cancer**. Additionally, the project aims to create an innovative platform that empowers healthcare professionals to make informed therapeutic decisions from the moment of diagnosis. This approach eliminates the need to wait for follow-ups to evaluate patient progress, enabling more timely and effective interventions.
 
 ### 👷 Team members
-*************
 
 | Name                       | Email                             | Github user                                                        |
 | -------------------------- | --------------------------------- | ------------------------------------------------------------------ |
@@ -21,11 +20,9 @@ The goal of this project is to develop **algorithms and predictive models for va
   - [:scroll:Table of Contents](#scrolltable-of-contents)
   - [:hammer: Usage](#hammer-usage)
     - [:paw\_prints: Steps](#paw_prints-steps)
-  - [🔣Execution instructions](#execution-instructions)
-    - [👟Steps](#steps)
     - [📋Requirements](#requirements)
     - [💾DataBase Config](#database-config)
-    - [🕹️IDE Config](#️ide-config)
+    - [🕹️ IDE Config](#️-ide-config)
     - [🛠️ Development Environment Setup](#️-development-environment-setup)
       - [Prerequisites](#prerequisites)
       - [Start Angular](#start-angular)
@@ -38,9 +35,11 @@ The goal of this project is to develop **algorithms and predictive models for va
       - [Use Case Diagrams](#use-case-diagrams)
   - [:straight\_ruler: Design](#straight_ruler-design)
     - [:church: Architecture](#church-architecture)
-    - [⚔️ Sample users](#️-sample-users)
     - [:performing\_arts: Branding](#performing_arts-branding)
-  - [📓 Sample docs](#-sample-docs)
+    - [:cd: Database](#cd-database)
+  - [Sample Data](#sample-data)
+    - [⚔️ Users](#️-users)
+    - [📓 Docs](#-docs)
   - [🧭 Possible actions to perform in the application](#-possible-actions-to-perform-in-the-application)
     - [Login](#login)
     - [Register](#register)
@@ -62,13 +61,10 @@ The goal of this project is to develop **algorithms and predictive models for va
 
 ## :hammer: Usage
 
-The steps to follow to use the application locally will be described.
+This section will explain the procedure for using the application.
 
 ### :paw_prints: Steps
 
-## 🔣Execution instructions
-
-### 👟Steps 
 1. Download this repository
 2. Check Requirements 
 3. Configure DataBase
@@ -77,6 +73,7 @@ The steps to follow to use the application locally will be described.
 6. Go to https://localhost/8443/
 
 ### 📋Requirements
+
 - Java: JDK 21 --> https://www.oracle.com/es/java/technologies/downloads/#java21
 - MySQL: v.8.0.41.0 (Explained in DataBase Configuration)
 - Maven: 3.9.9
@@ -84,6 +81,7 @@ The steps to follow to use the application locally will be described.
 - IDE (explained in IDE Configuration)
 
 ### 💾DataBase Config
+
 - Download MySQL v.8.0.41.0
 - Select default port (port 3306)
 - Create a user with DB admin permissions
@@ -91,11 +89,13 @@ The steps to follow to use the application locally will be described.
 - Grant full access to the user
 - Create a new Schema named EventCrafters in the server using MySQL Workbench
 
-### 🕹️IDE Config
+### 🕹️ IDE Config
+
 - We have used IntelliJ IDEA, bt it can be possible to use other IDE´S (like Visual Studio Code)
 - Install Maven and Spring for your IDE
-*************
+
 ### 🛠️ Development Environment Setup
+
 To set up the development environment for the SPA application using Angular, follow these steps:
 
 #### Prerequisites
@@ -124,10 +124,9 @@ To set up the development environment for the SPA application using Angular, fol
 
 The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
 
-
-
 ### :wrench: Requirements
 
+This section shows the applications and versions required to run the software properly.
 
 |                          Software Requirements                          |       Version        |
 | :---------------------------------------------------------------------: | :------------------: |
@@ -138,6 +137,8 @@ The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
 |        [Angular Cli](https://www.npmjs.com/package/@angular/cli)        |  `19.1.5` or higher  |
 
 ### :black_nib: Requirement Analysis
+
+This section will contain all the analysis of the application.
 
 #### :black_joker: Entities
 
@@ -165,7 +166,7 @@ In the application there are 4 different type of user:
 
 #### :wrench: Functional Requirements
 
-Here are the diferent actions that can do the different type of users:
+Here are the diferent actions that can do the different type of users. [Click here](#-possible-actions-to-perform-in-the-application) to see an explanation of possible actions.
 
 | User Histories                                  |       Public       |      Patient       |     Specialist     |       Admin        |     Researcher     |
 | :---------------------------------------------- | :----------------: | :----------------: | :----------------: | :----------------: | :----------------: |
@@ -266,7 +267,33 @@ Here are the diferent actions that can do the different type of users:
   <small>Architecture Diagram 1. Web Architecture</small>
 </p>
 
-### ⚔️ Sample users
+
+
+### :performing_arts: Branding
+
+| ![Figure 1. Logo](/docs/logo/oncocoders-pink.png) | ![Figure 2. Black Logo](/docs/logo/oncocoders-black.png) | ![Figure 3. White Logo](/docs/logo/oncocoders-white.png) |
+| :-----------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: |
+|                  Figure 1. Logo                   |                   Figure 2. Black Logo                   |                   Figure 3. White Logo                   |
+
+To see the logos in more detail, [click here](/docs/logo/).
+
+### :cd: Database
+
+<p align="center">
+  <img src="/docs/database/relational-db.svg" alt="Relational_DB_ER_diagram">
+  <br>
+  <small>Entity Relation Diagram 1. Relational DB</small>
+</p>
+
+<p align="center">
+  <img src="/docs/database/user-relation.svg" alt="User_Relation_ER_Diagram">
+  <br>
+  <small>Architecture Diagram 1. User relation</small>
+</p>
+
+## Sample Data
+
+### ⚔️ Users
 This section shows the credentials of the test users to demo the application:
 
 |       user       |             email             |      password      |
@@ -280,23 +307,17 @@ This section shows the credentials of the test users to demo the application:
 | ``@researcher2`` |   ``researcher2@gmail.com``   | ``researcherpass`` |
 |    ``@admin``    |      ``admin@gmail.com``      |   ``adminpass``    |
 
-### :performing_arts: Branding
+### 📓 Docs
 
-| ![Figure 1. Logo](/docs/logo/oncocoders-pink.png) | ![Figure 2. Black Logo](/docs/logo/oncocoders-black.png) | ![Figure 3. White Logo](/docs/logo/oncocoders-white.png) |
-| :-----------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: |
-|                  Figure 1. Logo                   |                   Figure 2. Black Logo                   |                   Figure 3. White Logo                   |
+Sample excel documents for the Reseacher User to upload in the application.
 
-To see the logos in more detail, [click here](/docs/logo/).
-
-
-## 📓 Sample docs
 - [Access to model 1](docs/SampleExcel/modelo_1.xlsx)
 - [Access to model 2](docs/SampleExcel/modelo_2.xlsx)
 - [Access to model 3](docs/SampleExcel/modelo_3.xlsx)
 - [Access to model 4](docs/SampleExcel/modelo_4.xlsx)
 
-
 ## 🧭 Possible actions to perform in the application
+
 ### Login
  To log in, access the screen that displays the corresponding form. Enter the username and password, and you will be redirected to the personalized home page (since the session has been added). For this action, having an account is required. 
 
