@@ -349,3 +349,8 @@ If the user has a Researcher role, they will be able to download the necessary E
 ### Upload excels
 If the user has a Researcher role, they will be able to upload Excel files with the results provided by the models through the Model Configuration button in the sidebar.
 
+### Ban/Unban user
+A user with the Admin role can ban and unban users. Banned users will not be able to access the application.
+
+### Consult information about OncoCoders
+You can visit the About Us page to learn more about our team, our mission, and our vision. Discover who we are, what we stand for, and how we strive to make a difference.
