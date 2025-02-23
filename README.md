@@ -36,24 +36,28 @@ The goal of this project is to develop **algorithms and predictive models for va
       - [:wrench: Functional Requirements](#wrench-functional-requirements)
       - [:electric\_plug: Non Functional Requirements](#electric_plug-non-functional-requirements)
       - [Use Case Diagrams](#use-case-diagrams)
-    - [:straight\_ruler: Design](#straight_ruler-design)
-    - [:church: Prototype](#church-prototype)
-      - [🛠️ V0 prototype](#️-v0-prototype)
-  - [⚔️ Sample users](#️-sample-users)
-    - [🔑 @patient](#-patient)
-    - [🔑 @patient2](#-patient2)
-    - [🔑 @patient3](#-patient3)
-    - [🛡️ @doctor](#️-doctor)
-    - [🛡️ @doctor2](#️-doctor2)
-    - [🚀 @researcher](#-researcher)
-    - [🚀 @researcher2](#-researcher2)
-    - [⚖️ @admin](#️-admin)
+  - [:straight\_ruler: Design](#straight_ruler-design)
+    - [:church: Architecture](#church-architecture)
+    - [⚔️ Sample users](#️-sample-users)
+    - [:performing\_arts: Branding](#performing_arts-branding)
   - [📓 Sample docs](#-sample-docs)
-      - [:airplane: Navigation](#airplane-navigation)
-      - [:performing\_arts: Branding](#performing_arts-branding)
-      - [:church: Architecture](#church-architecture)
-      - [:dvd: DataBase](#dvd-database)
-  - [:libra: License](#libra-license)
+  - [🧭 Possible actions to perform in the application](#-possible-actions-to-perform-in-the-application)
+    - [Login](#login)
+    - [Register](#register)
+    - [Update profile info](#update-profile-info)
+    - [Patient diagnosis](#patient-diagnosis)
+    - [View patient list](#view-patient-list)
+    - [View general correlation data statistics](#view-general-correlation-data-statistics)
+    - [Access to patient first and relapse form](#access-to-patient-first-and-relapse-form)
+    - [Access to general recommenadations](#access-to-general-recommenadations)
+    - [User form](#user-form)
+    - [Access to  psychological support](#access-to--psychological-support)
+    - [Consult information about OncoCoders](#consult-information-about-oncocoders)
+    - [Access to Informed consent and Privacy Policy](#access-to-informed-consent-and-privacy-policy)
+    - [Download excels](#download-excels)
+    - [Upload excels](#upload-excels)
+    - [Ban/Unban user](#banunban-user)
+    - [Consult information about OncoCoders](#consult-information-about-oncocoders-1)
 
 
 ## :hammer: Usage
@@ -125,28 +129,27 @@ The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
 ### :wrench: Requirements
 
 
-| Software Requirements | Version |
-| :-: | :-: |
-| [Node.js](https://nodejs.org/en)| `22.13.1`<= |
-| [JDK 21](https://www.oracle.com/es/java/technologies/downloads/#java21)| `Java 21`<= |
-| [MySQL](https://dev.mysql.com/downloads/installer/)| `8.0.41.0`<= |
-| [Apache Maven](https://maven.apache.org/download.cgi)|`3.9.9`<= |
-|[Angular Cli](https://www.npmjs.com/package/@angular/cli)| `19.1.5`<= |
+|                          Software Requirements                          |       Version        |
+| :---------------------------------------------------------------------: | :------------------: |
+|                    [Node.js](https://nodejs.org/en)                     | `22.13.1` or higher  |
+| [JDK 21](https://www.oracle.com/es/java/technologies/downloads/#java21) | `Java 21` or higher  |
+|           [MySQL](https://dev.mysql.com/downloads/installer/)           | `8.0.41.0` or higher |
+|          [Apache Maven](https://maven.apache.org/download.cgi)          |  `3.9.9` or higher   |
+|        [Angular Cli](https://www.npmjs.com/package/@angular/cli)        |  `19.1.5` or higher  |
 
 ### :black_nib: Requirement Analysis
-*************
 
 #### :black_joker: Entities
 
 Currently, there are 5 entities.
 
-| Entities | 
-| :-: | 
-| [User]() |
-| [UserDiagnosis]() |
-| [UserFormResponse]() |
-| [ClinicFormResponse]() |
-| [ClinicFormResponse2]() |
+|        Entities         | Description |
+| :---------------------: | :---------- |
+|        [User]()         |             |
+|    [UserDiagnosis]()    |             |
+|  [UserFormResponse]()   |             |
+| [ClinicFormResponse]()  |             |
+| [ClinicFormResponse2]() |             |
 
 
 #### :busts_in_silhouette: Type of Users
@@ -253,56 +256,44 @@ Here are the diferent actions that can do the different type of users:
   <small>Use Case Diagram 7. Navigation Bar</small>
 </p>
 
-### :straight_ruler: Design
-*************
+## :straight_ruler: Design
 
-### :church: Prototype
-*************
-#### 🛠️ V0 prototype
-This section showcases the Version 0 (V0) prototype of the application, featuring the initial set of screens that outline the app’s core functionality and user interface. The prototype serves as a foundational visual representation, helping to validate the design, navigation flow, and user interactions before further development.
-The screens included in this version may undergo changes as feedback is gathered and improvements are made. 
-You can view all the prototype screens in the following Google Drive folder:  
-➡️ [Click here to access the images](https://drive.google.com/drive/folders/1r1pOR_zI03jgq-HQDjaMytkzh4zrftb1?usp=sharing)  
+### :church: Architecture
 
-## ⚔️ Sample users
-This section shows the credentials of the test users to demo the application
-### 🔑 @patient
-- user email: patient@gmail.com
-- password: pass
+<p align="center">
+  <img src="/docs/architecture/Architecture.svg" alt="Architecture_Diagram">
+  <br>
+  <small>Architecture Diagram 1. Web Architecture</small>
+</p>
 
-### 🔑 @patient2
-- user email: patient2@gmail.com
-- password: pass
+### ⚔️ Sample users
+This section shows the credentials of the test users to demo the application:
 
-### 🔑 @patient3
-- user email: patient3@gmail.com
-- password: pass
+|       user       |             email             |      password      |
+| :--------------: | :---------------------------: | :----------------: |
+|   ``@patient``   |     ``patient@gmail.com``     |      ``pass``      |
+|  ``@patient2``   |    ``patient2@gmail.com``     |      ``pass``      |
+|  ``@patient3``   |    ``patient3@gmail.com``     |      ``pass``      |
+|   ``@doctor``    | ``doctorhospital@gmail.com``  |   ``medicpass``    |
+|   ``@doctor2``   | ``doctor2hospital@gmail.com`` |   ``medicpass``    |
+| ``@researcher``  |   ``researcher@gmail.com``    | ``researcherpass`` |
+| ``@researcher2`` |   ``researcher2@gmail.com``   | ``researcherpass`` |
+|    ``@admin``    |      ``admin@gmail.com``      |   ``adminpass``    |
 
-### 🛡️ @doctor
-- user email: doctorhospital@gmail.com
-- password: medicpass
+### :performing_arts: Branding
 
-### 🛡️ @doctor2
-- user email: doctor2hospital@gmail.com
-- password: medicpass
+| ![Figure 1. Logo](/docs/logo/oncocoders-pink.png) | ![Figure 2. Black Logo](/docs/logo/oncocoders-black.png) | ![Figure 3. White Logo](/docs/logo/oncocoders-white.png) |
+| :-----------------------------------------------: | :------------------------------------------------------: | :------------------------------------------------------: |
+|                  Figure 1. Logo                   |                   Figure 2. Black Logo                   |                   Figure 3. White Logo                   |
 
-### 🚀 @researcher
-- user email: researcher@gmail.com
-- password: researcherpass
+To see the logos in more detail, [click here](/docs/logo/).
 
-### 🚀 @researcher2
-- user email: researcher2@gmail.com
-- password: researcherpass
-
-### ⚖️ @admin
-- user email: admin@gmail.com
-- password: adminpass
 
 ## 📓 Sample docs
-- [Download model 1](docs/SampleExcel/modelo_1.xlsx)
-- [Download model 2](docs/SampleExcel/modelo_2.xlsx)
-- [Download model 3](docs/SampleExcel/modelo_3.xlsx)
-- [Download model 4](docs/SampleExcel/modelo_4.xlsx)
+- [Access to model 1](docs/SampleExcel/modelo_1.xlsx)
+- [Access to model 2](docs/SampleExcel/modelo_2.xlsx)
+- [Access to model 3](docs/SampleExcel/modelo_3.xlsx)
+- [Access to model 4](docs/SampleExcel/modelo_4.xlsx)
 
 
 ## 🧭 Possible actions to perform in the application
