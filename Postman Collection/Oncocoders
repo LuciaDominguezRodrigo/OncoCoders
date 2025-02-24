@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "beb0e3f1-7621-4d4b-80d5-26dc8b488fa8",
+		"name": "OncoCoders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33726891",
+		"_collection_link": "https://oncocoders.postman.co/workspace/Oncocoders-Workspace~a6df35ff-4282-4ad4-847c-17006b6dc954/collection/33726891-beb0e3f1-7621-4d4b-80d5-26dc8b488fa8?action=share&source=collection_link&creator=33726891"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8443/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"paciente@gmail.com\",\r\n  \"password\": \"pass\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Juan Pérez\",\r\n  \"email\": \"juan.perezsanitariohospital@example.com\",\r\n  \"password\": \"12345678\",\r\n  \"role\": \"user\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/auth/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZWRpY29ob3NwaXRhbEBnbWFpbC5jb20iLCJyb2xlIjoiTUVESUNVU0VSIiwiaWF0IjoxNzM4NTE0ODQ4LCJleHAiOjE3Mzg2MDEyNDh9.WTofKqHZh-XgtUE-QI8YzluSi1dWou8SNP2qy8wxW-Q"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtZWRpY29ob3NwaXRhbEBnbWFpbC5jb20iLCJyb2xlIjoiTUVESUNVU0VSIiwiaWF0IjoxNzM4NTg2NTU0LCJleHAiOjE3Mzg2NzI5NTR9.e61xy4_OMArWjMrbu7RHz2SeVNHPby9Wlwkuj1DkSbM",
+						"type": "text"
+					}
+				],
+				"url": "https://localhost:8443/api/auth/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/user/role",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczODc1NTI0OSwiZXhwIjoxNzM4Nzc2ODQ5fQ.dDz8SLSD6fMBvXu0ErUed_AlgOh-WcMgi4pXZ59Fjhw",
+						"type": "text"
+					}
+				],
+				"url": "https://localhost:8443/api/user/role"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/user/profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczODc3MTQ5MiwiZXhwIjoxNzM4NzkzMDkyfQ._-xGpgXfKX3yV-fsF0A33Yij0wqXDhLKPY5-N2Ofd94",
+						"type": "text"
+					}
+				],
+				"url": "https://localhost:8443/api/user/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/user/profile/name",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczODc3MTQ5MiwiZXhwIjoxNzM4NzkzMDkyfQ._-xGpgXfKX3yV-fsF0A33Yij0wqXDhLKPY5-N2Ofd94",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"newName\": \"JohnDoe\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/user/profile/name"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/user/profile/zone",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczODc4MzY4NywiZXhwIjoxNzM4ODA1Mjg3fQ.pC1nG3UmM2eBdj2ZpwEq1i0kWK05xRAC1HcT6gK_tVo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"newZone\": \"Madrid\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/user/profile/zone"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/user/profile/hospital",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczODc4MzY4NywiZXhwIjoxNzM4ODA1Mjg3fQ.pC1nG3UmM2eBdj2ZpwEq1i0kWK05xRAC1HcT6gK_tVo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"newHospital\": \"Hospital 12 de 0ctubre\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/user/profile/hospital"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/excels/export-answers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczOTUyMTExOSwiZXhwIjoxNzM5NTQyNzE5fQ.lfb8r51-OYuHDobIThwTdb-PH63aGMiJkTZBzB3V2SY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/excels/export-answers2?filename=Modelo2_autopredicción_paciente",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"excels",
+						"export-answers2"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "Modelo2_autopredicción_paciente"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/form/formResponse",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczOTc5NDEyMiwiZXhwIjoxNzM5ODE1NzIyfQ.t8p_5iAPCSaUUlUe4gX4NUKD-QUMNDf9s9m0bsBrB8U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cancer_mama\": \"No\",\r\n  \"edad\": \"21-30 años\",\r\n  \"sexo\": \"Masculino\",\r\n  \"bulto\": \"Sí\",\r\n  \"dolor_senos_axilas\": \"Sí\",\r\n  \"cambios_hinchazon_piel_senos\": \"Sí\",\r\n  \"pezones_rectacion_secrecion\": \"Sí\",\r\n  \"ganglios_inflamados_dolor\": \"Sí\",\r\n  \"perdida_peso_inexplicada\": \"No\",\r\n  \"fatiga_persistente_cansancio_inexplicado\": \"Sí\",\r\n  \"fiebre_inexplicada\": \"Sí\",\r\n  \"hinchazon_brazos_manos\": \"Sí\",\r\n  \"dolor_huesos_articulaciones_inexplicado\": \"No\",\r\n  \"sudoracion_nocturna_excesiva\": \"Sí\",\r\n  \"diagnostico_previo\": \"Sí\",\r\n  \"familiares_diagnosticados\": \"Sí\",\r\n  \"num_familiares_diagnosticados\": \"4\",\r\n  \"tratamiento_actualmente\": \"Sí\",\r\n  \"tipos_tratamiento\": \"Quimioterapia\",\r\n  \"primera_menstruacion\": \"Entre los 12-14 años\",\r\n  \"edad_menopausia\": \"Después de los 55 años\",\r\n  \"hijos\": \"Sí\",\r\n  \"hijos_lactancia\": \"No aplica\",\r\n  \"anticonceptivos_hormonales_5\": \"Sí\",\r\n  \"terapia_remplazo_hormonal_postmenopausia\": \"No\",\r\n  \"frequencia_act_fisica\": \"2-4 veces a la semana\",\r\n  \"frecuencia_alcohol\": \"Rara vez\",\r\n  \"fumar\": \"No\",\r\n  \"sobrepeso_obesidad\": \"Sí\",\r\n  \"grasas_saturadas\": \"Diario\",\r\n  \"grasas_saludables\": \"Varias veces a la semana\",\r\n  \"fruta_verdura\": \"Sí\",\r\n  \"incorporacion_fibra\": \"Sí\",\r\n  \"hipertension_diabetes\": \"No\",\r\n  \"radioterapia_pecho\": \"Sí\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/form/formResponse"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/clinicForm/saveResponse1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patientEmail\": \"paciente@gmail.com\",\r\n  \"edad\": \"31 - 40 años\",\r\n  \"etnia\": \"Hispanico\",\r\n  \"edadMenstruacion\": \"Antes de los 12 años\",\r\n  \"edadMenopausia\": \"Antes de los 45 años\",\r\n  \"hormonaER\": \"Positivo\",\r\n  \"hormonaPR\": \"Negativo\",\r\n  \"hormonaHER2\": \"Frontera\",\r\n  \"subtipoMolecular\": \"ER_PR_HER2\",\r\n  \"tamannioTumor\": 5,\r\n  \"estructuraTubular\": \"diferencia_moderada\",\r\n  \"capacidadEstadoMiotico\": \"gran_diferencia\",\r\n  \"estructuraGeneral\": \"poca diferencia\",\r\n  \"mutacionBRCA1\": \"Positivo\",\r\n  \"mutacionBRCA2\": \"Negativo\",\r\n  \"familiaresDiagnosticados\": \"Sí\",\r\n  \"radioterapiaAnterior\": \"No\",\r\n  \"cancerMama\": \"Sí\"  \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/clinicForm/saveResponse1"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/clinicForm/saveResponse1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWNpZW50ZUBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTczOTc5NDEyMiwiZXhwIjoxNzM5ODE1NzIyfQ.t8p_5iAPCSaUUlUe4gX4NUKD-QUMNDf9s9m0bsBrB8U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patientEmail\": \"paciente@gmail.com\",\r\n  \"edad\": \"31 - 40 años\",\r\n  \"etnia\": \"Hispanico\",\r\n  \"edadMenstruacion\": \"12-14 años\",\r\n  \"edadMenopausia\": \"No aplica\",\r\n  \"hormonaER\": \"Positivo\",\r\n  \"hormonaPR\": \"Negativo\",\r\n  \"hormonaHER2\": \"Frontera\",\r\n  \"subtipoMolecular\": \"Luminal-like\",\r\n  \"tamannioTumor\": 3,\r\n  \"estructuraTubular\": \"gran_diferencia\",\r\n  \"capacidadEstadoMiotico\": \"diferencia_moderada\",\r\n  \"estructuraGeneral\": \"poca_diferencia\",\r\n  \"mutacionBRCA1\": \"Negativo\",\r\n  \"mutacionBRCA2\": \"Negativo\",\r\n  \"familiaresDiagnosticados\": 2,\r\n  \"radioterapiaAnterior\": \"No\",\r\n  \"operacion\": \"Sí\",\r\n  \"operacion_tipo\": \"mastectomia\",\r\n  \"tratamientoActualmente\": \"Sí\",\r\n  \"tipo_tratamiento\": \"Quimioterapia\",\r\n  \"sobrepeso_obesidad\": \"Sí\",\r\n  \"tratamientoPrevio\": \"No\",\r\n  \"cancer_mama_antes\": \"Sí\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:8443/api/clinicForm/saveResponse2"
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443//api/diagnosis/upload",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Lucia/Downloads/modelo_4.xlsx",
+							"disabled": true
+						},
+						{
+							"key": "modelName",
+							"value": "modelo_4",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Lucia/Downloads/modelo_3.xlsx",
+							"disabled": true
+						},
+						{
+							"key": "modelName",
+							"value": "modelo_3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Lucia/Downloads/modelo_1.xlsx",
+							"disabled": true
+						},
+						{
+							"key": "modelName",
+							"value": "modelo_1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Lucia/Downloads/modelo_2 (3).xlsx"
+						},
+						{
+							"key": "modelName",
+							"value": "modelo_2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/diagnosis/upload",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"diagnosis",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

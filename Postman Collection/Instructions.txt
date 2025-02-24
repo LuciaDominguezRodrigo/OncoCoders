@@ -1,0 +1,4 @@
+To import the collection, Postman must be used. In the headers section of the request,
+the token in 'Authorization' (headers subsection of the petition) must be replaced with
+the one from the user who has logged in. For security reasons, this token must be entered manually.
+The token is present in the API response upon login.
