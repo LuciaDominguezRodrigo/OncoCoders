@@ -1,9 +1,8 @@
-# <p align="center"> OncoCoders </p>
-***   
+# <p align="center"> OncoCoders </p>   
 
 The goal of this project is to develop **algorithms and predictive models for variables associated with breast cancer**. Additionally, the project aims to create an innovative platform that empowers healthcare professionals to make informed therapeutic decisions from the moment of diagnosis. This approach eliminates the need to wait for follow-ups to evaluate patient progress, enabling more timely and effective interventions.
 
-### 👷 Team members
+## 👷 Team members
 
 | Name                       | Email                             | Github user                                                        |
 | -------------------------- | --------------------------------- | ------------------------------------------------------------------ |
@@ -15,49 +14,22 @@ The goal of this project is to develop **algorithms and predictive models for va
 
 ## :scroll:Table of Contents
 
-- [ OncoCoders ](#-oncocoders-)
-    - [👷 Team members](#-team-members)
-  - [:scroll:Table of Contents](#scrolltable-of-contents)
-  - [:hammer: Usage](#hammer-usage)
-    - [:paw\_prints: Steps](#paw_prints-steps)
-    - [📋Requirements](#requirements)
-    - [💾DataBase Config](#database-config)
-    - [🕹️ IDE Config](#️-ide-config)
-    - [🛠️ Development Environment Setup](#️-development-environment-setup)
-      - [Prerequisites](#prerequisites)
-      - [Start Angular](#start-angular)
-    - [:wrench: Requirements](#wrench-requirements)
-    - [:black\_nib: Requirement Analysis](#black_nib-requirement-analysis)
-      - [:black\_joker: Entities](#black_joker-entities)
-      - [:busts\_in\_silhouette: Type of Users](#busts_in_silhouette-type-of-users)
-      - [:wrench: Functional Requirements](#wrench-functional-requirements)
-      - [:electric\_plug: Non Functional Requirements](#electric_plug-non-functional-requirements)
-      - [Use Case Diagrams](#use-case-diagrams)
-  - [:straight\_ruler: Design](#straight_ruler-design)
-    - [:church: Architecture](#church-architecture)
-    - [:performing\_arts: Branding](#performing_arts-branding)
-    - [:cd: Database](#cd-database)
-  - [Sample Data](#sample-data)
-    - [⚔️ Users](#️-users)
-    - [📓 Docs](#-docs)
-  - [🧭 Possible actions to perform in the application](#-possible-actions-to-perform-in-the-application)
-    - [Login](#login)
-    - [Register](#register)
-    - [Update profile info](#update-profile-info)
-    - [Patient diagnosis](#patient-diagnosis)
-    - [View patient list](#view-patient-list)
-    - [View general correlation data statistics](#view-general-correlation-data-statistics)
-    - [Access to patient first and relapse form](#access-to-patient-first-and-relapse-form)
-    - [Access to general recommenadations](#access-to-general-recommenadations)
-    - [User form](#user-form)
-    - [Access to  psychological support](#access-to--psychological-support)
-    - [Consult information about OncoCoders](#consult-information-about-oncocoders)
-    - [Access to Informed consent and Privacy Policy](#access-to-informed-consent-and-privacy-policy)
-    - [Download excels](#download-excels)
-    - [Upload excels](#upload-excels)
-    - [Ban/Unban user](#banunban-user)
-    - [Consult information about OncoCoders](#consult-information-about-oncocoders-1)
-
+- [:hammer: Usage](#hammer-usage)
+  - [:paw_prints: Steps](#paw_prints-steps)
+  - [💾DataBase Config](#database-config)
+  - [:wrench: Software Requirements](#wrench-software-requirements)
+  - [🕹️ IDE Config](#️-ide-config)
+  - [:book: Sample Data](#book-sample-data)
+- [:black_nib: Requirement Analysis](#black_nib-requirement-analysis)
+  - [:black_joker: Entities](#black_joker-entities)
+  - [:busts_in_silhouette: Type of Users](#busts_in_silhouette-type-of-users)
+  - [:wrench: Functional Requirements](#wrench-functional-requirements)
+  - [:electric_plug: Non Functional Requirements](#electric_plug-non-functional-requirements)
+- [:straight_ruler: Design](#straight_ruler-design)
+  - [:church: Architecture](#church-architecture)
+  - [:performing_arts: Branding](#performing_arts-branding)
+  - [:cd: Database](#cd-database)
+- [🧭 Possible actions to perform in the application](#-possible-actions-to-perform-in-the-application)
 
 ## :hammer: Usage
 
@@ -72,14 +44,6 @@ This section will explain the procedure for using the application.
 5. Run Application in the IDE
 6. Go to https://localhost/8443/
 
-### 📋Requirements
-
-- Java: JDK 21 --> https://www.oracle.com/es/java/technologies/downloads/#java21
-- MySQL: v.8.0.41.0 (Explained in DataBase Configuration)
-- Maven: 3.9.9
-- Spring Boot 3.4.1
-- IDE (explained in IDE Configuration)
-
 ### 💾DataBase Config
 
 - Download MySQL v.8.0.41.0
@@ -89,22 +53,35 @@ This section will explain the procedure for using the application.
 - Grant full access to the user
 - Create a new Schema named EventCrafters in the server using MySQL Workbench
 
+### :wrench: Software Requirements
+
+This section shows the applications and versions required to run the software properly.
+
+|                          Software Requirements                          |       Version        |
+| :---------------------------------------------------------------------: | :------------------: |
+|                    [Node.js](https://nodejs.org/en)                     | `22.13.1` or higher  |
+| [JDK 21](https://www.oracle.com/es/java/technologies/downloads/#java21) | `Java 21` or higher  |
+|           [MySQL](https://dev.mysql.com/downloads/installer/)           | `8.0.41.0` or higher |
+|          [Apache Maven](https://maven.apache.org/download.cgi)          |  `3.9.9` or higher   |
+|        [Angular Cli](https://www.npmjs.com/package/@angular/cli)        |  `19.1.5` or higher  |
+
 ### 🕹️ IDE Config
 
 - We have used IntelliJ IDEA, bt it can be possible to use other IDE´S (like Visual Studio Code)
 - Install Maven and Spring for your IDE
 
-### 🛠️ Development Environment Setup
+
+#### 🛠️ Development Environment Setup
 
 To set up the development environment for the SPA application using Angular, follow these steps:
 
-#### Prerequisites
+##### Prerequisites
 1. **Node.js**: Ensure that Node.js is installed on your system. You can download it from [Node.js official website](https://nodejs.org/en).
 2. **Angular CLI**: Install Angular CLI globally using npm:
    ```bash
    npm install -g @angular/cli
    ```
-#### Start Angular
+##### Start Angular
 1. **Clone the project**
    ```bashhttps://github.com/LuciaDominguezRodrigo/OncoCoders.git ```
 2. **Make sure the backend is running**: Following the instructions `🔣Execution instructions` of the documentation
@@ -124,36 +101,49 @@ To set up the development environment for the SPA application using Angular, fol
 
 The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
 
-### :wrench: Requirements
+### :book: Sample Data
 
-This section shows the applications and versions required to run the software properly.
+#### Users
+This section shows the credentials of the test users to demo the application:
 
-|                          Software Requirements                          |       Version        |
-| :---------------------------------------------------------------------: | :------------------: |
-|                    [Node.js](https://nodejs.org/en)                     | `22.13.1` or higher  |
-| [JDK 21](https://www.oracle.com/es/java/technologies/downloads/#java21) | `Java 21` or higher  |
-|           [MySQL](https://dev.mysql.com/downloads/installer/)           | `8.0.41.0` or higher |
-|          [Apache Maven](https://maven.apache.org/download.cgi)          |  `3.9.9` or higher   |
-|        [Angular Cli](https://www.npmjs.com/package/@angular/cli)        |  `19.1.5` or higher  |
+|       user       |             email             |      password      |
+| :--------------: | :---------------------------: | :----------------: |
+|   ``@patient``   |     ``patient@gmail.com``     |      ``pass``      |
+|  ``@patient2``   |    ``patient2@gmail.com``     |      ``pass``      |
+|  ``@patient3``   |    ``patient3@gmail.com``     |      ``pass``      |
+|   ``@doctor``    | ``doctorhospital@gmail.com``  |   ``medicpass``    |
+|   ``@doctor2``   | ``doctor2hospital@gmail.com`` |   ``medicpass``    |
+| ``@researcher``  |   ``researcher@gmail.com``    | ``researcherpass`` |
+| ``@researcher2`` |   ``researcher2@gmail.com``   | ``researcherpass`` |
+|    ``@admin``    |      ``admin@gmail.com``      |   ``adminpass``    |
 
-### :black_nib: Requirement Analysis
+#### Docs
+
+Sample excel documents for the Reseacher User to upload in the application.
+
+- [Access to model 1](docs/SampleExcel/modelo_1.xlsx)
+- [Access to model 2](docs/SampleExcel/modelo_2.xlsx)
+- [Access to model 3](docs/SampleExcel/modelo_3.xlsx)
+- [Access to model 4](docs/SampleExcel/modelo_4.xlsx)
+
+## :black_nib: Requirement Analysis
 
 This section will contain all the analysis of the application.
 
-#### :black_joker: Entities
+### :black_joker: Entities
 
 Currently, there are 5 entities.
 
-|        Entities         | Description |
-| :---------------------: | :---------- |
-|        User         |  Represents individuals who interact with the application. Each user has a specific role, which determines their permissions and access within the platform.   |
-|    UserDiagnosis   |  Represents the various results generated by the predictive models. It stores the diagnostic outcomes associated with a user, providing insights into their health status. This entity allows patients, doctors, and researchers to access and track diagnostic history, supporting better decision-making and medical interventions.          |
-|  UserFormResponse   |  Represents the user-provided data used to train statistics models and generate statistical percentage results. This data is essential for improving diagnosis accuracy, and contributing to better predictive analytics in cancer detection and research. |
+|      Entities       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| :-----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|        User         | Represents individuals who interact with the application. Each user has a specific role, which determines their permissions and access within the platform.                                                                                                                                                                                                                                                                                |
+|    UserDiagnosis    | Represents the various results generated by the predictive models. It stores the diagnostic outcomes associated with a user, providing insights into their health status. This entity allows patients, doctors, and researchers to access and track diagnostic history, supporting better decision-making and medical interventions.                                                                                                       |
+|  UserFormResponse   | Represents the user-provided data used to train statistics models and generate statistical percentage results. This data is essential for improving diagnosis accuracy, and contributing to better predictive analytics in cancer detection and research.                                                                                                                                                                                  |
 | ClinicFormResponse  | Represents the medical data and biological markers collected when a user is diagnosed for the first time. This form contains critical clinical information essential for establishing an initial diagnosis. Only a doctor can complete and submit this form, ensuring accurate and professional medical assessment. The data recorded here contributes to treatment planning, patient monitoring, and statistics model training.           |
-| ClinicFormResponse2 |  Represents the medical data and biological markers collected when a patient experiences a relapse. This form is crucial for tracking disease progression and adjusting treatment plans accordingly. Only a doctor can complete and submit this form, ensuring accurate and professional medical evaluation. The data gathered helps in monitoring patient outcomes, refining statistics models, and improving relapse detection strategies  |
+| ClinicFormResponse2 | Represents the medical data and biological markers collected when a patient experiences a relapse. This form is crucial for tracking disease progression and adjusting treatment plans accordingly. Only a doctor can complete and submit this form, ensuring accurate and professional medical evaluation. The data gathered helps in monitoring patient outcomes, refining statistics models, and improving relapse detection strategies |
 
 
-#### :busts_in_silhouette: Type of Users
+### :busts_in_silhouette: Type of Users
 
 In the application there are 4 different type of user:
 
@@ -164,7 +154,7 @@ In the application there are 4 different type of user:
 | Specialist User | Access to patient data provided in the form, along with access to the use of the AI |
 |   Admin User    | Access to page configuration and AI configuration                                   |
 
-#### :wrench: Functional Requirements
+### :wrench: Functional Requirements
 
 Here are the diferent actions that can do the different type of users. [Click here](#-possible-actions-to-perform-in-the-application) to see an explanation of possible actions.
 
@@ -198,20 +188,6 @@ Here are the diferent actions that can do the different type of users. [Click he
 | UH-26 Access to IA Model Configuration Page     |                    |                    |                    |                    | :heavy_check_mark: |
 | UH-27 Access to About Us Page                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UH-28 Show sections explanation                 |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-
-#### :electric_plug: Non Functional Requirements
-
-|            Non Functional Requirements             |
-| :------------------------------------------------: |
-|                  Oriented to Web                   |
-|                 Responsive Design                  |
-|   The software must be implemented with Angular    |
-| The applicaction need to connect with SQL Database |
-|  The applicaction need to connect with IA models   |
-|      GUI must be minimalist and user-friendly      |
-|   Protection & Security for Registered User Data   |
-|              Usability & Accesibility              |
-|           Main language must be Spanish            |
 
 #### Use Case Diagrams
 
@@ -257,6 +233,21 @@ Here are the diferent actions that can do the different type of users. [Click he
   <small>Use Case Diagram 7. Navigation Bar</small>
 </p>
 
+
+### :electric_plug: Non Functional Requirements
+
+|            Non Functional Requirements             |
+| :------------------------------------------------: |
+|                  Oriented to Web                   |
+|                 Responsive Design                  |
+|   The software must be implemented with Angular    |
+| The applicaction need to connect with SQL Database |
+|  The applicaction need to connect with IA models   |
+|      GUI must be minimalist and user-friendly      |
+|   Protection & Security for Registered User Data   |
+|              Usability & Accesibility              |
+|           Main language must be Spanish            |
+
 ## :straight_ruler: Design
 
 ### :church: Architecture
@@ -266,8 +257,6 @@ Here are the diferent actions that can do the different type of users. [Click he
   <br>
   <small>Architecture Diagram 1. Web Architecture</small>
 </p>
-
-
 
 ### :performing_arts: Branding
 
@@ -291,37 +280,12 @@ To see the logos in more detail, [click here](/docs/logo/).
   <small>Architecture Diagram 1. User relation</small>
 </p>
 
-## Sample Data
-
-### ⚔️ Users
-This section shows the credentials of the test users to demo the application:
-
-|       user       |             email             |      password      |
-| :--------------: | :---------------------------: | :----------------: |
-|   ``@patient``   |     ``patient@gmail.com``     |      ``pass``      |
-|  ``@patient2``   |    ``patient2@gmail.com``     |      ``pass``      |
-|  ``@patient3``   |    ``patient3@gmail.com``     |      ``pass``      |
-|   ``@doctor``    | ``doctorhospital@gmail.com``  |   ``medicpass``    |
-|   ``@doctor2``   | ``doctor2hospital@gmail.com`` |   ``medicpass``    |
-| ``@researcher``  |   ``researcher@gmail.com``    | ``researcherpass`` |
-| ``@researcher2`` |   ``researcher2@gmail.com``   | ``researcherpass`` |
-|    ``@admin``    |      ``admin@gmail.com``      |   ``adminpass``    |
-
-### 📓 Docs
-
-Sample excel documents for the Reseacher User to upload in the application.
-
-- [Access to model 1](docs/SampleExcel/modelo_1.xlsx)
-- [Access to model 2](docs/SampleExcel/modelo_2.xlsx)
-- [Access to model 3](docs/SampleExcel/modelo_3.xlsx)
-- [Access to model 4](docs/SampleExcel/modelo_4.xlsx)
-
 ## 🧭 Possible actions to perform in the application
 
 ### Login
  To log in, access the screen that displays the corresponding form. Enter the username and password, and you will be redirected to the personalized home page (since the session has been added). For this action, having an account is required. 
 
- ### Register
+### Register
 Through the login screen (via the "Sign Up" link) or the registration button on the default home screen, access will be provided to a user creation form. Those users whose email contains the word "hospital" will be created with the role of doctor. Those whose email contains the word "researcher" will be created with the researcher role, and the rest, by default, with the user role. 
 Page administrators will be created by default
 
