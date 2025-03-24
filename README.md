@@ -334,7 +334,7 @@ You can visit the About Us page to learn more about our team, our mission, and o
 ## 📜 License and Copyright
 © [2025] [OncoCoders]. All rights reserved.
 
-This code is the exclusive property of [Lucía Dominguez Rodrigo, Ainhoa López Carrasco, Gemma Millán Zamora and Marcos Jiménez Pulido]. Copying, modifying, distributing, using, or downloading any part of this code is strictly prohibited without the express written authorization of all the owners.
+This code is the exclusive property of **Lucía Dominguez Rodrigo, Ainhoa López Carrasco, Gemma Millán Zamora and Marcos Jiménez Pulido**. Copying, modifying, distributing, using, or downloading any part of this code is strictly prohibited without the express written authorization of all the owners.
 
 This project is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0), with the following additional restrictions:
 
