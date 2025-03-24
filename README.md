@@ -9,8 +9,8 @@ The goal of this project is to develop **algorithms and predictive models for va
 | Lucía Domínguez Rodrigo    | lucia.dominguez.rodrigo@gmail.com | [@LuciaDominguezRodrigo](https://github.com/LuciaDominguezRodrigo) |
 | Gemma Millán Zamora        | gemmamillan123@gmail.com          | [@gemmamillan](https://github.com/gemmamillan)                     |
 | Ainhoa López Carrasco      | ainhoa.lop.car@gmail.com          | [@Alopeeez04](https://github.com/Alopeeez04)                       |
-| Ikár Martínez de Liz Kosto | iv.mardeliz.software@gmail.com    | [@KandV008](https://github.com/KandV008)                           |
-| Laura Llorente Vilanova    | laura.llovi@gmail.com             | [@lauraloops](https://github.com/lauraloops)                       |
+| Marcos Jiménez Pulido      | marcosjp0901@gmail.com            | [@MarJ03](https://github.com/MarJ03)                           |
+
 
 ## :scroll:Table of Contents
 
@@ -330,3 +330,21 @@ A user with the Admin role can ban and unban users. Banned users will not be abl
 
 ### Consult information about OncoCoders
 You can visit the About Us page to learn more about our team, our mission, and our vision. Discover who we are, what we stand for, and how we strive to make a difference.
+
+## 📜 License and Copyright
+© [2025] [OncoCoders]. All rights reserved.
+
+This code is the exclusive property of [Lucía Dominguez Rodrigo, Ainhoa López Carrasco, Gemma Millán Zamora and Marcos Jiménez Pulido]. Copying, modifying, distributing, using, or downloading any part of this code is strictly prohibited without the express written authorization of all the owners.
+
+This project is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0), with the following additional restrictions:
+
+**No Commercial Use**: The use of this code for commercial purposes is not allowed without the explicit written permission of the owners.
+
+**No Modifications**: The code may not be modified, adapted, or used to create derivative works without the express authorization of the owners.
+
+**Restricted Distribution**: The code may not be distributed, sublicensed, or shared without the express consent of the owners.
+
+Any violation of these restrictions may result in legal action in accordance with current intellectual property and copyright law.
+
+You can find more details about the license on the official Creative Commons website:
+🔗 https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en
