@@ -35,14 +35,28 @@ The goal of this project is to develop **algorithms and predictive models for va
 
 This section will explain the procedure for using the application.
 
-### :paw_prints: Steps
+### :paw_prints: Initial configuration
 
 1. Download this repository
 2. Check Requirements 
 3. Configure DataBase
 4. Configure IDE
-5. Run Application in the IDE
-6. Go to https://localhost/8443/
+5. Open a terminal window from the project root source
+
+After completing all configuration steps, the application can be started manually or using a Windows or Linux dedicated script for easier steps.
+### :fast_forward: Quick start
+6. Execute the command ```.\localrun.bat``` (Windows Powershell) or ```./localrun.sh``` (Linux, requires execution permissions). In both cases, two independent terminal windows will be created, and the application will start its services concurrently. 
+
+### :arrow_forward: Manual start
+5. Run translation API server from Docker. Go to TranslationAPIServer folder and execute the command ```docker compose up -d``.
+6. Run backend from terminal Go to ProjectBackend folder and execute the command ```mvnw spring-boot:run``.
+7. Run Angular from terminal Go to ProjectFrontend folder and execute the command ```npm start``.
+8. Go to: https://localhost:4200/
+
+
+### :no_entry: Stopping the application
+- Execute the command ```docker compose down``
+- Go to the different terminal windows opened previously and press Ctrl+C repeatedly in each one to stop all processes related to the application execution.
 
 ### 💾DataBase Config
 
@@ -92,11 +106,6 @@ To set up the development environment for the SPA application using Angular, fol
 4. **Install all the necessary modules**
    ```bash
    npm install
-   ```
-
-5. **Run the SPA**
-   ```bash
-   npm start
    ```
 
 The SPA will be ready at [http://localhost:4200/](http://localhost:4200/)
