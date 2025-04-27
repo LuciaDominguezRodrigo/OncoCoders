@@ -48,14 +48,14 @@ After completing all configuration steps, the application can be started manuall
 6. Execute the command ```.\localrun.bat``` (Windows Powershell) or ```./localrun.sh``` (Linux, requires execution permissions). In both cases, two independent terminal windows will be created, and the application will start its services concurrently. 
 
 ### :arrow_forward: Manual start
-5. Run translation API server from Docker. Go to TranslationAPIServer folder and execute the command ```docker compose up -d``.
-6. Run backend from terminal Go to ProjectBackend folder and execute the command ```mvnw spring-boot:run``.
-7. Run Angular from terminal Go to ProjectFrontend folder and execute the command ```npm start``.
+5. Run translation API server from Docker. Go to TranslationAPIServer folder and execute the command ```docker compose up -d```.
+6. Run backend from terminal Go to ProjectBackend folder and execute the command ```mvnw spring-boot:run```.
+7. Run Angular from terminal Go to ProjectFrontend folder and execute the command ```npm start```.
 8. Go to: https://localhost:4200/
 
 
 ### :no_entry: Stopping the application
-- Execute the command ```docker compose down``
+- Execute the command ```docker compose down```
 - Go to the different terminal windows opened previously and press Ctrl+C repeatedly in each one to stop all processes related to the application execution.
 
 ### 💾DataBase Config
