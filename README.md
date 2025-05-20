@@ -2,6 +2,30 @@
 
 The goal of this project is to develop **algorithms and predictive models for variables associated with breast cancer**. Additionally, the project aims to create an innovative platform that empowers healthcare professionals to make informed therapeutic decisions from the moment of diagnosis. This approach eliminates the need to wait for follow-ups to evaluate patient progress, enabling more timely and effective interventions.
 
+## 💡 Project Idea
+
+**OncoCoders is a web-based platform accessible from any device**, designed to support **healthcare professionals, patients, and researchers** in the diagnosis, treatment, and follow-up of breast cancer.
+
+At its core, the platform uses **advanced algorithms and predictive models** to assist clinical decisions from the very first diagnosis. This enables faster and more effective interventions without having to wait for follow-up visits to assess patient progress.
+
+Key features of OncoCoders include:
+
+- **Diagnosis support through machine learning models**, making the treatment journey faster and more efficient.
+- **Follow-up and communication tools**, such as forms that help train models and track clinical progression in real time.
+- **Clear and intuitive data visualization**, accessible to both doctors and patients.
+- **Information and guidance on nutrition, self-care, and emotional well-being**, tailored not only to patients but also to families and caregivers.
+- **Emotion-based filtering**, allowing recommendations and content to adapt to the patient’s current emotional state.
+- **Researcher tools**, including secure upload of anonymized datasets and the ability to download data for model training and AI development.
+- **Support from a multidisciplinary team**, including psychologists and nutritionists, with plans to expand to additional healthcare professionals.
+- **Ongoing development**, with future updates including:
+  - Multilingual support
+  - Enhanced usability and accessibility
+  - A **group chat for patients**
+  - A **community forum** for sharing experiences and treatment feedback
+
+The platform currently runs in any web browser, and a **mobile app version for iOS and Android** is planned for future releases.
+
+---
 ## 👷 Team members
 
 | Name                       | Email                             | Github user                                                        |
