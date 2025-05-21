@@ -9,7 +9,7 @@ The goal of this project is to develop **algorithms and predictive models for va
 At its core, the platform uses **advanced algorithms and predictive models** to assist clinical decisions from the very first diagnosis. This enables faster and more effective interventions without having to wait for follow-up visits to assess patient progress.
 
 Key features of OncoCoders include:
-
+- **Questionary for patients and doctors**, for physical analysis
 - **Diagnosis support through machine learning models**, making the treatment journey faster and more efficient.
 - **Follow-up and communication tools**, such as forms that help train models and track clinical progression in real time.
 - **Clear and intuitive data visualization**, accessible to both doctors and patients.
