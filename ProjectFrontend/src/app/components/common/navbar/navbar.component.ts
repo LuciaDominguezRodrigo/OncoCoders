@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
+import { TranslationService } from '../../../services/translation.service';
 import { ActionbuttonComponent } from "../../buttons/actionbutton/actionbutton.component";
 import { ABOUT_SCREEN, HOME_SCREEN, LOGIN_SCREEN, REGISTER_SCREEN } from '../../../routes';
 
@@ -17,16 +18,19 @@ export class NavbarComponent implements OnInit {
   menuOpen = false;
   userRole: string | null = null;
   showHelpPopup = false;
+  languages = ['en', 'es', 'fr', 'ca']; //Idiomas disponibles para traducción
 
   /**
-    * Constructor for the NavbarComponent class.
-    * @param authService Authentication service to manage user session.
-    * @param userService User service to retrieve user information.
-    * @param router Navigation service to handle page redirections.
-    */
+   * Constructor for the NavbarComponent class.
+   * @param authService Authentication service to manage user session.
+   * @param userService User service to retrieve user information.
+   * @param translationService Translation service to change web language
+   * @param router Navigation service to handle page redirections.
+   */
   constructor(
     private authService: AuthService,
     private userService: UserService,
+    private translationService: TranslationService,
     private router: Router
   ) { }
 
@@ -101,6 +105,10 @@ export class NavbarComponent implements OnInit {
    */
   closeHelpPopup(): void {
     this.showHelpPopup = false;
+  }
+
+  onSelectLanguage(lang: string) {
+    this.translationService.changeTargetLanguage(lang);
   }
 
   redirectToRegister() {

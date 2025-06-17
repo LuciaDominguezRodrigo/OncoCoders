@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-echo Levantando el servidor de traducción (TranslationAPIServer)...
+echo Levantando el servidor de traduccion (TranslationAPIServer)...
 cd TranslationAPIServer
 docker compose up -d
 cd ..

@@ -14,6 +14,21 @@
       <div *ngIf="userRole">
         <app-actionbutton label="Home" [action]="redirectToHome.bind(this)" />
       </div>
+
+      <!-- LANGUAGE -->
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Select Language
+        </button>
+        <ul class="dropdown-menu">
+          <li *ngFor="let lang of languages">
+            <a class="dropdown-item" (click)="onSelectLanguage(lang)">
+              {{ lang.toUpperCase() }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
       <!-- ABOUT US -->
       <app-actionbutton label="About Us" [action]="redirectToAboutUs.bind(this)" />
       <!-- HELP -->
