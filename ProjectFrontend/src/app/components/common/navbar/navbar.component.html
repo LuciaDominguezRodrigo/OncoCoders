@@ -16,17 +16,19 @@
       </div>
 
       <!-- LANGUAGE -->
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Select Language
-        </button>
-        <ul class="dropdown-menu">
-          <li *ngFor="let lang of languages">
-            <a class="dropdown-item" (click)="onSelectLanguage(lang)">
-              {{ lang.toUpperCase() }}
-            </a>
-          </li>
-        </ul>
+      <div *ngIf="status$ | async">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Language
+          </button>
+          <ul class="dropdown-menu">
+            <li *ngFor="let lang of languages">
+              <a class="dropdown-item" (click)="onSelectLanguage(lang)">
+                {{ lang.toUpperCase() }}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- ABOUT US -->

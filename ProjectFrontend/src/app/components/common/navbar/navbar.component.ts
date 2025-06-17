@@ -7,6 +7,7 @@ import { UserService } from '../../../services/user.service';
 import { TranslationService } from '../../../services/translation.service';
 import { ActionbuttonComponent } from "../../buttons/actionbutton/actionbutton.component";
 import { ABOUT_SCREEN, HOME_SCREEN, LOGIN_SCREEN, REGISTER_SCREEN } from '../../../routes';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -19,6 +20,7 @@ export class NavbarComponent implements OnInit {
   userRole: string | null = null;
   showHelpPopup = false;
   languages = ['en', 'es', 'fr', 'ca']; //Idiomas disponibles para traducción
+  status$!: Observable<boolean>; //Variable dinámica que determina si mostrar el botón para traducir o no
 
   /**
    * Constructor for the NavbarComponent class.
@@ -38,8 +40,10 @@ export class NavbarComponent implements OnInit {
    * Component initialization method.
    * Checks if the user is authenticated and retrieves their role.
    */
+
   ngOnInit(): void {
     this.isAuthenticated = !!this.authService.getToken();
+    this.status$ = this.translationService.checkServerStatus();
     this.getUserRole();
   }
 
