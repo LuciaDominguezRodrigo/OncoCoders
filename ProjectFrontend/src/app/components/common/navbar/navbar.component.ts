@@ -8,11 +8,12 @@ import { TranslationService } from '../../../services/translation.service';
 import { ActionbuttonComponent } from "../../buttons/actionbutton/actionbutton.component";
 import { ABOUT_SCREEN, HOME_SCREEN, LOGIN_SCREEN, REGISTER_SCREEN } from '../../../routes';
 import {Observable} from 'rxjs';
+import {DropdownComponent} from '../../buttons/dropdown/dropdown.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, ActionbuttonComponent]
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, ActionbuttonComponent, DropdownComponent]
 })
 export class NavbarComponent implements OnInit {
   isAuthenticated = false;

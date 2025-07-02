@@ -10,25 +10,15 @@
     </button>
     <!-- MENU -->
     <div class="hidden md:flex gap-6">
-      <!-- HOME -->
-      <div *ngIf="userRole">
-        <app-actionbutton label="Home" [action]="redirectToHome.bind(this)" />
-      </div>
 
       <!-- LANGUAGE -->
       <div *ngIf="status$ | async">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            Language
-          </button>
-          <ul class="dropdown-menu">
-            <li *ngFor="let lang of languages">
-              <a class="dropdown-item" (click)="onSelectLanguage(lang)">
-                {{ lang.toUpperCase() }}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <app-dropdown></app-dropdown>
+      </div>
+
+      <!-- HOME -->
+      <div *ngIf="userRole">
+        <app-actionbutton label="Home" [action]="redirectToHome.bind(this)" />
       </div>
 
       <!-- ABOUT US -->
