@@ -1,5 +1,7 @@
 import { Component, ElementRef, HostListener } from '@angular/core'; // <--- ¡Asegúrate de que ElementRef esté aquí!
 import { CommonModule } from '@angular/common';
+import {TranslationService} from '../../../services/translation.service';
+import {Language} from '../../../models/language.model';
 
 @Component({
   selector: 'app-dropdown',
@@ -10,9 +12,15 @@ import { CommonModule } from '@angular/common';
 })
 export class DropdownComponent {
   isOpen = false;
+  languages: Language[] = [
+    { id: 'en', name: 'English' },
+    { id: 'es', name: 'Español' },
+    { id: 'fr', name: 'Français' },
+    { id: 'ca', name: 'Català' },
+  ];
 
   // Inyecta ElementRef en el constructor
-  constructor(private elementRef: ElementRef) { }
+  constructor(private translationService: TranslationService, private elementRef: ElementRef) { }
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
@@ -24,5 +32,10 @@ export class DropdownComponent {
     if (!this.elementRef.nativeElement.contains(event.target)) {
       this.isOpen = false;
     }
+  }
+
+  changeLanguage(id:string){
+    this.toggleDropdown();
+    this.translationService.changeTargetLanguage(id);
   }
 }
